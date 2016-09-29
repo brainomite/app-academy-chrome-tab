@@ -240,94 +240,94 @@ var Corners = React.createClass({
 //   }
 // });
 
+// components/desk.jsx
+// var Pair = React.createClass({
+//   render: function() {
+//     var pair = [];
 
-var Pair = React.createClass({
-  render: function() {
-    var pair = [];
+//     this.props.pair.forEach(function(student, index){
+//       var key = "link-" + student.github;
+//       var url = "https://github.com/" + student.github;
 
-    this.props.pair.forEach(function(student, index){
-      var key = "link-" + student.github;
-      var url = "https://github.com/" + student.github;
+//       pair.push(
+//         <Link key={key} url={url} title={student.name} />
+//       );
 
-      pair.push(
-        <Link key={key} url={url} title={student.name} />
-      );
+//       if (this.props.pair.length - 1 > index) {
+//         pair.push(" & ");
+//       }
+//     }.bind(this));
 
-      if (this.props.pair.length - 1 > index) {
-        pair.push(" & ");
-      }
-    }.bind(this));
+//     return (
+//       <span className="pair">{pair}</span>
+//     )
+//   }
+// })
 
-    return (
-      <span className="pair">{pair}</span>
-    )
-  }
-})
+// components/desk.jsx
+// var DesksPairListItem = React.createClass({
+//   render: function() {
+//     return (
+//       <li>
+//       <strong>{this.props.desk}</strong> — <Pair pair={this.props.pair} />
+//       </li>
+//     );
+//   }
+// });
 
+// components/desk.jsx
+// var DesksPairList = React.createClass({
+//   render: function() {
+//     var pairs = []
+//     var desks = Object.getOwnPropertyNames(this.props.pod.pairs);
 
-var DesksPairListItem = React.createClass({
-  render: function() {
-    return (
-      <li>
-      <strong>{this.props.desk}</strong> — <Pair pair={this.props.pair} />
-      </li>
-    );
-  }
-});
+//     desks.forEach(function(desk, index){
+//       var key = "pair-" + index;
 
+//       pairs.push(
+//         <DesksPairListItem
+//           key={key}
+//           desk={desk}
+//           pair={this.props.pod.pairs[desk]} />
+//       );
+//     }.bind(this));
 
-var DesksPairList = React.createClass({
-  render: function() {
-    var pairs = []
-    var desks = Object.getOwnPropertyNames(this.props.pod.pairs);
+//     return (
+//       <ul>
+//         {pairs}
+//       </ul>
+//     );
+//   }
+// });
 
-    desks.forEach(function(desk, index){
-      var key = "pair-" + index;
+// components/desk.jsx
+// var Desks = React.createClass({
+//   render: function() {
+//     var pods = this.props.day.pods;
+//     var pod = pods && pods[this.props.podId];
+//     var deskClass = this.props.visible ? "is-active" : "";
+//     var podName, podDeskPairList;
 
-      pairs.push(
-        <DesksPairListItem
-          key={key}
-          desk={desk}
-          pair={this.props.pod.pairs[desk]} />
-      );
-    }.bind(this));
+//     if(pod){
+//       podName = (
+//         <h2>{pod.name} {pod.instructor && "—"} {pod.instructor}</h2>
+//       );
 
-    return (
-      <ul>
-        {pairs}
-      </ul>
-    );
-  }
-});
+//       podDeskPairList = (
+//         <DesksPairList pod={pod} />
+//       );
+//     }
 
-
-var Desks = React.createClass({
-  render: function() {
-    var pods = this.props.day.pods;
-    var pod = pods && pods[this.props.podId];
-    var deskClass = this.props.visible ? "is-active" : "";
-    var podName, podDeskPairList;
-
-    if(pod){
-      podName = (
-        <h2>{pod.name} {pod.instructor && "—"} {pod.instructor}</h2>
-      );
-
-      podDeskPairList = (
-        <DesksPairList pod={pod} />
-      );
-    }
-
-    return (
-      <article className={deskClass} id="desks">
-        <span onClick={this.props.onDeskClick}>×</span>
-        <h1>{this.props.day.day} Desks</h1>
-        {podName}
-        {podDeskPairList}
-      </article>
-    );
-  }
-});
+//     return (
+//       <article className={deskClass} id="desks">
+//         <span onClick={this.props.onDeskClick}>×</span>
+//         <h1>{this.props.day.day} Desks</h1>
+//         {podName}
+//         {podDeskPairList}
+//       </article>
+//     );
+//   }
+// });
 
 // components/app.jsx
 // var Body = React.createClass({
