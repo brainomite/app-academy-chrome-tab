@@ -8,6 +8,15 @@ import Page from './page';
 export default class extends React.Component {
 	constructor(props) {
 		super(props);
+
+		this.state = {
+			cityId: localStorage["cityId"],
+			podId: localStorage["podId"],
+			desk: localStorage["desk"],
+			weather: this.getWeather(),
+			day: this.getDay(),
+			deskVisible: false
+		};
 	}
 
 	getCityId() {
@@ -29,7 +38,7 @@ export default class extends React.Component {
         this.setCityId((long > midLong) ? 1 : 2, callback);
     }.bind(this));
   }
-  
+
   setCityId(cityId, callback) {
     localStorage["cityId"] = cityId;
     localStorage.removeItem("podId");
@@ -82,17 +91,6 @@ export default class extends React.Component {
 
 	componentDidMount() {
 		this.getCityByIP();
-	}
-
-	getInitialState() {
-		return {
-			cityId: localStorage["cityId"],
-			podId: localStorage["podId"],
-			desk: localStorage["desk"],
-			weather: this.getWeather(),
-			day: this.getDay(),
-			deskVisible: false
-		};
 	}
 
 	handleDeskClick(event) {
