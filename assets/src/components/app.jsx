@@ -18,6 +18,8 @@ export default class extends React.Component {
 			day: this.getDay(),
 			deskVisible: false
 		};
+
+		this.handleDeskClick = this.handleDeskClick.bind(this);
 	}
 
 	getCityId() {

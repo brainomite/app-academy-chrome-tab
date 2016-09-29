@@ -28,6 +28,8 @@ class PageHeaderClock extends React.Component {
 		this.state = {
 			time: "0:00"
 		}
+
+		this.updateTime = this.updateTime.bind(this);
 	}
 
 	componentWillMount() {
