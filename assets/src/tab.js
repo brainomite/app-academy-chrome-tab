@@ -169,38 +169,39 @@ var Page = React.createClass({
   }
 });
 
-var CornerLink = React.createClass({
-  render: function() {
-    return (
-      <li>
-        <a href={this.props.url}>{this.props.title}</a>
-      </li>
-    )
-  }
-})
+// components/corners.jsx
+// var CornerLink = React.createClass({
+//   render: function() {
+//     return (
+//       <li>
+//         <a href={this.props.url}>{this.props.title}</a>
+//       </li>
+//     )
+//   }
+// })
 
+// components/corners.jsx
+// var Corners = React.createClass({
+//   render: function() {
+//     var links = [];
 
-var Corners = React.createClass({
-  render: function() {
-    var links = [];
+//     this.props.corners.forEach(function(link, index){
+//       var key = "corner-" + index;
 
-    this.props.corners.forEach(function(link, index){
-      var key = "corner-" + index;
+//       links.push(
+//         <CornerLink key={key} url={link.url} title={link.title} />
+//       );
+//     });
 
-      links.push(
-        <CornerLink key={key} url={link.url} title={link.title} />
-      );
-    });
-
-    return (
-      <nav>
-        <ul>
-          {links}
-        </ul>
-      </nav>
-    );
-  }
-});
+//     return (
+//       <nav>
+//         <ul>
+//           {links}
+//         </ul>
+//       </nav>
+//     );
+//   }
+// });
 
 // components/header.jsx
 // var Header = React.createClass({
