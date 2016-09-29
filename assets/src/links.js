@@ -221,3 +221,5 @@ Links.main = [
     ]
   }
 ];
+
+export default Links;

@@ -169,284 +169,286 @@ var Page = React.createClass({
   }
 });
 
-var CornerLink = React.createClass({
-  render: function() {
-    return (
-      <li>
-        <a href={this.props.url}>{this.props.title}</a>
-      </li>
-    )
-  }
-})
+// components/corners.jsx
+// var CornerLink = React.createClass({
+//   render: function() {
+//     return (
+//       <li>
+//         <a href={this.props.url}>{this.props.title}</a>
+//       </li>
+//     )
+//   }
+// })
 
+// components/corners.jsx
+// var Corners = React.createClass({
+//   render: function() {
+//     var links = [];
 
-var Corners = React.createClass({
-  render: function() {
-    var links = [];
+//     this.props.corners.forEach(function(link, index){
+//       var key = "corner-" + index;
 
-    this.props.corners.forEach(function(link, index){
-      var key = "corner-" + index;
+//       links.push(
+//         <CornerLink key={key} url={link.url} title={link.title} />
+//       );
+//     });
 
-      links.push(
-        <CornerLink key={key} url={link.url} title={link.title} />
-      );
-    });
+//     return (
+//       <nav>
+//         <ul>
+//           {links}
+//         </ul>
+//       </nav>
+//     );
+//   }
+// });
 
-    return (
-      <nav>
-        <ul>
-          {links}
-        </ul>
-      </nav>
-    );
-  }
-});
+// components/header.jsx
+// var Header = React.createClass({
+//   render: function() {
+//     var city = this.props.cityId == 1 ? "NYC" : "SF";
+//     var weatherLeft, weatherRight;
 
+//     if(this.props.weather.main){
+//       var degreeCel = parseInt(this.props.weather.main.temp);
+//       var degreeFar = parseInt((degreeCel * 9 / 5) + 32);
 
-var Header = React.createClass({
-  render: function() {
-    var city = this.props.cityId == 1 ? "NYC" : "SF";
-    var weatherLeft, weatherRight;
+//       weatherLeft = (
+//         <em className="weather-left">
+//           {city} / {this.props.weather.weather[0].main}
+//           <span className="weather-hidden"> — {this.props.weather.weather[0].description}</span>
+//         </em>
+//       );
 
-    if(this.props.weather.main){
-      var degreeCel = parseInt(this.props.weather.main.temp);
-      var degreeFar = parseInt((degreeCel * 9 / 5) + 32);
+//       weatherRight = (
+//         <em className="weather-right">
+//           <span className="weather-hidden">{degreeFar} &deg; F / </span>
+//           {degreeCel} &deg; C
+//         </em>
+//       );
+//     }
 
-      weatherLeft = (
-        <em className="weather-left">
-          {city} / {this.props.weather.weather[0].main}
-          <span className="weather-hidden"> — {this.props.weather.weather[0].description}</span>
-        </em>
-      );
+//     return (
+//       <header className="header group">
+//         {weatherLeft}
+//         {weatherRight}
 
-      weatherRight = (
-        <em className="weather-right">
-          <span className="weather-hidden">{degreeFar} &deg; F / </span>
-          {degreeCel} &deg; C
-        </em>
-      );
-    }
+//         <h1 className="logo">
+//           <a href="http://www.appacademy.io/">App Academy</a>
+//         </h1>
+//       </header>
+//     );
+//   }
+// });
 
-    return (
-      <header className="header group">
-        {weatherLeft}
-        {weatherRight}
+// components/desk.jsx
+// var Pair = React.createClass({
+//   render: function() {
+//     var pair = [];
 
-        <h1 className="logo">
-          <a href="http://www.appacademy.io/">App Academy</a>
-        </h1>
-      </header>
-    );
-  }
-});
+//     this.props.pair.forEach(function(student, index){
+//       var key = "link-" + student.github;
+//       var url = "https://github.com/" + student.github;
 
+//       pair.push(
+//         <Link key={key} url={url} title={student.name} />
+//       );
 
-var Pair = React.createClass({
-  render: function() {
-    var pair = [];
+//       if (this.props.pair.length - 1 > index) {
+//         pair.push(" & ");
+//       }
+//     }.bind(this));
 
-    this.props.pair.forEach(function(student, index){
-      var key = "link-" + student.github;
-      var url = "https://github.com/" + student.github;
+//     return (
+//       <span className="pair">{pair}</span>
+//     )
+//   }
+// })
 
-      pair.push(
-        <Link key={key} url={url} title={student.name} />
-      );
+// components/desk.jsx
+// var DesksPairListItem = React.createClass({
+//   render: function() {
+//     return (
+//       <li>
+//       <strong>{this.props.desk}</strong> — <Pair pair={this.props.pair} />
+//       </li>
+//     );
+//   }
+// });
 
-      if (this.props.pair.length - 1 > index) {
-        pair.push(" & ");
-      }
-    }.bind(this));
+// components/desk.jsx
+// var DesksPairList = React.createClass({
+//   render: function() {
+//     var pairs = []
+//     var desks = Object.getOwnPropertyNames(this.props.pod.pairs);
 
-    return (
-      <span className="pair">{pair}</span>
-    )
-  }
-})
+//     desks.forEach(function(desk, index){
+//       var key = "pair-" + index;
 
+//       pairs.push(
+//         <DesksPairListItem
+//           key={key}
+//           desk={desk}
+//           pair={this.props.pod.pairs[desk]} />
+//       );
+//     }.bind(this));
 
-var DesksPairListItem = React.createClass({
-  render: function() {
-    return (
-      <li>
-      <strong>{this.props.desk}</strong> — <Pair pair={this.props.pair} />
-      </li>
-    );
-  }
-});
+//     return (
+//       <ul>
+//         {pairs}
+//       </ul>
+//     );
+//   }
+// });
 
+// components/desk.jsx
+// var Desks = React.createClass({
+//   render: function() {
+//     var pods = this.props.day.pods;
+//     var pod = pods && pods[this.props.podId];
+//     var deskClass = this.props.visible ? "is-active" : "";
+//     var podName, podDeskPairList;
 
-var DesksPairList = React.createClass({
-  render: function() {
-    var pairs = []
-    var desks = Object.getOwnPropertyNames(this.props.pod.pairs);
+//     if(pod){
+//       podName = (
+//         <h2>{pod.name} {pod.instructor && "—"} {pod.instructor}</h2>
+//       );
 
-    desks.forEach(function(desk, index){
-      var key = "pair-" + index;
+//       podDeskPairList = (
+//         <DesksPairList pod={pod} />
+//       );
+//     }
 
-      pairs.push(
-        <DesksPairListItem
-          key={key}
-          desk={desk}
-          pair={this.props.pod.pairs[desk]} />
-      );
-    }.bind(this));
+//     return (
+//       <article className={deskClass} id="desks">
+//         <span onClick={this.props.onDeskClick}>×</span>
+//         <h1>{this.props.day.day} Desks</h1>
+//         {podName}
+//         {podDeskPairList}
+//       </article>
+//     );
+//   }
+// });
 
-    return (
-      <ul>
-        {pairs}
-      </ul>
-    );
-  }
-});
+// components/app.jsx
+// var Body = React.createClass({
+//   mixins: [CityMixin],
+//   getWeather: function(){
+//     var weatherId = (this.getCityId() == 2) ? 5391959 : 5128581;
+//     var url = "http://api.openweathermap.org/data/2.5/weather?id=" + weatherId + "&units=metric";
+//     var weather = JSON.parse(localStorage["weather"] || "{}");
 
+//     if(!weather || weather.timeStamp != this.props.stamp.time){
+//       $.getJSON(url, function(data){
+//         data.timeStamp = this.props.stamp.time;
 
-var Desks = React.createClass({
-  render: function() {
-    var pods = this.props.day.pods;
-    var pod = pods && pods[this.props.podId];
-    var deskClass = this.props.visible ? "is-active" : "";
-    var podName, podDeskPairList;
+//         localStorage["weather"] = JSON.stringify(data);
+//         this.setState({weather: data});
+//       }.bind(this));
+//     }
 
-    if(pod){
-      podName = (
-        <h2>{pod.name} {pod.instructor && "—"} {pod.instructor}</h2>
-      );
+//     return weather;
+//   },
+//   getDay: function(){
+//     var url = "http://progress.appacademy.io/api/pairs.json?city_id=" + this.getCityId();
+//     var day = JSON.parse(localStorage["day"] || "{}");
 
-      podDeskPairList = (
-        <DesksPairList pod={pod} />
-      );
-    }
+//     if(!day || day.dateStamp != this.props.stamp.date){
+//       $.getJSON(url, function(data){
+//         data.dateStamp = this.props.stamp.date;
+//         localStorage["day"] = JSON.stringify(data);
 
-    return (
-      <article className={deskClass} id="desks">
-        <span onClick={this.props.onDeskClick}>×</span>
-        <h1>{this.props.day.day} Desks</h1>
-        {podName}
-        {podDeskPairList}
-      </article>
-    );
-  }
-});
+//         if(!this.state.podId || !data.pods[this.state.podId]){
+//           var podId = Object.keys(data.pods)[0];
+//           localStorage["podId"] = podId;
+//           this.setState({podId: podId});
+//         }
 
+//         this.setState({day: data});
+//       }.bind(this));
+//     }
 
-var Body = React.createClass({
-  mixins: [CityMixin],
-  getWeather: function(){
-    var weatherId = (this.getCityId() == 2) ? 5391959 : 5128581;
-    var url = "http://api.openweathermap.org/data/2.5/weather?id=" + weatherId + "&units=metric";
-    var weather = JSON.parse(localStorage["weather"] || "{}");
+//     return day;
+//   },
+//   componentDidMount: function() {
+//     this.getCityByIP();
+//   },
+//   getInitialState: function() {
+//     return {
+//       cityId: localStorage["cityId"],
+//       podId: localStorage["podId"],
+//       desk: localStorage["desk"],
+//       weather: this.getWeather(),
+//       day: this.getDay(),
+//       deskVisible: false
+//     };
+//   },
+//   handleDeskClick: function(event) {
+//     this.setState({
+//       deskVisible: !this.state.deskVisible
+//     });
+//   },
+//   render: function() {
+//     return (
+//       <div>
+//         <Header
+//           cityId={this.state.cityId}
+//           weather={this.state.weather} />
 
-    if(!weather || weather.timeStamp != this.props.stamp.time){
-      $.getJSON(url, function(data){
-        data.timeStamp = this.props.stamp.time;
+//         <Corners
+//           corners={this.props.links.corners} />
 
-        localStorage["weather"] = JSON.stringify(data);
-        this.setState({weather: data});
-      }.bind(this));
-    }
+//         <Desks
+//           podId={this.state.podId}
+//           day={this.state.day}
+//           visible={this.state.deskVisible}
+//           onDeskClick={this.handleDeskClick} />
 
-    return weather;
-  },
-  getDay: function(){
-    var url = "http://progress.appacademy.io/api/pairs.json?city_id=" + this.getCityId();
-    var day = JSON.parse(localStorage["day"] || "{}");
+//         <Page
+//           desk={this.state.desk}
+//           podId={this.state.podId}
+//           day={this.state.day}
+//           links={this.props.links.main}
+//           onDeskClick={this.handleDeskClick} />
 
-    if(!day || day.dateStamp != this.props.stamp.date){
-      $.getJSON(url, function(data){
-        data.dateStamp = this.props.stamp.date;
-        localStorage["day"] = JSON.stringify(data);
+//         <footer>
+//           <a href="options.html">Options</a>
+//         </footer>
+//       </div>
+//     );
+//   }
+// });
 
-        if(!this.state.podId || !data.pods[this.state.podId]){
-          var podId = Object.keys(data.pods)[0];
-          localStorage["podId"] = podId;
-          this.setState({podId: podId});
-        }
+// entry.jsx
+// $(function(){
 
-        this.setState({day: data});
-      }.bind(this));
-    }
+//   var Stamp = (function(){
+//     var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday',
+//                 'Thursday', 'Friday', 'Saturday'];
 
-    return day;
-  },
-  componentDidMount: function() {
-    this.getCityByIP();
-  },
-  getInitialState: function() {
-    return {
-      cityId: localStorage["cityId"],
-      podId: localStorage["podId"],
-      desk: localStorage["desk"],
-      weather: this.getWeather(),
-      day: this.getDay(),
-      deskVisible: false
-    };
-  },
-  handleDeskClick: function(event) {
-    this.setState({
-      deskVisible: !this.state.deskVisible
-    });
-  },
-  render: function() {
-    return (
-      <div>
-        <Header
-          cityId={this.state.cityId}
-          weather={this.state.weather} />
+//     var months = ['January', 'February', 'March', 'April',
+//                   'May', 'June', 'July', 'August', 'September',
+//                   'October', 'November', 'December'];
 
-        <Corners
-          corners={this.props.links.corners} />
+//     var dateStamp;
+//     var d = new Date();
+//     var hours = d.getHours();
 
-        <Desks
-          podId={this.state.podId}
-          day={this.state.day}
-          visible={this.state.deskVisible}
-          onDeskClick={this.handleDeskClick} />
+//     dateStamp = days[d.getDay()].substring(0,3) + ", ";
+//     dateStamp += months[d.getMonth()].substring(0,3) + " ";
+//     dateStamp += d.getDate();
 
-        <Page
-          desk={this.state.desk}
-          podId={this.state.podId}
-          day={this.state.day}
-          links={this.props.links.main}
-          onDeskClick={this.handleDeskClick} />
+//     return {
+//       date: dateStamp,
+//       time: dateStamp + ", " + hours
+//     };
+//   })();
 
-        <footer>
-          <a href="options.html">Options</a>
-        </footer>
-      </div>
-    );
-  }
-});
+//   React.render(
+//     <Body
+//       stamp={Stamp}
+//       links={Links} />,
+//     document.body
+//   );
 
-$(function(){
-
-  var Stamp = (function(){
-    var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday',
-                'Thursday', 'Friday', 'Saturday'];
-
-    var months = ['January', 'February', 'March', 'April',
-                  'May', 'June', 'July', 'August', 'September',
-                  'October', 'November', 'December'];
-
-    var dateStamp;
-    var d = new Date();
-    var hours = d.getHours();
-
-    dateStamp = days[d.getDay()].substring(0,3) + ", ";
-    dateStamp += months[d.getMonth()].substring(0,3) + " ";
-    dateStamp += d.getDate();
-
-    return {
-      date: dateStamp,
-      time: dateStamp + ", " + hours
-    };
-  })();
-
-  React.render(
-    <Body
-      stamp={Stamp}
-      links={Links} />,
-    document.body
-  );
-
-});
+// });
