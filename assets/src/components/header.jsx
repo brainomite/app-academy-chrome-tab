@@ -2,12 +2,12 @@ import React from 'react';
 
 export default class extends React.Component {
 	render() {
-		var city = this.props.cityId == 1 ? "NYC" : "SF";
-		var weatherLeft, weatherRight;
+		let city = this.props.cityId == 1 ? "NYC" : "SF";
+		let weatherLeft, weatherRight;
 
 		if(this.props.weather.main){
-			var degreeCel = parseInt(this.props.weather.main.temp);
-			var degreeFar = parseInt((degreeCel * 9 / 5) + 32);
+			let degreeCel = parseInt(this.props.weather.main.temp);
+			let degreeFar = parseInt((degreeCel * 9 / 5) + 32);
 
 			weatherLeft = (
 				<em className="weather-left">
