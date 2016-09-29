@@ -1,5 +1,5 @@
 import React from 'react';
-import $ from 'jQuery';
+import $ from 'jquery';
 
 import Header from './header';
 import Corners from './corners';
