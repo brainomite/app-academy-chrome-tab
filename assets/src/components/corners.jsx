@@ -12,10 +12,10 @@ class CornerLink extends React.Component {
 
 export default class extends React.Component {
   render() {
-    var links = [];
+    let links = [];
 
-    this.props.corners.forEach(function(link, index){
-      var key = "corner-" + index;
+    this.props.corners.forEach((link, index) => {
+      let key = "corner-" + index;
 
       links.push(
         <CornerLink key={key} url={link.url} title={link.title} />
