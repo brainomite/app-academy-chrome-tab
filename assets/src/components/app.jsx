@@ -29,14 +29,14 @@ export default class extends React.Component {
       return;
     };
 
-    var sfLong = -122;
-    var nycLong = -74;
-    var midLong = parseInt((sfLong + nycLong) / 2);
+    let sfLong = -122;
+    let nycLong = -74;
+    let midLong = parseInt((sfLong + nycLong) / 2);
 
-    $.getJSON("http://ipinfo.io/json", function(data) {
-        var long = parseInt(data.loc.split(",")[1]);
+    $.getJSON("http://ipinfo.io/json", (data) => {
+        let long = parseInt(data.loc.split(",")[1]);
         this.setCityId((long > midLong) ? 1 : 2, callback);
-    }.bind(this));
+    });
   }
 
   setCityId(cityId, callback) {
@@ -51,39 +51,39 @@ export default class extends React.Component {
   }
 
 	getWeather() {
-		var weatherId = (this.getCityId() == 2) ? 5391959 : 5128581;
-		var url = "http://api.openweathermap.org/data/2.5/weather?id=" + weatherId + "&units=metric";
-		var weather = JSON.parse(localStorage["weather"] || "{}");
+		let weatherId = (this.getCityId() == 2) ? 5391959 : 5128581;
+		let url = "http://api.openweathermap.org/data/2.5/weather?id=" + weatherId + "&units=metric";
+		let weather = JSON.parse(localStorage["weather"] || "{}");
 
 		if(!weather || weather.timeStamp != this.props.stamp.time){
-			$.getJSON(url, function(data){
+			$.getJSON(url, (data) => {
 				data.timeStamp = this.props.stamp.time;
 
 				localStorage["weather"] = JSON.stringify(data);
 				this.setState({weather: data});
-			}.bind(this));
+			});
 		}
 
 		return weather;
 	}
 
 	getDay() {
-		var url = "http://progress.appacademy.io/api/pairs.json?city_id=" + this.getCityId();
-		var day = JSON.parse(localStorage["day"] || "{}");
+		let url = "http://progress.appacademy.io/api/pairs.json?city_id=" + this.getCityId();
+		let day = JSON.parse(localStorage["day"] || "{}");
 
 		if(!day || day.dateStamp != this.props.stamp.date){
-			$.getJSON(url, function(data){
+			$.getJSON(url, (data) => {
 				data.dateStamp = this.props.stamp.date;
 				localStorage["day"] = JSON.stringify(data);
 
 				if(!this.state.podId || !data.pods[this.state.podId]){
-					var podId = Object.keys(data.pods)[0];
+					let podId = Object.keys(data.pods)[0];
 					localStorage["podId"] = podId;
 					this.setState({podId: podId});
 				}
 
 				this.setState({day: data});
-			}.bind(this));
+			});
 		}
 
 		return day;
@@ -100,7 +100,7 @@ export default class extends React.Component {
 	}
 
 	render() {
-		return (
+		return(
 			<div>
 				<Header
 					cityId={this.state.cityId}
@@ -126,7 +126,7 @@ export default class extends React.Component {
 					<a href="options.html">Options</a>
 				</footer>
 			</div>
-		);
-	}
+		)
+	};
 
 };
