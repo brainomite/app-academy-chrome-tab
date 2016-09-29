@@ -2,11 +2,11 @@ import React from 'react';
 
 class Pair extends React.Component {
 	render() {
-		var pair = [];
+		const pair = [];
 
-		this.props.pair.forEach(function(student, index){
-			var key = "link-" + student.github;
-			var url = "https://github.com/" + student.github;
+		this.props.pair.forEach((student, index) => {
+			let key = "link-" + student.github;
+			let url = "https://github.com/" + student.github;
 
 			pair.push(
 				<a href={url} key={key}>{student.name}</a>
@@ -15,7 +15,7 @@ class Pair extends React.Component {
 			if (this.props.pair.length - 1 > index) {
 				pair.push(" & ");
 			}
-		}.bind(this));
+		});
 
 		return (
 			<span className="pair">{pair}</span>
@@ -37,11 +37,11 @@ class DesksPairListItem extends React.Component {
 
 class DesksPairList extends React.Component {
 	render() {
-		var pairs = []
-		var desks = Object.getOwnPropertyNames(this.props.pod.pairs);
+		const pairs = []
+		let desks = Object.getOwnPropertyNames(this.props.pod.pairs);
 
-		desks.forEach(function(desk, index){
-			var key = "pair-" + index;
+		desks.forEach((desk, index) => {
+			let key = "pair-" + index;
 
 			pairs.push(
 				<DesksPairListItem
@@ -49,7 +49,7 @@ class DesksPairList extends React.Component {
 					desk={desk}
 					pair={this.props.pod.pairs[desk]} />
 			);
-		}.bind(this));
+		});
 
 		return (
 			<ul>
@@ -61,10 +61,10 @@ class DesksPairList extends React.Component {
 
 export default class extends React.Component {
 	render() {
-		var pods = this.props.day.pods;
-		var pod = pods && pods[this.props.podId];
-		var deskClass = this.props.visible ? "is-active" : "";
-		var podName, podDeskPairList;
+		let pods = this.props.day.pods;
+		let pod = pods && pods[this.props.podId];
+		let deskClass = this.props.visible ? "is-active" : "";
+		let podName, podDeskPairList;
 
 		if(pod){
 			podName = (
