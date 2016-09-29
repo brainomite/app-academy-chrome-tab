@@ -1,173 +1,165 @@
-var Link = React.createClass({
-  render: function() {
-    return (
-      <a href={this.props.url}>{this.props.title}</a>
-    )
-  }
-});
+// components/page_links
+// var PageLinksListItem = React.createClass({
+//   render: function() {
+//     var subLink = this.props.link.sub ? <PageLinksSubList links={this.props.link.sub} /> : null;
 
+//     return (
+//       <li>
+//         <a href={this.props.link.url}>{this.props.link.title}</a>
+//         {subLink}
+//       </li>
+//     );
+//   }
+// });
 
-var PageLinksListItem = React.createClass({
-  render: function() {
-    var subLink = this.props.link.sub ? <PageLinksSubList links={this.props.link.sub} /> : null;
+// components/page_links
+// var PageLinksSubList = React.createClass({
+//   render: function() {
+//     var links = [];
 
-    return (
-      <li>
-        <a href={this.props.link.url}>{this.props.link.title}</a>
-        {subLink}
-      </li>
-    );
-  }
-});
+//     this.props.links.forEach(function(link, index){
+//       var key = "link-" + index;
 
+//       links.push(
+//         <PageLinksListItem key={key} link={link} />
+//       )
+//     });
 
-var PageLinksSubList = React.createClass({
-  render: function() {
-    var links = [];
+//     return (
+//       <ul>
+//         {links}
+//       </ul>
+//     );
+//   }
+// });
 
-    this.props.links.forEach(function(link, index){
-      var key = "link-" + index;
+// components/page_links
+// var PageLinksList = React.createClass({
+//   render: function() {
+//     return (
+//       <section>
+//         <h2>{this.props.title}</h2>
+//         <PageLinksSubList links={this.props.links} />
+//       </section>
+//     );
+//   }
+// });
 
-      links.push(
-        <PageLinksListItem key={key} link={link} />
-      )
-    });
+// components/page_links
+// var PageLinks = React.createClass({
+//   render: function() {
+//     var lists = []
 
-    return (
-      <ul>
-        {links}
-      </ul>
-    );
-  }
-});
+//     this.props.links.forEach(function(list, index){
+//       var key = "links-list-" + index;
 
+//       lists.push(
+//         <PageLinksList key={key} title={list.title} links={list.links} />
+//       )
+//     });
 
-var PageLinksList = React.createClass({
-  render: function() {
-    return (
-      <section>
-        <h2>{this.props.title}</h2>
-        <PageLinksSubList links={this.props.links} />
-      </section>
-    );
-  }
-});
+//     return (
+//       <main className="group">
+//         {lists}
+//       </main>
+//     );
+//   }
+// });
 
+// components/page_header
+// var PageHeaderInfo = React.createClass({
+//   render: function() {
+//     var pods = this.props.day.pods;
+//     var pod = pods && pods[this.props.podId];
+//     var pair = pod && pod.pairs[this.props.desk];
+//     var pairComponent;
 
-var PageLinks = React.createClass({
-  render: function() {
-    var lists = []
+//     if(pair){
+//       pairComponent = (
+//         <Pair pair={pair} />
+//       );
+//     }
 
-    this.props.links.forEach(function(list, index){
-      var key = "links-list-" + index;
+//     return (
+//       <div id="info">
+//         <p>{this.props.day.dateStamp} — {this.props.day.day} {pair && "—"} {pairComponent}</p>
+//       </div>
+//     );
+//   }
+// });
 
-      lists.push(
-        <PageLinksList key={key} title={list.title} links={list.links} />
-      )
-    });
+// components/page_header
+// var PageHeaderClock = React.createClass({
+//   getInitialState: function() {
+//     return {time: "0:00"};
+//   },
 
-    return (
-      <main className="group">
-        {lists}
-      </main>
-    );
-  }
-});
+//   componentWillMount: function() {
+//     this.interval = null;
+//   },
 
+//   componentWillUnmount: function() {
+//     clearInterval(this.interval);
+//   },
 
-var PageHeaderInfo = React.createClass({
-  render: function() {
-    var pods = this.props.day.pods;
-    var pod = pods && pods[this.props.podId];
-    var pair = pod && pod.pairs[this.props.desk];
-    var pairComponent;
+//   componentDidMount: function() {
+//     this.updateTime();
+//     this.interval = setInterval(this.updateTime, 10000);
+//   },
 
-    if(pair){
-      pairComponent = (
-        <Pair pair={pair} />
-      );
-    }
+//   updateTime: function() {
+//     var currentTime = new Date();
+//     var currentHours = currentTime.getHours();
+//     var currentMinutes = currentTime.getMinutes();
+//     currentMinutes = (currentMinutes < 10 ? "0" : "") + currentMinutes;
 
-    return (
-      <div id="info">
-        <p>{this.props.day.dateStamp} — {this.props.day.day} {pair && "—"} {pairComponent}</p>
-      </div>
-    );
-  }
-});
+//     this.setState({time: currentHours + ":" + currentMinutes});
+//   },
 
+//   render: function() {
+//     return (
+//       <h1 id="clock">{this.state.time}</h1>
+//     );
+//   }
+// });
 
-var PageHeaderClock = React.createClass({
-  getInitialState: function() {
-    return {time: "0:00"};
-  },
+// components/page_header
+// var PageHeader = React.createClass({
+//   render: function() {
+//     var desk = this.props.desk ? this.props.desk : "•";
 
-  componentWillMount: function() {
-    this.interval = null;
-  },
+//     return (
+//       <header className="clock-wrap">
+//         <h2 id="desk" onClick={this.props.onDeskClick}>{desk}</h2>
+//         <PageHeaderClock />
+//         <PageHeaderInfo
+//           desk={this.props.desk}
+//           podId={this.props.podId}
+//           day={this.props.day} />
+//       </header>
+//     );
+//   }
+// });
 
-  componentWillUnmount: function() {
-    clearInterval(this.interval);
-  },
+// components/page
+// var Page = React.createClass({
+//   render: function() {
+//     return (
+//       <div className="wrap">
+//         <PageHeader
+//           desk={this.props.desk}
+//           podId={this.props.podId}
+//           day={this.props.day}
+//           onDeskClick={this.props.onDeskClick} />
 
-  componentDidMount: function() {
-    this.updateTime();
-    this.interval = setInterval(this.updateTime, 10000);
-  },
-
-  updateTime: function() {
-    var currentTime = new Date();
-    var currentHours = currentTime.getHours();
-    var currentMinutes = currentTime.getMinutes();
-    currentMinutes = (currentMinutes < 10 ? "0" : "") + currentMinutes;
-
-    this.setState({time: currentHours + ":" + currentMinutes});
-  },
-
-  render: function() {
-    return (
-      <h1 id="clock">{this.state.time}</h1>
-    );
-  }
-});
-
-
-var PageHeader = React.createClass({
-  render: function() {
-    var desk = this.props.desk ? this.props.desk : "•";
-
-    return (
-      <header className="clock-wrap">
-        <h2 id="desk" onClick={this.props.onDeskClick}>{desk}</h2>
-        <PageHeaderClock />
-        <PageHeaderInfo
-          desk={this.props.desk}
-          podId={this.props.podId}
-          day={this.props.day} />
-      </header>
-    );
-  }
-});
-
-
-var Page = React.createClass({
-  render: function() {
-    return (
-      <div className="wrap">
-        <PageHeader
-          desk={this.props.desk}
-          podId={this.props.podId}
-          day={this.props.day}
-          onDeskClick={this.props.onDeskClick} />
-
-        <PageLinks ord={this.props.day.ord} links={this.props.links} />
-        <h3 className="localhost">
-          <a href="http://localhost:3000/">Localhost:3000</a>
-        </h3>
-      </div>
-    );
-  }
-});
+//         <PageLinks ord={this.props.day.ord} links={this.props.links} />
+//         <h3 className="localhost">
+//           <a href="http://localhost:3000/">Localhost:3000</a>
+//         </h3>
+//       </div>
+//     );
+//   }
+// });
 
 // components/corners.jsx
 // var CornerLink = React.createClass({
