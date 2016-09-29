@@ -2,10 +2,10 @@ import React from 'react';
 
 class PageHeaderInfo extends React.Component {
 	render() {
-		var pods = this.props.day.pods;
-		var pod = pods && pods[this.props.podId];
-		var pair = pod && pod.pairs[this.props.desk];
-		var pairComponent;
+		let pods = this.props.day.pods;
+		let pod = pods && pods[this.props.podId];
+		let pair = pod && pod.pairs[this.props.desk];
+		let pairComponent;
 
 		if(pair){
 			pairComponent = (
@@ -46,9 +46,9 @@ class PageHeaderClock extends React.Component {
 	}
 
 	updateTime() {
-		var currentTime = new Date();
-		var currentHours = currentTime.getHours();
-		var currentMinutes = currentTime.getMinutes();
+		let currentTime = new Date();
+		let currentHours = currentTime.getHours();
+		let currentMinutes = currentTime.getMinutes();
 		currentMinutes = (currentMinutes < 10 ? "0" : "") + currentMinutes;
 
 		this.setState({time: currentHours + ":" + currentMinutes});
@@ -63,7 +63,7 @@ class PageHeaderClock extends React.Component {
 
 export default class extends React.Component {
 	render() {
-		var desk = this.props.desk ? this.props.desk : "•";
+		let desk = this.props.desk ? this.props.desk : "•";
 
 		return (
 			<header className="clock-wrap">
