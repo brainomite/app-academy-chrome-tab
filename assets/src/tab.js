@@ -202,43 +202,43 @@ var Corners = React.createClass({
   }
 });
 
+// components/header.jsx
+// var Header = React.createClass({
+//   render: function() {
+//     var city = this.props.cityId == 1 ? "NYC" : "SF";
+//     var weatherLeft, weatherRight;
 
-var Header = React.createClass({
-  render: function() {
-    var city = this.props.cityId == 1 ? "NYC" : "SF";
-    var weatherLeft, weatherRight;
+//     if(this.props.weather.main){
+//       var degreeCel = parseInt(this.props.weather.main.temp);
+//       var degreeFar = parseInt((degreeCel * 9 / 5) + 32);
 
-    if(this.props.weather.main){
-      var degreeCel = parseInt(this.props.weather.main.temp);
-      var degreeFar = parseInt((degreeCel * 9 / 5) + 32);
+//       weatherLeft = (
+//         <em className="weather-left">
+//           {city} / {this.props.weather.weather[0].main}
+//           <span className="weather-hidden"> — {this.props.weather.weather[0].description}</span>
+//         </em>
+//       );
 
-      weatherLeft = (
-        <em className="weather-left">
-          {city} / {this.props.weather.weather[0].main}
-          <span className="weather-hidden"> — {this.props.weather.weather[0].description}</span>
-        </em>
-      );
+//       weatherRight = (
+//         <em className="weather-right">
+//           <span className="weather-hidden">{degreeFar} &deg; F / </span>
+//           {degreeCel} &deg; C
+//         </em>
+//       );
+//     }
 
-      weatherRight = (
-        <em className="weather-right">
-          <span className="weather-hidden">{degreeFar} &deg; F / </span>
-          {degreeCel} &deg; C
-        </em>
-      );
-    }
+//     return (
+//       <header className="header group">
+//         {weatherLeft}
+//         {weatherRight}
 
-    return (
-      <header className="header group">
-        {weatherLeft}
-        {weatherRight}
-
-        <h1 className="logo">
-          <a href="http://www.appacademy.io/">App Academy</a>
-        </h1>
-      </header>
-    );
-  }
-});
+//         <h1 className="logo">
+//           <a href="http://www.appacademy.io/">App Academy</a>
+//         </h1>
+//       </header>
+//     );
+//   }
+// });
 
 
 var Pair = React.createClass({
@@ -329,124 +329,125 @@ var Desks = React.createClass({
   }
 });
 
+// components/app.jsx
+// var Body = React.createClass({
+//   mixins: [CityMixin],
+//   getWeather: function(){
+//     var weatherId = (this.getCityId() == 2) ? 5391959 : 5128581;
+//     var url = "http://api.openweathermap.org/data/2.5/weather?id=" + weatherId + "&units=metric";
+//     var weather = JSON.parse(localStorage["weather"] || "{}");
 
-var Body = React.createClass({
-  mixins: [CityMixin],
-  getWeather: function(){
-    var weatherId = (this.getCityId() == 2) ? 5391959 : 5128581;
-    var url = "http://api.openweathermap.org/data/2.5/weather?id=" + weatherId + "&units=metric";
-    var weather = JSON.parse(localStorage["weather"] || "{}");
+//     if(!weather || weather.timeStamp != this.props.stamp.time){
+//       $.getJSON(url, function(data){
+//         data.timeStamp = this.props.stamp.time;
 
-    if(!weather || weather.timeStamp != this.props.stamp.time){
-      $.getJSON(url, function(data){
-        data.timeStamp = this.props.stamp.time;
+//         localStorage["weather"] = JSON.stringify(data);
+//         this.setState({weather: data});
+//       }.bind(this));
+//     }
 
-        localStorage["weather"] = JSON.stringify(data);
-        this.setState({weather: data});
-      }.bind(this));
-    }
+//     return weather;
+//   },
+//   getDay: function(){
+//     var url = "http://progress.appacademy.io/api/pairs.json?city_id=" + this.getCityId();
+//     var day = JSON.parse(localStorage["day"] || "{}");
 
-    return weather;
-  },
-  getDay: function(){
-    var url = "http://progress.appacademy.io/api/pairs.json?city_id=" + this.getCityId();
-    var day = JSON.parse(localStorage["day"] || "{}");
+//     if(!day || day.dateStamp != this.props.stamp.date){
+//       $.getJSON(url, function(data){
+//         data.dateStamp = this.props.stamp.date;
+//         localStorage["day"] = JSON.stringify(data);
 
-    if(!day || day.dateStamp != this.props.stamp.date){
-      $.getJSON(url, function(data){
-        data.dateStamp = this.props.stamp.date;
-        localStorage["day"] = JSON.stringify(data);
+//         if(!this.state.podId || !data.pods[this.state.podId]){
+//           var podId = Object.keys(data.pods)[0];
+//           localStorage["podId"] = podId;
+//           this.setState({podId: podId});
+//         }
 
-        if(!this.state.podId || !data.pods[this.state.podId]){
-          var podId = Object.keys(data.pods)[0];
-          localStorage["podId"] = podId;
-          this.setState({podId: podId});
-        }
+//         this.setState({day: data});
+//       }.bind(this));
+//     }
 
-        this.setState({day: data});
-      }.bind(this));
-    }
+//     return day;
+//   },
+//   componentDidMount: function() {
+//     this.getCityByIP();
+//   },
+//   getInitialState: function() {
+//     return {
+//       cityId: localStorage["cityId"],
+//       podId: localStorage["podId"],
+//       desk: localStorage["desk"],
+//       weather: this.getWeather(),
+//       day: this.getDay(),
+//       deskVisible: false
+//     };
+//   },
+//   handleDeskClick: function(event) {
+//     this.setState({
+//       deskVisible: !this.state.deskVisible
+//     });
+//   },
+//   render: function() {
+//     return (
+//       <div>
+//         <Header
+//           cityId={this.state.cityId}
+//           weather={this.state.weather} />
 
-    return day;
-  },
-  componentDidMount: function() {
-    this.getCityByIP();
-  },
-  getInitialState: function() {
-    return {
-      cityId: localStorage["cityId"],
-      podId: localStorage["podId"],
-      desk: localStorage["desk"],
-      weather: this.getWeather(),
-      day: this.getDay(),
-      deskVisible: false
-    };
-  },
-  handleDeskClick: function(event) {
-    this.setState({
-      deskVisible: !this.state.deskVisible
-    });
-  },
-  render: function() {
-    return (
-      <div>
-        <Header
-          cityId={this.state.cityId}
-          weather={this.state.weather} />
+//         <Corners
+//           corners={this.props.links.corners} />
 
-        <Corners
-          corners={this.props.links.corners} />
+//         <Desks
+//           podId={this.state.podId}
+//           day={this.state.day}
+//           visible={this.state.deskVisible}
+//           onDeskClick={this.handleDeskClick} />
 
-        <Desks
-          podId={this.state.podId}
-          day={this.state.day}
-          visible={this.state.deskVisible}
-          onDeskClick={this.handleDeskClick} />
+//         <Page
+//           desk={this.state.desk}
+//           podId={this.state.podId}
+//           day={this.state.day}
+//           links={this.props.links.main}
+//           onDeskClick={this.handleDeskClick} />
 
-        <Page
-          desk={this.state.desk}
-          podId={this.state.podId}
-          day={this.state.day}
-          links={this.props.links.main}
-          onDeskClick={this.handleDeskClick} />
+//         <footer>
+//           <a href="options.html">Options</a>
+//         </footer>
+//       </div>
+//     );
+//   }
+// });
 
-        <footer>
-          <a href="options.html">Options</a>
-        </footer>
-      </div>
-    );
-  }
-});
+// entry.jsx
+// $(function(){
 
-$(function(){
+//   var Stamp = (function(){
+//     var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday',
+//                 'Thursday', 'Friday', 'Saturday'];
 
-  var Stamp = (function(){
-    var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday',
-                'Thursday', 'Friday', 'Saturday'];
+//     var months = ['January', 'February', 'March', 'April',
+//                   'May', 'June', 'July', 'August', 'September',
+//                   'October', 'November', 'December'];
 
-    var months = ['January', 'February', 'March', 'April',
-                  'May', 'June', 'July', 'August', 'September',
-                  'October', 'November', 'December'];
+//     var dateStamp;
+//     var d = new Date();
+//     var hours = d.getHours();
 
-    var dateStamp;
-    var d = new Date();
-    var hours = d.getHours();
+//     dateStamp = days[d.getDay()].substring(0,3) + ", ";
+//     dateStamp += months[d.getMonth()].substring(0,3) + " ";
+//     dateStamp += d.getDate();
 
-    dateStamp = days[d.getDay()].substring(0,3) + ", ";
-    dateStamp += months[d.getMonth()].substring(0,3) + " ";
-    dateStamp += d.getDate();
+//     return {
+//       date: dateStamp,
+//       time: dateStamp + ", " + hours
+//     };
+//   })();
 
-    return {
-      date: dateStamp,
-      time: dateStamp + ", " + hours
-    };
-  })();
+//   React.render(
+//     <Body
+//       stamp={Stamp}
+//       links={Links} />,
+//     document.body
+//   );
 
-  React.render(
-    <Body
-      stamp={Stamp}
-      links={Links} />,
-    document.body
-  );
-
-});
+// });
