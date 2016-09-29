@@ -309,6 +309,7 @@ var Desks = React.createClass({
     var podName, podDeskPairList;
 
     if(pod){
+      debugger
       podName = (
         <h2>{pod.name} {pod.instructor && "—"} {pod.instructor}</h2>
       );
