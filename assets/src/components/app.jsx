@@ -23,35 +23,35 @@ export default class extends React.Component {
 	}
 
 	getCityId() {
-    return ((this.state && this.state.cityId) || localStorage["cityId"] || 1);
-  }
+		return ((this.state && this.state.cityId) || localStorage["cityId"] || 1);
+	}
 
-  getCityByIP(callback) {
-    if((this.state && this.state.cityId) || localStorage["cityId"]){
-      callback && callback.apply(this);
-      return;
-    };
+	getCityByIP(callback) {
+		if((this.state && this.state.cityId) || localStorage["cityId"]){
+			callback && callback.apply(this);
+			return;
+		};
 
-    let sfLong = -122;
-    let nycLong = -74;
-    let midLong = parseInt((sfLong + nycLong) / 2);
+		let sfLong = -122;
+		let nycLong = -74;
+		let midLong = parseInt((sfLong + nycLong) / 2);
 
-    $.getJSON("http://ipinfo.io/json", (data) => {
-        let long = parseInt(data.loc.split(",")[1]);
-        this.setCityId((long > midLong) ? 1 : 2, callback);
-    });
-  }
+		$.getJSON("http://ipinfo.io/json", (data) => {
+				let long = parseInt(data.loc.split(",")[1]);
+				this.setCityId((long > midLong) ? 1 : 2, callback);
+		});
+	}
 
-  setCityId(cityId, callback) {
-    localStorage["cityId"] = cityId;
-    localStorage.removeItem("podId");
+	setCityId(cityId, callback) {
+		localStorage["cityId"] = cityId;
+		localStorage.removeItem("podId");
 
-    this.setState({
-      cityId: cityId,
-      podId: null
-    },
-    callback);
-  }
+		this.setState({
+			cityId: cityId,
+			podId: null
+		},
+		callback);
+	}
 
 	getWeather() {
 		let weatherId = (this.getCityId() == 2) ? 5391959 : 5128581;
