@@ -2,7 +2,7 @@ import React from 'react';
 
 class PageLinksListItem extends React.Component {
 	render() {
-		var subLink = this.props.link.sub ? <PageLinksSubList links={this.props.link.sub} /> : null;
+		let subLink = this.props.link.sub ? <PageLinksSubList links={this.props.link.sub} /> : null;
 
 		return (
 			<li>
@@ -16,10 +16,10 @@ class PageLinksListItem extends React.Component {
 
 class PageLinksSubList extends React.Component {
 	render() {
-		var links = [];
+		const links = [];
 
-		this.props.links.forEach(function(link, index){
-			var key = "link-" + index;
+		this.props.links.forEach( (link, index) => {
+			let key = "link-" + index;
 
 			links.push(
 				<PageLinksListItem key={key} link={link} />
@@ -49,10 +49,10 @@ class PageLinksList extends React.Component {
 
 export default class extends React.Component {
 	render() {
-		var lists = []
+		const lists = []
 
-		this.props.links.forEach(function(list, index){
-			var key = "links-list-" + index;
+		this.props.links.forEach( list, index) => {
+			let key = "links-list-" + index;
 
 			lists.push(
 				<PageLinksList key={key} title={list.title} links={list.links} />
