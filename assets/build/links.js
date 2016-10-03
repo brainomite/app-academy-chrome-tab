@@ -42,8 +42,8 @@ Links.main = [{
     url: "https://github.com/appacademy/curriculum/blob/master/react",
     start: 71
   }, {
-    title: "Capstone",
-    url: "https://github.com/appacademy/capstone-project-curriculum",
+    title: "Full Stack",
+    url: "https://github.com/appacademy/curriculum/blob/master/full-stack-project",
     start: 81
   }, {
     title: "Jobs",
