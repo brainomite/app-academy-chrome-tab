@@ -354,10 +354,6 @@ section li a:hover {
   content: "";
 }
 
-#desks a {
-
-}
-
 #desks a:hover {
   text-decoration: underline;
 }
@@ -379,48 +375,65 @@ footer a {
 
 /* OPTIONS */
 
-form {
+#options {
+  display: none;
+  position: absolute;
+  z-index: 6;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  min-width: 400px;
+  padding: 50px 60px;
+  background: #00f;
+  color: #fff;
+  text-align: left;
+}
+
+#options.is-active {
+  display: block;
+}
+
+#options form {
   margin: 50px auto;
   width: 300px;
 }
 
-form h1 {
+#options form h1 {
   margin: 0 0 30px 0;
   font-size: 60px;
   text-align: center;
 }
 
-.input {
+#options .input {
   margin: 30px 0;
 }
 
-.input label,
-.input .label {
+#options .input label,
+#options .input .label {
   font-weight: 700;
   padding: 0 0 5px 0;
 }
 
-.input select {
+#options .input select {
   -webkit-appearance: none;
   border-radius: 0;
 }
 
-.input input[type="password"],
-.input input[type="number"],
-.input input[type="password"],
-.input select
- {
+#options .input input[type="password"],
+#options .input input[type="number"],
+#options .input input[type="password"],
+#options .input select {
   padding: 10px;
   border: 1px solid #ccc;
   width: 300px;
   font-size: 20px;
 }
 
-.submit {
+#options .submit {
   margin: 40px 0;
 }
 
-.submit button {
+#options .submit button {
   cursor: pointer;
   display: inline-block;
   padding: 15px 30px;
@@ -429,6 +442,6 @@ form h1 {
   font-weight: 700;
 }
 
-.submit button:hover {
+#options .submit button:hover {
   background: #0b0;
 }
