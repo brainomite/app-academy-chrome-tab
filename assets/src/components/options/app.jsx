@@ -34,7 +34,6 @@ class OptionsForm extends React.Component {
 
 	componentDidMount() {
 		localStorage.removeItem("day");
-		localStorage.removeItem("weather");
 
 		this.getCityByIP(function(){
 			this.loadRemotePods();

@@ -74,22 +74,6 @@ h1, h2 {
   font-weight: 400;
 }
 
-.header em .weather-hidden {
-  display: none;
-}
-
-.header:hover em .weather-hidden {
-  display: inline;
-}
-
-.header .weather-left {
-  left: 0;
-}
-
-.header .weather-right {
-  right: 0;
-}
-
 .logo {
   display: inline-block;
 }

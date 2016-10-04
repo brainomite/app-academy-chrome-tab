@@ -51,7 +51,7 @@ export default class extends React.Component {
 	render() {
 		const lists = []
 
-		this.props.links.forEach( list, index) => {
+		this.props.links.forEach( (list, index) => {
 			let key = "links-list-" + index;
 
 			lists.push(
