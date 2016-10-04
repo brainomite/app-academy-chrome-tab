@@ -5,6 +5,7 @@ import Header from './header';
 import Corners from './corners';
 import Desks from './desks';
 import Page from './page';
+import Options from './options/modal';
 
 export default class extends React.Component {
 	constructor(props) {
@@ -15,10 +16,12 @@ export default class extends React.Component {
 			podId: localStorage["podId"],
 			desk: localStorage["desk"],
 			day: this.getDay(),
-			deskVisible: false
+			deskVisible: false,
+			optionsVisible: false
 		};
 
 		this.handleDeskClick = this.handleDeskClick.bind(this);
+		this.handleOptionsClick = this.handleOptionsClick.bind(this);
 	}
 
 	getCityId() {
@@ -78,9 +81,15 @@ export default class extends React.Component {
 		this.getCityByIP();
 	}
 
-	handleDeskClick(event) {
+	handleDeskClick() {
 		this.setState({
 			deskVisible: !this.state.deskVisible
+		});
+	}
+
+	handleOptionsClick() {
+		this.setState({
+			optionsVisible: !this.state.optionsVisible
 		});
 	}
 
@@ -106,8 +115,11 @@ export default class extends React.Component {
 					links={this.props.links.main}
 					onDeskClick={this.handleDeskClick} />
 
+				<Options
+					visible={this.state.optionsVisible} />
+
 				<footer>
-					<a href="options.html">Options</a>
+					<span onClick={this.handleOptionsClick}>Options</span>
 				</footer>
 			</div>
 		)

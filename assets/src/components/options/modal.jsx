@@ -7,7 +7,7 @@ export default class extends React.Component {
 		let optionClass = this.props.visible ? "is-active" : "";
 
 		return (
-			<article className={deskClass} id="options">
+			<article className={optionClass} id="options">
 				<Form />
 			</article>
 		);

@@ -1,6 +1,26 @@
 import React from 'react';
+import $ from 'jquery';
+import sjcl from 'sjcl';
 
 export default class extends React.Component {
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			cityId: localStorage["cityId"],
+			podId: localStorage["podId"],
+			desk: localStorage["desk"],
+			password: localStorage["password"],
+			saved: false,
+			pods: {}
+		};
+
+		this.handleDeskChange = this.handleDeskChange.bind(this);
+		this.handlePasswordChange = this.handlePasswordChange.bind(this);
+		this.handleLocationChange = this.handleLocationChange.bind(this);
+		this.handlePodChange = this.handlePodChange.bind(this);
+	}
+
 	getCityId() {
 		return ((this.state && this.state.cityId) || localStorage["cityId"] || 1);
 	}
@@ -39,17 +59,6 @@ export default class extends React.Component {
 		this.getCityByIP(function(){
 			this.loadRemotePods();
 		});
-	}
-
-	getInitialState() {
-		return {
-			cityId: localStorage["cityId"],
-			podId: localStorage["podId"],
-			desk: localStorage["desk"],
-			password: localStorage["password"],
-			saved: false,
-			pods: {}
-		};
 	}
 
 	getPods(data) {
