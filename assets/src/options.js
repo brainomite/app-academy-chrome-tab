@@ -2,7 +2,6 @@ var Form = React.createClass({
   mixins: [CityMixin],
   componentDidMount: function(){
     localStorage.removeItem("day");
-    localStorage.removeItem("weather");
 
     this.getCityByIP(function(){
       this.loadRemotePods();

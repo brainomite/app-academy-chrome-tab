@@ -14,7 +14,6 @@ export default class extends React.Component {
 			cityId: localStorage["cityId"],
 			podId: localStorage["podId"],
 			desk: localStorage["desk"],
-			weather: this.getWeather(),
 			day: this.getDay(),
 			deskVisible: false
 		};
@@ -53,23 +52,6 @@ export default class extends React.Component {
 		callback);
 	}
 
-	getWeather() {
-		let weatherId = (this.getCityId() == 2) ? 5391959 : 5128581;
-		let url = "http://api.openweathermap.org/data/2.5/weather?id=" + weatherId + "&units=metric";
-		let weather = JSON.parse(localStorage["weather"] || "{}");
-
-		if(!weather || weather.timeStamp != this.props.stamp.time){
-			$.getJSON(url, (data) => {
-				data.timeStamp = this.props.stamp.time;
-
-				localStorage["weather"] = JSON.stringify(data);
-				this.setState({weather: data});
-			});
-		}
-
-		return weather;
-	}
-
 	getDay() {
 		let url = "http://progress.appacademy.io/api/pairs.json?city_id=" + this.getCityId();
 		let day = JSON.parse(localStorage["day"] || "{}");
@@ -106,8 +88,7 @@ export default class extends React.Component {
 		return(
 			<div>
 				<Header
-					cityId={this.state.cityId}
-					weather={this.state.weather} />
+					cityId={this.state.cityId} />
 
 				<Corners
 					corners={this.props.links.corners} />
