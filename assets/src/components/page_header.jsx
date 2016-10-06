@@ -1,5 +1,28 @@
 import React from 'react';
 
+class Pair extends React.Component {
+	render() {
+		const pair = [];
+
+		this.props.pair.forEach((student, index) => {
+			let key = "link-" + student.github;
+			let url = "https://github.com/" + student.github;
+
+			pair.push(
+				<a href={url} key={key}>{student.name}</a>
+			);
+
+			if (this.props.pair.length - 1 > index) {
+				pair.push(" & ");
+			}
+		});
+
+		return (
+			<span className="pair">{pair}</span>
+		)
+	}
+}
+
 class PageHeaderInfo extends React.Component {
 	render() {
 		let pods = this.props.day.pods;
