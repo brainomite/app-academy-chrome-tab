@@ -8,7 +8,9 @@ export default class extends React.Component {
 
 		return (
 			<article className={optionClass} id="options">
-				<Form />
+				<span onClick={this.props.onOptionsClick}>×</span>
+
+				<Form changed={this.props.changed} />
 			</article>
 		);
 	}

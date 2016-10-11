@@ -342,7 +342,8 @@ section li a:hover {
   text-decoration: underline;
 }
 
-footer a {
+footer span {
+  cursor: pointer;
   display: block;
   position: fixed;
   bottom: 20px;
@@ -428,4 +429,17 @@ footer a {
 
 #options .submit button:hover {
   background: #0b0;
+}
+
+#options > span {
+  display: block;
+  position: absolute;
+  top: 8px;
+  right: 22px;
+  font-size: 50px;
+  cursor: pointer;
+}
+
+#options > span:hover {
+  color: #f00;
 }

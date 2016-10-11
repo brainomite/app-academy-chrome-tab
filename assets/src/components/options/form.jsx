@@ -99,6 +99,8 @@ export default class extends React.Component {
 		this.setState({desk: desk});
 		this.flashInfo();
 		this.setDeskHash();
+
+		this.props.changed({ desk });
 	}
 
 	handlePasswordChange(event) {
@@ -122,6 +124,8 @@ export default class extends React.Component {
 		localStorage["podId"] = podId;
 		this.setState({podId: podId});
 		this.flashInfo();
+
+		this.props.changed({ podId });
 	}
 
 	setDeskHash() {

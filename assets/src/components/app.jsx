@@ -22,6 +22,7 @@ export default class extends React.Component {
 
 		this.handleDeskClick = this.handleDeskClick.bind(this);
 		this.handleOptionsClick = this.handleOptionsClick.bind(this);
+		this.optionsChanged = this.optionsChanged.bind(this);
 	}
 
 	getCityId() {
@@ -83,14 +84,21 @@ export default class extends React.Component {
 
 	handleDeskClick() {
 		this.setState({
-			deskVisible: !this.state.deskVisible
+			deskVisible: !this.state.deskVisible,
+			optionsVisible: false
 		});
 	}
 
 	handleOptionsClick() {
 		this.setState({
-			optionsVisible: !this.state.optionsVisible
+			optionsVisible: !this.state.optionsVisible,
+			deskVisible: false
 		});
+	}
+
+	optionsChanged(options) {
+		// This is bad form, we need redux in here
+		this.setState(options);
 	}
 
 	render() {
@@ -116,6 +124,8 @@ export default class extends React.Component {
 					onDeskClick={this.handleDeskClick} />
 
 				<Options
+					changed={this.optionsChanged}
+					onOptionsClick={this.handleOptionsClick}
 					visible={this.state.optionsVisible} />
 
 				<footer>
