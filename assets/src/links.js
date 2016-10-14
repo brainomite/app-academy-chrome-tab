@@ -52,8 +52,8 @@ Links.main = [
         start: 71
       },
       {
-        title: "Capstone",
-        url: "https://github.com/appacademy/capstone-project-curriculum/blob/master/README.md",
+        title: "Full Stack",
+        url: "https://github.com/appacademy/curriculum/blob/master/full-stack-project",
         start: 81
       },
       {
@@ -221,3 +221,5 @@ Links.main = [
     ]
   }
 ];
+
+export default Links;
