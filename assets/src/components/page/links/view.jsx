@@ -4,12 +4,12 @@ import { MAIN_LINKS } from 'util/links';
 
 export default () => (
 	<main className="group">
-		{ MAIN_LINKS.map(pageLinksList) }
+		{ MAIN_LINKS.map(linksSection) }
 	</main>
 )
 
-const pageLinksList = ({ title, links }, idx) => {
-	const key = `links-list-${idx}`;
+const linksSection = ({ title, links }, idx) => {
+	const key = `links-section-${idx}`;
 
 	return (
 		<section key={ key }>
@@ -21,11 +21,11 @@ const pageLinksList = ({ title, links }, idx) => {
 
 const linksList = links => (
 	<ul>
-		{ links.map(linksListItem) }
+		{ links.map(linkListItem) }
 	</ul>
 )
 
-const linksListItem = (link, idx) => {
+const linkListItem = (link, idx) => {
 	const subLinks = link.sub ? linksList(link.sub) : null,
 	      key = `link-${idx}`;
 

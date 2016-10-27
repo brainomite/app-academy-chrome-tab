@@ -47423,35 +47423,19 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var linksListItem = function linksListItem(link, idx) {
-		var subLinks = link.sub ? linksList(link.sub) : null,
-		    key = 'link-' + idx;
-	
+	exports.default = function () {
 		return _react2.default.createElement(
-			'li',
-			{ key: key },
-			_react2.default.createElement(
-				'a',
-				{ href: link.url },
-				link.title
-			),
-			subLinks
+			'main',
+			{ className: 'group' },
+			_links.MAIN_LINKS.map(linksSection)
 		);
 	};
 	
-	var linksList = function linksList(links) {
-		return _react2.default.createElement(
-			'ul',
-			null,
-			links.map(linksListItem)
-		);
-	};
-	
-	var pageLinksList = function pageLinksList(_ref, idx) {
+	var linksSection = function linksSection(_ref, idx) {
 		var title = _ref.title;
 		var links = _ref.links;
 	
-		var key = 'links-list-' + idx;
+		var key = 'links-section-' + idx;
 	
 		return _react2.default.createElement(
 			'section',
@@ -47465,11 +47449,27 @@
 		);
 	};
 	
-	exports.default = function () {
+	var linksList = function linksList(links) {
 		return _react2.default.createElement(
-			'main',
-			{ className: 'group' },
-			_links.MAIN_LINKS.map(pageLinksList)
+			'ul',
+			null,
+			links.map(linkListItem)
+		);
+	};
+	
+	var linkListItem = function linkListItem(link, idx) {
+		var subLinks = link.sub ? linksList(link.sub) : null,
+		    key = 'link-' + idx;
+	
+		return _react2.default.createElement(
+			'li',
+			{ key: key },
+			_react2.default.createElement(
+				'a',
+				{ href: link.url },
+				link.title
+			),
+			subLinks
 		);
 	};
 
