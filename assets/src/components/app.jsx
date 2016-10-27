@@ -4,7 +4,7 @@ import React from 'react';
 import Header from './header';
 import Corners from './corners';
 import Desks from './desks/container';
-import Page from './page';
+import Page from './page/view';
 import Options from './options/modal';
 
 export default () => (
@@ -12,6 +12,7 @@ export default () => (
 		<Header />
 		<Corners />
 		<Desks />
+		<Page />
 	</div>
 )
 
