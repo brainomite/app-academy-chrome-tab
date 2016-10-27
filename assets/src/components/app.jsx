@@ -104,9 +104,7 @@ export default class extends React.Component {
 	render() {
 		return(
 			<div>
-				<Header
-					cityId={this.state.cityId} />
-
+				<Header />
 				<Corners
 					corners={this.props.links.corners} />
 

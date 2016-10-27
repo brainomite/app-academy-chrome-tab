@@ -1,33 +1,20 @@
 import React from 'react';
+import { CORNERS } from 'util/links';
 
-class CornerLink extends React.Component {
-  render() {
-    return (
-      <li>
-        <a href={this.props.url}>{this.props.title}</a>
-      </li>
-    )
-  }
-}
+const links = () => CORNERS.map((link, index) => {
+	const key = `corner-${index}`;
 
-export default class extends React.Component {
-  render() {
-    let links = [];
+	return (
+		<li key={ key }>
+			<a href={ link.url }>{ link.title }</a>
+		</li>
+	);
+});
 
-    this.props.corners.forEach((link, index) => {
-      let key = "corner-" + index;
-
-      links.push(
-        <CornerLink key={key} url={link.url} title={link.title} />
-      );
-    });
-
-    return (
-      <nav>
-        <ul>
-          {links}
-        </ul>
-      </nav>
-    );
-  }
-}
+export default () => (
+	<nav>
+		<ul>
+			{ links() }
+		</ul>
+	</nav>
+)

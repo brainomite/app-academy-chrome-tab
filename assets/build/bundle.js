@@ -19694,8 +19694,7 @@
 				return _react2.default.createElement(
 					'div',
 					null,
-					_react2.default.createElement(_header2.default, {
-						cityId: this.state.cityId }),
+					_react2.default.createElement(_header2.default, null),
 					_react2.default.createElement(_corners2.default, {
 						corners: this.props.links.corners }),
 					_react2.default.createElement(_desks2.default, {
@@ -29968,140 +29967,73 @@
 		value: true
 	});
 	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
 	var _react = __webpack_require__(1);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var _class = function (_React$Component) {
-		_inherits(_class, _React$Component);
-	
-		function _class() {
-			_classCallCheck(this, _class);
-	
-			return _possibleConstructorReturn(this, (_class.__proto__ || Object.getPrototypeOf(_class)).apply(this, arguments));
-		}
-	
-		_createClass(_class, [{
-			key: "render",
-			value: function render() {
-				return _react2.default.createElement(
-					"header",
-					{ className: "header group" },
-					_react2.default.createElement(
-						"h1",
-						{ className: "logo" },
-						_react2.default.createElement(
-							"a",
-							{ href: "http://www.appacademy.io/" },
-							"App Academy"
-						)
-					)
-				);
-			}
-		}]);
-	
-		return _class;
-	}(_react2.default.Component);
-	
-	exports.default = _class;
+	exports.default = function () {
+		return _react2.default.createElement(
+			"header",
+			{ className: "header group" },
+			_react2.default.createElement(
+				"h1",
+				{ className: "logo" },
+				_react2.default.createElement(
+					"a",
+					{ href: "http://www.appacademy.io/" },
+					"App Academy"
+				)
+			)
+		);
+	};
 
 /***/ },
 /* 161 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+		value: true
 	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
 	var _react = __webpack_require__(1);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _links = __webpack_require__(193);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	var links = function links() {
+		return _links.CORNERS.map(function (link, index) {
+			var key = 'corner-' + index;
 	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+			return _react2.default.createElement(
+				'li',
+				{ key: key },
+				_react2.default.createElement(
+					'a',
+					{ href: link.url },
+					link.title
+				)
+			);
+		});
+	};
 	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var CornerLink = function (_React$Component) {
-	  _inherits(CornerLink, _React$Component);
-	
-	  function CornerLink() {
-	    _classCallCheck(this, CornerLink);
-	
-	    return _possibleConstructorReturn(this, (CornerLink.__proto__ || Object.getPrototypeOf(CornerLink)).apply(this, arguments));
-	  }
-	
-	  _createClass(CornerLink, [{
-	    key: "render",
-	    value: function render() {
-	      return _react2.default.createElement(
-	        "li",
-	        null,
-	        _react2.default.createElement(
-	          "a",
-	          { href: this.props.url },
-	          this.props.title
-	        )
-	      );
-	    }
-	  }]);
-	
-	  return CornerLink;
-	}(_react2.default.Component);
-	
-	var _class = function (_React$Component2) {
-	  _inherits(_class, _React$Component2);
-	
-	  function _class() {
-	    _classCallCheck(this, _class);
-	
-	    return _possibleConstructorReturn(this, (_class.__proto__ || Object.getPrototypeOf(_class)).apply(this, arguments));
-	  }
-	
-	  _createClass(_class, [{
-	    key: "render",
-	    value: function render() {
-	      var links = [];
-	
-	      this.props.corners.forEach(function (link, index) {
-	        var key = "corner-" + index;
-	
-	        links.push(_react2.default.createElement(CornerLink, { key: key, url: link.url, title: link.title }));
-	      });
-	
-	      return _react2.default.createElement(
-	        "nav",
-	        null,
-	        _react2.default.createElement(
-	          "ul",
-	          null,
-	          links
-	        )
-	      );
-	    }
-	  }]);
-	
-	  return _class;
-	}(_react2.default.Component);
-	
-	exports.default = _class;
+	exports.default = function () {
+		return _react2.default.createElement(
+			'nav',
+			null,
+			_react2.default.createElement(
+				'ul',
+				null,
+				links()
+			)
+		);
+	};
 
 /***/ },
 /* 162 */
@@ -35510,6 +35442,175 @@
 	}];
 	
 	exports.default = Links;
+
+/***/ },
+/* 193 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	var CORNERS = exports.CORNERS = [{
+		title: "Progress",
+		url: "http://progress.appacademy.io/"
+	}, {
+		title: "Gmail",
+		url: "https://mail.google.com/mail/"
+	}, {
+		title: "Github",
+		url: "https://github.com/"
+	}, {
+		title: "Tumblr",
+		url: "https://www.tumblr.com/"
+	}];
+	
+	var MAIN = exports.MAIN = [{
+		title: "Curriculum",
+		links: [{
+			title: "Ruby",
+			url: "https://github.com/appacademy/ruby-curriculum/blob/master/README.md",
+			start: 11
+		}, {
+			title: "SQL",
+			url: "https://github.com/appacademy/sql-curriculum/blob/master/README.md",
+			start: 31
+		}, {
+			title: "Rails",
+			url: "https://github.com/appacademy/rails-curriculum/blob/master/README.md",
+			start: 41
+		}, {
+			title: "JS",
+			url: "https://github.com/appacademy/js-curriculum/blob/master/README.md",
+			start: 54
+		}, {
+			title: "React",
+			url: "https://github.com/appacademy/react-flux-curriculum/blob/master/README.md",
+			start: 71
+		}, {
+			title: "Full Stack",
+			url: "https://github.com/appacademy/curriculum/blob/master/full-stack-project",
+			start: 81
+		}, {
+			title: "Jobs",
+			url: "https://github.com/appacademy/job-search-curriculum",
+			start: 101
+		}]
+	}, {
+		title: "Course",
+		links: [{
+			title: "Meta",
+			url: "https://github.com/appacademy/meta"
+		}, {
+			title: "Prep",
+			url: "https://github.com/appacademy/assessment-prep"
+		}, {
+			title: "Solutions",
+			url: "https://github.com/appacademy/solutions"
+		}, {
+			title: "Algorithms",
+			url: "https://github.com/appacademy/algorithms-curriculum"
+		}, {
+			title: "Backbone",
+			url: "https://github.com/appacademy/backbone-curriculum/blob/master/README.md"
+		}, {
+			title: "CSS",
+			url: "https://github.com/appacademy/css-demos/blob/gh-pages/README.md"
+		}]
+	}, {
+		title: "Ruby",
+		links: [{
+			title: "API",
+			url: "http://ruby-doc.org/core-2.2.0/",
+			sub: [{
+				title: "Object",
+				url: "http://ruby-doc.org/core-2.2.0/Object.html"
+			}, {
+				title: "String",
+				url: "http://ruby-doc.org/core-2.2.0/String.html"
+			}, {
+				title: "Enumerable",
+				url: "http://ruby-doc.org/core-2.2.0/Enumerable.html"
+			}, {
+				title: "Array",
+				url: "http://ruby-doc.org/core-2.2.0/Array.html"
+			}, {
+				title: "Hash",
+				url: "http://ruby-doc.org/core-2.2.0/Hash.html"
+			}]
+		}, {
+			title: "Rspec",
+			url: "https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers"
+		}]
+	}, {
+		title: "Rails",
+		links: [{
+			title: "API",
+			url: "http://api.rubyonrails.org/"
+		}, {
+			title: "Guides",
+			url: "http://guides.rubyonrails.org/",
+			sub: [{
+				title: "Associate",
+				url: "http://guides.rubyonrails.org/association_basics.html"
+			}, {
+				title: "Query",
+				url: "http://guides.rubyonrails.org/active_record_querying.html"
+			}, {
+				title: "Validate",
+				url: "http://guides.rubyonrails.org/active_record_validations.html"
+			}, {
+				title: "Render",
+				url: "http://guides.rubyonrails.org/layouts_and_rendering.html"
+			}, {
+				title: "Route",
+				url: "http://guides.rubyonrails.org/routing.html"
+			}]
+		}]
+	}, {
+		title: "JS",
+		links: [{
+			title: "JS",
+			url: "https://developer.mozilla.org/en-US/docs/JavaScript"
+		}, {
+			title: "Underscore",
+			url: "http://underscorejs.org/"
+		}, {
+			title: "jQuery",
+			url: "http://api.jquery.com/"
+		}, {
+			title: "Jbuilder",
+			url: "https://github.com/rails/jbuilder#jbuilder"
+		}, {
+			title: "React",
+			url: "https://facebook.github.io/react/docs/getting-started.html"
+		}, {
+			title: "Backbone",
+			url: "http://backbonejs.org/"
+		}]
+	}, {
+		title: "Markup",
+		links: [{
+			title: "HTML (what)",
+			url: "https://developers.whatwg.org/section-index.html#index"
+		}, {
+			title: "HTML (mdn)",
+			url: "https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5/HTML5_element_list"
+		}, {
+			title: "CSS 2.1",
+			url: "http://www.w3.org/TR/CSS21/propidx.html"
+		}, {
+			title: "CSS 3",
+			url: "https://developer.mozilla.org/en-US/docs/CSS/CSS_Reference"
+		}, {
+			title: "Specificity",
+			url: "http://specificity.keegan.st/"
+		}, {
+			title: "W3 Validator",
+			url: "http://validator.w3.org/"
+		}]
+	}];
 
 /***/ }
 /******/ ]);
