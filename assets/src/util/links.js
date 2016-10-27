@@ -17,7 +17,7 @@ export const CORNERS = [
 	}
 ];
 
-export const MAIN = [
+export const MAIN_LINKS = [
 	{
 		title: "Curriculum",
 		links: [

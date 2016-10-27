@@ -30063,7 +30063,7 @@
 		url: "https://www.tumblr.com/"
 	}];
 	
-	var MAIN = exports.MAIN = [{
+	var MAIN_LINKS = exports.MAIN_LINKS = [{
 		title: "Curriculum",
 		links: [{
 			title: "Ruby",
@@ -47412,17 +47412,65 @@
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+		value: true
 	});
 	
 	var _react = __webpack_require__(1);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _links = __webpack_require__(162);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+	var linksListItem = function linksListItem(link, idx) {
+		var subLinks = link.sub ? linksList(link.sub) : null,
+		    key = 'link-' + idx;
+	
+		return _react2.default.createElement(
+			'li',
+			{ key: key },
+			_react2.default.createElement(
+				'a',
+				{ href: link.url },
+				link.title
+			),
+			subLinks
+		);
+	};
+	
+	var linksList = function linksList(links) {
+		return _react2.default.createElement(
+			'ul',
+			null,
+			links.map(linksListItem)
+		);
+	};
+	
+	var pageLinksList = function pageLinksList(_ref, idx) {
+		var title = _ref.title;
+		var links = _ref.links;
+	
+		var key = 'links-list-' + idx;
+	
+		return _react2.default.createElement(
+			'section',
+			{ key: key },
+			_react2.default.createElement(
+				'h2',
+				null,
+				title
+			),
+			linksList(links)
+		);
+	};
+	
 	exports.default = function () {
-	  return _react2.default.createElement('div', null);
+		return _react2.default.createElement(
+			'main',
+			{ className: 'group' },
+			_links.MAIN_LINKS.map(pageLinksList)
+		);
 	};
 
 /***/ }
