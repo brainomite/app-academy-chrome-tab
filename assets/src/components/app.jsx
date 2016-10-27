@@ -1,13 +1,21 @@
 import React from 'react';
-import $ from 'jquery';
+// import $ from 'jquery';
 
 import Header from './header';
 import Corners from './corners';
-import Desks from './desks';
+import Desks from './desks/container';
 import Page from './page';
 import Options from './options/modal';
 
-export default class extends React.Component {
+export default () => (
+	<div>
+		<Header />
+		<Corners />
+		<Desks />
+	</div>
+)
+
+class OldApp extends React.Component {
 	constructor(props) {
 		super(props);
 
@@ -105,9 +113,7 @@ export default class extends React.Component {
 		return(
 			<div>
 				<Header />
-				<Corners
-					corners={this.props.links.corners} />
-
+				<Corners />
 				<Desks
 					podId={this.state.podId}
 					day={this.state.day}
