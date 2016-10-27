@@ -5,8 +5,8 @@ import View from './view';
 const mapStateToProps = state => ({
 	day     : state.day.day,
 	pods    : state.day.pods,
+	podId   : state.podId,
 	visible : state.modals.desks,
-	podId   : state.podId
 });
 
 const mapDispatchToProps = dispatch => ({

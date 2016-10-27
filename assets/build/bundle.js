@@ -30230,8 +30230,8 @@
 		return {
 			day: state.day.day,
 			pods: state.day.pods,
-			visible: state.modals.desks,
-			podId: state.podId
+			podId: state.podId,
+			visible: state.modals.desks
 		};
 	};
 	
@@ -37114,7 +37114,6 @@
 	
 		switch (action.type) {
 			case "SET_CITY_ID":
-				localStorage["cityId"] = action.cityId;
 				return action.cityId;
 			case "CLEAR_CITY_ID":
 				return null;
@@ -37138,8 +37137,8 @@
 	
 		switch (action.type) {
 			case "SET_POD_ID":
-				return action.pod;
-			case "CLEAR_POD":
+				return action.podId;
+			case "CLEAR_POD_ID":
 				return null;
 		}
 		return state;
