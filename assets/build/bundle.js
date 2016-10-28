@@ -25697,7 +25697,7 @@
 
 /***/ },
 /* 225 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	
@@ -25705,8 +25705,28 @@
 		value: true
 	});
 	
+	var _dateStamp = __webpack_require__(257);
+	
+	var _dateStamp2 = _interopRequireDefault(_dateStamp);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var checkLocalDay = function checkLocalDay() {
+		if (!localStorage["day"]) {
+			return null;
+		}
+	
+		var day = JSON.parse(localStorage["day"]);
+	
+		if (day.dateStamp !== (0, _dateStamp2.default)().date) {
+			return null;
+		} else {
+			return day;
+		}
+	};
+	
 	exports.default = function () {
-		var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+		var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : checkLocalDay();
 		var action = arguments[1];
 	
 		switch (action.type) {
@@ -25857,6 +25877,12 @@
 						break;
 					case "CLEAR_DESK":
 						localStorage.removeItem("desk");
+						break;
+					case "SET_DAY":
+						localStorage['day'] = JSON.stringify(action.day);
+						break;
+					case "CLEAR_DAY":
+						localStorage.removeItem("day");
 						break;
 				}
 				return next(action);
@@ -36157,20 +36183,11 @@
 	
 	var _jQuery2 = _interopRequireDefault(_jQuery);
 	
-	var _data = __webpack_require__(255);
+	var _dateStamp = __webpack_require__(257);
+	
+	var _dateStamp2 = _interopRequireDefault(_dateStamp);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var getStamp = function getStamp() {
-		var now = new Date(),
-		    hours = now.getHours(),
-		    dateStamp = _data.DAYS[now.getDay()].substring(0, 3) + ", " + _data.MONTHS[now.getMonth()].substring(0, 3) + " " + now.getDate();
-	
-		return {
-			date: dateStamp,
-			time: dateStamp + ", " + hours
-		};
-	};
 	
 	var getDay = function getDay(_ref, newCityId) {
 		var dispatch = _ref.dispatch;
@@ -36184,7 +36201,7 @@
 		var state = getState();
 		var cityId = newCityId || state.cityId;
 		var podId = state.podId;
-		var stamp = getStamp();
+		var stamp = (0, _dateStamp2.default)();
 		var url = 'http://progress.appacademy.io/api/pairs.json?city_id=' + cityId;
 	
 		_jQuery2.default.getJSON(url, function (data) {
@@ -37397,7 +37414,9 @@
 	// }
 
 /***/ },
-/* 255 */
+/* 255 */,
+/* 256 */,
+/* 257 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -37405,9 +37424,20 @@
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	var DAYS = exports.DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+	var DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 	
-	var MONTHS = exports.MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+	var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+	
+	exports.default = function () {
+		var now = new Date(),
+		    hours = now.getHours(),
+		    dateStamp = DAYS[now.getDay()].substring(0, 3) + ", " + MONTHS[now.getMonth()].substring(0, 3) + " " + now.getDate();
+	
+		return {
+			date: dateStamp,
+			time: dateStamp + ", " + hours
+		};
+	};
 
 /***/ }
 /******/ ]);

@@ -1,19 +1,6 @@
 import $ from 'jQuery';
 
-import { DAYS, MONTHS } from 'util/data';
-
-const getStamp = () => {
-	const now       = new Date(),
-	      hours     = now.getHours(),
-	      dateStamp = DAYS[now.getDay()].substring(0,3) + ", " +
-	                  MONTHS[now.getMonth()].substring(0,3) + " " +
-	                  now.getDate();
-
-	return {
-		date: dateStamp,
-		time: dateStamp + ", " + hours
-	};
-}
+import getStamp from 'util/dateStamp';
 
 const getDay = ({ dispatch, getState }, newCityId) => {
 	if (!newCityId && !getState().cityId) {

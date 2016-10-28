@@ -18,6 +18,12 @@ export default store => next => action => {
 		case "CLEAR_DESK":
 			localStorage.removeItem("desk");
 			break;
+		case "SET_DAY":
+			localStorage['day'] = JSON.stringify(action.day);
+			break;
+		case "CLEAR_DAY":
+			localStorage.removeItem("day");
+			break;
 	}
 	return next(action);
 }
