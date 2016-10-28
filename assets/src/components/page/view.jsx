@@ -1,7 +1,7 @@
 import React from 'react';
 
 import PageHeader from './header/container.js';
-import PageLinks from './links/container.js';
+import PageLinks from './links.js';
 
 export default () => (
 	<div className="wrap">
