@@ -61,26 +61,6 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	document.addEventListener("DOMContentLoaded", function () {
-		// const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday',
-		// 						'Thursday', 'Friday', 'Saturday'];
-	
-		// const months = ['January', 'February', 'March', 'April',
-		// 							'May', 'June', 'July', 'August', 'September',
-		// 							'October', 'November', 'December'];
-	
-		// const d = new Date();
-		// const hours = d.getHours();
-	
-		// let dateStamp;
-		// dateStamp = days[d.getDay()].substring(0,3) + ", ";
-		// dateStamp += months[d.getMonth()].substring(0,3) + " ";
-		// dateStamp += d.getDate();
-	
-		// const Stamp = {
-		// 	date: dateStamp,
-		// 	time: dateStamp + ", " + hours
-		// };
-	
 		_reactDom2.default.render(_react2.default.createElement(_root2.default, null), document.querySelector('#app'));
 	});
 
