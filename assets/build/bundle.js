@@ -60,7 +60,14 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+	var insertDeskHash = function insertDeskHash() {
+		chrome.storage.local.get("deskHash", function (storage) {
+			$("input.desk-hash").val(storage.deskHash);
+		});
+	};
+	
 	document.addEventListener("DOMContentLoaded", function () {
+		insertDeskHash();
 		_reactDom2.default.render(_react2.default.createElement(_root2.default, null), document.querySelector('#app'));
 	});
 
