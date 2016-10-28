@@ -1,9 +1,9 @@
 import React from 'react';
 
+import Page from './page/view';
+import Desks from './desks/container';
 import Header from './header';
 import Corners from './corners';
-import Desks from './desks/container';
-import Page from './page/view';
 import Options from './options/container';
 
 export default ({ showOptions }) => (

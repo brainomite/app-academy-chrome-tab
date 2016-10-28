@@ -14,9 +14,6 @@ const getCityByIp = ({ dispatch, getState }) => {
 			dispatch({ type: "SET_CITY_ID", cityId });
 			dispatch({ type: "CLEAR_POD_ID" });
 	});
-
-	
-	
 }
 
 export default store => next => action => {

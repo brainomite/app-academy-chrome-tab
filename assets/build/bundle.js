@@ -32049,6 +32049,14 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _view = __webpack_require__(242);
+	
+	var _view2 = _interopRequireDefault(_view);
+	
+	var _container = __webpack_require__(240);
+	
+	var _container2 = _interopRequireDefault(_container);
+	
 	var _header = __webpack_require__(238);
 	
 	var _header2 = _interopRequireDefault(_header);
@@ -32056,14 +32064,6 @@
 	var _corners = __webpack_require__(239);
 	
 	var _corners2 = _interopRequireDefault(_corners);
-	
-	var _container = __webpack_require__(240);
-	
-	var _container2 = _interopRequireDefault(_container);
-	
-	var _view = __webpack_require__(242);
-	
-	var _view2 = _interopRequireDefault(_view);
 	
 	var _container3 = __webpack_require__(251);
 	
@@ -32800,7 +32800,11 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var mapStateToProps = function mapStateToProps(state) {
-		return {};
+		return {
+			cityId: state.cityId,
+			podId: state.podId,
+			desk: state.desk
+		};
 	};
 	
 	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
@@ -32813,10 +32817,10 @@
 /* 254 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+		value: true
 	});
 	
 	var _react = __webpack_require__(1);
@@ -32825,8 +32829,91 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	exports.default = function () {
-	  return _react2.default.createElement('div', null);
+	exports.default = function (_ref) {
+		var cityId = _ref.cityId;
+		var podId = _ref.podId;
+		var desk = _ref.desk;
+		return _react2.default.createElement(
+			"form",
+			{ action: "#" },
+			_react2.default.createElement(
+				"h1",
+				null,
+				"Options"
+			),
+			_react2.default.createElement(
+				"div",
+				{ className: "input" },
+				_react2.default.createElement(
+					"div",
+					{ className: "label" },
+					"Location"
+				),
+				_react2.default.createElement(
+					"div",
+					{ id: "input-location" },
+					_react2.default.createElement(
+						"label",
+						null,
+						_react2.default.createElement("input", {
+							type: "radio",
+							htmlName: "location",
+							value: "1",
+							checked: cityId == 1 }),
+						" NYC"
+					),
+					_react2.default.createElement(
+						"label",
+						null,
+						_react2.default.createElement("input", {
+							type: "radio",
+							htmlName: "location",
+							value: "2",
+							checked: cityId == 2 }),
+						" SF"
+					)
+				)
+			),
+			_react2.default.createElement(
+				"div",
+				{ className: "input" },
+				_react2.default.createElement(
+					"label",
+					{ htmlFor: "select-pod" },
+					"Pod"
+				),
+				_react2.default.createElement(
+					"select",
+					{ id: "select-pod", value: podId },
+					'podOptions'
+				)
+			),
+			_react2.default.createElement(
+				"div",
+				{ className: "input" },
+				_react2.default.createElement(
+					"label",
+					{ htmlFor: "input-desk" },
+					"Desk"
+				),
+				_react2.default.createElement("input", {
+					type: "number",
+					value: desk,
+					id: "input-desk" })
+			),
+			_react2.default.createElement(
+				"div",
+				{ className: "input" },
+				_react2.default.createElement(
+					"label",
+					{ htmlFor: "input-password" },
+					"Password"
+				),
+				_react2.default.createElement("input", {
+					type: "password",
+					id: "input-password" })
+			)
+		);
 	};
 	
 	// import React from 'react';

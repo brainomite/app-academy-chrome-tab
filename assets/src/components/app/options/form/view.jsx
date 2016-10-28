@@ -1,6 +1,54 @@
 import React from 'react';
 
-export default () => <div></div>
+export default ({ cityId, podId, desk }) => (
+	<form action="#">
+
+		<h1>Options</h1>
+
+		<div className="input">
+			<div className="label">Location</div>
+			<div id="input-location">
+				<label>
+					<input
+						type="radio"
+						htmlName="location"
+						value="1"
+						checked={ cityId == 1 } /> NYC
+				</label>
+				<label>
+					<input
+						type="radio"
+						htmlName="location"
+						value="2"
+						checked={ cityId == 2 } /> SF
+				</label>
+			</div>
+		</div>
+
+		<div className="input">
+			<label htmlFor="select-pod">Pod</label>
+			<select id="select-pod" value={ podId }>
+				{ 'podOptions' }
+			</select>
+		</div>
+
+		<div className="input">
+			<label htmlFor="input-desk">Desk</label>
+			<input
+				type="number"
+				value={ desk }
+				id="input-desk" />
+		</div>
+
+		<div className="input">
+			<label htmlFor="input-password">Password</label>
+			<input
+				type="password"
+				id="input-password" />
+		</div>
+
+	</form>
+)
 
 
 // import React from 'react';

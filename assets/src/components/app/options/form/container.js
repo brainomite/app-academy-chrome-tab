@@ -2,7 +2,11 @@ import { connect } from 'react-redux';
 
 import View from './view';
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({
+	cityId : state.cityId,
+	podId  : state.podId,
+	desk   : state.desk
+});
 
 const mapDispatchToProps = dispatch => ({});
 

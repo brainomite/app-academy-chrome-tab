@@ -6,4 +6,4 @@ export default () => (
 			<a href="http://www.appacademy.io/">App Academy</a>
 		</h1>
 	</header>
-)
+);
