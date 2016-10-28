@@ -9,7 +9,9 @@ const mapStateToProps = state => ({
 	desk   : state.desk
 });
 
-const mapDispatchToProps = dispatch => ({});
+const mapDispatchToProps = dispatch => ({
+	setPodId : podId => { dispatch({ type: "SET_POD_ID", podId }) }
+});
 
 export default connect(
 	mapStateToProps,

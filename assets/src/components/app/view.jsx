@@ -22,7 +22,7 @@ export default ({ showOptions, getDay, loaded }) => {
 					<span onClick={ showOptions }>Options</span>
 				</footer>
 			</div>
-		) 
+		)
 	} else {
 		getDay();
 		return (<div>Loading...</div>)

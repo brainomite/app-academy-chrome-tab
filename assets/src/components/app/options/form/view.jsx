@@ -1,7 +1,7 @@
 import React from 'react';
 import sjcl from 'sjcl';
 
-export default ({ cityId, podId, desk, pods }) => (
+export default ({ cityId, podId, setPodId, desk, pods }) => (
 	<form action="#">
 
 		<h1>Options</h1>
@@ -28,7 +28,9 @@ export default ({ cityId, podId, desk, pods }) => (
 
 		<div className="input">
 			<label htmlFor="select-pod">Pod</label>
-			<select id="select-pod" value={ podId }>
+			<select id="select-pod" 
+				value={ podId }
+				onChange={ dispatchChange(setPodId) }>
 				{ podOptions(pods) }
 			</select>
 		</div>
@@ -57,6 +59,10 @@ const setDeskHash = () => {
 
 	const deskHash = sjcl.codec.hex.fromBits(sjcl.hash.sha256.hash(deskRecipe));
 	chrome.storage.local.set({ deskHash });
+}
+
+const dispatchChange = dispatch => e => {
+	dispatch(e.target.value);
 }
 
 const podOptions = pods => Object.keys(pods).map(podId => (
