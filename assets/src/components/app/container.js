@@ -2,7 +2,9 @@ import { connect } from 'react-redux';
 
 import View from './view';
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({
+	loaded : (state.day != null)
+});
 
 const mapDispatchToProps = dispatch => ({
 	showOptions : () => { dispatch({ type: "SET_OPTIONS_VISIBLE" }) },

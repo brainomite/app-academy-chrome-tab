@@ -6,18 +6,25 @@ import Header from './header';
 import Corners from './corners';
 import Options from './options/container';
 
-export default ({ showOptions }) => (
-	<div>
-		<Header />
-		<Corners />
+export default ({ showOptions, getDay, loaded }) => {
+	if (loaded) {
+		return (
+			<div>
+				<Header />
+				<Corners />
 
-		<Page />
+				<Page />
 
-		<Desks />
-		<Options />
+				<Desks />
+				<Options />
 
-		<footer>
-			<span onClick={ showOptions }>Options</span>
-		</footer>
-	</div>
-);
+				<footer>
+					<span onClick={ showOptions }>Options</span>
+				</footer>
+			</div>
+		) 
+	} else {
+		getDay();
+		return (<div>Loading...</div>)
+	}
+}

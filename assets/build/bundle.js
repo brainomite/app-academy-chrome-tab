@@ -36181,10 +36181,11 @@
 			return;
 		}
 	
-		var state = getState(),
-		    cityId = newCityId || state.cityId,
-		    stamp = getStamp(),
-		    url = 'http://progress.appacademy.io/api/pairs.json?city_id=' + cityId;
+		var state = getState();
+		var cityId = newCityId || state.cityId;
+		var podId = state.podId;
+		var stamp = getStamp();
+		var url = 'http://progress.appacademy.io/api/pairs.json?city_id=' + cityId;
 	
 		_jQuery2.default.getJSON(url, function (data) {
 			data.dateStamp = stamp.date;
@@ -36234,7 +36235,9 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var mapStateToProps = function mapStateToProps(state) {
-		return {};
+		return {
+			loaded: state.day != null
+		};
 	};
 	
 	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
@@ -36288,24 +36291,36 @@
 	
 	exports.default = function (_ref) {
 		var showOptions = _ref.showOptions;
-		return _react2.default.createElement(
-			'div',
-			null,
-			_react2.default.createElement(_header2.default, null),
-			_react2.default.createElement(_corners2.default, null),
-			_react2.default.createElement(_view2.default, null),
-			_react2.default.createElement(_container2.default, null),
-			_react2.default.createElement(_container4.default, null),
-			_react2.default.createElement(
-				'footer',
+		var getDay = _ref.getDay;
+		var loaded = _ref.loaded;
+	
+		if (loaded) {
+			return _react2.default.createElement(
+				'div',
 				null,
+				_react2.default.createElement(_header2.default, null),
+				_react2.default.createElement(_corners2.default, null),
+				_react2.default.createElement(_view2.default, null),
+				_react2.default.createElement(_container2.default, null),
+				_react2.default.createElement(_container4.default, null),
 				_react2.default.createElement(
-					'span',
-					{ onClick: showOptions },
-					'Options'
+					'footer',
+					null,
+					_react2.default.createElement(
+						'span',
+						{ onClick: showOptions },
+						'Options'
+					)
 				)
-			)
-		);
+			);
+		} else {
+			getDay();
+			return _react2.default.createElement(
+				'div',
+				null,
+				'Loading...'
+			);
+		}
 	};
 
 /***/ },

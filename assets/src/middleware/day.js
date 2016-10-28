@@ -21,10 +21,11 @@ const getDay = ({ dispatch, getState }, newCityId) => {
 		return;
 	}
 
-	const state  = getState(),
-	      cityId = newCityId || state.cityId,
-	      stamp  = getStamp(),
-	      url    = `http://progress.appacademy.io/api/pairs.json?city_id=${cityId}`;
+	const state     = getState(),
+	      cityId    = newCityId || state.cityId,
+	      { podId } = state,
+	      stamp     = getStamp(),
+	      url       = `http://progress.appacademy.io/api/pairs.json?city_id=${cityId}`;
 	
 	$.getJSON(url, data => {
 		data.dateStamp = stamp.date;
