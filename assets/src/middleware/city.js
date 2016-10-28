@@ -10,9 +10,9 @@ const getCityByIp = ({ dispatch, getState }) => {
 
 	$.getJSON("http://ipinfo.io/json", (data) => {
 			const long = parseInt(data.loc.split(",")[1]);
-			const cityId = (long > midLong) ? 1 : 2
-			dispatch({ type: "SET_CITY_ID", cityId });
+			const cityId = (long > midLong) ? 1 : 2;
 			dispatch({ type: "CLEAR_POD_ID" });
+			dispatch({ type: "SET_CITY_ID", cityId });
 	});
 }
 

@@ -54,6 +54,10 @@
 	
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 	
+	var _jQuery = __webpack_require__(233);
+	
+	var _jQuery2 = _interopRequireDefault(_jQuery);
+	
 	var _root = __webpack_require__(158);
 	
 	var _root2 = _interopRequireDefault(_root);
@@ -62,7 +66,7 @@
 	
 	var insertDeskHash = function insertDeskHash() {
 		chrome.storage.local.get("deskHash", function (storage) {
-			$("input.desk-hash").val(storage.deskHash);
+			(0, _jQuery2.default)("input.desk-hash").val(storage.deskHash);
 		});
 	};
 	
@@ -25702,7 +25706,7 @@
 	});
 	
 	exports.default = function () {
-		var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : JSON.parse(localStorage["day"] || "{}");
+		var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
 		var action = arguments[1];
 	
 		switch (action.type) {
@@ -25803,10 +25807,6 @@
 	
 	var _redux = __webpack_require__(166);
 	
-	var _initializer = __webpack_require__(230);
-	
-	var _initializer2 = _interopRequireDefault(_initializer);
-	
 	var _local_storing = __webpack_require__(231);
 	
 	var _local_storing2 = _interopRequireDefault(_local_storing);
@@ -25821,40 +25821,12 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var RootMiddleware = (0, _redux.applyMiddleware)(_initializer2.default, _local_storing2.default, _city2.default, _day2.default);
+	var RootMiddleware = (0, _redux.applyMiddleware)(_local_storing2.default, _city2.default, _day2.default);
 	
 	exports.default = RootMiddleware;
 
 /***/ },
-/* 230 */
-/***/ function(module, exports) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	var initialize = function initialize(_ref) {
-		var dispatch = _ref.dispatch;
-	
-		dispatch({ type: "GET_CITY" });
-		dispatch({ type: "GET_DAY" });
-	};
-	
-	exports.default = function (store) {
-		return function (next) {
-			return function (action) {
-				switch (action.type) {
-					case "INITIALIZE":
-						initialize(store);
-						break;
-				}
-				return next(action);
-			};
-		};
-	};
-
-/***/ },
+/* 230 */,
 /* 231 */
 /***/ function(module, exports) {
 
@@ -25885,12 +25857,6 @@
 						break;
 					case "CLEAR_DESK":
 						localStorage.removeItem("desk");
-						break;
-					case "SET_DAY":
-						localStorage['day'] = JSON.stringify(action.day);
-						break;
-					case "CLEAR_DAY":
-						localStorage.removeItem("day");
 						break;
 				}
 				return next(action);
@@ -25933,8 +25899,8 @@
 		_jQuery2.default.getJSON("http://ipinfo.io/json", function (data) {
 			var long = parseInt(data.loc.split(",")[1]);
 			var cityId = long > midLong ? 1 : 2;
-			dispatch({ type: "SET_CITY_ID", cityId: cityId });
 			dispatch({ type: "CLEAR_POD_ID" });
+			dispatch({ type: "SET_CITY_ID", cityId: cityId });
 		});
 	};
 	
@@ -36181,7 +36147,7 @@
 /* 234 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 		value: true
@@ -36191,12 +36157,14 @@
 	
 	var _jQuery2 = _interopRequireDefault(_jQuery);
 	
+	var _data = __webpack_require__(255);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var getStamp = function getStamp() {
 		var now = new Date(),
 		    hours = now.getHours(),
-		    dateStamp = DAYS[now.getDay()].substring(0, 3) + ", " + MONTHS[now.getMonth()].substring(0, 3) + " " + now.getDate();
+		    dateStamp = _data.DAYS[now.getDay()].substring(0, 3) + ", " + _data.MONTHS[now.getMonth()].substring(0, 3) + " " + now.getDate();
 	
 		return {
 			date: dateStamp,
@@ -36204,32 +36172,30 @@
 		};
 	};
 	
-	var getDay = function getDay(_ref) {
+	var getDay = function getDay(_ref, newCityId) {
 		var dispatch = _ref.dispatch;
 		var getState = _ref.getState;
 	
-		var _getState = getState();
-	
-		var cityId = _getState.cityId;
-		var podId = _getState.podId;
-		var day = _getState.day;
-		var url = "http://progress.appacademy.io/api/pairs.json?city_id=" + cityId;
-		var stamp = getStamp();
-	
-		if (!day || day.dateStamp != stamp.date) {
-			_jQuery2.default.getJSON(url, function (data) {
-				data.dateStamp = stamp.date;
-	
-				if (!podId || !data.pods[podId]) {
-					var _podId = Object.keys(data.pods)[0];
-					dispatch({ type: "SET_POD_ID", podId: _podId });
-				}
-	
-				dispatch({ type: "SET_DAY", day: data });
-			});
+		if (!newCityId && !getState().cityId) {
+			dispatch({ type: "GET_CITY" });
+			return;
 		}
 	
-		return day;
+		var state = getState(),
+		    cityId = newCityId || state.cityId,
+		    stamp = getStamp(),
+		    url = 'http://progress.appacademy.io/api/pairs.json?city_id=' + cityId;
+	
+		_jQuery2.default.getJSON(url, function (data) {
+			data.dateStamp = stamp.date;
+	
+			if (!podId || !data.pods[podId]) {
+				var _podId = Object.keys(data.pods)[0];
+				dispatch({ type: "SET_POD_ID", podId: _podId });
+			}
+	
+			dispatch({ type: "SET_DAY", day: data });
+		});
 	};
 	
 	exports.default = function (store) {
@@ -36238,6 +36204,9 @@
 				switch (action.type) {
 					case "GET_DAY":
 						getDay(store);
+						break;
+					case "SET_CITY_ID":
+						getDay(store, action.cityId);
 						break;
 				}
 				return next(action);
@@ -36272,6 +36241,9 @@
 		return {
 			showOptions: function showOptions() {
 				dispatch({ type: "SET_OPTIONS_VISIBLE" });
+			},
+			getDay: function getDay() {
+				dispatch({ type: "GET_DAY" });
 			}
 		};
 	};
@@ -37408,6 +37380,19 @@
 	// 		);
 	// 	}
 	// }
+
+/***/ },
+/* 255 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	var DAYS = exports.DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+	
+	var MONTHS = exports.MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
 /***/ }
 /******/ ]);

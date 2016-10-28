@@ -1,4 +1,4 @@
-export default (state = JSON.parse(localStorage["day"] || "{}"), action) => {
+export default (state = null, action) => {
 	switch (action.type) {
 		case "SET_DAY":
 			return action.day;

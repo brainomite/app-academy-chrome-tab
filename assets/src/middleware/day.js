@@ -1,5 +1,7 @@
 import $ from 'jQuery';
 
+import { DAYS, MONTHS } from 'util/data';
+
 const getStamp = () => {
 	const now       = new Date(),
 	      hours     = now.getHours(),
@@ -13,31 +15,36 @@ const getStamp = () => {
 	};
 }
 
-const getDay = ({ dispatch, getState }) => {
-	const { cityId, podId, day } = getState(),
-	      url = `http://progress.appacademy.io/api/pairs.json?city_id=${cityId}`,
-	      stamp = getStamp();
-
-	if(!day || day.dateStamp != stamp.date){
-		$.getJSON(url, (data) => {
-			data.dateStamp = stamp.date;
-
-			if(!podId || !data.pods[podId]){
-				const podId = Object.keys(data.pods)[0];
-				dispatch({ type: "SET_POD_ID", podId });
-			}
-
-			dispatch({ type: "SET_DAY", day: data });
-		});
+const getDay = ({ dispatch, getState }, newCityId) => {
+	if (!newCityId && !getState().cityId) {
+		dispatch({ type: "GET_CITY" });
+		return;
 	}
 
-	return day;
+	const state  = getState(),
+	      cityId = newCityId || state.cityId,
+	      stamp  = getStamp(),
+	      url    = `http://progress.appacademy.io/api/pairs.json?city_id=${cityId}`;
+	
+	$.getJSON(url, data => {
+		data.dateStamp = stamp.date;
+
+		if(!podId || !data.pods[podId]){
+			const podId = Object.keys(data.pods)[0];
+			dispatch({ type: "SET_POD_ID", podId });
+		}
+
+		dispatch({ type: "SET_DAY", day: data });
+	});
 }
 
 export default store => next => action => {
 	switch (action.type) {
 		case "GET_DAY":
 			getDay(store);
+			break;
+		case "SET_CITY_ID":
+			getDay(store, action.cityId);
 			break;
 	}
 	return next(action);
