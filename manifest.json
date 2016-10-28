@@ -13,7 +13,6 @@
       "js": ["assets/build/bundle.js"]
     }
   ],
-  "options_page": "options.html",
   "icons": {
              "16": "favicon.ico",
              "48": "assets/img/app-academy-logo-chrome-48.png",

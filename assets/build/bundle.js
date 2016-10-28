@@ -25717,12 +25717,7 @@
 		}
 	
 		var day = JSON.parse(localStorage["day"]);
-	
-		if (day.dateStamp !== (0, _dateStamp2.default)().date) {
-			return null;
-		} else {
-			return day;
-		}
+		return day.dateStamp !== (0, _dateStamp2.default)().date ? null : day;
 	};
 	
 	exports.default = function () {

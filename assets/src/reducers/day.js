@@ -4,12 +4,7 @@ const checkLocalDay = () => {
 	if (!localStorage["day"]) { return null; }
 
 	const day = JSON.parse(localStorage["day"]);
-	
-	if (day.dateStamp !== getStamp().date) {
-		return null;
-	} else {
-		return day;
-	}
+	return (day.dateStamp !== getStamp().date) ? null : day;
 }
 
 export default (state = checkLocalDay(), action) => {
