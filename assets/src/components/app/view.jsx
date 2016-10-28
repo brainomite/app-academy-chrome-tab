@@ -1,21 +1,23 @@
 import React from 'react';
-// import $ from 'jquery';
 
 import Header from './header';
 import Corners from './corners';
 import Desks from './desks/container';
 import Page from './page/view';
-import Options from './options/modal';
+import Options from './options/container';
 
-export default () => (
+export default ({ showOptions }) => (
 	<div>
 		<Header />
 		<Corners />
-		<Desks />
+
 		<Page />
 
+		<Desks />
+		<Options />
+
 		<footer>
-			<span onClick={ () => { console.log('whee!') } }>Options</span>
+			<span onClick={ showOptions }>Options</span>
 		</footer>
 	</div>
 );
