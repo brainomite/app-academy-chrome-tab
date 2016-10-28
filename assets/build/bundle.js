@@ -32105,6 +32105,10 @@
 	};
 	
 	var desksPairList = function desksPairList(pod) {
+		if (!pod) {
+			return;
+		}
+	
 		var pairs = [],
 		    desks = Object.getOwnPropertyNames(pod.pairs);
 	
@@ -32346,6 +32350,12 @@
 		return {
 			setPodId: function setPodId(podId) {
 				dispatch({ type: "SET_POD_ID", podId: podId });
+			},
+			setDesk: function setDesk(desk) {
+				dispatch({ type: "SET_DESK", desk: desk });
+			},
+			setCityId: function setCityId(cityId) {
+				dispatch({ type: "SET_CITY_ID", cityId: cityId });
 			}
 		};
 	};
@@ -32372,11 +32382,15 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+	// Radio button's 'onChange={ () => {} }' is there to supress React's unnecessary warning
+	
 	exports.default = function (_ref) {
 		var cityId = _ref.cityId;
+		var setCityId = _ref.setCityId;
 		var podId = _ref.podId;
 		var setPodId = _ref.setPodId;
 		var desk = _ref.desk;
+		var setDesk = _ref.setDesk;
 		var pods = _ref.pods;
 		return _react2.default.createElement(
 			'form',
@@ -32396,7 +32410,7 @@
 				),
 				_react2.default.createElement(
 					'div',
-					{ id: 'input-location' },
+					{ id: 'input-location', onChange: dispatchChange(setCityId) },
 					_react2.default.createElement(
 						'label',
 						null,
@@ -32404,6 +32418,7 @@
 							type: 'radio',
 							htmlName: 'location',
 							value: '1',
+							onChange: function onChange() {},
 							checked: cityId == 1 }),
 						' NYC'
 					),
@@ -32414,6 +32429,7 @@
 							type: 'radio',
 							htmlName: 'location',
 							value: '2',
+							onChange: function onChange() {},
 							checked: cityId == 2 }),
 						' SF'
 					)
@@ -32445,8 +32461,10 @@
 				),
 				_react2.default.createElement(
 					'select',
-					{ id: 'select-pod', value: desk },
-					deskOptions(pods[podId].pairs)
+					{ id: 'select-pod',
+						value: desk,
+						onChange: dispatchChange(setDesk) },
+					deskOptions(pods[podId] ? pods[podId].pairs : [])
 				)
 			),
 			_react2.default.createElement(
@@ -32459,12 +32477,15 @@
 				),
 				_react2.default.createElement('input', {
 					type: 'password',
-					id: 'input-password' })
+					id: 'input-password',
+					onChange: setDeskHash })
 			)
 		);
 	};
 	
-	var setDeskHash = function setDeskHash() {
+	var setDeskHash = function setDeskHash(e) {
+		localStorage["password"] = e.target.value;
+	
 		var deskRecipe = ["cityId", "desk", "password"].map(function (key) {
 			return localStorage[key];
 		}).reduce(function (a, b) {
@@ -32486,7 +32507,7 @@
 			return _react2.default.createElement(
 				'option',
 				{ value: podId, key: podId },
-				pods[podId].name
+				pods[podId] && pods[podId].name
 			);
 		});
 	};

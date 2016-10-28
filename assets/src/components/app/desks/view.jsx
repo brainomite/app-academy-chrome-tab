@@ -30,6 +30,8 @@ const deskPairLi = (desk, pair, idx) => (
 )
 
 const desksPairList = pod => {
+	if (!pod) { return; }
+
 	const pairs = [],
 	      desks = Object.getOwnPropertyNames(pod.pairs);
 

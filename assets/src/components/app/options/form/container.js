@@ -10,7 +10,9 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-	setPodId : podId => { dispatch({ type: "SET_POD_ID", podId }) }
+	setPodId  : podId => { dispatch({ type: "SET_POD_ID", podId }) },
+	setDesk   : desk => { dispatch({ type: "SET_DESK", desk }) },
+	setCityId : cityId => { dispatch({ type: "SET_CITY_ID", cityId }) }
 });
 
 export default connect(
