@@ -1,12 +1,5 @@
 import React from 'react';
-
-const podOptions = pods => Object.keys(pods).map(podId => (
-	<option value={ podId } key={ podId }>{ pods[podId].name }</option>
-))
-
-const deskOptions = desks => Object.keys(desks).map(deskNum => (
-	<option value={ deskNum } key={ deskNum }>{ deskNum }</option>
-))
+import sjcl from 'sjcl';
 
 export default ({ cityId, podId, desk, pods }) => (
 	<form action="#">
@@ -57,6 +50,22 @@ export default ({ cityId, podId, desk, pods }) => (
 	</form>
 )
 
+const setDeskHash = () => {
+	const deskRecipe = ["cityId", "desk", "password"]
+		.map(key => localStorage[key])
+		.reduce((a, b) => a + b);
+
+	const deskHash = sjcl.codec.hex.fromBits(sjcl.hash.sha256.hash(deskRecipe));
+	chrome.storage.local.set({ deskHash });
+}
+
+const podOptions = pods => Object.keys(pods).map(podId => (
+	<option value={ podId } key={ podId }>{ pods[podId].name }</option>
+))
+
+const deskOptions = desks => Object.keys(desks).map(deskNum => (
+	<option value={ deskNum } key={ deskNum }>{ deskNum }</option>
+))
 
 // import React from 'react';
 // import $ from 'jquery';
