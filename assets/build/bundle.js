@@ -19536,6 +19536,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var store = (0, _configure2.default)();
+	window.store = store;
 	
 	exports.default = function () {
 		return _react2.default.createElement(
@@ -32801,6 +32802,7 @@
 	
 	var mapStateToProps = function mapStateToProps(state) {
 		return {
+			pods: state.day.pods,
 			cityId: state.cityId,
 			podId: state.podId,
 			desk: state.desk
@@ -32829,10 +32831,31 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+	var podOptions = function podOptions(pods) {
+		return Object.keys(pods).map(function (podId) {
+			return _react2.default.createElement(
+				"option",
+				{ value: podId, key: podId },
+				pods[podId].name
+			);
+		});
+	};
+	
+	var deskOptions = function deskOptions(desks) {
+		return Object.keys(desks).map(function (deskNum) {
+			return _react2.default.createElement(
+				"option",
+				{ value: deskNum, key: deskNum },
+				deskNum
+			);
+		});
+	};
+	
 	exports.default = function (_ref) {
 		var cityId = _ref.cityId;
 		var podId = _ref.podId;
 		var desk = _ref.desk;
+		var pods = _ref.pods;
 		return _react2.default.createElement(
 			"form",
 			{ action: "#" },
@@ -32885,7 +32908,7 @@
 				_react2.default.createElement(
 					"select",
 					{ id: "select-pod", value: podId },
-					'podOptions'
+					podOptions(pods)
 				)
 			),
 			_react2.default.createElement(
@@ -32896,10 +32919,11 @@
 					{ htmlFor: "input-desk" },
 					"Desk"
 				),
-				_react2.default.createElement("input", {
-					type: "number",
-					value: desk,
-					id: "input-desk" })
+				_react2.default.createElement(
+					"select",
+					{ id: "select-pod", value: desk },
+					deskOptions(pods[podId].pairs)
+				)
 			),
 			_react2.default.createElement(
 				"div",

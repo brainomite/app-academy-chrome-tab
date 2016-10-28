@@ -1,6 +1,14 @@
 import React from 'react';
 
-export default ({ cityId, podId, desk }) => (
+const podOptions = pods => Object.keys(pods).map(podId => (
+	<option value={ podId } key={ podId }>{ pods[podId].name }</option>
+))
+
+const deskOptions = desks => Object.keys(desks).map(deskNum => (
+	<option value={ deskNum } key={ deskNum }>{ deskNum }</option>
+))
+
+export default ({ cityId, podId, desk, pods }) => (
 	<form action="#">
 
 		<h1>Options</h1>
@@ -28,16 +36,15 @@ export default ({ cityId, podId, desk }) => (
 		<div className="input">
 			<label htmlFor="select-pod">Pod</label>
 			<select id="select-pod" value={ podId }>
-				{ 'podOptions' }
+				{ podOptions(pods) }
 			</select>
 		</div>
 
 		<div className="input">
 			<label htmlFor="input-desk">Desk</label>
-			<input
-				type="number"
-				value={ desk }
-				id="input-desk" />
+			<select id="select-pod" value={ desk }>
+				{ deskOptions(pods[podId].pairs) }
+			</select>
 		</div>
 
 		<div className="input">
