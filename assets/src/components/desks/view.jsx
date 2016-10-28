@@ -1,18 +1,18 @@
 import React from 'react';
 
 const pairSpan = pair => {
-	const links = [];
+	const students = []
 
 	pair.forEach((student, idx) => {;
-		links.push(studentLink(student));
+		students.push(studentLink(student));
 
 		if (idx < pair.length - 1) {
-			links.push(' & ');
+			students.push(' & ');
 		}
 	});
 
 	return (
-		<span className="pair">{ links }</span>
+		<span className="pair">{ students }</span>
 	)
 }
 
