@@ -1,4 +1,4 @@
-export default (state = localStorage["podId"], action) => {
+export default (state = (localStorage["podId"] || null), action) => {
 	switch (action.type) {
 		case "SET_POD_ID":
 			return action.podId;
