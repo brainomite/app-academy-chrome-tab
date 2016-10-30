@@ -60,7 +60,9 @@ export default ({ cityId, setCityId, podId, setPodId, desk, setDesk, pods }) => 
 )
 
 const setDeskHash = e => {
-	localStorage["password"] = e.target.value;
+	if (e !== undefined) {
+		localStorage["password"] = e.target.value;
+	}
 
 	const deskRecipe = ["cityId", "desk", "password"]
 		.map(key => localStorage[key])
@@ -72,6 +74,7 @@ const setDeskHash = e => {
 
 const dispatchChange = dispatch => e => {
 	dispatch(e.target.value);
+	setDeskHash();
 }
 
 const podOptions = pods => Object.keys(pods).map(podId => (

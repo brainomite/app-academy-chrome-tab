@@ -32488,7 +32488,9 @@
 	};
 	
 	var setDeskHash = function setDeskHash(e) {
-		localStorage["password"] = e.target.value;
+		if (e !== undefined) {
+			localStorage["password"] = e.target.value;
+		}
 	
 		var deskRecipe = ["cityId", "desk", "password"].map(function (key) {
 			return localStorage[key];
@@ -32503,6 +32505,7 @@
 	var dispatchChange = function dispatchChange(dispatch) {
 		return function (e) {
 			dispatch(e.target.value);
+			setDeskHash();
 		};
 	};
 	
