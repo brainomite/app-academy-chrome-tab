@@ -50,10 +50,14 @@ const className = visible => (
 	visible ? 'is-active' : ''
 );
 
+const wrapLi = (body, idx) => (
+	<li key={ idx }>{ body }</li>
+);
+
 const podName = pod => {
 	if (!pod) { return; }
 
-	return <h2>{ pod.name } { pod.instructor && "-" } { pod.instructor }</h2>;
+	return <h2>{ pod.name }</h2>
 }
 
 export default ({ hideDesks, day, visible, podId, pods }) => (

@@ -12,8 +12,8 @@ export const CORNERS = [
 		url: "https://github.com/"
 	},
 	{
-		title: "Tumblr",
-		url: "https://www.tumblr.com/"
+		title: "Timer",
+		url: "http://drwrchrds.github.io/pairing_timer/"
 	}
 ];
 

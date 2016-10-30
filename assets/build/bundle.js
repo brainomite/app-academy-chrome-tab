@@ -31854,8 +31854,8 @@
 		title: "Github",
 		url: "https://github.com/"
 	}, {
-		title: "Tumblr",
-		url: "https://www.tumblr.com/"
+		title: "Timer",
+		url: "http://drwrchrds.github.io/pairing_timer/"
 	}];
 	
 	var MAIN_LINKS = exports.MAIN_LINKS = [{
@@ -32127,6 +32127,14 @@
 		return visible ? 'is-active' : '';
 	};
 	
+	var wrapLi = function wrapLi(body, idx) {
+		return _react2.default.createElement(
+			'li',
+			{ key: idx },
+			body
+		);
+	};
+	
 	var podName = function podName(pod) {
 		if (!pod) {
 			return;
@@ -32135,11 +32143,7 @@
 		return _react2.default.createElement(
 			'h2',
 			null,
-			pod.name,
-			' ',
-			pod.instructor && "-",
-			' ',
-			pod.instructor
+			pod.name
 		);
 	};
 	
