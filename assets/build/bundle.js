@@ -31862,27 +31862,27 @@
 		title: "Curriculum",
 		links: [{
 			title: "Ruby",
-			url: "https://github.com/appacademy/ruby-curriculum/blob/master/README.md",
+			url: "https://github.com/appacademy/curriculum/blob/master/ruby/README.md",
 			start: 11
 		}, {
 			title: "SQL",
-			url: "https://github.com/appacademy/sql-curriculum/blob/master/README.md",
+			url: "https://github.com/appacademy/curriculum/blob/master/sql/README.md",
 			start: 31
 		}, {
 			title: "Rails",
-			url: "https://github.com/appacademy/rails-curriculum/blob/master/README.md",
+			url: "https://github.com/appacademy/curriculum/blob/master/rails/README.md",
 			start: 41
 		}, {
 			title: "JS",
-			url: "https://github.com/appacademy/js-curriculum/blob/master/README.md",
+			url: "https://github.com/appacademy/curriculum/blob/master/javascript/README.md",
 			start: 54
 		}, {
 			title: "React",
-			url: "https://github.com/appacademy/react-flux-curriculum/blob/master/README.md",
+			url: "https://github.com/appacademy/curriculum/blob/master/react/README.md",
 			start: 71
 		}, {
 			title: "Full Stack",
-			url: "https://github.com/appacademy/curriculum/blob/master/full-stack-project",
+			url: "https://github.com/appacademy/curriculum/blob/master/full-stack-project/README.md",
 			start: 81
 		}, {
 			title: "Jobs",
@@ -37066,11 +37066,11 @@
 	
 	var _city2 = _interopRequireDefault(_city);
 	
-	var _desk = __webpack_require__(238);
+	var _desk = __webpack_require__(237);
 	
 	var _desk2 = _interopRequireDefault(_desk);
 	
-	var _day = __webpack_require__(237);
+	var _day = __webpack_require__(238);
 	
 	var _day2 = _interopRequireDefault(_day);
 	
@@ -37179,6 +37179,29 @@
 
 /***/ },
 /* 237 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	exports.default = function (store) {
+		return function (next) {
+			return function (action) {
+				switch (action.type) {
+					case "SET_POD_ID":
+						store.dispatch({ type: "SET_DESK", desk: "1" });
+						break;
+				}
+				return next(action);
+			};
+		};
+	};
+
+/***/ },
+/* 238 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37233,29 +37256,6 @@
 						break;
 					case "SET_CITY_ID":
 						getDay(store, action.cityId);
-						break;
-				}
-				return next(action);
-			};
-		};
-	};
-
-/***/ },
-/* 238 */
-/***/ function(module, exports) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	
-	exports.default = function (store) {
-		return function (next) {
-			return function (action) {
-				switch (action.type) {
-					case "SET_POD_ID":
-						store.dispatch({ type: "SET_DESK", desk: "1" });
 						break;
 				}
 				return next(action);

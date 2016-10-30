@@ -23,32 +23,32 @@ export const MAIN_LINKS = [
 		links: [
 			{
 				title: "Ruby",
-				url: "https://github.com/appacademy/ruby-curriculum/blob/master/README.md",
+				url: "https://github.com/appacademy/curriculum/blob/master/ruby/README.md",
 				start: 11
 			},
 			{
 				title: "SQL",
-				url: "https://github.com/appacademy/sql-curriculum/blob/master/README.md",
+				url: "https://github.com/appacademy/curriculum/blob/master/sql/README.md",
 				start: 31
 			},
 			{
 				title: "Rails",
-				url: "https://github.com/appacademy/rails-curriculum/blob/master/README.md",
+				url: "https://github.com/appacademy/curriculum/blob/master/rails/README.md",
 				start: 41
 			},
 			{
 				title: "JS",
-				url: "https://github.com/appacademy/js-curriculum/blob/master/README.md",
+				url: "https://github.com/appacademy/curriculum/blob/master/javascript/README.md",
 				start: 54
 			},
 			{
 				title: "React",
-				url: "https://github.com/appacademy/react-flux-curriculum/blob/master/README.md",
+				url: "https://github.com/appacademy/curriculum/blob/master/react/README.md",
 				start: 71
 			},
 			{
 				title: "Full Stack",
-				url: "https://github.com/appacademy/curriculum/blob/master/full-stack-project",
+				url: "https://github.com/appacademy/curriculum/blob/master/full-stack-project/README.md",
 				start: 81
 			},
 			{
