@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 var smile = function(){
   var $html = $("<b>:)</b>");
 

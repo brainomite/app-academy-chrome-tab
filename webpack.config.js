@@ -3,7 +3,7 @@ const webpack = require('webpack')
 
 module.exports = {
 	context: __dirname,
-	entry: "./assets/src/entry.jsx",
+	entry: ["./assets/src/entry.jsx", "./assets/src/tools.js"],
 	output: {
 		path: path.resolve('./assets/build'),
 		filename: "bundle.js"
