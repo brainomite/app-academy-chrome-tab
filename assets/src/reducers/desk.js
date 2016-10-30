@@ -1,4 +1,4 @@
-export default (state = localStorage['desk'], action) => {
+export default (state = (localStorage['desk'] || null), action) => {
 	switch (action.type) {
 		case "SET_DESK":
 			return action.desk;

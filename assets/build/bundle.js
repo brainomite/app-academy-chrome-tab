@@ -36994,7 +36994,7 @@
 	});
 	
 	exports.default = function () {
-		var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : localStorage['desk'];
+		var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : localStorage['desk'] || null;
 		var action = arguments[1];
 	
 		switch (action.type) {
@@ -37206,7 +37206,7 @@
 			return function (action) {
 				switch (action.type) {
 					case "SET_POD_ID":
-						store.dispatch({ type: "SET_DESK", desk: "1" });
+						store.dispatch({ type: "CLEAR_DESK" });
 						break;
 				}
 				return next(action);
