@@ -1,9 +1,7 @@
 import React from 'react';
-import sjcl from 'sjcl';
 
 // Radio button's 'onChange={ () => {} }' is there to supress React's unnecessary warning
-
-export default ({ cityId, setCityId, podId, setPodId, desk, setDesk, pods }) => (
+export default ({ cityId, setCityId, podId, setPodId, desk, setDesk, pods, setPassword }) => (
 	<form action="#">
 
 		<h1>Options</h1>
@@ -53,28 +51,14 @@ export default ({ cityId, setCityId, podId, setPodId, desk, setDesk, pods }) => 
 			<input
 				type="password"
 				id="input-password"
-				onChange={ setDeskHash } />
+				onChange={ dispatchChange(setPassword) } />
 		</div>
 
 	</form>
 )
 
-const setDeskHash = e => {
-	if (e !== undefined) {
-		localStorage["password"] = e.target.value;
-	}
-
-	const deskRecipe = ["cityId", "desk", "password"]
-		.map(key => localStorage[key])
-		.reduce((a, b) => a + b);
-
-	const deskHash = sjcl.codec.hex.fromBits(sjcl.hash.sha256.hash(deskRecipe));
-	chrome.storage.local.set({ deskHash });
-}
-
 const dispatchChange = dispatch => e => {
 	dispatch(e.target.value);
-	setDeskHash();
 }
 
 const podOptions = pods => Object.keys(pods).map(podId => (
