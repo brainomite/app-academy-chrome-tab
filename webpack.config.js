@@ -1,6 +1,8 @@
 const path = require("path");
 const webpack = require('webpack')
 
+const PROD = JSON.parse(process.env.PROD_ENV || 'false');
+
 module.exports = {
 	context: __dirname,
 	entry: ["./assets/src/entry.jsx"],
@@ -25,7 +27,7 @@ module.exports = {
 		root: path.resolve('./assets/src'),
 		extensions: ["", ".js", ".jsx" ]
 	},
-	plugins: [
+	plugins: PROD ? [
 		new webpack.DefinePlugin({
 			'process.env':{
 				'NODE_ENV': JSON.stringify('production')
@@ -33,8 +35,8 @@ module.exports = {
 		}),
 		new webpack.optimize.UglifyJsPlugin({
 			compress:{
-				warnings: true
+				warnings: false
 			}
 		})
-	]
+	] : []
 };
