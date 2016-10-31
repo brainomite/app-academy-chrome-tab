@@ -1,5 +1,5 @@
 const path = require("path");
-const webpack = require('webpack')
+const webpack = require('webpack');
 
 const PROD = JSON.parse(process.env.PROD_ENV || 'false');
 

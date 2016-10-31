@@ -181,8 +181,8 @@ export const MAIN_LINKS = [
 				url: "https://facebook.github.io/react/docs/getting-started.html",
 			},
 			{
-				title: "Backbone",
-				url: "http://backbonejs.org/",
+				title: "Redux",
+				url: "http://redux.js.org/",
 			}
 		]
 	},
