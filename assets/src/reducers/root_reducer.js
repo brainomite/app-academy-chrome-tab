@@ -9,14 +9,14 @@ import modalsDesks from './modals/desks';
 import modalsOptions from './modals/options';
 
 const RootReducer = combineReducers({
-	cityId,
-	podId,
-	day,
-	desk,
-	modals: combineReducers({
-		desks: modalsDesks,
-		options: modalsOptions
-	})
+  cityId,
+  podId,
+  day,
+  desk,
+  modals: combineReducers({
+    desks: modalsDesks,
+    options: modalsOptions
+  })
 });
 
 export default RootReducer;

@@ -8,7 +8,7 @@ const store = configureStore();
 window.store = store;
 
 export default () => (
-	<Provider store={ store }>
-		<App />
-	</Provider>
+  <Provider store={ store }>
+    <App />
+  </Provider>
 );

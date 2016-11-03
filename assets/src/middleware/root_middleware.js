@@ -6,10 +6,10 @@ import desk from './desk';
 import day from './day';
 
 const RootMiddleware = applyMiddleware(
-	localStoring,
-	city,
-	day,
-	desk,
+  localStoring,
+  city,
+  day,
+  desk,
 );
 
 export default RootMiddleware;
