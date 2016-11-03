@@ -1,9 +1,4 @@
-var Links = {
-  corners: [],
-  main: []
-};
-
-Links.corners = [
+export const CORNERS = [
   {
     title: "Progress",
     url: "http://progress.appacademy.io/"
@@ -17,43 +12,43 @@ Links.corners = [
     url: "https://github.com/"
   },
   {
-    title: "Tumblr",
-    url: "https://www.tumblr.com/"
+    title: "Timer",
+    url: "http://drwrchrds.github.io/pairing_timer/"
   }
 ];
 
-Links.main = [
+export const MAIN_LINKS = [
   {
     title: "Curriculum",
     links: [
       {
         title: "Ruby",
-        url: "https://github.com/appacademy/ruby-curriculum/blob/master/README.md",
+        url: "https://github.com/appacademy/curriculum/blob/master/ruby/README.md",
         start: 11
       },
       {
         title: "SQL",
-        url: "https://github.com/appacademy/sql-curriculum/blob/master/README.md",
+        url: "https://github.com/appacademy/curriculum/blob/master/sql/README.md",
         start: 31
       },
       {
         title: "Rails",
-        url: "https://github.com/appacademy/rails-curriculum/blob/master/README.md",
+        url: "https://github.com/appacademy/curriculum/blob/master/rails/README.md",
         start: 41
       },
       {
         title: "JS",
-        url: "https://github.com/appacademy/js-curriculum/blob/master/README.md",
+        url: "https://github.com/appacademy/curriculum/blob/master/javascript/README.md",
         start: 54
       },
       {
         title: "React",
-        url: "https://github.com/appacademy/react-flux-curriculum/blob/master/README.md",
+        url: "https://github.com/appacademy/curriculum/blob/master/react/README.md",
         start: 71
       },
       {
         title: "Full Stack",
-        url: "https://github.com/appacademy/curriculum/blob/master/full-stack-project",
+        url: "https://github.com/appacademy/curriculum/blob/master/full-stack-project/README.md",
         start: 81
       },
       {
@@ -186,8 +181,8 @@ Links.main = [
         url: "https://facebook.github.io/react/docs/getting-started.html",
       },
       {
-        title: "Backbone",
-        url: "http://backbonejs.org/",
+        title: "Redux",
+        url: "http://redux.js.org/",
       }
     ]
   },
@@ -221,5 +216,3 @@ Links.main = [
     ]
   }
 ];
-
-export default Links;
