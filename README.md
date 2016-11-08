@@ -1,6 +1,8 @@
 # App Academy Chrome Tab
 
-This is a browser extension to open a new tab with a page of links to commonly used resources, as well as App Academy repos.
+This is a browser extension to open a new tab with a page of links to commonly used resources, as well as App Academy repos. Used in combination with the [Progress Tracker][progress-tracker] to enforce checking in from assigned desk.
+
+[progress-tracker]: https://github.com/appacademy/progress-tracker
 
 ## Installation
 
