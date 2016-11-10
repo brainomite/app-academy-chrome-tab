@@ -14,8 +14,7 @@
   "scripts": {
     "postinstall": "./node_modules/.bin/webpack",
     "webpack": "webpack -w",
-    "sass": "sass -w ./assets/src/scss/head.scss:./assets/css/main.css",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "sass": "sass -w ./assets/src/scss/head.scss:./assets/css/main.css"
   },
   "repository": {
     "type": "git",
