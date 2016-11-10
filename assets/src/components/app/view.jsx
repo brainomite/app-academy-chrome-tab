@@ -9,15 +9,15 @@ import Timer from './timer/view';
 export default ({ showOptions, getDay, loaded }) => {
   if (loaded) {
     return (
-      <div>
+      <main>
         <Header />
         <DeskInfo />
         <Links />
-        <div>
+        <div className="pair-tools">
           <Timer />
           <Curriculum />
         </div>
-      </div>
+      </main>
     )
   } else {
     getDay();

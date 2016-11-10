@@ -1,0 +1,19 @@
+.header {
+  position: relative;
+  background: #f00;
+  text-align: center;
+  z-index: 4;
+  min-height: 55px;
+
+  .logo {
+    display: inline-block;
+  }
+
+  .logo a {
+    display: block;
+    padding: 15px;
+    font-weight: 400;
+    font-size: 25px;
+    color: #fff;
+  }
+}

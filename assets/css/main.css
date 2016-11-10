@@ -1,3 +1,114 @@
+html, body, div, h1, h2, section, ul,
+li, a, form, label, input, button, img, strong,
+header, footer, main, nav, p, strong, em, select {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  vertical-align: baseline;
+  background: transparent;
+  box-sizing: border-box;
+  color: inherit;
+  background: transparent; }
 
+@font-face {
+  font-family: "Inconsolata";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Inconsolata"), url("../type/Inconsolata-Regular.ttf") format("truetype"); }
+@font-face {
+  font-family: "Inconsolata";
+  font-style: normal;
+  font-weight: 700;
+  src: local("Inconsolata-Bold"), url("../type/Inconsolata-Bold.ttf") format("truetype"); }
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Montserrat-Regular"), url("../type/Montserrat-Regular.ttf") format("truetype"); }
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  src: local("Montserrat-Bold"), url("../type/Montserrat-Bold.ttf") format("truetype"); }
+html {
+  height: 100%; }
+
+ul {
+  list-style: none; }
+
+a {
+  text-decoration: none; }
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto; }
+
+strong {
+  font-weight: bold; }
+
+label {
+  display: block; }
+
+body {
+  height: 100%;
+  font-size: 18px;
+  line-height: 1.0;
+  font-family: "Inconsolata", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #222;
+  background: #fff; }
+
+h1, h2 {
+  font-family: "Montserrat";
+  font-weight: 700; }
+
+.group:after {
+  content: "";
+  display: block;
+  clear: both; }
+
+#app {
+  height: 100%; }
+
+main {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; }
+
+.pair-tools {
+  flex-grow: 1;
+  display: flex; }
+
+.curriculum {
+  height: 100%;
+  flex-grow: 1; }
+
+.desk-info {
+  height: 165px; }
+
+.header {
+  position: relative;
+  background: #f00;
+  text-align: center;
+  z-index: 4;
+  min-height: 55px; }
+  .header .logo {
+    display: inline-block; }
+  .header .logo a {
+    display: block;
+    padding: 15px;
+    font-weight: 400;
+    font-size: 25px;
+    color: #fff; }
+
+.links {
+  height: 55px; }
+
+.timer {
+  height: 100%;
+  flex-grow: 1; }
 
 /*# sourceMappingURL=main.css.map */
