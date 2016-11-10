@@ -61,9 +61,9 @@
 	
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 	
-	var _jQuery = __webpack_require__(160);
+	var _jquery = __webpack_require__(160);
 	
-	var _jQuery2 = _interopRequireDefault(_jQuery);
+	var _jquery2 = _interopRequireDefault(_jquery);
 	
 	var _root = __webpack_require__(161);
 	
@@ -72,7 +72,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var smile = function smile() {
-	  var $html = (0, _jQuery2.default)("<b>:)</b>");
+	  var $html = (0, _jquery2.default)("<b>:)</b>");
 	
 	  $html.css({
 	    "display": "block",
@@ -83,12 +83,12 @@
 	    "font-family": "Inconsolata, monospace"
 	  });
 	
-	  (0, _jQuery2.default)("body").append($html);
+	  (0, _jquery2.default)("body").append($html);
 	};
 	
 	var insertDeskHash = function insertDeskHash() {
 	  chrome.storage.local.get("deskHash", function (storage) {
-	    var $input = (0, _jQuery2.default)("input.desk-hash");
+	    var $input = (0, _jquery2.default)("input.desk-hash");
 	    if ($input.length) {
 	      $input.val(storage.deskHash);
 	      smile();
@@ -32133,11 +32133,11 @@
 	
 	var _city2 = _interopRequireDefault(_city);
 	
-	var _desk = __webpack_require__(227);
+	var _desk = __webpack_require__(228);
 	
 	var _desk2 = _interopRequireDefault(_desk);
 	
-	var _day = __webpack_require__(228);
+	var _day = __webpack_require__(229);
 	
 	var _day2 = _interopRequireDefault(_day);
 	
@@ -36303,9 +36303,9 @@
 	  value: true
 	});
 	
-	var _jQuery = __webpack_require__(160);
+	var _jquery = __webpack_require__(160);
 	
-	var _jQuery2 = _interopRequireDefault(_jQuery);
+	var _jquery2 = _interopRequireDefault(_jquery);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -36324,7 +36324,7 @@
 	  var nycLong = -74;
 	  var midLong = parseInt((sfLong + nycLong) / 2);
 	
-	  _jQuery2.default.getJSON("http://ipinfo.io/json", function (data) {
+	  _jquery2.default.getJSON("http://ipinfo.io/json", function (data) {
 	    var long = parseInt(data.loc.split(",")[1]);
 	    var cityId = long > midLong ? 1 : 2;
 	    dispatch({ type: "CLEAR_POD_ID" });
@@ -36346,7 +36346,8 @@
 	};
 
 /***/ },
-/* 227 */
+/* 227 */,
+/* 228 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -36369,7 +36370,7 @@
 	};
 
 /***/ },
-/* 228 */
+/* 229 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36378,9 +36379,9 @@
 	  value: true
 	});
 	
-	var _jQuery = __webpack_require__(160);
+	var _jquery = __webpack_require__(160);
 	
-	var _jQuery2 = _interopRequireDefault(_jQuery);
+	var _jquery2 = _interopRequireDefault(_jquery);
 	
 	var _dateStamp = __webpack_require__(197);
 	
@@ -36404,7 +36405,7 @@
 	      url = 'http://progress.appacademy.io/api/pairs.json?city_id=' + cityId;
 	
 	
-	  _jQuery2.default.getJSON(url, function (data) {
+	  _jquery2.default.getJSON(url, function (data) {
 	    data.dateStamp = stamp.date;
 	
 	    if (!podId || !data.pods[podId]) {

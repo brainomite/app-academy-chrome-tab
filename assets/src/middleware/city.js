@@ -1,4 +1,4 @@
-import $ from 'jQuery';
+import $ from 'jquery';
 
 const getCityByIp = ({ dispatch, getState }) => {
   const { cityId } = getState();
