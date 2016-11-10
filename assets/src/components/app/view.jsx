@@ -1,26 +1,22 @@
 import React from 'react';
 
-import Page from './page/view';
-import Desks from './desks/container';
-import Header from './header';
-import Corners from './corners';
-import Options from './options/container';
+import Curriculum from './curriculum/view';
+import DeskInfo from './desk_info/view';
+import Header from './header/view';
+import Links from './links/view';
+import Timer from './timer/view';
 
 export default ({ showOptions, getDay, loaded }) => {
   if (loaded) {
     return (
       <div>
         <Header />
-        <Corners />
-
-        <Page />
-
-        <Desks />
-        <Options />
-
-        <footer>
-          <span onClick={ showOptions }>Options</span>
-        </footer>
+        <DeskInfo />
+        <Links />
+        <div>
+          <Timer />
+          <Curriculum />
+        </div>
       </div>
     )
   } else {
