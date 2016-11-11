@@ -1,5 +1,6 @@
+import { MINS_IN_SESSION } from 'util/settings';
+
 const DASH_LENGTH = 1509;
-const MINS_IN_SESSION = 15;
 
 export const setDashFromSec = (s = 0) => dashStyles(degToDashoffset(secondsToDeg(s)));
 export const setDashFromMin = (m = 0) => dashStyles(degToDashoffset(minutesToDeg(m)));

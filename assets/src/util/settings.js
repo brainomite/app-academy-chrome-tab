@@ -1,0 +1,1 @@
+export const MINS_IN_SESSION = 15;

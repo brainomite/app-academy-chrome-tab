@@ -31923,6 +31923,18 @@
 	
 	var _options2 = _interopRequireDefault(_options);
 	
+	var _playing = __webpack_require__(231);
+	
+	var _playing2 = _interopRequireDefault(_playing);
+	
+	var _seconds = __webpack_require__(232);
+	
+	var _seconds2 = _interopRequireDefault(_seconds);
+	
+	var _minutes = __webpack_require__(233);
+	
+	var _minutes2 = _interopRequireDefault(_minutes);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var RootReducer = (0, _redux.combineReducers)({
@@ -31933,6 +31945,11 @@
 	  modals: (0, _redux.combineReducers)({
 	    desks: _desks2.default,
 	    options: _options2.default
+	  }),
+	  timer: (0, _redux.combineReducers)({
+	    playing: _playing2.default,
+	    seconds: _seconds2.default,
+	    minutes: _minutes2.default
 	  })
 	});
 	
@@ -36444,15 +36461,18 @@
 
 /***/ },
 /* 229 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
+	exports.setDashFromMin = exports.setDashFromSec = undefined;
+	
+	var _settings = __webpack_require__(230);
+	
 	var DASH_LENGTH = 1509;
-	var MINS_IN_SESSION = 15;
 	
 	var setDashFromSec = exports.setDashFromSec = function setDashFromSec() {
 		var s = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
@@ -36469,7 +36489,7 @@
 	};
 	var minutesToDeg = function minutesToDeg() {
 		var s = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
-		return 360 * (s / MINS_IN_SESSION);
+		return 360 * (s / _settings.MINS_IN_SESSION);
 	};
 	
 	var degToDashoffset = function degToDashoffset(deg) {
@@ -36481,6 +36501,92 @@
 			strokeDashoffset: strokeDashoffset,
 			strokeDasharray: DASH_LENGTH
 		};
+	};
+
+/***/ },
+/* 230 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var MINS_IN_SESSION = exports.MINS_IN_SESSION = 15;
+
+/***/ },
+/* 231 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	exports.default = function () {
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+	  var action = arguments[1];
+	
+	  switch (action.type) {
+	    case "PLAY":
+	      return true;
+	    case "PAUSE":
+	      return false;
+	  }
+	  return state;
+	};
+
+/***/ },
+/* 232 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	exports.default = function () {
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+	  var action = arguments[1];
+	
+	  switch (action.type) {
+	    case "RESET_SECONDS":
+	      return 0;
+	    case "TICK_SECONDS":
+	      return (state + 1) % 60;
+	    case "SET_SECONDS":
+	      return action.seconds;
+	  }
+	  return state;
+	};
+
+/***/ },
+/* 233 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _settings = __webpack_require__(230);
+	
+	exports.default = function () {
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+	  var action = arguments[1];
+	
+	  switch (action.type) {
+	    case "RESET_MINUTES":
+	      return 0;
+	    case "TICK_MINUTES":
+	      return (state + 1) % _settings.MINS_IN_SESSION;
+	    case "SET_MINUTES":
+	      return action.minutes;
+	  }
+	  return state;
 	};
 
 /***/ }

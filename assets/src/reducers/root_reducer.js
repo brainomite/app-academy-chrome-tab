@@ -8,6 +8,10 @@ import desk from './desk';
 import modalsDesks from './modals/desks';
 import modalsOptions from './modals/options';
 
+import timerPlaying from './timer/playing';
+import timerSeconds from './timer/seconds';
+import timerMinutes from './timer/minutes';
+
 const RootReducer = combineReducers({
   cityId,
   podId,
@@ -16,6 +20,11 @@ const RootReducer = combineReducers({
   modals: combineReducers({
     desks: modalsDesks,
     options: modalsOptions
+  }),
+  timer: combineReducers({
+    playing: timerPlaying,
+    seconds: timerSeconds,
+    minutes: timerMinutes
   })
 });
 
