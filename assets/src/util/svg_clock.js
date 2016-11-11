@@ -1,16 +1,23 @@
 import { MINS_IN_SESSION } from 'util/settings';
 
-const DASH_LENGTH = 1509;
+export const setDashFromSec = (rad, s) => {
+	const maxLength = rad * Math.PI * 2;
 
-export const setDashFromSec = (s = 0) => dashStyles(degToDashoffset(secondsToDeg(s)));
-export const setDashFromMin = (m = 0) => dashStyles(degToDashoffset(minutesToDeg(m)));
+	return {
+		strokeDashoffset : degToDashoffset(maxLength, secondsToDeg(s)),
+		strokeDasharray  : maxLength
+	}
+}
+export const setDashFromMin = (rad, m) => {
+	const maxLength = rad * Math.PI * 2;
+
+	return {
+		strokeDashoffset : degToDashoffset(maxLength, minutesToDeg(m)),
+		strokeDasharray  : maxLength
+	}
+}
 
 const secondsToDeg = (s = 0) => 360 * (s / 60);
 const minutesToDeg = (s = 0) => 360 * (s / MINS_IN_SESSION);
 
-const degToDashoffset = deg => DASH_LENGTH - (DASH_LENGTH * (deg / 360));
-
-const dashStyles = strokeDashoffset => ({
-	strokeDashoffset,
-	strokeDasharray: DASH_LENGTH
-});
+const degToDashoffset = (maxLength, deg) => maxLength - (maxLength * (deg / 360));

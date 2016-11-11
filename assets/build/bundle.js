@@ -31846,6 +31846,9 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+	var SECONDS_RAD = 220;
+	var MINUTES_RAD = 240;
+	
 	exports.default = function () {
 		return _react2.default.createElement(
 			'div',
@@ -31853,7 +31856,8 @@
 			_react2.default.createElement(
 				'svg',
 				{ viewBox: '0 0 500 500', width: '500px', height: '500px', xmlns: 'http://www.w3.org/2000/svg' },
-				_react2.default.createElement('circle', { cx: '250', cy: '250', r: '240', style: (0, _svg_clock.setDashFromSec)(1) })
+				_react2.default.createElement('circle', { cx: '250', cy: '250', r: SECONDS_RAD, style: (0, _svg_clock.setDashFromSec)(SECONDS_RAD, 1) }),
+				_react2.default.createElement('circle', { cx: '250', cy: '250', r: MINUTES_RAD, style: (0, _svg_clock.setDashFromMin)(MINUTES_RAD, 1) })
 			)
 		);
 	};
@@ -36472,15 +36476,21 @@
 	
 	var _settings = __webpack_require__(230);
 	
-	var DASH_LENGTH = 1509;
+	var setDashFromSec = exports.setDashFromSec = function setDashFromSec(rad, s) {
+		var maxLength = rad * Math.PI * 2;
 	
-	var setDashFromSec = exports.setDashFromSec = function setDashFromSec() {
-		var s = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
-		return dashStyles(degToDashoffset(secondsToDeg(s)));
+		return {
+			strokeDashoffset: degToDashoffset(maxLength, secondsToDeg(s)),
+			strokeDasharray: maxLength
+		};
 	};
-	var setDashFromMin = exports.setDashFromMin = function setDashFromMin() {
-		var m = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
-		return dashStyles(degToDashoffset(minutesToDeg(m)));
+	var setDashFromMin = exports.setDashFromMin = function setDashFromMin(rad, m) {
+		var maxLength = rad * Math.PI * 2;
+	
+		return {
+			strokeDashoffset: degToDashoffset(maxLength, minutesToDeg(m)),
+			strokeDasharray: maxLength
+		};
 	};
 	
 	var secondsToDeg = function secondsToDeg() {
@@ -36492,15 +36502,8 @@
 		return 360 * (s / _settings.MINS_IN_SESSION);
 	};
 	
-	var degToDashoffset = function degToDashoffset(deg) {
-		return DASH_LENGTH - DASH_LENGTH * (deg / 360);
-	};
-	
-	var dashStyles = function dashStyles(strokeDashoffset) {
-		return {
-			strokeDashoffset: strokeDashoffset,
-			strokeDasharray: DASH_LENGTH
-		};
+	var degToDashoffset = function degToDashoffset(maxLength, deg) {
+		return maxLength - maxLength * (deg / 360);
 	};
 
 /***/ },
