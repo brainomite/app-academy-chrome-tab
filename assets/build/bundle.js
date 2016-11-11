@@ -31701,9 +31701,9 @@
 	
 	var _view8 = _interopRequireDefault(_view7);
 	
-	var _view9 = __webpack_require__(191);
+	var _container = __webpack_require__(235);
 	
-	var _view10 = _interopRequireDefault(_view9);
+	var _container2 = _interopRequireDefault(_container);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -31722,7 +31722,7 @@
 	      _react2.default.createElement(
 	        'div',
 	        { className: 'pair-tools' },
-	        _react2.default.createElement(_view10.default, null),
+	        _react2.default.createElement(_container2.default, null),
 	        _react2.default.createElement(_view2.default, null)
 	      )
 	    );
@@ -31846,18 +31846,20 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var SECONDS_RAD = 220;
+	var SECONDS_RAD = 245;
 	var MINUTES_RAD = 240;
 	
-	exports.default = function () {
+	exports.default = function (_ref) {
+		var minutes = _ref.minutes,
+		    seconds = _ref.seconds;
 		return _react2.default.createElement(
 			'div',
 			{ className: 'timer' },
 			_react2.default.createElement(
 				'svg',
 				{ viewBox: '0 0 500 500', width: '500px', height: '500px', xmlns: 'http://www.w3.org/2000/svg' },
-				_react2.default.createElement('circle', { cx: '250', cy: '250', r: SECONDS_RAD, style: (0, _svg_clock.setDashFromSec)(SECONDS_RAD, 1) }),
-				_react2.default.createElement('circle', { cx: '250', cy: '250', r: MINUTES_RAD, style: (0, _svg_clock.setDashFromMin)(MINUTES_RAD, 1) })
+				_react2.default.createElement('circle', { cx: '250', cy: '250', r: SECONDS_RAD, style: (0, _svg_clock.setDashFromSec)(SECONDS_RAD, seconds) }),
+				_react2.default.createElement('circle', { cx: '250', cy: '250', r: MINUTES_RAD, style: (0, _svg_clock.setDashFromMin)(MINUTES_RAD, minutes) })
 			)
 		);
 	};
@@ -32160,6 +32162,10 @@
 	
 	var _local_storing2 = _interopRequireDefault(_local_storing);
 	
+	var _timer = __webpack_require__(234);
+	
+	var _timer2 = _interopRequireDefault(_timer);
+	
 	var _city = __webpack_require__(226);
 	
 	var _city2 = _interopRequireDefault(_city);
@@ -32174,7 +32180,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var RootMiddleware = (0, _redux.applyMiddleware)(_local_storing2.default, _city2.default, _day2.default, _desk2.default);
+	var RootMiddleware = (0, _redux.applyMiddleware)(_local_storing2.default, _timer2.default, _city2.default, _day2.default, _desk2.default);
 	
 	exports.default = RootMiddleware;
 
@@ -36591,6 +36597,101 @@
 	  }
 	  return state;
 	};
+
+/***/ },
+/* 234 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var tick = function tick(dispatch, getState) {
+	  return function () {
+	    console.log('tick');
+	    // TODO: check to make sure this is enough to be accuratly 1 second
+	    // if not, do some sort of timestamp checking.
+	
+	    dispatch({ type: "TICK_SECONDS" });
+	    var seconds = getState().timer.seconds;
+	
+	    if (seconds === 0) {
+	      dispatch({ type: "TICK_MINUTES" });
+	    }
+	  };
+	};
+	
+	var play = function play(_ref) {
+	  var getState = _ref.getState,
+	      dispatch = _ref.dispatch;
+	  var interval = getState().timer.interval;
+	
+	
+	  if (!interval) {
+	    var _interval = setInterval(tick(dispatch, getState), 1000);
+	    dispatch({ type: "SET_INTERVAL", interval: _interval });
+	  }
+	};
+	
+	var stop = function stop(_ref2) {
+	  var getState = _ref2.getState,
+	      dispatch = _ref2.dispatch;
+	
+	  var interval = getState().timer.interval;
+	
+	  if (interval) {
+	    clearInterval(interval);
+	    dispatch({ type: "CLEAR_INTERVAL" });
+	  }
+	};
+	
+	exports.default = function (store) {
+	  return function (next) {
+	    return function (action) {
+	      switch (action.type) {
+	        case "PLAY":
+	          play(store);
+	          break;
+	        case "STOP":
+	          stop(store);
+	          break;
+	      }
+	      return next(action);
+	    };
+	  };
+	};
+
+/***/ },
+/* 235 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _reactRedux = __webpack_require__(162);
+	
+	var _view = __webpack_require__(191);
+	
+	var _view2 = _interopRequireDefault(_view);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var mapStateToProps = function mapStateToProps(state) {
+	  return {
+	    minutes: state.timer.minutes,
+	    seconds: state.timer.seconds
+	  };
+	};
+	
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	  return {};
+	};
+	
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_view2.default);
 
 /***/ }
 /******/ ]);

@@ -4,7 +4,7 @@ import Curriculum from './curriculum/view';
 import DeskInfo from './desk_info/view';
 import Header from './header/view';
 import Links from './links/view';
-import Timer from './timer/view';
+import Timer from './timer/container';
 
 export default ({ showOptions, getDay, loaded }) => {
   if (loaded) {
