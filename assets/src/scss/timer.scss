@@ -1,4 +1,14 @@
 .timer {
-	height: 100%;
-	flex-grow: 1;
+  height: 100%;
+  flex-grow: 1;
+
+  svg {
+    transform: rotate(-90deg);
+  }
+
+  circle {
+    fill: none;
+    stroke-width: 2px;
+    stroke: black;
+  }
 }

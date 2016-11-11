@@ -110,5 +110,11 @@ main {
 .timer {
   height: 100%;
   flex-grow: 1; }
+  .timer svg {
+    transform: rotate(-90deg); }
+  .timer circle {
+    fill: none;
+    stroke-width: 2px;
+    stroke: black; }
 
 /*# sourceMappingURL=main.css.map */

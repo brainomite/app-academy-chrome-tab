@@ -31832,20 +31832,30 @@
 /* 191 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+		value: true
 	});
 	
 	var _react = __webpack_require__(2);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _svg_clock = __webpack_require__(229);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = function () {
-	  return _react2.default.createElement("div", { className: "timer" });
+		return _react2.default.createElement(
+			'div',
+			{ className: 'timer' },
+			_react2.default.createElement(
+				'svg',
+				{ viewBox: '0 0 500 500', width: '500px', height: '500px', xmlns: 'http://www.w3.org/2000/svg' },
+				_react2.default.createElement('circle', { cx: '250', cy: '250', r: '240', style: (0, _svg_clock.setDashFromSec)(1) })
+			)
+		);
 	};
 
 /***/ },
@@ -32133,11 +32143,11 @@
 	
 	var _city2 = _interopRequireDefault(_city);
 	
-	var _desk = __webpack_require__(228);
+	var _desk = __webpack_require__(227);
 	
 	var _desk2 = _interopRequireDefault(_desk);
 	
-	var _day = __webpack_require__(229);
+	var _day = __webpack_require__(228);
 	
 	var _day2 = _interopRequireDefault(_day);
 	
@@ -36346,8 +36356,7 @@
 	};
 
 /***/ },
-/* 227 */,
-/* 228 */
+/* 227 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -36370,7 +36379,7 @@
 	};
 
 /***/ },
-/* 229 */
+/* 228 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36431,6 +36440,47 @@
 	      return next(action);
 	    };
 	  };
+	};
+
+/***/ },
+/* 229 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	var DASH_LENGTH = 1509;
+	var MINS_IN_SESSION = 15;
+	
+	var setDashFromSec = exports.setDashFromSec = function setDashFromSec() {
+		var s = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+		return dashStyles(degToDashoffset(secondsToDeg(s)));
+	};
+	var setDashFromMin = exports.setDashFromMin = function setDashFromMin() {
+		var m = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+		return dashStyles(degToDashoffset(minutesToDeg(m)));
+	};
+	
+	var secondsToDeg = function secondsToDeg() {
+		var s = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+		return 360 * (s / 60);
+	};
+	var minutesToDeg = function minutesToDeg() {
+		var s = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+		return 360 * (s / MINS_IN_SESSION);
+	};
+	
+	var degToDashoffset = function degToDashoffset(deg) {
+		return DASH_LENGTH - DASH_LENGTH * (deg / 360);
+	};
+	
+	var dashStyles = function dashStyles(strokeDashoffset) {
+		return {
+			strokeDashoffset: strokeDashoffset,
+			strokeDasharray: DASH_LENGTH
+		};
 	};
 
 /***/ }
