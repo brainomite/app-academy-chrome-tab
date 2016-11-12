@@ -17,7 +17,7 @@ const formatMinutes = (minutes) => {
 }
 
 export default ({ seconds, minutes }) => (
-	<svg viewBox="0 0 550 550" width="500px" height="500px" xmlns="http://www.w3.org/2000/svg">
+	<svg className="clock" viewBox="0 0 550 550" width="500px" height="500px" xmlns="http://www.w3.org/2000/svg">
 		<circle className="back"
 			cx="275" cy="275" r={ BACK_RAD } />
 		<circle className="seconds"

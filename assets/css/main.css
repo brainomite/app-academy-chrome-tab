@@ -137,7 +137,7 @@ main {
       right: 0;
       left: 265px;
       bottom: 255px; }
-  .timer svg {
+  .timer svg.clock {
     transform: rotate(-90deg); }
   .timer circle {
     fill: none;
@@ -153,5 +153,9 @@ main {
   .timer circle.seconds {
     stroke: #FFB3B3;
     stroke-width: 10px; }
+  .timer svg.play-pause {
+    position: absolute;
+    top: 255px;
+    left: 175px; }
 
 /*# sourceMappingURL=main.css.map */

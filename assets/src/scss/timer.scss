@@ -39,7 +39,7 @@
     }
   }
 
-  svg {
+  svg.clock {
     transform: rotate(-90deg);
   }
 
@@ -63,5 +63,11 @@
   circle.seconds {
     stroke: #FFB3B3;
     stroke-width: 10px;
+  }
+
+  svg.play-pause {
+    position: absolute;
+    top: 255px;
+    left: 175px;
   }
 }

@@ -21,7 +21,7 @@ const play = ({ getState, dispatch }) => {
   }
 }
 
-const stop = ({ getState, dispatch }) => {
+const pause = ({ getState, dispatch }) => {
   const interval = getState().timer.interval;
 
   if (interval) {
@@ -35,8 +35,8 @@ export default store => next => action => {
     case "PLAY":
       play(store);
       break;
-    case "STOP":
-      stop(store);
+    case "PAUSE":
+      pause(store);
       break;
   }
   return next(action);

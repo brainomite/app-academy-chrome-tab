@@ -31850,6 +31850,10 @@
 	
 	var _container4 = _interopRequireDefault(_container3);
 	
+	var _container5 = __webpack_require__(240);
+	
+	var _container6 = _interopRequireDefault(_container5);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = function () {
@@ -31860,7 +31864,8 @@
 				'div',
 				{ className: 'clock-wrapper' },
 				_react2.default.createElement(_container2.default, null),
-				_react2.default.createElement(_container4.default, null)
+				_react2.default.createElement(_container4.default, null),
+				_react2.default.createElement(_container6.default, null)
 			)
 		);
 	};
@@ -31937,7 +31942,7 @@
 		    minutes = _ref.minutes;
 		return _react2.default.createElement(
 			'svg',
-			{ viewBox: '0 0 550 550', width: '500px', height: '500px', xmlns: 'http://www.w3.org/2000/svg' },
+			{ className: 'clock', viewBox: '0 0 550 550', width: '500px', height: '500px', xmlns: 'http://www.w3.org/2000/svg' },
 			_react2.default.createElement('circle', { className: 'back',
 				cx: '275', cy: '275', r: BACK_RAD }),
 			_react2.default.createElement('circle', { className: 'seconds',
@@ -36553,7 +36558,7 @@
 	  }
 	};
 	
-	var stop = function stop(_ref2) {
+	var pause = function pause(_ref2) {
 	  var getState = _ref2.getState,
 	      dispatch = _ref2.dispatch;
 	
@@ -36572,8 +36577,8 @@
 	        case "PLAY":
 	          play(store);
 	          break;
-	        case "STOP":
-	          stop(store);
+	        case "PAUSE":
+	          pause(store);
 	          break;
 	      }
 	      return next(action);
@@ -36827,6 +36832,77 @@
 				{ className: "readout-seconds" },
 				secondsStr(seconds)
 			)
+		);
+	};
+
+/***/ },
+/* 240 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _reactRedux = __webpack_require__(162);
+	
+	var _view = __webpack_require__(241);
+	
+	var _view2 = _interopRequireDefault(_view);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var mapStateToProps = function mapStateToProps(state) {
+		return {
+			playing: state.timer.playing
+		};
+	};
+	
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+		return {
+			play: function play() {
+				return dispatch({ type: "PLAY" });
+			},
+			pause: function pause() {
+				return dispatch({ type: "PAUSE" });
+			}
+		};
+	};
+	
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_view2.default);
+
+/***/ },
+/* 241 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _react = __webpack_require__(2);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var playPath = _react2.default.createElement("path", { className: "play", d: "M1576 927l-1328 738q-23 13-39.5 3t-16.5-36v-1472q0-26 16.5-36t39.5 3l1328 738q23 13 23 31t-23 31z" });
+	var pausePath = _react2.default.createElement("path", { className: "pause", d: "M1664 192v1408q0 26-19 45t-45 19h-512q-26 0-45-19t-19-45v-1408q0-26 19-45t45-19h512q26 0 45 19t19 45zm-896 0v1408q0 26-19 45t-45 19h-512q-26 0-45-19t-19-45v-1408q0-26 19-45t45-19h512q26 0 45 19t19 45z" });
+	
+	exports.default = function (_ref) {
+		var playing = _ref.playing,
+		    play = _ref.play,
+		    pause = _ref.pause;
+		return _react2.default.createElement(
+			"svg",
+			{ width: "150", height: "150",
+				className: "play-pause",
+				viewBox: "0 0 1792 1792",
+				xmlns: "http://www.w3.org/2000/svg",
+				onClick: playing ? pause : play },
+			playing ? pausePath : playPath
 		);
 	};
 
