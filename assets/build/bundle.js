@@ -31846,13 +31846,22 @@
 	
 	var _container2 = _interopRequireDefault(_container);
 	
+	var _container3 = __webpack_require__(238);
+	
+	var _container4 = _interopRequireDefault(_container3);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = function () {
 		return _react2.default.createElement(
 			'div',
 			{ className: 'timer' },
-			_react2.default.createElement(_container2.default, null)
+			_react2.default.createElement(
+				'div',
+				{ className: 'clock-wrapper' },
+				_react2.default.createElement(_container2.default, null),
+				_react2.default.createElement(_container4.default, null)
+			)
 		);
 	};
 
@@ -36729,6 +36738,74 @@
 	      return action.interval;
 	  }
 	  return state;
+	};
+
+/***/ },
+/* 238 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _reactRedux = __webpack_require__(162);
+	
+	var _view = __webpack_require__(239);
+	
+	var _view2 = _interopRequireDefault(_view);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var mapStateToProps = function mapStateToProps(state) {
+	  return {
+	    seconds: state.timer.seconds
+	  };
+	};
+	
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	  return {};
+	};
+	
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_view2.default);
+
+/***/ },
+/* 239 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _react = __webpack_require__(2);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var readout = function readout(seconds) {
+		if (seconds >= 60 * 99 + 59) {
+			return "99:59";
+		}
+	
+		var s = seconds % 60,
+		    m = Math.floor(seconds / 60),
+		    sStr = s < 10 ? "0" + s : "" + s,
+		    mStr = m < 10 ? "0" + m : "" + m;
+	
+		return mStr + ":" + sStr;
+	};
+	
+	exports.default = function (_ref) {
+		var seconds = _ref.seconds;
+		return _react2.default.createElement(
+			"h1",
+			{ className: "readout" },
+			readout(seconds)
+		);
 	};
 
 /***/ }

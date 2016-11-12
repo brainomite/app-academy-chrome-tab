@@ -2,6 +2,21 @@
   height: 100%;
   flex-grow: 1;
 
+  .clock-wrapper {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    margin: 0 auto;
+  }
+
+  .readout {
+    display: inline-block;
+    position: absolute;
+    left: 107px;
+    top: 142px;
+    font-size: 100px;
+  }
+
   svg {
     transform: rotate(-90deg);
   }
