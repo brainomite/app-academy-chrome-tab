@@ -5,7 +5,7 @@ export default (state = 0, action) => {
     case "RESET_MINUTES":
       return 0;
     case "TICK_MINUTES":
-      return (state + 1) % MINS_IN_SESSION;
+      return state + 1;
     case "SET_MINUTES":
       return action.minutes;
   }
