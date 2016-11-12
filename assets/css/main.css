@@ -157,5 +157,8 @@ main {
     position: absolute;
     top: 265px;
     left: 190px; }
+    .timer svg.play-pause path:hover {
+      cursor: pointer;
+      fill: #FF0000; }
 
 /*# sourceMappingURL=main.css.map */

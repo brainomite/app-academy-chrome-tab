@@ -69,5 +69,10 @@
     position: absolute;
     top: 265px;
     left: 190px;
+
+    path:hover {
+      cursor: pointer;
+      fill: #FF0000;
+    }
   }
 }
