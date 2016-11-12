@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { MINS_IN_SESSION } from 'util/settings';
+
 import { setDashFromSec, setDashFromMin } from 'util/svg_clock';
 
 const SECONDS_RAD = 222; // width = 9
@@ -7,7 +9,7 @@ const BACK_RAD    = 233; // width = 32
 const MINUTES_RAD = 238; // width = 23
 
 const formatMinutes = (minutes) => {
-	if (minutes >= 15) { return 15; }
+	if (minutes >= MINS_IN_SESSION) { return MINS_IN_SESSION; }
 	return minutes;
 }
 

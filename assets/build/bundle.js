@@ -31925,6 +31925,8 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _settings = __webpack_require__(195);
+	
 	var _svg_clock = __webpack_require__(194);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -31934,8 +31936,8 @@
 	var MINUTES_RAD = 238; // width = 23
 	
 	var formatMinutes = function formatMinutes(minutes) {
-		if (minutes >= 15) {
-			return 15;
+		if (minutes >= _settings.MINS_IN_SESSION) {
+			return _settings.MINS_IN_SESSION;
 		}
 		return minutes;
 	};
@@ -32327,7 +32329,7 @@
 	});
 	
 	exports.default = function () {
-	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 62;
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
 	  var action = arguments[1];
 	
 	  switch (action.type) {
