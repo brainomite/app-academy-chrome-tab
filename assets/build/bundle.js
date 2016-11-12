@@ -31914,8 +31914,9 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var SECONDS_RAD = 223;
-	var MINUTES_RAD = 238;
+	var SECONDS_RAD = 223; // width = 10
+	var BACK_RAD = 234; // width = 33
+	var MINUTES_RAD = 238; // width = 23
 	
 	var formatSeconds = function formatSeconds(seconds, minutes) {
 		if (minutes > 0 && seconds === 0) {
@@ -31937,6 +31938,8 @@
 		return _react2.default.createElement(
 			'svg',
 			{ viewBox: '0 0 550 550', width: '500px', height: '500px', xmlns: 'http://www.w3.org/2000/svg' },
+			_react2.default.createElement('circle', { className: 'back',
+				cx: '275', cy: '275', r: BACK_RAD }),
 			_react2.default.createElement('circle', { className: 'seconds',
 				cx: '275', cy: '275', r: SECONDS_RAD,
 				style: (0, _svg_clock.setDashFromSec)(SECONDS_RAD, formatSeconds(seconds, minutes)) }),

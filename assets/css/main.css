@@ -128,6 +128,9 @@ main {
     stroke-width: 2px;
     stroke: black;
     transition: all 0.2s cubic-bezier(0.4, 2.08, 0.55, 0.44); }
+  .timer circle.back {
+    stroke: #F1F1F1;
+    stroke-width: 33px; }
   .timer circle.minutes {
     stroke: #FF0000;
     stroke-width: 23px; }

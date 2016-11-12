@@ -28,6 +28,11 @@
     transition: all 0.2s cubic-bezier(.4,2.08,.55,.44);
   }
 
+  circle.back {
+    stroke: #F1F1F1;
+    stroke-width: 33px;
+  }
+
   circle.minutes {
     stroke: #FF0000;
     stroke-width: 23px;
