@@ -36789,19 +36789,6 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var readout = function readout(seconds) {
-		if (seconds >= 60 * 99 + 59) {
-			return "99:59";
-		}
-	
-		var s = seconds % 60,
-		    m = Math.floor(seconds / 60),
-		    sStr = s < 10 ? "0" + s : "" + s,
-		    mStr = m < 10 ? "0" + m : "" + m;
-	
-		return mStr + ":" + sStr;
-	};
-	
 	var secondsStr = function secondsStr(seconds) {
 		if (seconds >= 60 * 99 + 59) {
 			return "59";
