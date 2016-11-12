@@ -31701,9 +31701,9 @@
 	
 	var _view8 = _interopRequireDefault(_view7);
 	
-	var _container = __webpack_require__(235);
+	var _view9 = __webpack_require__(191);
 	
-	var _container2 = _interopRequireDefault(_container);
+	var _view10 = _interopRequireDefault(_view9);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -31722,7 +31722,7 @@
 	      _react2.default.createElement(
 	        'div',
 	        { className: 'pair-tools' },
-	        _react2.default.createElement(_container2.default, null),
+	        _react2.default.createElement(_view10.default, null),
 	        _react2.default.createElement(_view2.default, null)
 	      )
 	    );
@@ -31842,25 +31842,17 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _svg_clock = __webpack_require__(229);
+	var _container = __webpack_require__(236);
+	
+	var _container2 = _interopRequireDefault(_container);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var SECONDS_RAD = 245;
-	var MINUTES_RAD = 240;
-	
-	exports.default = function (_ref) {
-		var minutes = _ref.minutes,
-		    seconds = _ref.seconds;
+	exports.default = function () {
 		return _react2.default.createElement(
 			'div',
 			{ className: 'timer' },
-			_react2.default.createElement(
-				'svg',
-				{ viewBox: '0 0 500 500', width: '500px', height: '500px', xmlns: 'http://www.w3.org/2000/svg' },
-				_react2.default.createElement('circle', { cx: '250', cy: '250', r: SECONDS_RAD, style: (0, _svg_clock.setDashFromSec)(SECONDS_RAD, seconds) }),
-				_react2.default.createElement('circle', { cx: '250', cy: '250', r: MINUTES_RAD, style: (0, _svg_clock.setDashFromMin)(MINUTES_RAD, minutes) })
-			)
+			_react2.default.createElement(_container2.default, null)
 		);
 	};
 
@@ -36607,11 +36599,10 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+	
+	
 	var tick = function tick(dispatch, getState) {
 	  return function () {
-	    console.log('tick');
-	    // TODO: check to make sure this is enough to be accuratly 1 second
-	    // if not, do some sort of timestamp checking.
 	
 	    dispatch({ type: "TICK_SECONDS" });
 	    var seconds = getState().timer.seconds;
@@ -36663,7 +36654,8 @@
 	};
 
 /***/ },
-/* 235 */
+/* 235 */,
+/* 236 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36674,7 +36666,7 @@
 	
 	var _reactRedux = __webpack_require__(162);
 	
-	var _view = __webpack_require__(191);
+	var _view = __webpack_require__(237);
 	
 	var _view2 = _interopRequireDefault(_view);
 	
@@ -36692,6 +36684,42 @@
 	};
 	
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_view2.default);
+
+/***/ },
+/* 237 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _react = __webpack_require__(2);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _svg_clock = __webpack_require__(229);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var SECONDS_RAD = 223;
+	var MINUTES_RAD = 238;
+	
+	exports.default = function (_ref) {
+		var seconds = _ref.seconds,
+		    minutes = _ref.minutes;
+		return _react2.default.createElement(
+			'svg',
+			{ viewBox: '0 0 550 550', width: '500px', height: '500px', xmlns: 'http://www.w3.org/2000/svg' },
+			_react2.default.createElement('circle', { className: 'seconds',
+				cx: '275', cy: '275', r: SECONDS_RAD,
+				style: (0, _svg_clock.setDashFromSec)(SECONDS_RAD, seconds) }),
+			_react2.default.createElement('circle', { className: 'minutes',
+				cx: '275', cy: '275', r: MINUTES_RAD,
+				style: (0, _svg_clock.setDashFromMin)(MINUTES_RAD, minutes) })
+		);
+	};
 
 /***/ }
 /******/ ]);

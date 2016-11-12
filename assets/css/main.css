@@ -115,6 +115,13 @@ main {
   .timer circle {
     fill: none;
     stroke-width: 2px;
-    stroke: black; }
+    stroke: black;
+    transition: all 0.2s cubic-bezier(0.4, 2.08, 0.55, 0.44); }
+  .timer circle.minutes {
+    stroke: #FF0000;
+    stroke-width: 23px; }
+  .timer circle.seconds {
+    stroke: #FFB3B3;
+    stroke-width: 10px; }
 
 /*# sourceMappingURL=main.css.map */

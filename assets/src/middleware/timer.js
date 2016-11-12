@@ -1,7 +1,7 @@
+
+
 const tick = (dispatch, getState) => () => {
-  console.log('tick');
-  // TODO: check to make sure this is enough to be accuratly 1 second
-  // if not, do some sort of timestamp checking.
+  
 
   dispatch({ type: "TICK_SECONDS" });
   const { seconds } = getState().timer;
