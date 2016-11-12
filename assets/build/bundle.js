@@ -31854,6 +31854,10 @@
 	
 	var _container6 = _interopRequireDefault(_container5);
 	
+	var _container7 = __webpack_require__(242);
+	
+	var _container8 = _interopRequireDefault(_container7);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = function () {
@@ -31865,7 +31869,8 @@
 				{ className: 'clock-wrapper' },
 				_react2.default.createElement(_container2.default, null),
 				_react2.default.createElement(_container4.default, null),
-				_react2.default.createElement(_container6.default, null)
+				_react2.default.createElement(_container6.default, null),
+				_react2.default.createElement(_container8.default, null)
 			)
 		);
 	};
@@ -36920,6 +36925,73 @@
 				viewBox: "0 0 1792 1792",
 				xmlns: "http://www.w3.org/2000/svg" },
 			playing ? pausePath(pause) : playPath(play)
+		);
+	};
+
+/***/ },
+/* 242 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _reactRedux = __webpack_require__(162);
+	
+	var _view = __webpack_require__(243);
+	
+	var _view2 = _interopRequireDefault(_view);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var mapStateToProps = function mapStateToProps(state) {
+		return {
+			seconds: state.timer.seconds,
+			playing: state.timer.playing
+		};
+	};
+	
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+		return {
+			reset: function reset() {
+				dispatch({ type: "SET_SECONDS", seconds: 0 });
+			}
+		};
+	};
+	
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_view2.default);
+
+/***/ },
+/* 243 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _react = __webpack_require__(2);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = function (_ref) {
+		var seconds = _ref.seconds,
+		    playing = _ref.playing,
+		    reset = _ref.reset;
+		return _react2.default.createElement(
+			"svg",
+			{ width: "60", height: "60",
+				className: "reset",
+				style: !playing && seconds > 0 ? { display: 'inline-block' } : {},
+				viewBox: "0 0 1792 1792",
+				xmlns: "http://www.w3.org/2000/svg",
+				onClick: reset },
+			_react2.default.createElement("path", { d: "M1664 896q0 156-61 298t-164 245-245 164-298 61q-172 0-327-72.5t-264-204.5q-7-10-6.5-22.5t8.5-20.5l137-138q10-9 25-9 16 2 23 12 73 95 179 147t225 52q104 0 198.5-40.5t163.5-109.5 109.5-163.5 40.5-198.5-40.5-198.5-109.5-163.5-163.5-109.5-198.5-40.5q-98 0-188 35.5t-160 101.5l137 138q31 30 14 69-17 40-59 40h-448q-26 0-45-19t-19-45v-448q0-42 40-59 39-17 69 14l130 129q107-101 244.5-156.5t284.5-55.5q156 0 298 61t245 164 164 245 61 298z" })
 		);
 	};
 

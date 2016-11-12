@@ -75,4 +75,16 @@
       fill: #FF0000;
     }
   }
+
+  svg.reset {
+    display: none;
+    position: absolute;
+    top: 75px;
+    left: 220px;
+
+    &:hover {
+      cursor: pointer;
+      fill: #FF0000;
+    }
+  }
 }

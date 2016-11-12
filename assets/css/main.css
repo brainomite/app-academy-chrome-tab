@@ -160,5 +160,13 @@ main {
     .timer svg.play-pause path:hover {
       cursor: pointer;
       fill: #FF0000; }
+  .timer svg.reset {
+    display: none;
+    position: absolute;
+    top: 75px;
+    left: 220px; }
+    .timer svg.reset:hover {
+      cursor: pointer;
+      fill: #FF0000; }
 
 /*# sourceMappingURL=main.css.map */
