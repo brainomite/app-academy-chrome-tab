@@ -32324,7 +32324,7 @@
 	});
 	
 	exports.default = function () {
-	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 60 * 15 - 5;
 	  var action = arguments[1];
 	
 	  switch (action.type) {
@@ -36525,24 +36525,38 @@
 
 /***/ },
 /* 233 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+	
+	var _settings = __webpack_require__(195);
+	
+	var notify = function notify() {
+	  return chrome.notifications.create('time-to-switch', {
+	    type: "basic",
+	    title: "Time to Switch",
+	    message: "The pair timer has expired.",
+	    iconUrl: "/assets/img/app-academy-logo-chrome-48.png"
+	  });
+	};
+	
 	var tick = function tick(dispatch, getState) {
 	  var seconds = getState().timer.seconds,
 	      then = Math.floor(Date.now() / 1000) - seconds;
 	
 	  return function () {
-	    var now = Math.floor(Date.now() / 1000);
+	    var now = Math.floor(Date.now() / 1000),
+	        seconds = now - then;
 	
-	    dispatch({
-	      type: "SET_SECONDS",
-	      seconds: now - then
-	    });
+	    if (seconds === 60 * _settings.MINS_IN_SESSION) {
+	      notify();
+	    }
+	
+	    dispatch({ type: "SET_SECONDS", seconds: seconds });
 	  };
 	};
 	

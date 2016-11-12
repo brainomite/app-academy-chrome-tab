@@ -1,14 +1,26 @@
+import { MINS_IN_SESSION } from 'util/settings';
+
+const notify = () => chrome.notifications.create(
+  'time-to-switch', 
+  { 
+    type: "basic", 
+    title: "Time to Switch", 
+    message: "The pair timer has expired.", 
+    iconUrl: "/assets/img/app-academy-logo-chrome-48.png"
+  }
+);
+
 const tick = (dispatch, getState) => {
   const seconds = getState().timer.seconds,
         then = Math.floor(Date.now() / 1000) - seconds;
 
   return () => {
-    const now = Math.floor(Date.now() / 1000);
+    const now = Math.floor(Date.now() / 1000),
+          seconds = now - then;
 
-    dispatch({
-      type : "SET_SECONDS", 
-      seconds : now - then
-    });
+    if (seconds === 60 * MINS_IN_SESSION) { notify(); }
+
+    dispatch({ type : "SET_SECONDS", seconds });
   }
 }
 
