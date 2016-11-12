@@ -10,7 +10,7 @@ import modalsOptions from './modals/options';
 
 import timerPlaying from './timer/playing';
 import timerSeconds from './timer/seconds';
-import timerMinutes from './timer/minutes';
+import timerInterval from './timer/interval';
 
 const RootReducer = combineReducers({
   cityId,
@@ -24,7 +24,7 @@ const RootReducer = combineReducers({
   timer: combineReducers({
     playing: timerPlaying,
     seconds: timerSeconds,
-    minutes: timerMinutes
+    interval: timerInterval
   })
 });
 

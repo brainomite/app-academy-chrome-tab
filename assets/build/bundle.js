@@ -31876,8 +31876,8 @@
 	
 	var mapStateToProps = function mapStateToProps(state) {
 	  return {
-	    minutes: state.timer.minutes,
-	    seconds: state.timer.seconds
+	    minutes: Math.floor(state.timer.seconds / 60),
+	    seconds: state.timer.seconds % 60
 	  };
 	};
 	
@@ -32064,9 +32064,9 @@
 	
 	var _seconds2 = _interopRequireDefault(_seconds);
 	
-	var _minutes = __webpack_require__(207);
+	var _interval = __webpack_require__(237);
 	
-	var _minutes2 = _interopRequireDefault(_minutes);
+	var _interval2 = _interopRequireDefault(_interval);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -32082,7 +32082,7 @@
 	  timer: (0, _redux.combineReducers)({
 	    playing: _playing2.default,
 	    seconds: _seconds2.default,
-	    minutes: _minutes2.default
+	    interval: _interval2.default
 	  })
 	});
 	
@@ -32314,7 +32314,7 @@
 	    case "RESET_SECONDS":
 	      return 0;
 	    case "TICK_SECONDS":
-	      return (state + 1) % 60;
+	      return state + 1;
 	    case "SET_SECONDS":
 	      return action.seconds;
 	  }
@@ -32322,33 +32322,7 @@
 	};
 
 /***/ },
-/* 207 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _settings = __webpack_require__(195);
-	
-	exports.default = function () {
-	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
-	  var action = arguments[1];
-	
-	  switch (action.type) {
-	    case "RESET_MINUTES":
-	      return 0;
-	    case "TICK_MINUTES":
-	      return state + 1;
-	    case "SET_MINUTES":
-	      return action.minutes;
-	  }
-	  return state;
-	};
-
-/***/ },
+/* 207 */,
 /* 208 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -36541,17 +36515,17 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	
-	
 	var tick = function tick(dispatch, getState) {
+	  var seconds = getState().timer.seconds,
+	      then = Math.floor(Date.now() / 1000) - seconds;
+	
 	  return function () {
+	    var now = Math.floor(Date.now() / 1000);
 	
-	    dispatch({ type: "TICK_SECONDS" });
-	    var seconds = getState().timer.seconds;
-	
-	    if (seconds === 0) {
-	      dispatch({ type: "TICK_MINUTES" });
-	    }
+	    dispatch({
+	      type: "SET_SECONDS",
+	      seconds: now - then
+	    });
 	  };
 	};
 	
@@ -36732,6 +36706,29 @@
 	      return next(action);
 	    };
 	  };
+	};
+
+/***/ },
+/* 237 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	exports.default = function () {
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+	  var action = arguments[1];
+	
+	  switch (action.type) {
+	    case "CLEAR_INTERVAL":
+	      return null;
+	    case "SET_INTERVAL":
+	      return action.interval;
+	  }
+	  return state;
 	};
 
 /***/ }

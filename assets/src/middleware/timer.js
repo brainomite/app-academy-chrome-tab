@@ -1,12 +1,14 @@
+const tick = (dispatch, getState) => {
+  const seconds = getState().timer.seconds,
+        then = Math.floor(Date.now() / 1000) - seconds;
 
+  return () => {
+    const now = Math.floor(Date.now() / 1000);
 
-const tick = (dispatch, getState) => () => {
-  
-
-  dispatch({ type: "TICK_SECONDS" });
-  const { seconds } = getState().timer;
-  if (seconds === 0) {
-    dispatch({ type: "TICK_MINUTES" });
+    dispatch({
+      type : "SET_SECONDS", 
+      seconds : now - then
+    });
   }
 }
 
