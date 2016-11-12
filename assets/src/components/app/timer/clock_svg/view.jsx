@@ -2,8 +2,8 @@ import React from 'react';
 
 import { setDashFromSec, setDashFromMin } from 'util/svg_clock';
 
-const SECONDS_RAD = 223; // width = 10
-const BACK_RAD    = 234; // width = 33
+const SECONDS_RAD = 222; // width = 9
+const BACK_RAD    = 233; // width = 32
 const MINUTES_RAD = 238; // width = 23
 
 const formatSeconds = (seconds, minutes) => {

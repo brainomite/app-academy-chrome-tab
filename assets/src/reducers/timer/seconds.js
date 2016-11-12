@@ -1,4 +1,4 @@
-export default (state = (60 * 15 - 5), action) => {
+export default (state = 62, action) => {
   switch (action.type) {
     case "RESET_SECONDS":
       return 0;

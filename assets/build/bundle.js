@@ -31919,8 +31919,8 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var SECONDS_RAD = 223; // width = 10
-	var BACK_RAD = 234; // width = 33
+	var SECONDS_RAD = 222; // width = 9
+	var BACK_RAD = 233; // width = 32
 	var MINUTES_RAD = 238; // width = 23
 	
 	var formatSeconds = function formatSeconds(seconds, minutes) {
@@ -32324,7 +32324,7 @@
 	});
 	
 	exports.default = function () {
-	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 60 * 15 - 5;
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 62;
 	  var action = arguments[1];
 	
 	  switch (action.type) {

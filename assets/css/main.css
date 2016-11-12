@@ -146,13 +146,13 @@ main {
     transition: all 0.2s cubic-bezier(0.4, 2.08, 0.55, 0.44); }
   .timer circle.back {
     stroke: #F1F1F1;
-    stroke-width: 33px; }
+    stroke-width: 32px; }
   .timer circle.minutes {
     stroke: #FF0000;
     stroke-width: 23px; }
   .timer circle.seconds {
     stroke: #FFB3B3;
-    stroke-width: 10px; }
+    stroke-width: 9px; }
   .timer svg.play-pause {
     position: absolute;
     top: 265px;
