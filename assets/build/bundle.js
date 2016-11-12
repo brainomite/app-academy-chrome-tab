@@ -31858,6 +31858,10 @@
 	
 	var _container8 = _interopRequireDefault(_container7);
 	
+	var _container9 = __webpack_require__(244);
+	
+	var _container10 = _interopRequireDefault(_container9);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = function () {
@@ -31870,7 +31874,8 @@
 				_react2.default.createElement(_container2.default, null),
 				_react2.default.createElement(_container4.default, null),
 				_react2.default.createElement(_container6.default, null),
-				_react2.default.createElement(_container8.default, null)
+				_react2.default.createElement(_container8.default, null),
+				_react2.default.createElement(_container10.default, null)
 			)
 		);
 	};
@@ -31928,13 +31933,6 @@
 	var BACK_RAD = 233; // width = 32
 	var MINUTES_RAD = 238; // width = 23
 	
-	var formatSeconds = function formatSeconds(seconds, minutes) {
-		if (minutes > 0 && seconds === 0) {
-			return 60;
-		}
-		return seconds;
-	};
-	
 	var formatMinutes = function formatMinutes(minutes) {
 		if (minutes >= 15) {
 			return 15;
@@ -31952,7 +31950,7 @@
 				cx: '275', cy: '275', r: BACK_RAD }),
 			_react2.default.createElement('circle', { className: 'seconds',
 				cx: '275', cy: '275', r: SECONDS_RAD,
-				style: (0, _svg_clock.setDashFromSec)(SECONDS_RAD, formatSeconds(seconds, minutes)) }),
+				style: (0, _svg_clock.setDashFromSec)(SECONDS_RAD, seconds) }),
 			_react2.default.createElement('circle', { className: 'minutes',
 				cx: '275', cy: '275', r: MINUTES_RAD,
 				style: (0, _svg_clock.setDashFromMin)(MINUTES_RAD, formatMinutes(minutes)) })
@@ -36992,6 +36990,114 @@
 				xmlns: "http://www.w3.org/2000/svg",
 				onClick: reset },
 			_react2.default.createElement("path", { d: "M1664 896q0 156-61 298t-164 245-245 164-298 61q-172 0-327-72.5t-264-204.5q-7-10-6.5-22.5t8.5-20.5l137-138q10-9 25-9 16 2 23 12 73 95 179 147t225 52q104 0 198.5-40.5t163.5-109.5 109.5-163.5 40.5-198.5-40.5-198.5-109.5-163.5-163.5-109.5-198.5-40.5q-98 0-188 35.5t-160 101.5l137 138q31 30 14 69-17 40-59 40h-448q-26 0-45-19t-19-45v-448q0-42 40-59 39-17 69 14l130 129q107-101 244.5-156.5t284.5-55.5q156 0 298 61t245 164 164 245 61 298z" })
+		);
+	};
+
+/***/ },
+/* 244 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _reactRedux = __webpack_require__(162);
+	
+	var _view = __webpack_require__(245);
+	
+	var _view2 = _interopRequireDefault(_view);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var mapStateToProps = function mapStateToProps(state) {
+	  return {
+	    playing: state.timer.playing
+	  };
+	};
+	
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	  return {
+	    set: function set(seconds) {
+	      dispatch({ type: "SET_SECONDS", seconds: seconds });
+	    }
+	  };
+	};
+	
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_view2.default);
+
+/***/ },
+/* 245 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _react = __webpack_require__(2);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _settings = __webpack_require__(195);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var CNT = _settings.MINS_IN_SESSION;
+	var RADIUS = 240;
+	
+	var handles = function handles(set) {
+		var handleMapper = handle(set);
+		return Array.from(new Array(CNT), function (x, i) {
+			return i;
+		}).map(handleMapper);
+	};
+	
+	var handle = function handle(set) {
+		return function (idx) {
+			return _react2.default.createElement(
+				'div',
+				{ key: idx,
+					className: 'handle',
+					style: handleStyle(idx),
+					onClick: function onClick() {
+						set(60 * idx);
+					} },
+				_react2.default.createElement('div', { className: 'bar' })
+			);
+		};
+	};
+	
+	var idxToDeg = function idxToDeg(idx) {
+		return 360 / CNT * idx;
+	};
+	var idxToRads = function idxToRads(idx) {
+		return 2 * Math.PI / CNT * idx;
+	};
+	var idxToX = function idxToX(idx) {
+		return (Math.sin(idxToRads(idx)) + 1) * RADIUS - 3;
+	};
+	var idxToY = function idxToY(idx) {
+		return (Math.cos(idxToRads(idx)) + 1) * RADIUS + 7;
+	};
+	
+	var handleStyle = function handleStyle(idx) {
+		return {
+			left: idxToX(idx),
+			bottom: idxToY(idx),
+			transform: 'rotate(' + idxToDeg(idx) + 'deg)'
+		};
+	};
+	
+	exports.default = function (_ref) {
+		var set = _ref.set,
+		    playing = _ref.playing;
+		return _react2.default.createElement(
+			'div',
+			{ className: !playing ? "handles paused" : "handles" },
+			handles(playing ? function () {} : set)
 		);
 	};
 

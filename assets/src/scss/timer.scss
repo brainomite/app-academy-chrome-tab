@@ -81,10 +81,44 @@
     position: absolute;
     top: 75px;
     left: 220px;
+    transform: rotate(90deg);
 
     &:hover {
       cursor: pointer;
       fill: #FF0000;
+    }
+  }
+
+  .handles {
+    &.paused {
+      .handle {
+        height: 25px;
+        width: 25px;
+
+        &:hover {
+          cursor: pointer;
+
+          .bar {
+            background-color: #FF0000;
+          }
+        }
+      }
+    }
+  }
+
+  .handle {
+    position: absolute;
+    width: 25px;
+    height: 5px;
+    transform-origin: 50% 100%;
+    transition: all 0.2s cubic-bezier(.4,2.08,.55,.44);
+
+    .bar {
+      height: 100%;
+      width: 5px;
+      margin: 0 auto;
+      border-radius: 2.5px;
+      background: #E1E1E1;
     }
   }
 }

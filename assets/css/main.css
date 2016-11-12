@@ -164,9 +164,29 @@ main {
     display: none;
     position: absolute;
     top: 75px;
-    left: 220px; }
+    left: 220px;
+    transform: rotate(90deg); }
     .timer svg.reset:hover {
       cursor: pointer;
       fill: #FF0000; }
+  .timer .handles.paused .handle {
+    height: 25px;
+    width: 25px; }
+    .timer .handles.paused .handle:hover {
+      cursor: pointer; }
+      .timer .handles.paused .handle:hover .bar {
+        background-color: #FF0000; }
+  .timer .handle {
+    position: absolute;
+    width: 25px;
+    height: 5px;
+    transform-origin: 50% 100%;
+    transition: all 0.2s cubic-bezier(0.4, 2.08, 0.55, 0.44); }
+    .timer .handle .bar {
+      height: 100%;
+      width: 5px;
+      margin: 0 auto;
+      border-radius: 2.5px;
+      background: #E1E1E1; }
 
 /*# sourceMappingURL=main.css.map */

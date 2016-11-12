@@ -6,11 +6,6 @@ const SECONDS_RAD = 222; // width = 9
 const BACK_RAD    = 233; // width = 32
 const MINUTES_RAD = 238; // width = 23
 
-const formatSeconds = (seconds, minutes) => {
-	if (minutes > 0 && seconds === 0) { return 60; }
-	return seconds;
-}
-
 const formatMinutes = (minutes) => {
 	if (minutes >= 15) { return 15; }
 	return minutes;
@@ -22,7 +17,7 @@ export default ({ seconds, minutes }) => (
 			cx="275" cy="275" r={ BACK_RAD } />
 		<circle className="seconds"
 			cx="275" cy="275" r={ SECONDS_RAD } 
-			style={ setDashFromSec(SECONDS_RAD, formatSeconds(seconds, minutes)) } />
+			style={ setDashFromSec(SECONDS_RAD, seconds) } />
 		<circle className="minutes" 
 			cx="275" cy="275" r={ MINUTES_RAD } 
 			style={ setDashFromMin(MINUTES_RAD, formatMinutes(minutes)) } />
