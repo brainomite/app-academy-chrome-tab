@@ -36802,12 +36802,44 @@
 		return mStr + ":" + sStr;
 	};
 	
+	var secondsStr = function secondsStr(seconds) {
+		if (seconds >= 60 * 99 + 59) {
+			return "59";
+		}
+	
+		var s = seconds % 60;
+		return s < 10 ? "0" + s : "" + s;
+	};
+	
+	var minutesStr = function minutesStr(seconds) {
+		if (seconds >= 60 * 99) {
+			return "99";
+		}
+	
+		var m = Math.floor(seconds / 60);
+		return m < 10 ? "0" + m : "" + m;
+	};
+	
 	exports.default = function (_ref) {
 		var seconds = _ref.seconds;
 		return _react2.default.createElement(
-			"h1",
+			"div",
 			{ className: "readout" },
-			readout(seconds)
+			_react2.default.createElement(
+				"div",
+				{ className: "colon" },
+				":"
+			),
+			_react2.default.createElement(
+				"div",
+				{ className: "readout-minutes" },
+				minutesStr(seconds)
+			),
+			_react2.default.createElement(
+				"div",
+				{ className: "readout-seconds" },
+				secondsStr(seconds)
+			)
 		);
 	};
 
