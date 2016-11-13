@@ -31689,21 +31689,25 @@
 	
 	var _view2 = _interopRequireDefault(_view);
 	
-	var _view3 = __webpack_require__(188);
+	var _container = __webpack_require__(254);
+	
+	var _container2 = _interopRequireDefault(_container);
+	
+	var _view3 = __webpack_require__(189);
 	
 	var _view4 = _interopRequireDefault(_view3);
 	
-	var _view5 = __webpack_require__(189);
+	var _view5 = __webpack_require__(190);
 	
 	var _view6 = _interopRequireDefault(_view5);
 	
-	var _view7 = __webpack_require__(190);
+	var _view7 = __webpack_require__(191);
 	
 	var _view8 = _interopRequireDefault(_view7);
 	
-	var _view9 = __webpack_require__(191);
+	var _container3 = __webpack_require__(263);
 	
-	var _view10 = _interopRequireDefault(_view9);
+	var _container4 = _interopRequireDefault(_container3);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -31716,13 +31720,14 @@
 	    return _react2.default.createElement(
 	      'main',
 	      null,
-	      _react2.default.createElement(_view6.default, null),
 	      _react2.default.createElement(_view4.default, null),
-	      _react2.default.createElement(_view8.default, null),
+	      _react2.default.createElement(_container2.default, null),
+	      _react2.default.createElement(_container4.default, null),
+	      _react2.default.createElement(_view6.default, null),
 	      _react2.default.createElement(
 	        'div',
 	        { className: 'pair-tools' },
-	        _react2.default.createElement(_view10.default, null),
+	        _react2.default.createElement(_view8.default, null),
 	        _react2.default.createElement(_view2.default, null)
 	      )
 	    );
@@ -31760,7 +31765,7 @@
 /* 188 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -31770,10 +31775,34 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _clock = __webpack_require__(251);
+	
+	var _clock2 = _interopRequireDefault(_clock);
+	
+	var _container = __webpack_require__(252);
+	
+	var _container2 = _interopRequireDefault(_container);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	exports.default = function () {
-	  return _react2.default.createElement("div", { className: "desk-info" });
+	exports.default = function (_ref) {
+	  var desk = _ref.desk,
+	      showDesks = _ref.showDesks;
+	  return _react2.default.createElement(
+	    'header',
+	    { className: 'desk-info wrap' },
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'clock-wrapper' },
+	      _react2.default.createElement(
+	        'h2',
+	        { className: 'number', onClick: showDesks },
+	        desk || "•"
+	      ),
+	      _react2.default.createElement(_clock2.default, null)
+	    ),
+	    _react2.default.createElement(_container2.default, null)
+	  );
 	};
 
 /***/ },
@@ -37355,6 +37384,413 @@
 	    'ul',
 	    null,
 	    podLis(pods, set)
+	  );
+	};
+
+/***/ },
+/* 251 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(2);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _class = function (_React$Component) {
+	  _inherits(_class, _React$Component);
+	
+	  function _class(props) {
+	    _classCallCheck(this, _class);
+	
+	    var _this = _possibleConstructorReturn(this, (_class.__proto__ || Object.getPrototypeOf(_class)).call(this, props));
+	
+	    _this.state = {
+	      time: "0:00"
+	    };
+	
+	    _this.updateTime = _this.updateTime.bind(_this);
+	    return _this;
+	  }
+	
+	  _createClass(_class, [{
+	    key: "componentWillMount",
+	    value: function componentWillMount() {
+	      this.interval = null;
+	    }
+	  }, {
+	    key: "componentWillUnmount",
+	    value: function componentWillUnmount() {
+	      clearInterval(this.interval);
+	    }
+	  }, {
+	    key: "componentDidMount",
+	    value: function componentDidMount() {
+	      this.updateTime();
+	      this.interval = setInterval(this.updateTime, 10000);
+	    }
+	  }, {
+	    key: "updateTime",
+	    value: function updateTime() {
+	      var currentTime = new Date();
+	      var currentHours = currentTime.getHours();
+	      var currentMinutes = currentTime.getMinutes();
+	      currentMinutes = (currentMinutes < 10 ? "0" : "") + currentMinutes;
+	
+	      this.setState({ time: currentHours + ":" + currentMinutes });
+	    }
+	  }, {
+	    key: "render",
+	    value: function render() {
+	      return _react2.default.createElement(
+	        "h1",
+	        { className: "clock" },
+	        this.state.time
+	      );
+	    }
+	  }]);
+	
+	  return _class;
+	}(_react2.default.Component);
+	
+	exports.default = _class;
+
+/***/ },
+/* 252 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _reactRedux = __webpack_require__(162);
+	
+	var _view = __webpack_require__(253);
+	
+	var _view2 = _interopRequireDefault(_view);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var mapStateToProps = function mapStateToProps(state) {
+	  return {
+	    pods: state.day.pods,
+	    podId: state.podId,
+	    desk: state.desk,
+	    day: state.day.day,
+	    dateStamp: state.day.dateStamp
+	  };
+	};
+	
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	  return {};
+	};
+	
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_view2.default);
+
+/***/ },
+/* 253 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(2);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = function (_ref) {
+	  var pods = _ref.pods,
+	      podId = _ref.podId,
+	      desk = _ref.desk,
+	      day = _ref.day,
+	      dateStamp = _ref.dateStamp;
+	
+	  var pair = pods && pods[podId] && pods[podId].pairs[desk];
+	
+	  return _react2.default.createElement(
+	    "div",
+	    { className: "info" },
+	    _react2.default.createElement(
+	      "p",
+	      null,
+	      dateStamp,
+	      " - ",
+	      day,
+	      " ",
+	      pair && "-",
+	      " ",
+	      pair && pairComponent(pair)
+	    )
+	  );
+	};
+	
+	var pairComponent = function pairComponent(pair) {
+	  var students = [];
+	
+	  pair.forEach(function (student, idx) {
+	    ;
+	    students.push(studentLink(student));
+	
+	    if (idx < pair.length - 1) {
+	      students.push(' & ');
+	    }
+	  });
+	
+	  return _react2.default.createElement(
+	    "span",
+	    { className: "pair" },
+	    students
+	  );
+	};
+	
+	var studentLink = function studentLink(_ref2) {
+	  var github = _ref2.github,
+	      name = _ref2.name;
+	
+	  var key = "link-" + github,
+	      url = "https://github.com/" + github;
+	
+	  return _react2.default.createElement(
+	    "a",
+	    { href: url, key: key },
+	    name
+	  );
+	};
+
+/***/ },
+/* 254 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _reactRedux = __webpack_require__(162);
+	
+	var _view = __webpack_require__(188);
+	
+	var _view2 = _interopRequireDefault(_view);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var mapStateToProps = function mapStateToProps(state) {
+	  return {
+	    desk: state.desk
+	  };
+	};
+	
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	  return {
+	    showDesks: function showDesks() {
+	      dispatch({ type: "SET_DESKS_VISIBLE" });
+	    }
+	  };
+	};
+	
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_view2.default);
+
+/***/ },
+/* 255 */,
+/* 256 */,
+/* 257 */,
+/* 258 */,
+/* 259 */,
+/* 260 */,
+/* 261 */,
+/* 262 */,
+/* 263 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _reactRedux = __webpack_require__(162);
+	
+	var _view = __webpack_require__(264);
+	
+	var _view2 = _interopRequireDefault(_view);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var mapStateToProps = function mapStateToProps(state) {
+	  return {
+	    day: state.day.day,
+	    pods: state.day.pods,
+	    podId: state.podId,
+	    visible: state.modals.desks
+	  };
+	};
+	
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	  return {
+	    hideDesks: function hideDesks() {
+	      dispatch({ type: "SET_DESKS_HIDE" });
+	    },
+	    set: function set(desk) {
+	      dispatch({ type: "SET_DESK", desk: desk });
+	    }
+	  };
+	};
+	
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_view2.default);
+
+/***/ },
+/* 264 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(2);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var pairSpan = function pairSpan(pair) {
+	  var students = [];
+	
+	  pair.forEach(function (student, idx) {
+	    ;
+	    students.push(student.name);
+	
+	    if (idx < pair.length - 1) {
+	      students.push(' & ');
+	    }
+	  });
+	
+	  return _react2.default.createElement(
+	    'span',
+	    { className: 'pair' },
+	    students
+	  );
+	};
+	
+	var studentLink = function studentLink(_ref) {
+	  var github = _ref.github,
+	      name = _ref.name;
+	
+	  var key = 'link-' + github,
+	      url = 'https://github.com/' + github;
+	
+	  return _react2.default.createElement(
+	    'a',
+	    { href: url, key: key },
+	    name
+	  );
+	};
+	
+	var deskPairLi = function deskPairLi(desk, pair, idx, set) {
+	  return _react2.default.createElement(
+	    'li',
+	    { key: 'pair-' + idx, className: 'student-pair', onClick: function onClick() {
+	        set(desk);
+	      } },
+	    _react2.default.createElement(
+	      'strong',
+	      null,
+	      desk
+	    ),
+	    ' - ',
+	    pairSpan(pair)
+	  );
+	};
+	
+	var desksPairList = function desksPairList(pod, set) {
+	  if (!pod) {
+	    return;
+	  }
+	
+	  var pairs = [],
+	      desks = Object.getOwnPropertyNames(pod.pairs);
+	
+	  desks.forEach(function (desk, idx) {
+	    pairs.push(deskPairLi(desk, pod.pairs[desk], idx, set));
+	  });
+	
+	  return _react2.default.createElement(
+	    'ul',
+	    null,
+	    pairs
+	  );
+	};
+	
+	var className = function className(visible) {
+	  return visible ? 'desks is-active' : 'desks';
+	};
+	
+	var wrapLi = function wrapLi(body, idx) {
+	  return _react2.default.createElement(
+	    'li',
+	    { key: idx },
+	    body
+	  );
+	};
+	
+	var podName = function podName(pod) {
+	  if (!pod) {
+	    return;
+	  }
+	
+	  return _react2.default.createElement(
+	    'h2',
+	    null,
+	    pod.name
+	  );
+	};
+	
+	exports.default = function (_ref2) {
+	  var hideDesks = _ref2.hideDesks,
+	      day = _ref2.day,
+	      visible = _ref2.visible,
+	      podId = _ref2.podId,
+	      pods = _ref2.pods,
+	      set = _ref2.set;
+	  return _react2.default.createElement(
+	    'article',
+	    { className: className(visible) },
+	    _react2.default.createElement(
+	      'span',
+	      { onClick: hideDesks },
+	      '\xD7'
+	    ),
+	    _react2.default.createElement(
+	      'h1',
+	      null,
+	      day,
+	      ' Desks'
+	    ),
+	    podName(pods[podId]),
+	    desksPairList(pods[podId], set)
 	  );
 	};
 
