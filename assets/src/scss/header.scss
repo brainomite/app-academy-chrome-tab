@@ -1,19 +1,34 @@
 .header {
   position: relative;
   background: #f00;
-  text-align: center;
+  padding: 0 10px;
   z-index: 4;
   min-height: 55px;
 
   .logo {
+    height: 33px;
+    display: inline-block;
+    position: relative;
+    top: 8px;
+    left: 3px;
+  }
+
+  .name {
     display: inline-block;
   }
 
-  .logo a {
+  .name a {
     display: block;
     padding: 15px;
     font-weight: 400;
     font-size: 25px;
     color: #fff;
+  }
+
+  .menu {
+    position: absolute;
+    color: white;
+    right: 10px;
+    top: 20px;
   }
 }
