@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Menu from './menu/view';
+import Menu from './menu/container';
 
 export default () => (
   <header className="header">

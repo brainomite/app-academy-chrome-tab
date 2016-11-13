@@ -7,10 +7,8 @@ const cityLi = id => (
 )
 
 export default ({ city }) => (
-  <span className="cities menuTitle">
-    { city }
-    <ul className="menu">
-      { Object.keys(CITIES).map(cityLi) }
-    </ul>
-  </span>
+  <ul>
+    <li>SF</li>
+    <li>NYC</li>
+  </ul>
 )

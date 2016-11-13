@@ -31790,9 +31790,9 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _view = __webpack_require__(246);
+	var _container = __webpack_require__(245);
 	
-	var _view2 = _interopRequireDefault(_view);
+	var _container2 = _interopRequireDefault(_container);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -31810,7 +31810,7 @@
 	        'App Academy'
 	      )
 	    ),
-	    _react2.default.createElement(_view2.default, null)
+	    _react2.default.createElement(_container2.default, null)
 	  );
 	};
 
@@ -37120,7 +37120,46 @@
 	};
 
 /***/ },
-/* 245 */,
+/* 245 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _reactRedux = __webpack_require__(162);
+	
+	var _view = __webpack_require__(246);
+	
+	var _view2 = _interopRequireDefault(_view);
+	
+	var _settings = __webpack_require__(194);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var getCityAbbr = function getCityAbbr(state) {
+	  return _settings.CITIES[state.cityId].abbr;
+	};
+	var getPod = function getPod(state) {
+	  return state.day.pods[state.podId].name;
+	};
+	
+	var mapStateToProps = function mapStateToProps(state) {
+	  return {
+	    city: getCityAbbr(state),
+	    pod: getPod(state)
+	  };
+	};
+	
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	  return {};
+	};
+	
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_view2.default);
+
+/***/ },
 /* 246 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -37144,28 +37183,17 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	exports.default = function () {
+	exports.default = function (_ref) {
+	  var city = _ref.city,
+	      pod = _ref.pod;
 	  return _react2.default.createElement(
 	    'ul',
 	    { className: 'menu' },
 	    _react2.default.createElement(
 	      'li',
 	      null,
-	      'SF',
-	      _react2.default.createElement(
-	        'ul',
-	        null,
-	        _react2.default.createElement(
-	          'li',
-	          null,
-	          'SF'
-	        ),
-	        _react2.default.createElement(
-	          'li',
-	          null,
-	          'NYC'
-	        )
-	      )
+	      city,
+	      _react2.default.createElement(_container2.default, null)
 	    ),
 	    _react2.default.createElement(
 	      'li',
@@ -37175,26 +37203,8 @@
 	    _react2.default.createElement(
 	      'li',
 	      null,
-	      'Presidio',
-	      _react2.default.createElement(
-	        'ul',
-	        null,
-	        _react2.default.createElement(
-	          'li',
-	          null,
-	          'Presidio'
-	        ),
-	        _react2.default.createElement(
-	          'li',
-	          null,
-	          'Ocean Beach'
-	        ),
-	        _react2.default.createElement(
-	          'li',
-	          null,
-	          'Market'
-	        )
-	      )
+	      pod,
+	      _react2.default.createElement(_container4.default, null)
 	    )
 	  );
 	};
@@ -37264,13 +37274,17 @@
 	exports.default = function (_ref) {
 	  var city = _ref.city;
 	  return _react2.default.createElement(
-	    'span',
-	    { className: 'cities menuTitle' },
-	    city,
+	    'ul',
+	    null,
 	    _react2.default.createElement(
-	      'ul',
-	      { className: 'menu' },
-	      Object.keys(_settings.CITIES).map(cityLi)
+	      'li',
+	      null,
+	      'SF'
+	    ),
+	    _react2.default.createElement(
+	      'li',
+	      null,
+	      'NYC'
 	    )
 	  );
 	};
@@ -37293,13 +37307,9 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var getPod = function getPod(state) {
-	  return state.day.pods[state.podId].name;
-	};
-	
 	var mapStateToProps = function mapStateToProps(state) {
 	  return {
-	    pod: getPod(state)
+	    pods: state.day.pods
 	  };
 	};
 	
@@ -37313,10 +37323,10 @@
 /* 250 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	  value: true
 	});
 	
 	var _react = __webpack_require__(2);
@@ -37325,13 +37335,27 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+	var podLis = function podLis(pods) {
+	  var keys = Object.keys(pods);
+	
+	  return keys.map(function (id) {
+	    var pod = pods[id];
+	
+	    return _react2.default.createElement(
+	      'li',
+	      { key: id },
+	      pod.name
+	    );
+	  });
+	};
+	
 	exports.default = function (_ref) {
-		var pod = _ref.pod;
-		return _react2.default.createElement(
-			"span",
-			{ className: "pods menuTitle" },
-			pod
-		);
+	  var pods = _ref.pods;
+	  return _react2.default.createElement(
+	    'ul',
+	    null,
+	    podLis(pods)
+	  );
 	};
 
 /***/ }
