@@ -31705,6 +31705,10 @@
 	
 	var _view8 = _interopRequireDefault(_view7);
 	
+	var _container3 = __webpack_require__(263);
+	
+	var _container4 = _interopRequireDefault(_container3);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = function (_ref) {
@@ -31718,6 +31722,7 @@
 	      null,
 	      _react2.default.createElement(_view4.default, null),
 	      _react2.default.createElement(_container2.default, null),
+	      _react2.default.createElement(_container4.default, null),
 	      _react2.default.createElement(_view6.default, null),
 	      _react2.default.createElement(
 	        'div',
@@ -37606,6 +37611,188 @@
 	};
 	
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_view2.default);
+
+/***/ },
+/* 255 */,
+/* 256 */,
+/* 257 */,
+/* 258 */,
+/* 259 */,
+/* 260 */,
+/* 261 */,
+/* 262 */,
+/* 263 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _reactRedux = __webpack_require__(162);
+	
+	var _view = __webpack_require__(264);
+	
+	var _view2 = _interopRequireDefault(_view);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var mapStateToProps = function mapStateToProps(state) {
+	  return {
+	    day: state.day.day,
+	    pods: state.day.pods,
+	    podId: state.podId,
+	    visible: state.modals.desks
+	  };
+	};
+	
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	  return {
+	    hideDesks: function hideDesks() {
+	      dispatch({ type: "SET_DESKS_HIDE" });
+	    },
+	    set: function set(desk) {
+	      dispatch({ type: "SET_DESK", desk: desk });
+	    }
+	  };
+	};
+	
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_view2.default);
+
+/***/ },
+/* 264 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(2);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var pairSpan = function pairSpan(pair) {
+	  var students = [];
+	
+	  pair.forEach(function (student, idx) {
+	    ;
+	    students.push(student.name);
+	
+	    if (idx < pair.length - 1) {
+	      students.push(' & ');
+	    }
+	  });
+	
+	  return _react2.default.createElement(
+	    'span',
+	    { className: 'pair' },
+	    students
+	  );
+	};
+	
+	var studentLink = function studentLink(_ref) {
+	  var github = _ref.github,
+	      name = _ref.name;
+	
+	  var key = 'link-' + github,
+	      url = 'https://github.com/' + github;
+	
+	  return _react2.default.createElement(
+	    'a',
+	    { href: url, key: key },
+	    name
+	  );
+	};
+	
+	var deskPairLi = function deskPairLi(desk, pair, idx, set) {
+	  return _react2.default.createElement(
+	    'li',
+	    { key: 'pair-' + idx, className: 'student-pair', onClick: function onClick() {
+	        set(desk);
+	      } },
+	    _react2.default.createElement(
+	      'strong',
+	      null,
+	      desk
+	    ),
+	    ' - ',
+	    pairSpan(pair)
+	  );
+	};
+	
+	var desksPairList = function desksPairList(pod, set) {
+	  if (!pod) {
+	    return;
+	  }
+	
+	  var pairs = [],
+	      desks = Object.getOwnPropertyNames(pod.pairs);
+	
+	  desks.forEach(function (desk, idx) {
+	    pairs.push(deskPairLi(desk, pod.pairs[desk], idx, set));
+	  });
+	
+	  return _react2.default.createElement(
+	    'ul',
+	    null,
+	    pairs
+	  );
+	};
+	
+	var className = function className(visible) {
+	  return visible ? 'desks is-active' : 'desks';
+	};
+	
+	var wrapLi = function wrapLi(body, idx) {
+	  return _react2.default.createElement(
+	    'li',
+	    { key: idx },
+	    body
+	  );
+	};
+	
+	var podName = function podName(pod) {
+	  if (!pod) {
+	    return;
+	  }
+	
+	  return _react2.default.createElement(
+	    'h2',
+	    null,
+	    pod.name
+	  );
+	};
+	
+	exports.default = function (_ref2) {
+	  var hideDesks = _ref2.hideDesks,
+	      day = _ref2.day,
+	      visible = _ref2.visible,
+	      podId = _ref2.podId,
+	      pods = _ref2.pods,
+	      set = _ref2.set;
+	  return _react2.default.createElement(
+	    'article',
+	    { className: className(visible) },
+	    _react2.default.createElement(
+	      'span',
+	      { onClick: hideDesks },
+	      '\xD7'
+	    ),
+	    _react2.default.createElement(
+	      'h1',
+	      null,
+	      day,
+	      ' Desks'
+	    ),
+	    podName(pods[podId]),
+	    desksPairList(pods[podId], set)
+	  );
+	};
 
 /***/ }
 /******/ ]);
