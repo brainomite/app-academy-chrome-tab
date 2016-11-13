@@ -64,11 +64,6 @@ h1, h2 {
   font-family: "Montserrat";
   font-weight: 700; }
 
-.group:after {
-  content: "";
-  display: block;
-  clear: both; }
-
 #app {
   height: 100%; }
 
@@ -80,7 +75,9 @@ main {
 
 .pair-tools {
   flex-grow: 1;
-  display: flex; }
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; }
 
 .curriculum {
   height: 100%;
@@ -104,8 +101,34 @@ main {
     font-size: 25px;
     color: #fff; }
 
-.links {
-  height: 55px; }
+.links-group {
+  height: 55px;
+  width: 96%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border: 1px solid gray;
+  margin: auto; }
+  .links-group .links-subs .title {
+    height: 55px;
+    font-size: 26px;
+    line-height: 55px;
+    font-weight: 700;
+    color: gray; }
+  .links-group .links-subs .link-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; }
+    .links-group .links-subs .link-list .link-item {
+      padding: 10px 0; }
+      .links-group .links-subs .link-list .link-item a {
+        font-size: 20px;
+        color: #1a1a1a; }
+
+.show-links {
+  overflow: visible;
+  z-index: 100; }
 
 .timer {
   height: 100%;
