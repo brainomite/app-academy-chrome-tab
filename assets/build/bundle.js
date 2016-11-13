@@ -37307,7 +37307,11 @@
 	};
 	
 	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-	  return {};
+	  return {
+	    set: function set(podId) {
+	      dispatch({ type: "SET_POD_ID", podId: podId });
+	    }
+	  };
 	};
 	
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_view2.default);
@@ -37328,7 +37332,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var podLis = function podLis(pods) {
+	var podLis = function podLis(pods, set) {
 	  var keys = Object.keys(pods);
 	
 	  return keys.map(function (id) {
@@ -37336,18 +37340,21 @@
 	
 	    return _react2.default.createElement(
 	      'li',
-	      { key: id },
+	      { key: id, onClick: function onClick() {
+	          set(id);
+	        } },
 	      pod.name
 	    );
 	  });
 	};
 	
 	exports.default = function (_ref) {
-	  var pods = _ref.pods;
+	  var pods = _ref.pods,
+	      set = _ref.set;
 	  return _react2.default.createElement(
 	    'ul',
 	    null,
-	    podLis(pods)
+	    podLis(pods, set)
 	  );
 	};
 

@@ -6,7 +6,9 @@ const mapStateToProps = state => ({
   pods: state.day.pods
 });
 
-const mapDispatchToProps = dispatch => ({});
+const mapDispatchToProps = dispatch => ({
+	set: podId => { dispatch({ type: "SET_POD_ID", podId }) }
+});
 
 export default connect(
   mapStateToProps,
