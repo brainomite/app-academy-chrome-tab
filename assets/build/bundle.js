@@ -31790,9 +31790,9 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _container = __webpack_require__(245);
+	var _view = __webpack_require__(246);
 	
-	var _container2 = _interopRequireDefault(_container);
+	var _view2 = _interopRequireDefault(_view);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -31810,7 +31810,7 @@
 	        'App Academy'
 	      )
 	    ),
-	    _react2.default.createElement(_container2.default, null)
+	    _react2.default.createElement(_view2.default, null)
 	  );
 	};
 
@@ -37120,7 +37120,82 @@
 	};
 
 /***/ },
-/* 245 */
+/* 245 */,
+/* 246 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(2);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _container = __webpack_require__(247);
+	
+	var _container2 = _interopRequireDefault(_container);
+	
+	var _container3 = __webpack_require__(249);
+	
+	var _container4 = _interopRequireDefault(_container3);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = function () {
+	  return _react2.default.createElement(
+	    'ul',
+	    { className: 'menu' },
+	    _react2.default.createElement(
+	      'li',
+	      null,
+	      'SF',
+	      _react2.default.createElement(
+	        'ul',
+	        null,
+	        _react2.default.createElement(
+	          'li',
+	          null,
+	          'SF'
+	        ),
+	        _react2.default.createElement(
+	          'li',
+	          null,
+	          'NYC'
+	        )
+	      )
+	    ),
+	    _react2.default.createElement(
+	      'li',
+	      null,
+	      'Presidio',
+	      _react2.default.createElement(
+	        'ul',
+	        null,
+	        _react2.default.createElement(
+	          'li',
+	          null,
+	          'Presidio'
+	        ),
+	        _react2.default.createElement(
+	          'li',
+	          null,
+	          'Ocean Beach'
+	        ),
+	        _react2.default.createElement(
+	          'li',
+	          null,
+	          'Market'
+	        )
+	      )
+	    )
+	  );
+	};
+
+/***/ },
+/* 247 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37131,7 +37206,7 @@
 	
 	var _reactRedux = __webpack_require__(162);
 	
-	var _view = __webpack_require__(246);
+	var _view = __webpack_require__(248);
 	
 	var _view2 = _interopRequireDefault(_view);
 	
@@ -37139,16 +37214,86 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var getPod = function getPod(state) {
-	  return state.day.pods[state.podId].name;
-	};
 	var getCityAbbr = function getCityAbbr(state) {
 	  return _settings.CITIES[state.cityId].abbr;
 	};
 	
 	var mapStateToProps = function mapStateToProps(state) {
 	  return {
-	    city: getCityAbbr(state),
+	    city: getCityAbbr(state)
+	  };
+	};
+	
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	  return {};
+	};
+	
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_view2.default);
+
+/***/ },
+/* 248 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(2);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _settings = __webpack_require__(194);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var cityLi = function cityLi(id) {
+	  return _react2.default.createElement(
+	    'li',
+	    { key: id },
+	    _settings.CITIES[id].abbr
+	  );
+	};
+	
+	exports.default = function (_ref) {
+	  var city = _ref.city;
+	  return _react2.default.createElement(
+	    'span',
+	    { className: 'cities menuTitle' },
+	    city,
+	    _react2.default.createElement(
+	      'ul',
+	      { className: 'menu' },
+	      Object.keys(_settings.CITIES).map(cityLi)
+	    )
+	  );
+	};
+
+/***/ },
+/* 249 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _reactRedux = __webpack_require__(162);
+	
+	var _view = __webpack_require__(250);
+	
+	var _view2 = _interopRequireDefault(_view);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var getPod = function getPod(state) {
+	  return state.day.pods[state.podId].name;
+	};
+	
+	var mapStateToProps = function mapStateToProps(state) {
+	  return {
 	    pod: getPod(state)
 	  };
 	};
@@ -37160,7 +37305,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_view2.default);
 
 /***/ },
-/* 246 */
+/* 250 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -37176,13 +37321,10 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = function (_ref) {
-		var city = _ref.city,
-		    pod = _ref.pod;
+		var pod = _ref.pod;
 		return _react2.default.createElement(
 			"span",
-			{ className: "menu" },
-			city,
-			" > ",
+			{ className: "pods menuTitle" },
 			pod
 		);
 	};

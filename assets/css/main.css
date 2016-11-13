@@ -111,9 +111,31 @@ main {
     color: #fff; }
   .header .menu {
     position: absolute;
-    color: white;
     right: 10px;
-    top: 20px; }
+    top: 0;
+    list-style: none;
+    color: white; }
+    .header .menu li {
+      position: relative;
+      display: inline-block;
+      padding: 19px 7px; }
+      .header .menu li:hover {
+        cursor: pointer;
+        color: orange; }
+        .header .menu li:hover ul {
+          display: block; }
+    .header .menu ul {
+      position: absolute;
+      top: 55px;
+      right: 5px;
+      display: none;
+      width: 130px; }
+      .header .menu ul li {
+        padding: 10px 5px;
+        text-align: right;
+        color: black;
+        background: white;
+        display: block; }
 
 .links {
   height: 55px; }
