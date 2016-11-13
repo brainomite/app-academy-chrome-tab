@@ -92,17 +92,53 @@ main {
 .header {
   position: relative;
   background: #f00;
-  text-align: center;
+  padding: 0 10px;
   z-index: 4;
   min-height: 55px; }
   .header .logo {
+    height: 33px;
+    display: inline-block;
+    position: relative;
+    top: 8px;
+    left: 3px; }
+  .header .name {
     display: inline-block; }
-  .header .logo a {
+  .header .name a {
     display: block;
     padding: 15px;
     font-weight: 400;
     font-size: 25px;
     color: #fff; }
+  .header .menu {
+    position: absolute;
+    right: 10px;
+    top: 0;
+    list-style: none;
+    color: white; }
+    .header .menu .inactive:hover {
+      cursor: default;
+      color: white; }
+    .header .menu li {
+      position: relative;
+      display: inline-block;
+      padding: 19px 7px; }
+      .header .menu li:hover {
+        cursor: pointer;
+        color: orange; }
+        .header .menu li:hover ul {
+          display: block; }
+    .header .menu ul {
+      position: absolute;
+      top: 55px;
+      right: 5px;
+      display: none;
+      width: 160px; }
+      .header .menu ul li {
+        padding: 10px 5px;
+        text-align: right;
+        color: black;
+        background: white;
+        display: block; }
 
 .links {
   height: 55px; }
