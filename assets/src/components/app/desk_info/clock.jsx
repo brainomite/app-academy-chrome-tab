@@ -34,7 +34,7 @@ export default class extends React.Component {
 
   render() {
     return (
-      <h1 id="clock">{this.state.time}</h1>
+      <h1 className="clock">{this.state.time}</h1>
     );
   }
 }

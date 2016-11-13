@@ -1,138 +1,70 @@
 .desk-info {
-  height: 165px;
+  height: 230px;
   position: relative;
 
-  .number {
-    position: absolute;
-    left: 0;
-    top: 56px;
-    font-size: 50px;
-    width: 80px;
+  .info {
+    height: 40px;
     text-align: center;
-    color: #222;
-    z-index: 1;
-    cursor: pointer;
 
-    &:before {
-      content: "";
-      display: block;
-      position: absolute;
-      left: -2px;
-      top: -17px;
-      border: 8px solid #222;
-      width: 68px;
-      height: 68px;
-      -webkit-transform: rotate(45deg);
-      z-index: -1;
-    }
+    > p {
+      position: relative;
+      display: inline-block;
+      padding: 10px 20px;
+      background: #ff0;
 
-    &:hover,
-    &:hover:before {
-      color: #f00;
-      border-color: #f00;
-    }
+      strong {
+        font-weight: 700;
+      }
 
-    .info {
-      height: 40px;
-      text-align: center;
+      a {
+        font-weight: 700;
+        text-decoration: underline;
 
-      > p {
-        position: relative;
-        display: inline-block;
-        padding: 10px 20px;
-        background: #ff0;
-
-        strong {
-          font-weight: 700;
-        }
-
-        a {
-          font-weight: 700;
-          text-decoration: underline;
-
-          &:hover {
-            text-decoration: none;
-          }
+        &:hover {
+          text-decoration: none;
         }
       }
     }
   }
+
+  .clock-wrapper {
+    width: 100%;
+    text-align: center;
+    padding: 0 0 15px 0;
+
+    .clock {
+      font-size: 160px;
+      display: inline-block;
+    }
+
+    .number {
+      position: relative;
+      display: inline-block;
+      top: -33px;
+      left: -45px;
+      font-size: 50px;
+      width: 80px;
+      color: #222;
+
+      &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        left: -2px;
+        top: -17px;
+        border: 8px solid #222;
+        width: 68px;
+        height: 68px;
+        -webkit-transform: rotate(45deg);
+        z-index: -1;
+      }
+
+      &:hover,
+      &:hover:before {
+        cursor: pointer;
+        color: #f00;
+        border-color: #f00;
+      }
+    }
+  }
 }
-
-// .wrap {
-//   position: fixed;
-//   top: 50%;
-//   left: 50%;
-//   margin-left: -500px;
-//   margin-top: -285px;
-//   width: 1000px;
-//   text-align: center;
-//   z-index: 2;
-// }
-
-// .clock-wrap {
-//   position: relative;
-//   display: inline-block;
-// }
-
-// #desk {
-//   position: absolute;
-//   left: -120px;
-//   top: 56px;
-//   font-size: 50px;
-//   width: 80px;
-//   text-align: center;
-//   color: #222;
-//   z-index: 1;
-//   cursor: pointer;
-// }
-
-// #desk:before {
-//   content: "";
-//   display: block;
-//   position: absolute;
-//   left: -2px;
-//   top: -17px;
-//   border: 8px solid #222;
-//   width: 68px;
-//   height: 68px;
-//   -webkit-transform: rotate(45deg);
-//   z-index: -1;
-// }
-
-// #desk:hover,
-// #desk:hover:before {
-//   color: #f00;
-//   border-color: #f00;
-// }
-
-// #clock {
-//   padding: 0 0 15px 0;
-//   font-size: 160px;
-//   text-align: center;
-// }
-
-// #info {
-//   height: 40px;
-//   text-align: center;
-// }
-
-// #info > p {
-//   position: relative;
-//   display: inline-block;
-//   padding: 10px 20px;
-//   background: #ff0;
-// }
-
-// #info > p strong {
-//   font-weight: 700;
-// }
-
-// #info > p a {
-//   font-weight: 700;
-//   text-decoration: underline;
-// }
-
-// #info > p a:hover {
-//   text-decoration: none;
-// }

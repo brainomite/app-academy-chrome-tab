@@ -31787,11 +31787,15 @@
 	    'header',
 	    { className: 'desk-info wrap' },
 	    _react2.default.createElement(
-	      'h2',
-	      { className: 'number', onClick: showDesks },
-	      desk || "•"
+	      'div',
+	      { className: 'clock-wrapper' },
+	      _react2.default.createElement(
+	        'h2',
+	        { className: 'number', onClick: showDesks },
+	        desk || "•"
+	      ),
+	      _react2.default.createElement(_clock2.default, null)
 	    ),
-	    _react2.default.createElement(_clock2.default, null),
 	    _react2.default.createElement(_container2.default, null)
 	  );
 	};
@@ -37449,7 +37453,7 @@
 	    value: function render() {
 	      return _react2.default.createElement(
 	        "h1",
-	        { id: "clock" },
+	        { className: "clock" },
 	        this.state.time
 	      );
 	    }
