@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Curriculum from './curriculum/view';
-import DeskInfo from './desk_info/view';
+import DeskInfo from './desk_info/container';
 import Header from './header/view';
 import Links from './links/view';
 import Timer from './timer/view';
