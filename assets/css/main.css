@@ -73,18 +73,11 @@ main {
   flex-direction: column;
   justify-content: flex-start; }
 
-.pair-tools {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between; }
-
-.curriculum {
-  height: 100%;
-  flex-grow: 1; }
-
 .desk-info {
-  height: 165px; }
+  height: 165px;
+  width: 96%;
+  margin: 5px auto;
+  border: 2px solid #ccc; }
 
 .header {
   position: relative;
@@ -108,7 +101,7 @@ main {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  border: 1px solid gray;
+  border: 2px solid #ccc;
   margin: auto; }
   .links-group .links-subs .title {
     height: 55px;
@@ -130,6 +123,15 @@ main {
   overflow: visible;
   z-index: 100; }
 
+.pair-tools {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 96%;
+  margin: 5px auto;
+  border: 2px solid #ccc; }
+
 .timer {
   height: 100%;
   flex-grow: 1; }
@@ -137,7 +139,7 @@ main {
     position: relative;
     width: 500px;
     height: 500px;
-    margin: 0 auto; }
+    margin: 0; }
   .timer .readout {
     font-family: "Montserrat";
     font-weight: 100;
@@ -211,5 +213,9 @@ main {
       margin: 0 auto;
       border-radius: 2.5px;
       background: #E1E1E1; }
+
+.curriculum {
+  height: 100%;
+  flex-grow: 1; }
 
 /*# sourceMappingURL=main.css.map */

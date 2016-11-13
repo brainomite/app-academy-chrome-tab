@@ -30042,7 +30042,7 @@
 	
 	var _container2 = _interopRequireDefault(_container);
 	
-	var _configure = __webpack_require__(211);
+	var _configure = __webpack_require__(212);
 	
 	var _configure2 = _interopRequireDefault(_configure);
 	
@@ -31871,7 +31871,7 @@
 	
 	var _view8 = _interopRequireDefault(_view7);
 	
-	var _view9 = __webpack_require__(198);
+	var _view9 = __webpack_require__(199);
 	
 	var _view10 = _interopRequireDefault(_view9);
 	
@@ -31992,7 +31992,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _links = __webpack_require__(252);
+	var _links = __webpack_require__(198);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -32047,6 +32047,175 @@
 
 /***/ },
 /* 198 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var CORNERS = exports.CORNERS = [{
+	  title: "Progress",
+	  url: "http://progress.appacademy.io/"
+	}, {
+	  title: "Gmail",
+	  url: "https://mail.google.com/mail/"
+	}, {
+	  title: "Github",
+	  url: "https://github.com/"
+	}, {
+	  title: "Timer",
+	  url: "http://drwrchrds.github.io/pairing_timer/"
+	}];
+	
+	var MAIN_LINKS = exports.MAIN_LINKS = [{
+	  title: "Curriculum",
+	  links: [{
+	    title: "Ruby",
+	    url: "https://github.com/appacademy/curriculum/blob/master/ruby/README.md",
+	    start: 11
+	  }, {
+	    title: "SQL",
+	    url: "https://github.com/appacademy/curriculum/blob/master/sql/README.md",
+	    start: 31
+	  }, {
+	    title: "Rails",
+	    url: "https://github.com/appacademy/curriculum/blob/master/rails/README.md",
+	    start: 41
+	  }, {
+	    title: "JavaScript",
+	    url: "https://github.com/appacademy/curriculum/blob/master/javascript/README.md",
+	    start: 54
+	  }, {
+	    title: "React",
+	    url: "https://github.com/appacademy/curriculum/blob/master/react/README.md",
+	    start: 71
+	  }, {
+	    title: "Full Stack",
+	    url: "https://github.com/appacademy/curriculum/blob/master/full-stack-project/README.md",
+	    start: 81
+	  }, {
+	    title: "Jobs",
+	    url: "https://github.com/appacademy/job-search-curriculum",
+	    start: 101
+	  }]
+	}, {
+	  title: "Course",
+	  links: [{
+	    title: "Meta",
+	    url: "https://github.com/appacademy/meta"
+	  }, {
+	    title: "Prep",
+	    url: "https://github.com/appacademy/assessment-prep"
+	  }, {
+	    title: "Solutions",
+	    url: "https://github.com/appacademy/solutions"
+	  }, {
+	    title: "Algorithms",
+	    url: "https://github.com/appacademy/algorithms-curriculum"
+	  }, {
+	    title: "Backbone",
+	    url: "https://github.com/appacademy/backbone-curriculum/blob/master/README.md"
+	  }, {
+	    title: "CSS",
+	    url: "https://github.com/appacademy/css-demos/blob/gh-pages/README.md"
+	  }]
+	}, {
+	  title: "Ruby",
+	  links: [{
+	    title: "API",
+	    url: "http://ruby-doc.org/core-2.2.0/",
+	    sub: [{
+	      title: "Object",
+	      url: "http://ruby-doc.org/core-2.2.0/Object.html"
+	    }, {
+	      title: "String",
+	      url: "http://ruby-doc.org/core-2.2.0/String.html"
+	    }, {
+	      title: "Enumerable",
+	      url: "http://ruby-doc.org/core-2.2.0/Enumerable.html"
+	    }, {
+	      title: "Array",
+	      url: "http://ruby-doc.org/core-2.2.0/Array.html"
+	    }, {
+	      title: "Hash",
+	      url: "http://ruby-doc.org/core-2.2.0/Hash.html"
+	    }]
+	  }, {
+	    title: "Rspec",
+	    url: "https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers"
+	  }]
+	}, {
+	  title: "Rails",
+	  links: [{
+	    title: "API",
+	    url: "http://api.rubyonrails.org/"
+	  }, {
+	    title: "Guides",
+	    url: "http://guides.rubyonrails.org/",
+	    sub: [{
+	      title: "Associate",
+	      url: "http://guides.rubyonrails.org/association_basics.html"
+	    }, {
+	      title: "Query",
+	      url: "http://guides.rubyonrails.org/active_record_querying.html"
+	    }, {
+	      title: "Validate",
+	      url: "http://guides.rubyonrails.org/active_record_validations.html"
+	    }, {
+	      title: "Render",
+	      url: "http://guides.rubyonrails.org/layouts_and_rendering.html"
+	    }, {
+	      title: "Route",
+	      url: "http://guides.rubyonrails.org/routing.html"
+	    }]
+	  }]
+	}, {
+	  title: "JavaScript",
+	  links: [{
+	    title: "JS",
+	    url: "https://developer.mozilla.org/en-US/docs/JavaScript"
+	  }, {
+	    title: "Underscore",
+	    url: "http://underscorejs.org/"
+	  }, {
+	    title: "jQuery",
+	    url: "http://api.jquery.com/"
+	  }, {
+	    title: "Jbuilder",
+	    url: "https://github.com/rails/jbuilder#jbuilder"
+	  }, {
+	    title: "React",
+	    url: "https://facebook.github.io/react/docs/getting-started.html"
+	  }, {
+	    title: "Redux",
+	    url: "http://redux.js.org/"
+	  }]
+	}, {
+	  title: "Markup",
+	  links: [{
+	    title: "HTML (what)",
+	    url: "https://developers.whatwg.org/section-index.html#index"
+	  }, {
+	    title: "HTML (mdn)",
+	    url: "https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5/HTML5_element_list"
+	  }, {
+	    title: "CSS 2.1",
+	    url: "http://www.w3.org/TR/CSS21/propidx.html"
+	  }, {
+	    title: "CSS 3",
+	    url: "https://developer.mozilla.org/en-US/docs/CSS/CSS_Reference"
+	  }, {
+	    title: "Specificity",
+	    url: "http://specificity.keegan.st/"
+	  }, {
+	    title: "W3 Validator",
+	    url: "http://validator.w3.org/"
+	  }]
+	}];
+
+/***/ },
+/* 199 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32059,23 +32228,23 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _container = __webpack_require__(199);
+	var _container = __webpack_require__(200);
 	
 	var _container2 = _interopRequireDefault(_container);
 	
-	var _container3 = __webpack_require__(203);
+	var _container3 = __webpack_require__(204);
 	
 	var _container4 = _interopRequireDefault(_container3);
 	
-	var _container5 = __webpack_require__(205);
+	var _container5 = __webpack_require__(206);
 	
 	var _container6 = _interopRequireDefault(_container5);
 	
-	var _container7 = __webpack_require__(207);
+	var _container7 = __webpack_require__(208);
 	
 	var _container8 = _interopRequireDefault(_container7);
 	
-	var _container9 = __webpack_require__(209);
+	var _container9 = __webpack_require__(210);
 	
 	var _container10 = _interopRequireDefault(_container9);
 	
@@ -32098,7 +32267,7 @@
 	};
 
 /***/ },
-/* 199 */
+/* 200 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32109,7 +32278,7 @@
 	
 	var _reactRedux = __webpack_require__(162);
 	
-	var _view = __webpack_require__(200);
+	var _view = __webpack_require__(201);
 	
 	var _view2 = _interopRequireDefault(_view);
 	
@@ -32129,7 +32298,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_view2.default);
 
 /***/ },
-/* 200 */
+/* 201 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32142,9 +32311,9 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _settings = __webpack_require__(201);
+	var _settings = __webpack_require__(202);
 	
-	var _svg_clock = __webpack_require__(202);
+	var _svg_clock = __webpack_require__(203);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -32177,7 +32346,7 @@
 	};
 
 /***/ },
-/* 201 */
+/* 202 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -32188,7 +32357,7 @@
 	var MINS_IN_SESSION = exports.MINS_IN_SESSION = 15;
 
 /***/ },
-/* 202 */
+/* 203 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32198,7 +32367,7 @@
 	});
 	exports.setDashFromMin = exports.setDashFromSec = undefined;
 	
-	var _settings = __webpack_require__(201);
+	var _settings = __webpack_require__(202);
 	
 	var setDashFromSec = exports.setDashFromSec = function setDashFromSec(rad, s) {
 		var maxLength = rad * Math.PI * 2;
@@ -32231,7 +32400,7 @@
 	};
 
 /***/ },
-/* 203 */
+/* 204 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32242,7 +32411,7 @@
 	
 	var _reactRedux = __webpack_require__(162);
 	
-	var _view = __webpack_require__(204);
+	var _view = __webpack_require__(205);
 	
 	var _view2 = _interopRequireDefault(_view);
 	
@@ -32261,7 +32430,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_view2.default);
 
 /***/ },
-/* 204 */
+/* 205 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -32318,7 +32487,7 @@
 	};
 
 /***/ },
-/* 205 */
+/* 206 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32329,7 +32498,7 @@
 	
 	var _reactRedux = __webpack_require__(162);
 	
-	var _view = __webpack_require__(206);
+	var _view = __webpack_require__(207);
 	
 	var _view2 = _interopRequireDefault(_view);
 	
@@ -32355,7 +32524,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_view2.default);
 
 /***/ },
-/* 206 */
+/* 207 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -32392,7 +32561,7 @@
 	};
 
 /***/ },
-/* 207 */
+/* 208 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32403,7 +32572,7 @@
 	
 	var _reactRedux = __webpack_require__(162);
 	
-	var _view = __webpack_require__(208);
+	var _view = __webpack_require__(209);
 	
 	var _view2 = _interopRequireDefault(_view);
 	
@@ -32427,7 +32596,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_view2.default);
 
 /***/ },
-/* 208 */
+/* 209 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -32459,7 +32628,7 @@
 	};
 
 /***/ },
-/* 209 */
+/* 210 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32470,7 +32639,7 @@
 	
 	var _reactRedux = __webpack_require__(162);
 	
-	var _view = __webpack_require__(210);
+	var _view = __webpack_require__(211);
 	
 	var _view2 = _interopRequireDefault(_view);
 	
@@ -32493,7 +32662,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_view2.default);
 
 /***/ },
-/* 210 */
+/* 211 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32506,7 +32675,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _settings = __webpack_require__(201);
+	var _settings = __webpack_require__(202);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -32567,7 +32736,7 @@
 	};
 
 /***/ },
-/* 211 */
+/* 212 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32578,11 +32747,11 @@
 	
 	var _redux = __webpack_require__(169);
 	
-	var _root_reducer = __webpack_require__(212);
+	var _root_reducer = __webpack_require__(213);
 	
 	var _root_reducer2 = _interopRequireDefault(_root_reducer);
 	
-	var _root_middleware = __webpack_require__(223);
+	var _root_middleware = __webpack_require__(224);
 	
 	var _root_middleware2 = _interopRequireDefault(_root_middleware);
 	
@@ -32596,7 +32765,7 @@
 	exports.default = configureStore;
 
 /***/ },
-/* 212 */
+/* 213 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32607,39 +32776,39 @@
 	
 	var _redux = __webpack_require__(169);
 	
-	var _city_id = __webpack_require__(213);
+	var _city_id = __webpack_require__(214);
 	
 	var _city_id2 = _interopRequireDefault(_city_id);
 	
-	var _pod_id = __webpack_require__(214);
+	var _pod_id = __webpack_require__(215);
 	
 	var _pod_id2 = _interopRequireDefault(_pod_id);
 	
-	var _day = __webpack_require__(215);
+	var _day = __webpack_require__(216);
 	
 	var _day2 = _interopRequireDefault(_day);
 	
-	var _desk = __webpack_require__(217);
+	var _desk = __webpack_require__(218);
 	
 	var _desk2 = _interopRequireDefault(_desk);
 	
-	var _desks = __webpack_require__(218);
+	var _desks = __webpack_require__(219);
 	
 	var _desks2 = _interopRequireDefault(_desks);
 	
-	var _options = __webpack_require__(219);
+	var _options = __webpack_require__(220);
 	
 	var _options2 = _interopRequireDefault(_options);
 	
-	var _playing = __webpack_require__(220);
+	var _playing = __webpack_require__(221);
 	
 	var _playing2 = _interopRequireDefault(_playing);
 	
-	var _seconds = __webpack_require__(221);
+	var _seconds = __webpack_require__(222);
 	
 	var _seconds2 = _interopRequireDefault(_seconds);
 	
-	var _interval = __webpack_require__(222);
+	var _interval = __webpack_require__(223);
 	
 	var _interval2 = _interopRequireDefault(_interval);
 	
@@ -32664,7 +32833,7 @@
 	exports.default = RootReducer;
 
 /***/ },
-/* 213 */
+/* 214 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -32687,7 +32856,7 @@
 	};
 
 /***/ },
-/* 214 */
+/* 215 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -32710,7 +32879,7 @@
 	};
 
 /***/ },
-/* 215 */
+/* 216 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -32719,7 +32888,7 @@
 	  value: true
 	});
 	
-	var _dateStamp = __webpack_require__(216);
+	var _dateStamp = __webpack_require__(217);
 	
 	var _dateStamp2 = _interopRequireDefault(_dateStamp);
 	
@@ -32748,7 +32917,7 @@
 	};
 
 /***/ },
-/* 216 */
+/* 217 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -32772,7 +32941,7 @@
 	};
 
 /***/ },
-/* 217 */
+/* 218 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -32795,7 +32964,7 @@
 	};
 
 /***/ },
-/* 218 */
+/* 219 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -32822,7 +32991,7 @@
 	};
 
 /***/ },
-/* 219 */
+/* 220 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -32849,7 +33018,7 @@
 	};
 
 /***/ },
-/* 220 */
+/* 221 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -32872,7 +33041,7 @@
 	};
 
 /***/ },
-/* 221 */
+/* 222 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -32897,7 +33066,7 @@
 	};
 
 /***/ },
-/* 222 */
+/* 223 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -32920,7 +33089,7 @@
 	};
 
 /***/ },
-/* 223 */
+/* 224 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32931,23 +33100,23 @@
 	
 	var _redux = __webpack_require__(169);
 	
-	var _local_storing = __webpack_require__(224);
+	var _local_storing = __webpack_require__(225);
 	
 	var _local_storing2 = _interopRequireDefault(_local_storing);
 	
-	var _timer = __webpack_require__(248);
+	var _timer = __webpack_require__(249);
 	
 	var _timer2 = _interopRequireDefault(_timer);
 	
-	var _city = __webpack_require__(249);
+	var _city = __webpack_require__(250);
 	
 	var _city2 = _interopRequireDefault(_city);
 	
-	var _desk = __webpack_require__(250);
+	var _desk = __webpack_require__(251);
 	
 	var _desk2 = _interopRequireDefault(_desk);
 	
-	var _day = __webpack_require__(251);
+	var _day = __webpack_require__(252);
 	
 	var _day2 = _interopRequireDefault(_day);
 	
@@ -32958,7 +33127,7 @@
 	exports.default = RootMiddleware;
 
 /***/ },
-/* 224 */
+/* 225 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -32967,7 +33136,7 @@
 	  value: true
 	});
 	
-	var _sjcl = __webpack_require__(225);
+	var _sjcl = __webpack_require__(226);
 	
 	var _sjcl2 = _interopRequireDefault(_sjcl);
 	
@@ -33031,7 +33200,7 @@
 	};
 
 /***/ },
-/* 225 */
+/* 226 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;"use strict";var sjcl={cipher:{},hash:{},keyexchange:{},mode:{},misc:{},codec:{},exception:{corrupt:function(a){this.toString=function(){return"CORRUPT: "+this.message};this.message=a},invalid:function(a){this.toString=function(){return"INVALID: "+this.message};this.message=a},bug:function(a){this.toString=function(){return"BUG: "+this.message};this.message=a},notReady:function(a){this.toString=function(){return"NOT READY: "+this.message};this.message=a}}};
@@ -33083,7 +33252,7 @@
 	a.touches[0]||a.changedTouches[0];this.addEntropy([a.pageX||a.clientX,a.pageY||a.clientY],1,"touch");C(this,0)},ma:function(){C(this,2)},ea:function(a){a=a.accelerationIncludingGravity.x||a.accelerationIncludingGravity.y||a.accelerationIncludingGravity.z;if(window.orientation){var b=window.orientation;"number"===typeof b&&this.addEntropy(b,1,"accelerometer")}a&&this.addEntropy(a,2,"accelerometer");C(this,0)}};
 	function A(a,b){var c,d=sjcl.random.K[a],e=[];for(c in d)d.hasOwnProperty(c)&&e.push(d[c]);for(c=0;c<e.length;c++)e[c](b)}function C(a,b){"undefined"!==typeof window&&window.performance&&"function"===typeof window.performance.now?a.addEntropy(window.performance.now(),b,"loadtime"):a.addEntropy((new Date).valueOf(),b,"loadtime")}function y(a){a.b=z(a).concat(z(a));a.L=new sjcl.cipher.aes(a.b)}function z(a){for(var b=0;4>b&&(a.h[b]=a.h[b]+1|0,!a.h[b]);b++);return a.L.encrypt(a.h)}
 	function B(a,b){return function(){b.apply(a,arguments)}}sjcl.random=new sjcl.prng(6);
-	a:try{var D,E,F,G;if(G="undefined"!==typeof module&&module.exports){var H;try{H=__webpack_require__(226)}catch(a){H=null}G=E=H}if(G&&E.randomBytes)D=E.randomBytes(128),D=new Uint32Array((new Uint8Array(D)).buffer),sjcl.random.addEntropy(D,1024,"crypto['randomBytes']");else if("undefined"!==typeof window&&"undefined"!==typeof Uint32Array){F=new Uint32Array(32);if(window.crypto&&window.crypto.getRandomValues)window.crypto.getRandomValues(F);else if(window.msCrypto&&window.msCrypto.getRandomValues)window.msCrypto.getRandomValues(F);
+	a:try{var D,E,F,G;if(G="undefined"!==typeof module&&module.exports){var H;try{H=__webpack_require__(227)}catch(a){H=null}G=E=H}if(G&&E.randomBytes)D=E.randomBytes(128),D=new Uint32Array((new Uint8Array(D)).buffer),sjcl.random.addEntropy(D,1024,"crypto['randomBytes']");else if("undefined"!==typeof window&&"undefined"!==typeof Uint32Array){F=new Uint32Array(32);if(window.crypto&&window.crypto.getRandomValues)window.crypto.getRandomValues(F);else if(window.msCrypto&&window.msCrypto.getRandomValues)window.msCrypto.getRandomValues(F);
 	else break a;sjcl.random.addEntropy(F,1024,"crypto['getRandomValues']")}}catch(a){"undefined"!==typeof window&&window.console&&(console.log("There was an error collecting entropy from the browser:"),console.log(a))}
 	sjcl.json={defaults:{v:1,iter:1E4,ks:128,ts:64,mode:"ccm",adata:"",cipher:"aes"},ja:function(a,b,c,d){c=c||{};d=d||{};var e=sjcl.json,f=e.g({iv:sjcl.random.randomWords(4,0)},e.defaults),g;e.g(f,c);c=f.adata;"string"===typeof f.salt&&(f.salt=sjcl.codec.base64.toBits(f.salt));"string"===typeof f.iv&&(f.iv=sjcl.codec.base64.toBits(f.iv));if(!sjcl.mode[f.mode]||!sjcl.cipher[f.cipher]||"string"===typeof a&&100>=f.iter||64!==f.ts&&96!==f.ts&&128!==f.ts||128!==f.ks&&192!==f.ks&&0x100!==f.ks||2>f.iv.length||
 	4<f.iv.length)throw new sjcl.exception.invalid("json encrypt: invalid parameters");"string"===typeof a?(g=sjcl.misc.cachedPbkdf2(a,f),a=g.key.slice(0,f.ks/32),f.salt=g.salt):sjcl.ecc&&a instanceof sjcl.ecc.elGamal.publicKey&&(g=a.kem(),f.kemtag=g.tag,a=g.key.slice(0,f.ks/32));"string"===typeof b&&(b=sjcl.codec.utf8String.toBits(b));"string"===typeof c&&(f.adata=c=sjcl.codec.utf8String.toBits(c));g=new sjcl.cipher[f.cipher](a);e.g(d,f);d.key=a;f.ct="ccm"===f.mode&&sjcl.arrayBuffer&&sjcl.arrayBuffer.ccm&&
@@ -33097,10 +33266,10 @@
 
 
 /***/ },
-/* 226 */
+/* 227 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(Buffer) {var rng = __webpack_require__(231)
+	/* WEBPACK VAR INJECTION */(function(Buffer) {var rng = __webpack_require__(232)
 	
 	function error () {
 	  var m = [].slice.call(arguments).join(' ')
@@ -33111,9 +33280,9 @@
 	    ].join('\n'))
 	}
 	
-	exports.createHash = __webpack_require__(233)
+	exports.createHash = __webpack_require__(234)
 	
-	exports.createHmac = __webpack_require__(245)
+	exports.createHmac = __webpack_require__(246)
 	
 	exports.randomBytes = function(size, callback) {
 	  if (callback && callback.call) {
@@ -33134,7 +33303,7 @@
 	  return ['sha1', 'sha256', 'sha512', 'md5', 'rmd160']
 	}
 	
-	var p = __webpack_require__(246)(exports)
+	var p = __webpack_require__(247)(exports)
 	exports.pbkdf2 = p.pbkdf2
 	exports.pbkdf2Sync = p.pbkdf2Sync
 	
@@ -33154,10 +33323,10 @@
 	  }
 	})
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(227).Buffer))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(228).Buffer))
 
 /***/ },
-/* 227 */
+/* 228 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(Buffer, global) {/*!
@@ -33170,9 +33339,9 @@
 	
 	'use strict'
 	
-	var base64 = __webpack_require__(228)
-	var ieee754 = __webpack_require__(229)
-	var isArray = __webpack_require__(230)
+	var base64 = __webpack_require__(229)
+	var ieee754 = __webpack_require__(230)
+	var isArray = __webpack_require__(231)
 	
 	exports.Buffer = Buffer
 	exports.SlowBuffer = SlowBuffer
@@ -34950,10 +35119,10 @@
 	  return val !== val // eslint-disable-line no-self-compare
 	}
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(227).Buffer, (function() { return this; }())))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(228).Buffer, (function() { return this; }())))
 
 /***/ },
-/* 228 */
+/* 229 */
 /***/ function(module, exports) {
 
 	'use strict'
@@ -35073,7 +35242,7 @@
 
 
 /***/ },
-/* 229 */
+/* 230 */
 /***/ function(module, exports) {
 
 	exports.read = function (buffer, offset, isLE, mLen, nBytes) {
@@ -35163,7 +35332,7 @@
 
 
 /***/ },
-/* 230 */
+/* 231 */
 /***/ function(module, exports) {
 
 	var toString = {}.toString;
@@ -35174,13 +35343,13 @@
 
 
 /***/ },
-/* 231 */
+/* 232 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global, Buffer) {(function() {
 	  var g = ('undefined' === typeof window ? global : window) || {}
 	  _crypto = (
-	    g.crypto || g.msCrypto || __webpack_require__(232)
+	    g.crypto || g.msCrypto || __webpack_require__(233)
 	  )
 	  module.exports = function(size) {
 	    // Modern Browsers
@@ -35204,22 +35373,22 @@
 	  }
 	}())
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(227).Buffer))
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(228).Buffer))
 
 /***/ },
-/* 232 */
+/* 233 */
 /***/ function(module, exports) {
 
 	/* (ignored) */
 
 /***/ },
-/* 233 */
+/* 234 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(Buffer) {var createHash = __webpack_require__(234)
+	/* WEBPACK VAR INJECTION */(function(Buffer) {var createHash = __webpack_require__(235)
 	
-	var md5 = toConstructor(__webpack_require__(242))
-	var rmd160 = toConstructor(__webpack_require__(244))
+	var md5 = toConstructor(__webpack_require__(243))
+	var rmd160 = toConstructor(__webpack_require__(245))
 	
 	function toConstructor (fn) {
 	  return function () {
@@ -35247,10 +35416,10 @@
 	  return createHash(alg)
 	}
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(227).Buffer))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(228).Buffer))
 
 /***/ },
-/* 234 */
+/* 235 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var exports = module.exports = function (alg) {
@@ -35259,16 +35428,16 @@
 	  return new Alg()
 	}
 	
-	var Buffer = __webpack_require__(227).Buffer
-	var Hash   = __webpack_require__(235)(Buffer)
+	var Buffer = __webpack_require__(228).Buffer
+	var Hash   = __webpack_require__(236)(Buffer)
 	
-	exports.sha1 = __webpack_require__(236)(Buffer, Hash)
-	exports.sha256 = __webpack_require__(240)(Buffer, Hash)
-	exports.sha512 = __webpack_require__(241)(Buffer, Hash)
+	exports.sha1 = __webpack_require__(237)(Buffer, Hash)
+	exports.sha256 = __webpack_require__(241)(Buffer, Hash)
+	exports.sha512 = __webpack_require__(242)(Buffer, Hash)
 
 
 /***/ },
-/* 235 */
+/* 236 */
 /***/ function(module, exports) {
 
 	module.exports = function (Buffer) {
@@ -35351,7 +35520,7 @@
 
 
 /***/ },
-/* 236 */
+/* 237 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -35363,7 +35532,7 @@
 	 * See http://pajhome.org.uk/crypt/md5 for details.
 	 */
 	
-	var inherits = __webpack_require__(237).inherits
+	var inherits = __webpack_require__(238).inherits
 	
 	module.exports = function (Buffer, Hash) {
 	
@@ -35495,7 +35664,7 @@
 
 
 /***/ },
-/* 237 */
+/* 238 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global, process) {// Copyright Joyent, Inc. and other Node contributors.
@@ -36023,7 +36192,7 @@
 	}
 	exports.isPrimitive = isPrimitive;
 	
-	exports.isBuffer = __webpack_require__(238);
+	exports.isBuffer = __webpack_require__(239);
 	
 	function objectToString(o) {
 	  return Object.prototype.toString.call(o);
@@ -36067,7 +36236,7 @@
 	 *     prototype.
 	 * @param {function} superCtor Constructor function to inherit prototype from.
 	 */
-	exports.inherits = __webpack_require__(239);
+	exports.inherits = __webpack_require__(240);
 	
 	exports._extend = function(origin, add) {
 	  // Don't do anything if add isn't an object
@@ -36088,7 +36257,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(5)))
 
 /***/ },
-/* 238 */
+/* 239 */
 /***/ function(module, exports) {
 
 	module.exports = function isBuffer(arg) {
@@ -36099,7 +36268,7 @@
 	}
 
 /***/ },
-/* 239 */
+/* 240 */
 /***/ function(module, exports) {
 
 	if (typeof Object.create === 'function') {
@@ -36128,7 +36297,7 @@
 
 
 /***/ },
-/* 240 */
+/* 241 */
 /***/ function(module, exports, __webpack_require__) {
 
 	
@@ -36140,7 +36309,7 @@
 	 *
 	 */
 	
-	var inherits = __webpack_require__(237).inherits
+	var inherits = __webpack_require__(238).inherits
 	
 	module.exports = function (Buffer, Hash) {
 	
@@ -36281,10 +36450,10 @@
 
 
 /***/ },
-/* 241 */
+/* 242 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var inherits = __webpack_require__(237).inherits
+	var inherits = __webpack_require__(238).inherits
 	
 	module.exports = function (Buffer, Hash) {
 	  var K = [
@@ -36531,7 +36700,7 @@
 
 
 /***/ },
-/* 242 */
+/* 243 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -36543,7 +36712,7 @@
 	 * See http://pajhome.org.uk/crypt/md5 for more info.
 	 */
 	
-	var helpers = __webpack_require__(243);
+	var helpers = __webpack_require__(244);
 	
 	/*
 	 * Calculate the MD5 of an array of little-endian words, and a bit length
@@ -36692,7 +36861,7 @@
 
 
 /***/ },
-/* 243 */
+/* 244 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(Buffer) {var intSize = 4;
@@ -36730,10 +36899,10 @@
 	
 	module.exports = { hash: hash };
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(227).Buffer))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(228).Buffer))
 
 /***/ },
-/* 244 */
+/* 245 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(Buffer) {
@@ -36942,13 +37111,13 @@
 	
 	
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(227).Buffer))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(228).Buffer))
 
 /***/ },
-/* 245 */
+/* 246 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(Buffer) {var createHash = __webpack_require__(233)
+	/* WEBPACK VAR INJECTION */(function(Buffer) {var createHash = __webpack_require__(234)
 	
 	var zeroBuffer = new Buffer(128)
 	zeroBuffer.fill(0)
@@ -36992,13 +37161,13 @@
 	}
 	
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(227).Buffer))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(228).Buffer))
 
 /***/ },
-/* 246 */
+/* 247 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var pbkdf2Export = __webpack_require__(247)
+	var pbkdf2Export = __webpack_require__(248)
 	
 	module.exports = function (crypto, exports) {
 	  exports = exports || {}
@@ -37013,7 +37182,7 @@
 
 
 /***/ },
-/* 247 */
+/* 248 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(Buffer) {module.exports = function(crypto) {
@@ -37101,10 +37270,10 @@
 	  }
 	}
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(227).Buffer))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(228).Buffer))
 
 /***/ },
-/* 248 */
+/* 249 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37113,7 +37282,7 @@
 	  value: true
 	});
 	
-	var _settings = __webpack_require__(201);
+	var _settings = __webpack_require__(202);
 	
 	var notify = function notify() {
 	  return chrome.notifications.create('time-to-switch', {
@@ -37181,7 +37350,7 @@
 	};
 
 /***/ },
-/* 249 */
+/* 250 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -37233,7 +37402,7 @@
 	};
 
 /***/ },
-/* 250 */
+/* 251 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -37256,7 +37425,7 @@
 	};
 
 /***/ },
-/* 251 */
+/* 252 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37269,7 +37438,7 @@
 	
 	var _jquery2 = _interopRequireDefault(_jquery);
 	
-	var _dateStamp = __webpack_require__(216);
+	var _dateStamp = __webpack_require__(217);
 	
 	var _dateStamp2 = _interopRequireDefault(_dateStamp);
 	
@@ -37318,175 +37487,6 @@
 	    };
 	  };
 	};
-
-/***/ },
-/* 252 */
-/***/ function(module, exports) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	var CORNERS = exports.CORNERS = [{
-	  title: "Progress",
-	  url: "http://progress.appacademy.io/"
-	}, {
-	  title: "Gmail",
-	  url: "https://mail.google.com/mail/"
-	}, {
-	  title: "Github",
-	  url: "https://github.com/"
-	}, {
-	  title: "Timer",
-	  url: "http://drwrchrds.github.io/pairing_timer/"
-	}];
-	
-	var MAIN_LINKS = exports.MAIN_LINKS = [{
-	  title: "Curriculum",
-	  links: [{
-	    title: "Ruby",
-	    url: "https://github.com/appacademy/curriculum/blob/master/ruby/README.md",
-	    start: 11
-	  }, {
-	    title: "SQL",
-	    url: "https://github.com/appacademy/curriculum/blob/master/sql/README.md",
-	    start: 31
-	  }, {
-	    title: "Rails",
-	    url: "https://github.com/appacademy/curriculum/blob/master/rails/README.md",
-	    start: 41
-	  }, {
-	    title: "JavaScript",
-	    url: "https://github.com/appacademy/curriculum/blob/master/javascript/README.md",
-	    start: 54
-	  }, {
-	    title: "React",
-	    url: "https://github.com/appacademy/curriculum/blob/master/react/README.md",
-	    start: 71
-	  }, {
-	    title: "Full Stack",
-	    url: "https://github.com/appacademy/curriculum/blob/master/full-stack-project/README.md",
-	    start: 81
-	  }, {
-	    title: "Jobs",
-	    url: "https://github.com/appacademy/job-search-curriculum",
-	    start: 101
-	  }]
-	}, {
-	  title: "Course",
-	  links: [{
-	    title: "Meta",
-	    url: "https://github.com/appacademy/meta"
-	  }, {
-	    title: "Prep",
-	    url: "https://github.com/appacademy/assessment-prep"
-	  }, {
-	    title: "Solutions",
-	    url: "https://github.com/appacademy/solutions"
-	  }, {
-	    title: "Algorithms",
-	    url: "https://github.com/appacademy/algorithms-curriculum"
-	  }, {
-	    title: "Backbone",
-	    url: "https://github.com/appacademy/backbone-curriculum/blob/master/README.md"
-	  }, {
-	    title: "CSS",
-	    url: "https://github.com/appacademy/css-demos/blob/gh-pages/README.md"
-	  }]
-	}, {
-	  title: "Ruby",
-	  links: [{
-	    title: "API",
-	    url: "http://ruby-doc.org/core-2.2.0/",
-	    sub: [{
-	      title: "Object",
-	      url: "http://ruby-doc.org/core-2.2.0/Object.html"
-	    }, {
-	      title: "String",
-	      url: "http://ruby-doc.org/core-2.2.0/String.html"
-	    }, {
-	      title: "Enumerable",
-	      url: "http://ruby-doc.org/core-2.2.0/Enumerable.html"
-	    }, {
-	      title: "Array",
-	      url: "http://ruby-doc.org/core-2.2.0/Array.html"
-	    }, {
-	      title: "Hash",
-	      url: "http://ruby-doc.org/core-2.2.0/Hash.html"
-	    }]
-	  }, {
-	    title: "Rspec",
-	    url: "https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers"
-	  }]
-	}, {
-	  title: "Rails",
-	  links: [{
-	    title: "API",
-	    url: "http://api.rubyonrails.org/"
-	  }, {
-	    title: "Guides",
-	    url: "http://guides.rubyonrails.org/",
-	    sub: [{
-	      title: "Associate",
-	      url: "http://guides.rubyonrails.org/association_basics.html"
-	    }, {
-	      title: "Query",
-	      url: "http://guides.rubyonrails.org/active_record_querying.html"
-	    }, {
-	      title: "Validate",
-	      url: "http://guides.rubyonrails.org/active_record_validations.html"
-	    }, {
-	      title: "Render",
-	      url: "http://guides.rubyonrails.org/layouts_and_rendering.html"
-	    }, {
-	      title: "Route",
-	      url: "http://guides.rubyonrails.org/routing.html"
-	    }]
-	  }]
-	}, {
-	  title: "JavaScript",
-	  links: [{
-	    title: "JS",
-	    url: "https://developer.mozilla.org/en-US/docs/JavaScript"
-	  }, {
-	    title: "Underscore",
-	    url: "http://underscorejs.org/"
-	  }, {
-	    title: "jQuery",
-	    url: "http://api.jquery.com/"
-	  }, {
-	    title: "Jbuilder",
-	    url: "https://github.com/rails/jbuilder#jbuilder"
-	  }, {
-	    title: "React",
-	    url: "https://facebook.github.io/react/docs/getting-started.html"
-	  }, {
-	    title: "Redux",
-	    url: "http://redux.js.org/"
-	  }]
-	}, {
-	  title: "Markup",
-	  links: [{
-	    title: "HTML (what)",
-	    url: "https://developers.whatwg.org/section-index.html#index"
-	  }, {
-	    title: "HTML (mdn)",
-	    url: "https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5/HTML5_element_list"
-	  }, {
-	    title: "CSS 2.1",
-	    url: "http://www.w3.org/TR/CSS21/propidx.html"
-	  }, {
-	    title: "CSS 3",
-	    url: "https://developer.mozilla.org/en-US/docs/CSS/CSS_Reference"
-	  }, {
-	    title: "Specificity",
-	    url: "http://specificity.keegan.st/"
-	  }, {
-	    title: "W3 Validator",
-	    url: "http://validator.w3.org/"
-	  }]
-	}];
 
 /***/ }
 /******/ ]);
