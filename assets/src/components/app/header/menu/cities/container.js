@@ -1,15 +1,12 @@
 import { connect } from 'react-redux';
 
 import View from './view';
-import { CITIES } from 'util/settings';
 
-const getCityAbbr = state => CITIES[state.cityId].abbr;
+const mapStateToProps = state => ({});
 
-const mapStateToProps = state => ({
-  city: getCityAbbr(state)
+const mapDispatchToProps = dispatch => ({
+	set: cityId => dispatch({ type: "SET_CITY_ID", cityId })
 });
-
-const mapDispatchToProps = dispatch => ({});
 
 export default connect(
   mapStateToProps,

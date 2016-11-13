@@ -1,7 +1,7 @@
 export const MINS_IN_SESSION = 15;
 
 export const CITIES = {
-	0 : {
+	2 : {
 		long : "San Francisco",
 		abbr : "SF",
 	},

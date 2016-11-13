@@ -2,13 +2,16 @@ import React from 'react';
 
 import { CITIES } from 'util/settings';
 
-const cityLi = id => (
-  <li key={ id }>{ CITIES[id].abbr }</li>
-)
+const cityLis = (set) => {
+  const keys = Object.keys(CITIES);
 
-export default ({ city }) => (
+  return keys.map(id => (
+    <li key={ id } onClick={ () => { set(id) } }>{ CITIES[id].abbr }</li>
+  ))
+}
+
+export default ({ set }) => (
   <ul>
-    <li>SF</li>
-    <li>NYC</li>
+    { cityLis(set) }
   </ul>
 )

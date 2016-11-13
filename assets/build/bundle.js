@@ -31977,7 +31977,7 @@
 	var MINS_IN_SESSION = exports.MINS_IN_SESSION = 15;
 	
 	var CITIES = exports.CITIES = {
-		0: {
+		2: {
 			long: "San Francisco",
 			abbr: "SF"
 		},
@@ -37143,7 +37143,7 @@
 	  return _settings.CITIES[state.cityId].abbr;
 	};
 	var getPod = function getPod(state) {
-	  return state.day.pods[state.podId].name;
+	  return state.day.pods[state.podId] && state.day.pods[state.podId].name;
 	};
 	
 	var mapStateToProps = function mapStateToProps(state) {
@@ -37225,22 +37225,18 @@
 	
 	var _view2 = _interopRequireDefault(_view);
 	
-	var _settings = __webpack_require__(194);
-	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var getCityAbbr = function getCityAbbr(state) {
-	  return _settings.CITIES[state.cityId].abbr;
-	};
-	
 	var mapStateToProps = function mapStateToProps(state) {
-	  return {
-	    city: getCityAbbr(state)
-	  };
+	  return {};
 	};
 	
 	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-	  return {};
+	  return {
+	    set: function set(cityId) {
+	      return dispatch({ type: "SET_CITY_ID", cityId: cityId });
+	    }
+	  };
 	};
 	
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_view2.default);
@@ -37263,29 +37259,26 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var cityLi = function cityLi(id) {
-	  return _react2.default.createElement(
-	    'li',
-	    { key: id },
-	    _settings.CITIES[id].abbr
-	  );
+	var cityLis = function cityLis(set) {
+	  var keys = Object.keys(_settings.CITIES);
+	
+	  return keys.map(function (id) {
+	    return _react2.default.createElement(
+	      'li',
+	      { key: id, onClick: function onClick() {
+	          set(id);
+	        } },
+	      _settings.CITIES[id].abbr
+	    );
+	  });
 	};
 	
 	exports.default = function (_ref) {
-	  var city = _ref.city;
+	  var set = _ref.set;
 	  return _react2.default.createElement(
 	    'ul',
 	    null,
-	    _react2.default.createElement(
-	      'li',
-	      null,
-	      'SF'
-	    ),
-	    _react2.default.createElement(
-	      'li',
-	      null,
-	      'NYC'
-	    )
+	    cityLis(set)
 	  );
 	};
 
