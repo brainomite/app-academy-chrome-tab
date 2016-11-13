@@ -12,6 +12,7 @@ export default () => (
         <li>NYC</li>
       </ul>
     </li>
+    <li className="inactive"> > </li>
     <li>
       Presidio
       <ul>

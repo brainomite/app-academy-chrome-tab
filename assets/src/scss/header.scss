@@ -32,6 +32,11 @@
     list-style: none;
     color: white;
 
+    .inactive:hover {
+      cursor: default;
+      color: white;
+    }
+
     li {
       position: relative;
       display: inline-block;

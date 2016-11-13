@@ -115,6 +115,9 @@ main {
     top: 0;
     list-style: none;
     color: white; }
+    .header .menu .inactive:hover {
+      cursor: default;
+      color: white; }
     .header .menu li {
       position: relative;
       display: inline-block;
