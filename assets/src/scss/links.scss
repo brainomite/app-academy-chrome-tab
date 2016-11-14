@@ -1,3 +1,37 @@
-.links {
+.links-group {
 	height: 55px;
+	width: 96%;
+	overflow: hidden;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	border: 2px solid #ccc;
+	margin: auto;
+	.links-subs {
+		.title {
+			height: 55px;
+			font-size: 26px;
+			line-height: 55px;
+			font-weight: 700;
+			color: darken(#ccc, 30%);
+		}
+		.link-list {
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-start;
+			.link-item {
+				padding: 10px 0;
+				a {
+					font-size: 20px;
+					color: lighten(black, 10%);
+				}
+			}
+		}
+	}
+}
+
+
+.show-links {
+	overflow: visible;
+	z-index: 100;
 }

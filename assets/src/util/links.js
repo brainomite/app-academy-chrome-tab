@@ -37,7 +37,7 @@ export const MAIN_LINKS = [
         start: 41
       },
       {
-        title: "JS",
+        title: "JavaScript",
         url: "https://github.com/appacademy/curriculum/blob/master/javascript/README.md",
         start: 54
       },
@@ -158,7 +158,7 @@ export const MAIN_LINKS = [
     ]
   },
   {
-    title: "JS",
+    title: "JavaScript",
     links: [
       {
         title: "JS",
