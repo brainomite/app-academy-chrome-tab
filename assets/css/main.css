@@ -179,24 +179,44 @@ main {
   overflow: hidden;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
   border: 2px solid #ccc;
-  margin: auto; }
-  .links-group .links-subs .title {
-    height: 55px;
-    font-size: 26px;
-    line-height: 55px;
-    font-weight: 700;
-    color: gray; }
-  .links-group .links-subs .link-list {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start; }
-    .links-group .links-subs .link-list .link-item {
-      padding: 10px 0; }
-      .links-group .links-subs .link-list .link-item a {
-        font-size: 20px;
-        color: #1a1a1a; }
+  margin: auto;
+  cursor: pointer; }
+  .links-group .links-subs {
+    width: 17%;
+    text-align: center; }
+    .links-group .links-subs .title {
+      height: 55px;
+      font-size: 26px;
+      line-height: 55px;
+      font-weight: 700;
+      color: #4d4d4d;
+      border-bottom: 4px solid gray; }
+    .links-group .links-subs .link-list {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      width: 100%;
+      background-color: #ffd6d6;
+      height: 220px; }
+      .links-group .links-subs .link-list .link-item {
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start; }
+        .links-group .links-subs .link-list .link-item a {
+          line-height: 30px;
+          padding-left: 20px; }
+        .links-group .links-subs .link-list .link-item a:hover {
+          transform: scale(1.04, 1.04);
+          background-color: #ccc; }
+        .links-group .links-subs .link-list .link-item li {
+          padding-left: 30px; }
+        .links-group .links-subs .link-list .link-item li:hover {
+          background-color: #b3b3b3; }
+
+.active {
+  background-color: #ff9999; }
 
 .show-links {
   overflow: visible;

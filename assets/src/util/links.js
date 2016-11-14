@@ -91,6 +91,10 @@ export const MAIN_LINKS = [
     title: "Ruby",
     links: [
       {
+        title: "Rspec",
+        url: "https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers",
+      },
+      {
         title: "API",
         url: "http://ruby-doc.org/core-2.2.0/",
         sub: [
@@ -115,10 +119,6 @@ export const MAIN_LINKS = [
             url: "http://ruby-doc.org/core-2.2.0/Hash.html",
           }
         ]
-      },
-      {
-        title: "Rspec",
-        url: "https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers",
       }
     ]
   },
