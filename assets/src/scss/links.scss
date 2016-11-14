@@ -4,32 +4,54 @@
 	overflow: hidden;
 	display: flex;
 	flex-direction: row;
-	justify-content: space-around;
 	border: 2px solid #ccc;
 	margin: auto;
+	cursor: pointer;
 	.links-subs {
+		width: 17%;
+		text-align: center;
 		.title {
 			height: 55px;
 			font-size: 26px;
 			line-height: 55px;
 			font-weight: 700;
-			color: darken(#ccc, 30%);
+			color: darken(#ccc, 50%);
+			border-bottom: 4px solid gray;
 		}
 		.link-list {
 			display: flex;
 			flex-direction: column;
 			justify-content: flex-start;
+			width: 100%;
+			background-color: lighten(red, 50%);
+			height: 220px;
 			.link-item {
-				padding: 10px 0;
+				text-align: left;
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-start;
 				a {
-					font-size: 20px;
-					color: lighten(black, 10%);
+					line-height: 30px;
+					padding-left: 15px;
+				}
+				a:hover{
+					transform: scale(1.04, 1.04);
+					background-color: #ccc;
+				}
+				li {
+					padding-left: 30px;
+				}
+				li:hover {
+					background-color: darken(#ccc, 10%);
 				}
 			}
 		}
 	}
 }
 
+.active {
+	background-color: lighten(red, 30%);
+}
 
 .show-links {
 	overflow: visible;
