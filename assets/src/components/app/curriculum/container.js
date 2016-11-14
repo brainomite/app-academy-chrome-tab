@@ -2,12 +2,10 @@ import { connect } from 'react-redux';
 
 import View from './view';
 
-const mapStateToProps = state => ({
-  desk: state.desk
-});
+const mapStateToProps = state => ({});
 
 const mapDispatchToProps = dispatch => ({
-  showDesks: () => { dispatch({ type: "SET_DESKS_VISIBLE" }) }
+  getCode: () => { dispatch({ type: "GET_GITHUB_CODE" }); }
 });
 
 export default connect(

@@ -1,5 +1,6 @@
 import {combineReducers} from 'redux';
 
+import githubAuth from './github_auth';
 import cityId from './city_id';
 import podId from './pod_id';
 import day from './day';
@@ -13,6 +14,7 @@ import timerSeconds from './timer/seconds';
 import timerInterval from './timer/interval';
 
 const RootReducer = combineReducers({
+  githubAuth,
   cityId,
   podId,
   day,

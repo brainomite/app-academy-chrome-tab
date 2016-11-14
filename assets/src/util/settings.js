@@ -10,3 +10,10 @@ export const CITIES = {
 		abbr : "NYC",
 	}
 };
+
+export const GITHUB = {
+	oauthUrl  : "https://github.com/login/oauth/authorize",
+	lambdaUrl : "https://r5bqezefyh.execute-api.us-west-2.amazonaws.com/prod/myTestFunction",
+	scope     : "public_repo",
+	client_id : "1a1e117ad08088ce339b",
+};
