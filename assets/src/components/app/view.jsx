@@ -1,10 +1,11 @@
 import React from 'react';
 
 import Curriculum from './curriculum/view';
-import DeskInfo from './desk_info/view';
+import DeskInfo from './desk_info/container';
 import Header from './header/view';
 import Links from './links/view';
 import Timer from './timer/view';
+import Desks from './desks/container';
 
 export default ({ showOptions, getDay, loaded }) => {
   if (loaded) {
@@ -12,6 +13,7 @@ export default ({ showOptions, getDay, loaded }) => {
       <main>
         <Header />
         <DeskInfo />
+        <Desks />
         <Links />
         <div className="pair-tools">
           <Timer />

@@ -74,25 +74,111 @@ main {
   justify-content: flex-start; }
 
 .desk-info {
+<<<<<<< HEAD
   height: 165px;
   width: 96%;
   margin: 5px auto;
   border: 2px solid #ccc; }
+=======
+  height: 260px;
+  position: relative; }
+  .desk-info .info {
+    height: 40px;
+    text-align: center; }
+    .desk-info .info > p {
+      position: relative;
+      display: inline-block;
+      padding: 10px 20px;
+      background: #ff0; }
+      .desk-info .info > p strong {
+        font-weight: 700; }
+      .desk-info .info > p a {
+        font-weight: 700;
+        text-decoration: underline; }
+        .desk-info .info > p a:hover {
+          text-decoration: none; }
+  .desk-info .clock-wrapper {
+    width: 100%;
+    text-align: center;
+    padding: 30px 0 15px 0; }
+    .desk-info .clock-wrapper .clock {
+      font-size: 160px;
+      display: inline-block; }
+    .desk-info .clock-wrapper .number {
+      position: relative;
+      display: inline-block;
+      top: -33px;
+      left: -45px;
+      font-size: 50px;
+      width: 80px;
+      color: #222; }
+      .desk-info .clock-wrapper .number:before {
+        content: "";
+        display: block;
+        position: absolute;
+        left: -2px;
+        top: -17px;
+        border: 8px solid #222;
+        width: 68px;
+        height: 68px;
+        -webkit-transform: rotate(45deg);
+        z-index: -1; }
+      .desk-info .clock-wrapper .number:hover, .desk-info .clock-wrapper .number:hover:before {
+        cursor: pointer;
+        color: #f00;
+        border-color: #f00; }
+>>>>>>> feature-extension
 
 .header {
   position: relative;
   background: #f00;
-  text-align: center;
+  padding: 0 10px;
   z-index: 4;
   min-height: 55px; }
   .header .logo {
+    height: 33px;
+    display: inline-block;
+    position: relative;
+    top: 8px;
+    left: 3px; }
+  .header .name {
     display: inline-block; }
-  .header .logo a {
+  .header .name a {
     display: block;
     padding: 15px;
     font-weight: 400;
     font-size: 25px;
     color: #fff; }
+  .header .menu {
+    position: absolute;
+    right: 10px;
+    top: 0;
+    list-style: none;
+    color: white; }
+    .header .menu .inactive:hover {
+      cursor: default;
+      color: white; }
+    .header .menu li {
+      position: relative;
+      display: inline-block;
+      padding: 19px 7px; }
+      .header .menu li:hover {
+        cursor: pointer;
+        color: orange; }
+        .header .menu li:hover ul {
+          display: block; }
+    .header .menu ul {
+      position: absolute;
+      top: 55px;
+      right: 5px;
+      display: none;
+      width: 160px; }
+      .header .menu ul li {
+        padding: 10px 5px;
+        text-align: right;
+        color: black;
+        background: white;
+        display: block; }
 
 .links-group {
   height: 55px;
@@ -214,8 +300,51 @@ main {
       border-radius: 2.5px;
       background: #E1E1E1; }
 
+<<<<<<< HEAD
 .curriculum {
   height: 100%;
   flex-grow: 1; }
+=======
+.desks {
+  display: none;
+  position: absolute;
+  z-index: 6;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  min-width: 400px;
+  padding: 50px 60px;
+  background: #00f;
+  color: #fff;
+  text-align: left; }
+  .desks.is-active {
+    display: block; }
+  .desks > span {
+    display: block;
+    position: absolute;
+    top: 8px;
+    right: 22px;
+    font-size: 50px;
+    cursor: pointer; }
+  .desks > span:hover {
+    color: #f00; }
+  .desks > h1 {
+    font-size: 50px;
+    text-align: center; }
+  .desks > h2 {
+    margin: 10px 0 30px 0;
+    text-align: center; }
+  .desks li {
+    margin: 10px 0; }
+  .desks li:before {
+    content: "\00a0"; }
+  .desks li:nth-child(9) ~ li:before {
+    content: ""; }
+  .desks a:hover {
+    text-decoration: underline; }
+  .desks .student-pair:hover {
+    cursor: pointer;
+    color: orange; }
+>>>>>>> feature-extension
 
 /*# sourceMappingURL=main.css.map */
