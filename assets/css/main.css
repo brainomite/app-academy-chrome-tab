@@ -197,7 +197,7 @@ main {
       flex-direction: column;
       justify-content: flex-start;
       width: 100%;
-      background-color: white;
+      background-color: #ffd6d6;
       height: 220px; }
       .links-group .links-subs .link-list .link-item {
         text-align: left;
@@ -206,7 +206,7 @@ main {
         justify-content: flex-start; }
         .links-group .links-subs .link-list .link-item a {
           line-height: 30px;
-          padding-left: 15px; }
+          padding-left: 20px; }
         .links-group .links-subs .link-list .link-item a:hover {
           transform: scale(1.04, 1.04);
           background-color: #ccc; }
