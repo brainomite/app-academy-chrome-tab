@@ -74,12 +74,6 @@ main {
   justify-content: flex-start; }
 
 .desk-info {
-<<<<<<< HEAD
-  height: 165px;
-  width: 96%;
-  margin: 5px auto;
-  border: 2px solid #ccc; }
-=======
   height: 260px;
   position: relative; }
   .desk-info .info {
@@ -127,7 +121,6 @@ main {
         cursor: pointer;
         color: #f00;
         border-color: #f00; }
->>>>>>> feature-extension
 
 .header {
   position: relative;
@@ -300,11 +293,92 @@ main {
       border-radius: 2.5px;
       background: #E1E1E1; }
 
-<<<<<<< HEAD
 .curriculum {
   height: 100%;
   flex-grow: 1; }
-=======
+
+.timer {
+  height: 100%;
+  flex-grow: 1; }
+  .timer .clock-wrapper {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    margin: 0; }
+  .timer .readout {
+    font-family: "Montserrat";
+    font-weight: 100;
+    font-size: 100px; }
+    .timer .readout .readout-minutes {
+      text-align: right;
+      position: absolute;
+      left: 0;
+      bottom: 255px;
+      right: 265px; }
+    .timer .readout .colon {
+      text-align: center;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 255px; }
+    .timer .readout .readout-seconds {
+      text-align: left;
+      position: absolute;
+      right: 0;
+      left: 265px;
+      bottom: 255px; }
+  .timer svg.clock {
+    transform: rotate(-90deg); }
+  .timer circle {
+    fill: none;
+    stroke-width: 2px;
+    stroke: black;
+    transition: all 0.2s cubic-bezier(0.4, 2.08, 0.55, 0.44); }
+  .timer circle.back {
+    stroke: #F1F1F1;
+    stroke-width: 32px; }
+  .timer circle.minutes {
+    stroke: #FF0000;
+    stroke-width: 23px; }
+  .timer circle.seconds {
+    stroke: #FFB3B3;
+    stroke-width: 9px; }
+  .timer svg.play-pause {
+    position: absolute;
+    top: 265px;
+    left: 190px; }
+    .timer svg.play-pause path:hover {
+      cursor: pointer;
+      fill: #FF0000; }
+  .timer svg.reset {
+    display: none;
+    position: absolute;
+    top: 75px;
+    left: 220px;
+    transform: rotate(90deg); }
+    .timer svg.reset:hover {
+      cursor: pointer;
+      fill: #FF0000; }
+  .timer .handles.paused .handle {
+    height: 25px;
+    width: 25px; }
+    .timer .handles.paused .handle:hover {
+      cursor: pointer; }
+      .timer .handles.paused .handle:hover .bar {
+        background-color: #FF0000; }
+  .timer .handle {
+    position: absolute;
+    width: 25px;
+    height: 5px;
+    transform-origin: 50% 100%;
+    transition: all 0.2s cubic-bezier(0.4, 2.08, 0.55, 0.44); }
+    .timer .handle .bar {
+      height: 100%;
+      width: 5px;
+      margin: 0 auto;
+      border-radius: 2.5px;
+      background: #E1E1E1; }
+
 .desks {
   display: none;
   position: absolute;
@@ -345,6 +419,5 @@ main {
   .desks .student-pair:hover {
     cursor: pointer;
     color: orange; }
->>>>>>> feature-extension
 
 /*# sourceMappingURL=main.css.map */
