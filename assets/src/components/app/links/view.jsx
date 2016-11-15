@@ -7,17 +7,11 @@ export default () => (
   </main>
 )
 
-const toggleLinks = () => {
-  const links = document.getElementsByClassName("links-group")
-  links[0].classList.toggle('show-links');
-  links[0].classList.toggle('active');
-}
-
 const linksSection = ({ title, links }, idx) => {
   return (
     <section className="links-subs"
       key={ `links-section-${idx}` }>
-      <h2 onHover={toggleLinks} className="title">{ title }</h2>
+      <h2 className="title">{ title }</h2>
       { linksList(links) }
     </section>
   );

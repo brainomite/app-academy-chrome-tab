@@ -1,12 +1,17 @@
 .links-group {
 	height: 55px;
-	width: 96%;
+	width: 94%;
 	overflow: hidden;
 	display: flex;
 	flex-direction: row;
 	border: 2px solid #ccc;
 	margin: auto;
 	cursor: pointer;
+	&:hover {
+		overflow: visible;
+		z-index: 100;
+		background-color: lighten(red, 30%);
+	}
 	.links-subs {
 		width: 17%;
 		text-align: center;
@@ -47,13 +52,4 @@
 			}
 		}
 	}
-}
-
-.active {
-	background-color: lighten(red, 30%);
-}
-
-.show-links {
-	overflow: visible;
-	z-index: 100;
 }

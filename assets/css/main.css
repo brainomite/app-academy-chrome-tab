@@ -175,13 +175,17 @@ main {
 
 .links-group {
   height: 55px;
-  width: 96%;
+  width: 94%;
   overflow: hidden;
   display: flex;
   flex-direction: row;
   border: 2px solid #ccc;
   margin: auto;
   cursor: pointer; }
+  .links-group:hover {
+    overflow: visible;
+    z-index: 100;
+    background-color: #ff9999; }
   .links-group .links-subs {
     width: 17%;
     text-align: center; }
@@ -214,13 +218,6 @@ main {
           padding-left: 30px; }
         .links-group .links-subs .link-list .link-item li:hover {
           background-color: #b3b3b3; }
-
-.active {
-  background-color: #ff9999; }
-
-.show-links {
-  overflow: visible;
-  z-index: 100; }
 
 .pair-tools {
   flex-grow: 1;

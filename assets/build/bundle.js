@@ -32525,12 +32525,6 @@
 	  );
 	};
 	
-	var toggleLinks = function toggleLinks() {
-	  var links = document.getElementsByClassName("links-group");
-	  links[0].classList.toggle('show-links');
-	  links[0].classList.toggle('active');
-	};
-	
 	var linksSection = function linksSection(_ref, idx) {
 	  var title = _ref.title,
 	      links = _ref.links;
@@ -32541,7 +32535,7 @@
 	      key: 'links-section-' + idx },
 	    _react2.default.createElement(
 	      'h2',
-	      { onClick: toggleLinks, className: 'title' },
+	      { className: 'title' },
 	      title
 	    ),
 	    linksList(links)
