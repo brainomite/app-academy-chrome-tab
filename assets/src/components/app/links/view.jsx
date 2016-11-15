@@ -17,7 +17,7 @@ const linksSection = ({ title, links }, idx) => {
   return (
     <section className="links-subs"
       key={ `links-section-${idx}` }>
-      <h2 onClick={toggleLinks} className="title">{ title }</h2>
+      <h2 onHover={toggleLinks} className="title">{ title }</h2>
       { linksList(links) }
     </section>
   );
