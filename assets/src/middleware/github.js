@@ -1,5 +1,4 @@
 import { getJSON } from 'jquery';
-import marked from 'marked';
 
 import { GITHUB, READMES } from 'util/settings';
 
@@ -13,11 +12,11 @@ const getReadme = ({ dispatch, getState }) => {
 }
 
 const processReadme = (dispatch, day) => response => {
-  const content      = atob(response.content),
-        regex        = new RegExp(`## ${ day }(?:(?!## w)[\\s\\S])*`),
-        dailyContent = regex.exec(content)[0];
+  const content = atob(response.content),
+        regex   = new RegExp(`## ${ day }(?:(?!## w)[\\s\\S])*`),
+        readme  = regex.exec(content)[0];
 
-  dispatch({ type: "SET_CURRICULUM", curriculum: dailyContent });
+  dispatch({ type: "SET_CURRICULUM", curriculum: readme });
 }
 
 export default store => next => action => {

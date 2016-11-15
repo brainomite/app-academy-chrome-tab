@@ -5,7 +5,9 @@ export default ({ getCode, curriculum }) => {
   if (curriculum) {
     return (
       <div className="curriculum">
-        <ReactMarkdown source={ curriculum } />;
+        <div className="markdown-body">
+          <ReactMarkdown source={ curriculum } />;
+        </div>
       </div>
     );
   } else {
