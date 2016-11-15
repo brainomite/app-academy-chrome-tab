@@ -13,6 +13,7 @@ const getCode = ({ dispatch }) => {
     }
   }
 
+  console.log('here');
   chrome.identity.launchWebAuthFlow({
     url, interactive: true
   }, handleResponse);
@@ -38,6 +39,7 @@ const getToken = ({ dispatch }, code) => {
 }
 
 export default store => next => action => {
+  console.log(action.type);
   switch (action.type) {
     case "GET_GITHUB_CODE":
       getCode(store);

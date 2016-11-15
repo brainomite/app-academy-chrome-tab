@@ -13,7 +13,7 @@ export default ({ getCode, curriculum }) => {
   } else {
     return (
       <div className="curriculum">
-        <h1 onClick={ getCode }>
+        <h1>
           <span className="active" onClick={ getCode }>Sign in to Github</span><br /> 
           to view the daily curriculum.
         </h1>
