@@ -47,6 +47,12 @@ export default store => next => action => {
       localStorage.removeItem("password");
       setDeskHash();
       break;
+    case "SET_GITHUB_TOKEN":
+      localStorage['githubAuth'] = action.token;
+      break;
+    case "CLEAR_GITHUB_TOKEN":
+      localStorage.removeItem("githubAuth");
+      break;
   }
   return next(action);
 }

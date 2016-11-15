@@ -1,4 +1,4 @@
-export default (state = null, action) => {
+export default (state = (localStorage["podId"] || null), action) => {
   switch (action.type) {
     case "SET_GITHUB_TOKEN":
       return action.token;

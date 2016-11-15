@@ -41517,7 +41517,7 @@
 	});
 	
 	exports.default = function () {
-	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : localStorage["podId"] || null;
 	  var action = arguments[1];
 	
 	  switch (action.type) {
@@ -41920,6 +41920,12 @@
 	        case "CLEAR_PASSWORD":
 	          localStorage.removeItem("password");
 	          setDeskHash();
+	          break;
+	        case "SET_GITHUB_TOKEN":
+	          localStorage['githubAuth'] = action.token;
+	          break;
+	        case "CLEAR_GITHUB_TOKEN":
+	          localStorage.removeItem("githubAuth");
 	          break;
 	      }
 	      return next(action);
