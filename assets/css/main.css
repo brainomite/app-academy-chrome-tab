@@ -232,7 +232,9 @@ main {
 
 .timer {
   height: 100%;
-  flex-grow: 1; }
+  flex-grow: 1;
+  max-width: 550px;
+  padding-top: 75px; }
   .timer .clock-wrapper {
     position: relative;
     width: 500px;
@@ -314,11 +316,14 @@ main {
 
 .curriculum {
   height: 100%;
-  flex-grow: 1; }
+  flex-grow: 1;
+  padding: 20px; }
 
 .timer {
   height: 100%;
-  flex-grow: 1; }
+  flex-grow: 1;
+  max-width: 550px;
+  padding-top: 75px; }
   .timer .clock-wrapper {
     position: relative;
     width: 500px;

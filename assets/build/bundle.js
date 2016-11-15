@@ -31799,9 +31799,13 @@
 	  var getCode = _ref.getCode,
 	      curriculum = _ref.curriculum;
 	
-	
 	  if (curriculum) {
-	    return _react2.default.createElement(_reactMarkdown2.default, { source: curriculum });
+	    return _react2.default.createElement(
+	      'div',
+	      { className: 'curriculum' },
+	      _react2.default.createElement(_reactMarkdown2.default, { source: curriculum }),
+	      ';'
+	    );
 	  } else {
 	    return _react2.default.createElement(
 	      'div',
@@ -31809,7 +31813,13 @@
 	      _react2.default.createElement(
 	        'h1',
 	        { onClick: getCode },
-	        'Sign in to Github to view the daily curriculum.'
+	        _react2.default.createElement(
+	          'span',
+	          { className: 'active', onClick: getCode },
+	          'Sign in to Github'
+	        ),
+	        _react2.default.createElement('br', null),
+	        'to view the daily curriculum.'
 	      )
 	    );
 	  }
