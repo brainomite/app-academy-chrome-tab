@@ -28,8 +28,7 @@ const getToken = ({ dispatch }, code) => {
 
   const handleResponse = (data, something, somethingElse) => {
     if (data.access_token) {
-      dispatch({ type: "SET_GITHUB_TOKEN", token: data.access_token });
-      dispatch({ type: "GET_DAILY_README" });
+      dispatch({ type: "GET_CURRICULUM", token: data.access_token });
     }
   }
 

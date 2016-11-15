@@ -75,6 +75,7 @@ main {
 
 .desk-info {
   height: 260px;
+  min-height: 260px;
   position: relative; }
   .desk-info .info {
     height: 40px;
@@ -175,6 +176,7 @@ main {
 
 .links-group {
   height: 55px;
+  min-height: 55px;
   width: 96%;
   overflow: hidden;
   display: flex;
@@ -228,12 +230,14 @@ main {
   flex-direction: row;
   justify-content: space-between;
   width: 96%;
-  margin: 5px auto; }
+  margin: 5px auto;
+  max-width: 1440px; }
 
 .timer {
   height: 100%;
   flex-grow: 1;
   max-width: 550px;
+  min-width: 550px;
   padding-top: 75px; }
   .timer .clock-wrapper {
     position: relative;
@@ -315,6 +319,7 @@ main {
       background: #E1E1E1; }
 
 .curriculum {
+  min-width: 900px;
   height: 100%;
   flex-grow: 1;
   padding: 20px; }
@@ -323,6 +328,7 @@ main {
   height: 100%;
   flex-grow: 1;
   max-width: 550px;
+  min-width: 550px;
   padding-top: 75px; }
   .timer .clock-wrapper {
     position: relative;

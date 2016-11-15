@@ -2,9 +2,8 @@ import { getJSON } from 'jquery';
 
 import { GITHUB, READMES } from 'util/settings';
 
-const getReadme = ({ dispatch, getState }) => {
+const getReadme = ({ dispatch, getState }, token) => {
   const state   = getState(),
-        token   = state.githubAuth,
         { day } = state.day,
         url     = GITHUB.readmeUrl + GITHUB[READMES[day]];
 
@@ -21,8 +20,8 @@ const processReadme = (dispatch, day) => response => {
 
 export default store => next => action => {
   switch (action.type) {
-    case "GET_DAILY_README":
-      getReadme(store);
+    case "GET_CURRICULUM":
+      getReadme(store, action.token);
       break;
   }
   return next(action);

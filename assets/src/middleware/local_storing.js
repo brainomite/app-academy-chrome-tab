@@ -47,11 +47,11 @@ export default store => next => action => {
       localStorage.removeItem("password");
       setDeskHash();
       break;
-    case "SET_GITHUB_TOKEN":
-      localStorage['githubAuth'] = action.token;
+    case "SET_CURRICULUM":
+      localStorage['curriculum'] = JSON.stringify(action.curriculum);
       break;
-    case "CLEAR_GITHUB_TOKEN":
-      localStorage.removeItem("githubAuth");
+    case "CLEAR_CURRICULUM":
+      localStorage.removeItem("curriculum");
       break;
   }
   return next(action);

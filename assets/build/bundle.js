@@ -41440,10 +41440,6 @@
 	
 	var _redux = __webpack_require__(169);
 	
-	var _github_auth = __webpack_require__(246);
-	
-	var _github_auth2 = _interopRequireDefault(_github_auth);
-	
 	var _curriculum = __webpack_require__(247);
 	
 	var _curriculum2 = _interopRequireDefault(_curriculum);
@@ -41487,7 +41483,6 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var RootReducer = (0, _redux.combineReducers)({
-	  githubAuth: _github_auth2.default,
 	  curriculum: _curriculum2.default,
 	  cityId: _city_id2.default,
 	  podId: _pod_id2.default,
@@ -41507,40 +41502,25 @@
 	exports.default = RootReducer;
 
 /***/ },
-/* 246 */
-/***/ function(module, exports) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	exports.default = function () {
-	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : localStorage["podId"] || null;
-	  var action = arguments[1];
-	
-	  switch (action.type) {
-	    case "SET_GITHUB_TOKEN":
-	      return action.token;
-	    case "CLEAR_GITHUB_TOKEN":
-	      return null;
-	  }
-	  return state;
-	};
-
-/***/ },
+/* 246 */,
 /* 247 */
 /***/ function(module, exports) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+	var parseCurriculum = function parseCurriculum() {
+	  if (!localStorage['curriculum']) {
+	    return null;
+	  } else {
+	    return JSON.parse(localStorage['curriculum']);
+	  }
+	};
 	
 	exports.default = function () {
-	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : parseCurriculum();
 	  var action = arguments[1];
 	
 	  switch (action.type) {
@@ -41828,9 +41808,9 @@
 	
 	var _github_auth2 = _interopRequireDefault(_github_auth);
 	
-	var _github = __webpack_require__(284);
+	var _curriculum = __webpack_require__(289);
 	
-	var _github2 = _interopRequireDefault(_github);
+	var _curriculum2 = _interopRequireDefault(_curriculum);
 	
 	var _timer = __webpack_require__(285);
 	
@@ -41850,7 +41830,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var RootMiddleware = (0, _redux.applyMiddleware)(_local_storing2.default, _github_auth2.default, _github2.default, _timer2.default, _city2.default, _day2.default, _desk2.default);
+	var RootMiddleware = (0, _redux.applyMiddleware)(_local_storing2.default, _github_auth2.default, _curriculum2.default, _timer2.default, _city2.default, _day2.default, _desk2.default);
 	
 	exports.default = RootMiddleware;
 
@@ -41921,11 +41901,11 @@
 	          localStorage.removeItem("password");
 	          setDeskHash();
 	          break;
-	        case "SET_GITHUB_TOKEN":
-	          localStorage['githubAuth'] = action.token;
+	        case "SET_CURRICULUM":
+	          localStorage['curriculum'] = JSON.stringify(action.curriculum);
 	          break;
-	        case "CLEAR_GITHUB_TOKEN":
-	          localStorage.removeItem("githubAuth");
+	        case "CLEAR_CURRICULUM":
+	          localStorage.removeItem("curriculum");
 	          break;
 	      }
 	      return next(action);
@@ -46052,8 +46032,7 @@
 	
 	  var handleResponse = function handleResponse(data, something, somethingElse) {
 	    if (data.access_token) {
-	      dispatch({ type: "SET_GITHUB_TOKEN", token: data.access_token });
-	      dispatch({ type: "GET_DAILY_README" });
+	      dispatch({ type: "GET_CURRICULUM", token: data.access_token });
 	    }
 	  };
 	
@@ -46077,55 +46056,7 @@
 	};
 
 /***/ },
-/* 284 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _jquery = __webpack_require__(160);
-	
-	var _settings = __webpack_require__(225);
-	
-	var getReadme = function getReadme(_ref) {
-	  var dispatch = _ref.dispatch,
-	      getState = _ref.getState;
-	  var state = getState(),
-	      token = state.githubAuth,
-	      day = state.day.day,
-	      url = _settings.GITHUB.readmeUrl + _settings.GITHUB[_settings.READMES[day]];
-	
-	
-	  (0, _jquery.getJSON)(url + '?access_token=' + token, processReadme(dispatch, day));
-	};
-	
-	var processReadme = function processReadme(dispatch, day) {
-	  return function (response) {
-	    var content = atob(response.content),
-	        regex = new RegExp('## ' + day + '(?:(?!## w)[\\s\\S])*'),
-	        readme = regex.exec(content)[0];
-	
-	    dispatch({ type: "SET_CURRICULUM", curriculum: readme });
-	  };
-	};
-	
-	exports.default = function (store) {
-	  return function (next) {
-	    return function (action) {
-	      switch (action.type) {
-	        case "GET_DAILY_README":
-	          getReadme(store);
-	          break;
-	      }
-	      return next(action);
-	    };
-	  };
-	};
-
-/***/ },
+/* 284 */,
 /* 285 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -46322,6 +46253,7 @@
 	    }
 	
 	    dispatch({ type: "SET_DAY", day: data });
+	    dispatch({ type: "GET_DAILY_README" });
 	  });
 	};
 	
@@ -46334,6 +46266,54 @@
 	          break;
 	        case "SET_CITY_ID":
 	          getDay(store, action.cityId);
+	          break;
+	      }
+	      return next(action);
+	    };
+	  };
+	};
+
+/***/ },
+/* 289 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _jquery = __webpack_require__(160);
+	
+	var _settings = __webpack_require__(225);
+	
+	var getReadme = function getReadme(_ref, token) {
+	  var dispatch = _ref.dispatch,
+	      getState = _ref.getState;
+	  var state = getState(),
+	      day = state.day.day,
+	      url = _settings.GITHUB.readmeUrl + _settings.GITHUB[_settings.READMES[day]];
+	
+	
+	  (0, _jquery.getJSON)(url + '?access_token=' + token, processReadme(dispatch, day));
+	};
+	
+	var processReadme = function processReadme(dispatch, day) {
+	  return function (response) {
+	    var content = atob(response.content),
+	        regex = new RegExp('## ' + day + '(?:(?!## w)[\\s\\S])*'),
+	        readme = regex.exec(content)[0];
+	
+	    dispatch({ type: "SET_CURRICULUM", curriculum: readme });
+	  };
+	};
+	
+	exports.default = function (store) {
+	  return function (next) {
+	    return function (action) {
+	      switch (action.type) {
+	        case "GET_CURRICULUM":
+	          getReadme(store, action.token);
 	          break;
 	      }
 	      return next(action);
