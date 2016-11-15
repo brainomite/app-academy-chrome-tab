@@ -46015,7 +46015,6 @@
 	    }
 	  };
 	
-	  console.log('here');
 	  chrome.identity.launchWebAuthFlow({
 	    url: url, interactive: true
 	  }, handleResponse);
@@ -46045,7 +46044,6 @@
 	exports.default = function (store) {
 	  return function (next) {
 	    return function (action) {
-	      console.log(action.type);
 	      switch (action.type) {
 	        case "GET_GITHUB_CODE":
 	          getCode(store);
