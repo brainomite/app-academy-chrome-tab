@@ -7,8 +7,10 @@ const getCode = ({ dispatch }) => {
         url = `${ oauthUrl }?client_id=${ client_id }&scope=${ scope }`;
 
   const handleResponse = url => {
-    const code = url.split("code=")[1];
-    dispatch({ type: "GET_GITHUB_TOKEN", code });
+    if (url) {
+      const code = url.split("code=")[1];
+      dispatch({ type: "GET_GITHUB_TOKEN", code });
+    }
   }
 
   chrome.identity.launchWebAuthFlow({

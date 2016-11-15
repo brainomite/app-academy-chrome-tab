@@ -40328,7 +40328,7 @@
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	var MINS_IN_SESSION = exports.MINS_IN_SESSION = 15;
+	var MINS_IN_SESSION = exports.MINS_IN_SESSION = 30;
 	
 	var CITIES = exports.CITIES = {
 		2: {
@@ -46009,8 +46009,10 @@
 	
 	
 	  var handleResponse = function handleResponse(url) {
-	    var code = url.split("code=")[1];
-	    dispatch({ type: "GET_GITHUB_TOKEN", code: code });
+	    if (url) {
+	      var code = url.split("code=")[1];
+	      dispatch({ type: "GET_GITHUB_TOKEN", code: code });
+	    }
 	  };
 	
 	  chrome.identity.launchWebAuthFlow({
