@@ -1,6 +1,7 @@
 import {combineReducers} from 'redux';
 
 import githubAuth from './github_auth';
+import curriculum from './curriculum';
 import cityId from './city_id';
 import podId from './pod_id';
 import day from './day';
@@ -15,6 +16,7 @@ import timerInterval from './timer/interval';
 
 const RootReducer = combineReducers({
   githubAuth,
+  curriculum,
   cityId,
   podId,
   day,
