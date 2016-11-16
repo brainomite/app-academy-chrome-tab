@@ -13,7 +13,7 @@ export const CITIES = {
 
 export const GITHUB = {
 	oauthUrl  : "https://github.com/login/oauth/authorize",
-	lambdaUrl : "https://r5bqezefyh.execute-api.us-west-2.amazonaws.com/prod/myTestFunction",
+	lambdaUrl : "https://r5bqezefyh.execute-api.us-west-2.amazonaws.com/prod/aagithuboauth",
 	scope     : "repo",
 	client_id : "1a1e117ad08088ce339b",
 
