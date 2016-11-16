@@ -40481,10 +40481,6 @@
 	
 	var _links = __webpack_require__(229);
 	
-	var _jquery = __webpack_require__(160);
-	
-	var _jquery2 = _interopRequireDefault(_jquery);
-	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = function () {
@@ -40496,8 +40492,9 @@
 	};
 	
 	var toggleLinks = function toggleLinks() {
-	  (0, _jquery2.default)('.links-group')[0].classList.toggle('show-links');
-	  (0, _jquery2.default)('.links-group')[0].classList.toggle('active');
+	  var links = document.getElementsByClassName("links-group");
+	  links[0].classList.toggle('show-links');
+	  links[0].classList.toggle('active');
 	};
 	
 	var linksSection = function linksSection(_ref, idx) {
@@ -41439,15 +41436,15 @@
 	
 	var _curriculum2 = _interopRequireDefault(_curriculum);
 	
-	var _city_id = __webpack_require__(247);
+	var _city_id = __webpack_require__(248);
 	
 	var _city_id2 = _interopRequireDefault(_city_id);
 	
-	var _pod_id = __webpack_require__(248);
+	var _pod_id = __webpack_require__(249);
 	
 	var _pod_id2 = _interopRequireDefault(_pod_id);
 	
-	var _day = __webpack_require__(249);
+	var _day = __webpack_require__(250);
 	
 	var _day2 = _interopRequireDefault(_day);
 	
@@ -41506,7 +41503,7 @@
 	  value: true
 	});
 	
-	var _dateStamp = __webpack_require__(250);
+	var _dateStamp = __webpack_require__(247);
 	
 	var _dateStamp2 = _interopRequireDefault(_dateStamp);
 	
@@ -41539,6 +41536,30 @@
 /* 247 */
 /***/ function(module, exports) {
 
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+	
+	var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+	
+	exports.default = function () {
+	  var now = new Date(),
+	      hours = now.getHours(),
+	      dateStamp = DAYS[now.getDay()].substring(0, 3) + ", " + MONTHS[now.getMonth()].substring(0, 3) + " " + now.getDate();
+	
+	  return {
+	    date: dateStamp,
+	    time: dateStamp + ", " + hours
+	  };
+	};
+
+/***/ },
+/* 248 */
+/***/ function(module, exports) {
+
 	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
@@ -41559,7 +41580,7 @@
 	};
 
 /***/ },
-/* 248 */
+/* 249 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -41582,7 +41603,7 @@
 	};
 
 /***/ },
-/* 249 */
+/* 250 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -41591,7 +41612,7 @@
 	  value: true
 	});
 	
-	var _dateStamp = __webpack_require__(250);
+	var _dateStamp = __webpack_require__(247);
 	
 	var _dateStamp2 = _interopRequireDefault(_dateStamp);
 	
@@ -41617,30 +41638,6 @@
 	      return null;
 	  }
 	  return state;
-	};
-
-/***/ },
-/* 250 */
-/***/ function(module, exports) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	var DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-	
-	var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-	
-	exports.default = function () {
-	  var now = new Date(),
-	      hours = now.getHours(),
-	      dateStamp = DAYS[now.getDay()].substring(0, 3) + ", " + MONTHS[now.getMonth()].substring(0, 3) + " " + now.getDate();
-	
-	  return {
-	    date: dateStamp,
-	    time: dateStamp + ", " + hours
-	  };
 	};
 
 /***/ },
@@ -46083,7 +46080,7 @@
 	
 	var _settings = __webpack_require__(225);
 	
-	var _dateStamp = __webpack_require__(250);
+	var _dateStamp = __webpack_require__(247);
 	
 	var _dateStamp2 = _interopRequireDefault(_dateStamp);
 	
@@ -46307,7 +46304,7 @@
 	
 	var _jquery2 = _interopRequireDefault(_jquery);
 	
-	var _dateStamp = __webpack_require__(250);
+	var _dateStamp = __webpack_require__(247);
 	
 	var _dateStamp2 = _interopRequireDefault(_dateStamp);
 	

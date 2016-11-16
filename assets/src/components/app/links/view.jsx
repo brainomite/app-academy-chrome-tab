@@ -1,6 +1,5 @@
 import React from 'react';
 import {MAIN_LINKS} from '../../../util/links';
-import $ from 'jquery';
 
 export default () => (
   <main className="links-group">
@@ -9,8 +8,9 @@ export default () => (
 )
 
 const toggleLinks = () => {
-  $('.links-group')[0].classList.toggle('show-links');
-  $('.links-group')[0].classList.toggle('active');
+  const links = document.getElementsByClassName("links-group")
+  links[0].classList.toggle('show-links');
+  links[0].classList.toggle('active');
 }
 
 const linksSection = ({ title, links }, idx) => {
