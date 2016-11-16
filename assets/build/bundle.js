@@ -40343,11 +40343,13 @@
 		client_id: "1a1e117ad08088ce339b",
 	
 		readmeUrl: "https://api.github.com/repos/appacademy/curriculum/contents",
+	
 		rubyPath: "/ruby/README.md",
 		sqlPath: "/sql/README.md",
 		railsPath: "/rails/README.md",
 		jsPath: "/javascript/README.md",
-		reactPath: "/react/README.md"
+		reactPath: "/react/README.md",
+		fullStackPath: "/full-stack-project/README.md"
 	};
 	
 	var READMES = exports.READMES = {
@@ -40386,7 +40388,16 @@
 		w7d3: "reactPath",
 		w7d4: "reactPath",
 		w7d5: "reactPath",
-		w8d1: "reactPath"
+		w8d1: "reactPath",
+		w8d2: "fullStackPath",
+		w8d3: "fullStackPath",
+		w8d4: "fullStackPath",
+		w8d5: "fullStackPath",
+		w9d1: "fullStackPath",
+		w9d2: "fullStackPath",
+		w9d3: "fullStackPath",
+		w9d4: "fullStackPath",
+		w9d5: "fullStackPath"
 	};
 
 /***/ },
@@ -46030,6 +46041,7 @@
 	      dispatch({ type: "GET_GITHUB_TOKEN", code: code });
 	    } else {
 	      notifyErr();
+	      dispatch({ type: "CLEAR_CURRICULUM" });
 	    }
 	  };
 	
@@ -46112,29 +46124,58 @@
 	var processReadme = function processReadme(dispatch, day) {
 	  return function (response) {
 	    var content = atob(response.content),
-	        // base64 decode
-	    url = response.html_url.split('/').slice(0, -1).join('/'),
-	        regex = new RegExp('## ' + day + '(?:(?!## w)[\\s\\S])*'),
-	        readme = regex.exec(content)[0],
-	        linksRegex = /\[\S*\]: \S*\n/g;
-	
-	    var link = void 0;
-	    var links = "";
-	    while (link = linksRegex.exec(content)) {
-	      links += link;
-	    }
-	
-	    var readmeWithLinks = readme + links,
-	        readmeFixedLinks = readmeWithLinks.replace(/(]: )(?!http)/g, ']: ' + url + '/'),
-	        readmeSansEmotion = readmeFixedLinks.replace(/:\S*:/g, ''); // :|
+	        url = baseUrl(response.html_url),
+	        readme = [extractDaysContent(day), addAllLinks(content), normalizeLinks, fixRelativeLinks(url), removeEmojis // :|
+	    ].reduce(function (readme, func) {
+	      return func(readme);
+	    }, content);
 	
 	    var curriculum = {
-	      readme: readmeSansEmotion,
-	      dateStamp: (0, _dateStamp2.default)().date
+	      dateStamp: (0, _dateStamp2.default)().date,
+	      readme: readme
 	    };
 	
 	    dispatch({ type: "SET_CURRICULUM", curriculum: curriculum });
 	  };
+	};
+	
+	var baseUrl = function baseUrl(url) {
+	  return url.split('/').slice(0, -1).join('/');
+	};
+	
+	var extractDaysContent = function extractDaysContent(day) {
+	  return function (readme) {
+	    var regex = new RegExp('## ' + day + '(?:(?!## w)[\\s\\S])*');
+	    return regex.exec(readme)[0];
+	  };
+	};
+	
+	var addAllLinks = function addAllLinks(fullContent) {
+	  return function (readme) {
+	    var regex = /\[\S*\]: \S*\n/g;
+	
+	    var link = void 0;
+	    var links = "";
+	    while (link = regex.exec(fullContent)) {
+	      links += link;
+	    }
+	
+	    return readme + links;
+	  };
+	};
+	
+	var normalizeLinks = function normalizeLinks(readme) {
+	  return readme.replace(/]: */g, ']: ');
+	};
+	
+	var fixRelativeLinks = function fixRelativeLinks(url) {
+	  return function (readme) {
+	    return readme.replace(/(]: )(?!http)/g, ']: ' + url + '/');
+	  };
+	};
+	
+	var removeEmojis = function removeEmojis(readme) {
+	  return readme.replace(/:\S*:/g, '');
 	};
 	
 	exports.default = function (store) {

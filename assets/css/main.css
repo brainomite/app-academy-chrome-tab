@@ -319,7 +319,7 @@ main {
       background: #E1E1E1; }
 
 .curriculum {
-  min-width: 900px;
+  min-width: 650px;
   height: 100%;
   flex-grow: 1;
   padding: 20px; }

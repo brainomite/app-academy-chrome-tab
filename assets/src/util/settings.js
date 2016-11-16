@@ -18,11 +18,13 @@ export const GITHUB = {
 	client_id : "1a1e117ad08088ce339b",
 
 	readmeUrl : "https://api.github.com/repos/appacademy/curriculum/contents",
-	rubyPath  : "/ruby/README.md",
-	sqlPath   : "/sql/README.md",
-	railsPath : "/rails/README.md",
-	jsPath    : "/javascript/README.md",
-	reactPath : "/react/README.md"
+
+	rubyPath      : "/ruby/README.md",
+	sqlPath       : "/sql/README.md",
+	railsPath     : "/rails/README.md",
+	jsPath        : "/javascript/README.md",
+	reactPath     : "/react/README.md",
+	fullStackPath : "/full-stack-project/README.md"
 };
 
 export const READMES = {
@@ -61,5 +63,14 @@ export const READMES = {
 	w7d3 : "reactPath",
 	w7d4 : "reactPath",
 	w7d5 : "reactPath",
-	w8d1 : "reactPath"
+	w8d1 : "reactPath",
+	w8d2 : "fullStackPath",
+	w8d3 : "fullStackPath",
+	w8d4 : "fullStackPath",
+	w8d5 : "fullStackPath",
+	w9d1 : "fullStackPath",
+	w9d2 : "fullStackPath",
+	w9d3 : "fullStackPath",
+	w9d4 : "fullStackPath",
+	w9d5 : "fullStackPath",
 }

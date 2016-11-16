@@ -12,29 +12,56 @@ const getReadme = ({ dispatch, getState }, token) => {
 }
 
 const processReadme = (dispatch, day) => response => {
-  const content    = atob(response.content), // base64 decode
-        url        = response.html_url.split('/').slice(0, -1).join('/'),
-        regex      = new RegExp(`## ${ day }(?:(?!## w)[\\s\\S])*`),
-        readme     = regex.exec(content)[0],
-        linksRegex = /\[\S*\]: \S*\n/g; // TODO: catch link on final line (eg: that which doesn't conclude with \n)
-
-  let link;
-  let links = "";
-  while (link = linksRegex.exec(content)) {
-    links += link;
-  }
-
-  const readmeWithLinks   = readme + links,
-        readmeFixedLinks  = readmeWithLinks.replace(/(]: )(?!http)/g, `]: ${ url }/`),
-        readmeSansEmotion = readmeFixedLinks.replace(/:\S*:/g, ''); // :|
+  const content = atob(response.content),
+        url     = baseUrl(response.html_url),
+        readme  = [
+    extractDaysContent(day),
+    addAllLinks(content),
+    normalizeLinks,
+    fixRelativeLinks(url),
+    removeEmojis // :|
+  ].reduce((readme, func) => func(readme), content);
 
   const curriculum = {
-    readme    : readmeSansEmotion,
-    dateStamp : getStamp().date
-  }
+    dateStamp: getStamp().date,
+    readme
+  };
 
   dispatch({ type: "SET_CURRICULUM", curriculum });
 }
+
+const baseUrl = url => {
+  return url.split('/').slice(0, -1).join('/');
+}
+
+const extractDaysContent = day => readme => {
+  const regex = new RegExp(`## ${ day }(?:(?!## w)[\\s\\S])*`);
+  return regex.exec(readme)[0];
+}
+
+const addAllLinks = fullContent => readme => {
+  const regex = /\[\S*\]: \S*\n/g;
+
+  let link;
+  let links = "";
+  while (link = regex.exec(fullContent)) {
+    links += link;
+  }
+
+  return readme + links;
+}
+
+const normalizeLinks = readme => {
+  return readme.replace(/]: */g, ']: ');
+};
+
+const fixRelativeLinks = url => readme => {
+  return readme.replace(/(]: )(?!http)/g, `]: ${ url }/`);
+};
+
+const removeEmojis = readme => {
+  return readme.replace(/:\S*:/g, '');
+};
 
 export default store => next => action => {
   switch (action.type) {
