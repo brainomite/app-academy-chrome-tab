@@ -65,7 +65,7 @@ exports.handler = (event, context, callback) => {
 This process places a couple of requirements on our curriculum readmes.
 
 1. The settings file must be maintained for pointing to the correct readme, see maintence below.
-2. The Readme's must be in the following.
+2. The Readme's must match the following format.
 
 ```
 ## w${thisWeek}d${thisDay}
