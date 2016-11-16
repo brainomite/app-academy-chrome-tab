@@ -12,8 +12,8 @@ export const CORNERS = [
     url: "https://github.com/"
   },
   {
-    title: "Timer",
-    url: "http://drwrchrds.github.io/pairing_timer/"
+    title: "Localhost:3000",
+    url: "localhost:3000"
   }
 ];
 

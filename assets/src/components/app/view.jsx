@@ -2,6 +2,7 @@ import React from 'react';
 
 import Curriculum from './curriculum/container';
 import DeskInfo from './desk_info/container';
+import Corners from './corners';
 import Header from './header/view';
 import Links from './links/view';
 import Timer from './timer/view';
@@ -12,6 +13,7 @@ export default ({ showOptions, getDay, loaded }) => {
     return (
       <main>
         <Header />
+        <Corners />
         <DeskInfo />
         <Desks />
         <Links />

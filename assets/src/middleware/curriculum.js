@@ -12,11 +12,12 @@ const getReadme = ({ dispatch, getState }, token) => {
 }
 
 const processReadme = (dispatch, day) => response => {
-  const content = atob(response.content),
+  const all     = READMES[day] === 'fullStack',
+        content = atob(response.content),
         url     = baseUrl(response.html_url),
         readme  = [
-    extractDaysContent(day),
-    addAllLinks(content),
+    extractDaysContent(day, all),
+    addAllLinks(content, all),
     normalizeLinks,
     fixRelativeLinks(url),
     removeEmojis // :|
@@ -34,12 +35,15 @@ const baseUrl = url => {
   return url.split('/').slice(0, -1).join('/');
 }
 
-const extractDaysContent = day => readme => {
+const extractDaysContent = (day, all) => readme => {
+  if (all) { return readme; }
+
   const regex = new RegExp(`## ${ day }(?:(?!## w)[\\s\\S])*`);
   return regex.exec(readme)[0];
 }
 
-const addAllLinks = fullContent => readme => {
+const addAllLinks = (fullContent, all) => readme => {
+  if (all) { return readme; }
   const regex = /\[\S*\]: \S*\n/g;
 
   let link;

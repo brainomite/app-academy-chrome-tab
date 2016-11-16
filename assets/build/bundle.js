@@ -31693,6 +31693,10 @@
 	
 	var _container4 = _interopRequireDefault(_container3);
 	
+	var _corners = __webpack_require__(288);
+	
+	var _corners2 = _interopRequireDefault(_corners);
+	
 	var _view = __webpack_require__(220);
 	
 	var _view2 = _interopRequireDefault(_view);
@@ -31721,6 +31725,7 @@
 	      'main',
 	      null,
 	      _react2.default.createElement(_view2.default, null),
+	      _react2.default.createElement(_corners2.default, null),
 	      _react2.default.createElement(_container4.default, null),
 	      _react2.default.createElement(_container6.default, null),
 	      _react2.default.createElement(_view4.default, null),
@@ -40344,60 +40349,60 @@
 	
 		readmeUrl: "https://api.github.com/repos/appacademy/curriculum/contents",
 	
-		rubyPath: "/ruby/README.md",
-		sqlPath: "/sql/README.md",
-		railsPath: "/rails/README.md",
-		jsPath: "/javascript/README.md",
-		reactPath: "/react/README.md",
-		fullStackPath: "/full-stack-project/README.md"
+		ruby: "/ruby/README.md",
+		sql: "/sql/README.md",
+		rails: "/rails/README.md",
+		javascript: "/javascript/README.md",
+		react: "/react/README.md",
+		fullStack: "/full-stack-project/README.md"
 	};
 	
 	var READMES = exports.READMES = {
-		w1d1: "rubyPath",
-		w1d2: "rubyPath",
-		w1d3: "rubyPath",
-		w1d4: "rubyPath",
-		w1d5: "rubyPath",
-		w2d1: "rubyPath",
-		w2d2: "rubyPath",
-		w2d3: "rubyPath",
-		w2d4: "rubyPath",
-		w2d5: "rubyPath",
-		w3d1: "sqlPath",
-		w3d2: "sqlPath",
-		w3d3: "sqlPath",
-		w3d4: "sqlPath",
-		w3d5: "sqlPath",
-		w4d1: "railsPath",
-		w4d2: "railsPath",
-		w4d3: "railsPath",
-		w4d4: "railsPath",
-		w4d5: "railsPath",
-		w5d1: "railsPath",
-		w5d2: "railsPath",
-		w5d3: "jsPath",
-		w5d4: "jsPath",
-		w5d5: "jsPath",
-		w6d1: "jsPath",
-		w6d2: "jsPath",
-		w6d3: "jsPath",
-		w6d4: "jsPath",
-		w6d5: "reactPath",
-		w7d1: "reactPath",
-		w7d2: "reactPath",
-		w7d3: "reactPath",
-		w7d4: "reactPath",
-		w7d5: "reactPath",
-		w8d1: "reactPath",
-		w8d2: "fullStackPath",
-		w8d3: "fullStackPath",
-		w8d4: "fullStackPath",
-		w8d5: "fullStackPath",
-		w9d1: "fullStackPath",
-		w9d2: "fullStackPath",
-		w9d3: "fullStackPath",
-		w9d4: "fullStackPath",
-		w9d5: "fullStackPath"
+		w1d1: "ruby",
+		w1d2: "ruby",
+		w1d3: "ruby",
+		w1d4: "ruby",
+		w1d5: "ruby",
+		w2d1: "ruby",
+		w2d2: "ruby",
+		w2d3: "ruby",
+		w2d4: "ruby",
+		w2d5: "ruby",
+		w3d1: "sql",
+		w3d2: "sql",
+		w3d3: "sql",
+		w3d4: "sql",
+		w3d5: "sql",
+		w4d1: "rails",
+		w4d2: "rails",
+		w4d3: "rails",
+		w4d4: "rails",
+		w4d5: "rails",
+		w5d1: "rails",
+		w5d2: "rails",
+		w5d3: "javascript",
+		w5d4: "javascript",
+		w5d5: "javascript",
+		w6d1: "javascript",
+		w6d2: "javascript",
+		w6d3: "javascript",
+		w6d4: "javascript",
+		w6d5: "react",
+		w7d1: "react",
+		w7d2: "react",
+		w7d3: "react",
+		w7d4: "react",
+		w7d5: "react",
+		w8d1: "react",
+		w8d2: "fullStack",
+		w8d3: "fullStack",
+		w8d4: "fullStack",
+		w8d5: "fullStack",
+		w9d1: "fullStack",
+		w9d2: "fullStack",
+		w9d3: "fullStack",
+		w9d4: "fullStack",
+		w9d5: "fullStack"
 	};
 
 /***/ },
@@ -40568,8 +40573,8 @@
 	  title: "Github",
 	  url: "https://github.com/"
 	}, {
-	  title: "Timer",
-	  url: "http://drwrchrds.github.io/pairing_timer/"
+	  title: "Localhost:3000",
+	  url: "localhost:3000"
 	}];
 	
 	var MAIN_LINKS = exports.MAIN_LINKS = [{
@@ -46123,9 +46128,10 @@
 	
 	var processReadme = function processReadme(dispatch, day) {
 	  return function (response) {
-	    var content = atob(response.content),
+	    var all = _settings.READMES[day] === 'fullStack',
+	        content = atob(response.content),
 	        url = baseUrl(response.html_url),
-	        readme = [extractDaysContent(day), addAllLinks(content), normalizeLinks, fixRelativeLinks(url), removeEmojis // :|
+	        readme = [extractDaysContent(day, all), addAllLinks(content, all), normalizeLinks, fixRelativeLinks(url), removeEmojis // :|
 	    ].reduce(function (readme, func) {
 	      return func(readme);
 	    }, content);
@@ -46143,15 +46149,22 @@
 	  return url.split('/').slice(0, -1).join('/');
 	};
 	
-	var extractDaysContent = function extractDaysContent(day) {
+	var extractDaysContent = function extractDaysContent(day, all) {
 	  return function (readme) {
+	    if (all) {
+	      return readme;
+	    }
+	
 	    var regex = new RegExp('## ' + day + '(?:(?!## w)[\\s\\S])*');
 	    return regex.exec(readme)[0];
 	  };
 	};
 	
-	var addAllLinks = function addAllLinks(fullContent) {
+	var addAllLinks = function addAllLinks(fullContent, all) {
 	  return function (readme) {
+	    if (all) {
+	      return readme;
+	    }
 	    var regex = /\[\S*\]: \S*\n/g;
 	
 	    var link = void 0;
@@ -46407,6 +46420,52 @@
 	      return next(action);
 	    };
 	  };
+	};
+
+/***/ },
+/* 288 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(2);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _links = __webpack_require__(229);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var links = function links() {
+	  return _links.CORNERS.map(function (link, index) {
+	    var key = 'corner-' + index;
+	
+	    return _react2.default.createElement(
+	      'li',
+	      { key: key },
+	      _react2.default.createElement(
+	        'a',
+	        { href: link.url },
+	        link.title
+	      )
+	    );
+	  });
+	};
+	
+	exports.default = function () {
+	  return _react2.default.createElement(
+	    'nav',
+	    { className: 'corners' },
+	    _react2.default.createElement(
+	      'ul',
+	      null,
+	      links()
+	    )
+	  );
 	};
 
 /***/ }

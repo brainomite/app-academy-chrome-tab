@@ -1021,4 +1021,29 @@ main {
 .markdown-body hr {
   border-bottom-color: #eee; }
 
+.corners a {
+  position: fixed;
+  display: block;
+  padding: 5px 10px;
+  border: 3px solid #222;
+  font-weight: 700;
+  z-index: 3; }
+  .corners a:hover {
+    color: #00f;
+    border-color: #00f; }
+.corners li:nth-child(1) > a {
+  position: absolute;
+  top: 70px;
+  right: 20px; }
+.corners li:nth-child(2) > a {
+  bottom: 20px;
+  right: 20px; }
+.corners li:nth-child(3) > a {
+  bottom: 20px;
+  left: 20px; }
+.corners li:nth-child(4) > a {
+  position: absolute;
+  top: 70px;
+  left: 20px; }
+
 /*# sourceMappingURL=main.css.map */
