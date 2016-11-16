@@ -47,6 +47,12 @@ export default store => next => action => {
       localStorage.removeItem("password");
       setDeskHash();
       break;
+    case "SET_CURRICULUM":
+      localStorage['curriculum'] = JSON.stringify(action.curriculum);
+      break;
+    case "CLEAR_CURRICULUM":
+      localStorage.removeItem("curriculum");
+      break;
   }
   return next(action);
 }
