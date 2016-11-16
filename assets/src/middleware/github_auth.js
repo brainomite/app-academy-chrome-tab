@@ -4,7 +4,7 @@ import { GITHUB } from 'util/settings';
 
 const getCode = ({ dispatch }) => {
   const curriculum = {
-    readme: "## Loading Curriculum...",
+    readme: "## Loading Today's Curriculum...",
     dateStamp: null
   };
   dispatch({ type: "SET_CURRICULUM", curriculum });

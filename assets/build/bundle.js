@@ -31812,18 +31812,14 @@
 	  } else {
 	    return _react2.default.createElement(
 	      'div',
-	      { className: 'curriculum' },
+	      { className: 'curriculum sign-in' },
 	      _react2.default.createElement(
-	        'h1',
-	        null,
-	        _react2.default.createElement(
-	          'span',
-	          { className: 'active', onClick: getCode },
-	          'Sign in to Github'
-	        ),
-	        _react2.default.createElement('br', null),
-	        'to view the daily curriculum.'
-	      )
+	        'span',
+	        { className: 'sign-in-link', onClick: getCode },
+	        'Authorize Github'
+	      ),
+	      _react2.default.createElement('br', null),
+	      'to view the daily curriculum.'
 	    );
 	  }
 	};
@@ -46011,7 +46007,7 @@
 	  var dispatch = _ref.dispatch;
 	
 	  var curriculum = {
-	    readme: "## Loading Curriculum...",
+	    readme: "## Loading Today's Curriculum...",
 	    dateStamp: null
 	  };
 	  dispatch({ type: "SET_CURRICULUM", curriculum: curriculum });
@@ -46342,6 +46338,7 @@
 	    }
 	
 	    dispatch({ type: "SET_DAY", day: data });
+	    dispatch({ type: "CLEAR_CURRICULUM" });
 	    dispatch({ type: "GET_DAILY_README" });
 	  });
 	};

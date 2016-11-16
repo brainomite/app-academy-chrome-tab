@@ -23,6 +23,7 @@ const getDay = ({ dispatch, getState }, newCityId) => {
     }
 
     dispatch({ type: "SET_DAY", day: data });
+    dispatch({ type: "CLEAR_CURRICULUM" });
     dispatch({ type: "GET_DAILY_README" });
   });
 }
