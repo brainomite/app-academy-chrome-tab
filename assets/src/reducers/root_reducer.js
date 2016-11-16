@@ -7,7 +7,7 @@ import day from './day';
 import desk from './desk';
 
 import modalsDesks from './modals/desks';
-import modalsOptions from './modals/options';
+import modalsDeskHash from './modals/desk_hash';
 
 import timerPlaying from './timer/playing';
 import timerSeconds from './timer/seconds';
@@ -21,7 +21,7 @@ const RootReducer = combineReducers({
   desk,
   modals: combineReducers({
     desks: modalsDesks,
-    options: modalsOptions
+    deskHash: modalsDeskHash
   }),
   timer: combineReducers({
     playing: timerPlaying,
