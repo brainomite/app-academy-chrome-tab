@@ -14,7 +14,8 @@
   "scripts": {
     "postinstall": "./node_modules/.bin/webpack",
     "webpack": "webpack -w",
-    "sass": "sass -w ./assets/src/scss/head.scss:./assets/css/main.css"
+    "sass": "sass -w ./assets/src/scss/head.scss:./assets/css/main.css",
+    "sass-prod": "sass ./assets/src/scss/head.scss:./assets/css/main.css --style compressed"
   },
   "repository": {
     "type": "git",
