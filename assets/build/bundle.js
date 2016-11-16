@@ -46000,6 +46000,15 @@
 	
 	var _settings = __webpack_require__(225);
 	
+	var notifyErr = function notifyErr() {
+	  return chrome.notifications.create('auth-error', {
+	    type: "basic",
+	    title: "Error Authorizing Github",
+	    message: "There was an error authorizing Github.",
+	    iconUrl: "/assets/img/app-academy-logo-chrome-48.png"
+	  });
+	};
+	
 	var getCode = function getCode(_ref) {
 	  var dispatch = _ref.dispatch;
 	
@@ -46019,6 +46028,8 @@
 	    if (url) {
 	      var code = url.split("code=")[1];
 	      dispatch({ type: "GET_GITHUB_TOKEN", code: code });
+	    } else {
+	      notifyErr();
 	    }
 	  };
 	
@@ -46043,6 +46054,7 @@
 	    if (data.access_token) {
 	      dispatch({ type: "GET_CURRICULUM", token: data.access_token });
 	    } else {
+	      notifyErr();
 	      dispatch({ type: "CLEAR_CURRICULUM" });
 	    }
 	  };
