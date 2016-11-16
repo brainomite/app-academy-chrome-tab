@@ -178,19 +178,20 @@ main {
   height: 55px;
   min-height: 55px;
   width: 94%;
-  overflow: hidden;
   display: flex;
   flex-direction: row;
   border: 2px solid #ccc;
   margin: auto;
-  cursor: pointer; }
-  .links-group:hover {
-    overflow: visible;
-    z-index: 100;
-    background-color: #ff9999; }
+  cursor: pointer;
+  overflow: visible; }
   .links-group .links-subs {
     width: 17%;
-    text-align: center; }
+    text-align: center;
+    overflow: hidden; }
+    .links-group .links-subs:hover {
+      z-index: 100;
+      background-color: #ff9999;
+      overflow: visible; }
     .links-group .links-subs .title {
       height: 55px;
       font-size: 26px;

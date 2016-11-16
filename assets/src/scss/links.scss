@@ -2,20 +2,21 @@
   height: 55px;
   min-height: 55px;
   width: 94%;
-  overflow: hidden;
   display: flex;
   flex-direction: row;
   border: 2px solid #ccc;
   margin: auto;
   cursor: pointer;
-  &:hover {
-    overflow: visible;
-    z-index: 100;
-    background-color: lighten(red, 30%);
-  }
+  overflow: visible;
   .links-subs {
     width: 17%;
     text-align: center;
+    overflow: hidden;
+    &:hover {
+      z-index: 100;
+      background-color: lighten(red, 30%);
+      overflow: visible;
+    }
     .title {
       height: 55px;
       font-size: 26px;
