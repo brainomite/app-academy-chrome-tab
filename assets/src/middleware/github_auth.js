@@ -2,6 +2,16 @@ import { ajax } from 'jquery';
 
 import { GITHUB } from 'util/settings';
 
+const notifyErr = () => chrome.notifications.create(
+  'auth-error', 
+  { 
+    type: "basic", 
+    title: "Error Authorizing Github", 
+    message: "There was an error authorizing Github.", 
+    iconUrl: "/assets/img/app-academy-logo-chrome-48.png"
+  }
+);
+
 const getCode = ({ dispatch }) => {
   const curriculum = {
     readme: "## Loading Today's Curriculum...",
@@ -16,6 +26,8 @@ const getCode = ({ dispatch }) => {
     if (url) {
       const code = url.split("code=")[1];
       dispatch({ type: "GET_GITHUB_TOKEN", code });
+    } else {
+      notifyErr();
     }
   }
 
@@ -38,6 +50,7 @@ const getToken = ({ dispatch }, code) => {
     if (data.access_token) {
       dispatch({ type: "GET_CURRICULUM", token: data.access_token });
     } else {
+      notifyErr();
       dispatch({ type: "CLEAR_CURRICULUM" });
     }
   }
