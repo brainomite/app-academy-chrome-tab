@@ -420,7 +420,7 @@ main {
 .desks {
   display: none;
   position: absolute;
-  z-index: 6;
+  z-index: 101;
   top: 50%;
   left: 50%;
   transform: translateY(-50%) translateX(-50%);
@@ -1036,11 +1036,67 @@ main {
   bottom: 20px;
   right: 20px; }
 .corners li:nth-child(3) > a {
-  bottom: 20px;
-  left: 20px; }
-.corners li:nth-child(4) > a {
   position: absolute;
   top: 70px;
   left: 20px; }
+
+.desk-hash {
+  display: none;
+  position: absolute;
+  z-index: 101;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  min-width: 400px;
+  padding: 50px 60px;
+  background: #00f;
+  color: #fff;
+  text-align: left; }
+  .desk-hash.is-active {
+    display: block; }
+  .desk-hash form {
+    margin: 50px auto;
+    width: 300px; }
+  .desk-hash form h1 {
+    margin: 0 0 30px 0;
+    font-size: 60px;
+    text-align: center; }
+  .desk-hash .input {
+    margin: 30px 0; }
+  .desk-hash .input label,
+  .desk-hash .input .label {
+    font-weight: 700;
+    padding: 0 0 5px 0; }
+  .desk-hash .input select {
+    -webkit-appearance: none;
+    border-radius: 0; }
+  .desk-hash .input input[type="password"],
+  .desk-hash .input input[type="number"],
+  .desk-hash .input input[type="password"],
+  .desk-hash .input select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    width: 300px;
+    font-size: 20px; }
+  .desk-hash .submit {
+    margin: 40px 0; }
+  .desk-hash .submit button {
+    cursor: pointer;
+    display: inline-block;
+    padding: 15px 30px;
+    color: #fff;
+    background: #0c0;
+    font-weight: 700; }
+  .desk-hash .submit button:hover {
+    background: #0b0; }
+  .desk-hash > span {
+    display: block;
+    position: absolute;
+    top: 8px;
+    right: 22px;
+    font-size: 50px;
+    cursor: pointer; }
+  .desk-hash > span:hover {
+    color: #f00; }
 
 /*# sourceMappingURL=main.css.map */

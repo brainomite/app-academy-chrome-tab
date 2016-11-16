@@ -4,10 +4,6 @@ export const CORNERS = [
     url: "http://progress.appacademy.io/"
   },
   {
-    title: "Gmail",
-    url: "https://mail.google.com/mail/"
-  },
-  {
     title: "Github",
     url: "https://github.com/"
   },
