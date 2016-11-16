@@ -28,6 +28,7 @@ const getCode = ({ dispatch }) => {
       dispatch({ type: "GET_GITHUB_TOKEN", code });
     } else {
       notifyErr();
+      dispatch({ type: "CLEAR_CURRICULUM" });
     }
   }
 
