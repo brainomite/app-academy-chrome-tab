@@ -19,8 +19,8 @@ This is a browser extension to open a new tab with a page of links to commonly u
 This extension uses Github's API with OAUTH authentication. Starting with the user clicking the `Authorize Github` link, the action `GET_GITHUB_CODE` is dispatched to the `github_auth.js` middleware. That starts the following chain of events.
 
 1. In the `getCode()` function we make a request to GH's servers with the public API key to recieve a varificiation code.
-2. We dispatch that code again with the type `GET_GITHUB_TOKEN`.
-3. In the `getToken()` function we then pass the varification code to a AWS Lambda function that wraps the private key. The Lambda source is as follows.
+2. We dispatch that code with the type `GET_GITHUB_TOKEN`.
+3. In the `getToken()` function we then pass the varification code to an AWS Lambda function that wraps the private key. The Lambda source is as follows.
 
 ```
 const request = require('request');
