@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Curriculum from './curriculum/view';
+import Curriculum from './curriculum/container';
 import DeskInfo from './desk_info/container';
 import Header from './header/view';
 import Links from './links/view';
@@ -16,8 +16,8 @@ export default ({ showOptions, getDay, loaded }) => {
         <Desks />
         <Links />
         <div className="pair-tools">
-          <Timer />
           <Curriculum />
+          <Timer />
         </div>
       </main>
     )
