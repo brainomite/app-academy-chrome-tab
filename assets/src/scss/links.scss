@@ -1,0 +1,55 @@
+.links-group {
+  height: 55px;
+  width: 94%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  border: 2px solid #ccc;
+  margin: auto;
+  cursor: pointer;
+  &:hover {
+    overflow: visible;
+    z-index: 100;
+    background-color: lighten(red, 30%);
+  }
+  .links-subs {
+    width: 17%;
+    text-align: center;
+    .title {
+      height: 55px;
+      font-size: 26px;
+      line-height: 55px;
+      font-weight: 700;
+      color: darken(#ccc, 50%);
+      border-bottom: 4px solid gray;
+    }
+    .link-list {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      width: 100%;
+      background-color: lighten(red, 42%);
+      height: 220px;
+      .link-item {
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        a {
+          line-height: 30px;
+          padding-left: 20px;
+        }
+        a:hover{
+          transform: scale(1.04, 1.04);
+          background-color: #ccc;
+        }
+        li {
+          padding-left: 30px;
+        }
+        li:hover {
+          background-color: darken(#ccc, 10%);
+        }
+      }
+    }
+  }
+}
