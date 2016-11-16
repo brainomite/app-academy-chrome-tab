@@ -1,12 +1,14 @@
-const parseCurriculum = () => {
-	if (!localStorage['curriculum']) {
-		return null;
-	} else {
-		return JSON.parse(localStorage['curriculum']);
-	}
+import getStamp from 'util/dateStamp';
+
+const checkLocalCurriculum = () => {
+  if (!localStorage["curriculum"]) { return null; }
+
+  const curriculum = JSON.parse(localStorage["curriculum"]),
+        dateStamp  = curriculum.dateStamp;
+  return (dateStamp && dateStamp === getStamp().date) ? curriculum : null;
 }
 
-export default (state = parseCurriculum(), action) => {
+export default (state = checkLocalCurriculum(), action) => {
   switch (action.type) {
     case "SET_CURRICULUM":
       return action.curriculum;

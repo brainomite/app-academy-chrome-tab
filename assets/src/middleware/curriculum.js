@@ -1,6 +1,7 @@
 import { getJSON } from 'jquery';
 
 import { GITHUB, READMES } from 'util/settings';
+import getStamp from 'util/dateStamp';
 
 const getReadme = ({ dispatch, getState }, token) => {
   const state   = getState(),
@@ -27,7 +28,12 @@ const processReadme = (dispatch, day) => response => {
         readmeFixedLinks  = readmeWithLinks.replace(/(]: )(?!http)/g, `]: ${ url }/`),
         readmeSansEmotion = readmeFixedLinks.replace(/:\S*:/g, ''); // :|
 
-  dispatch({ type: "SET_CURRICULUM", curriculum: readmeSansEmotion });
+  const curriculum = {
+    readme    : readmeSansEmotion,
+    dateStamp : getStamp().date
+  }
+
+  dispatch({ type: "SET_CURRICULUM", curriculum });
 }
 
 export default store => next => action => {

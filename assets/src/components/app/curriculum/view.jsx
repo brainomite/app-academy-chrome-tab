@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
 
-export default ({ getCode, curriculum }) => {
-  if (curriculum) {
+export default ({ getCode, readme }) => {
+  if (readme) {
     return (
       <div className="curriculum">
         <div className="markdown-body">
-          <ReactMarkdown source={ curriculum } />;
+          <ReactMarkdown source={ readme } />
         </div>
       </div>
     );

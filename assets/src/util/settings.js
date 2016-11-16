@@ -1,4 +1,4 @@
-export const MINS_IN_SESSION = 30;
+export const MINS_IN_SESSION = 15;
 
 export const CITIES = {
 	2 : {

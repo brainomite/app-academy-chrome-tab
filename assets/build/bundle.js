@@ -31761,7 +31761,7 @@
 	
 	var mapStateToProps = function mapStateToProps(state) {
 	  return {
-	    curriculum: state.curriculum
+	    readme: state.curriculum && state.curriculum.readme
 	  };
 	};
 	
@@ -31797,17 +31797,16 @@
 	
 	exports.default = function (_ref) {
 	  var getCode = _ref.getCode,
-	      curriculum = _ref.curriculum;
+	      readme = _ref.readme;
 	
-	  if (curriculum) {
+	  if (readme) {
 	    return _react2.default.createElement(
 	      'div',
 	      { className: 'curriculum' },
 	      _react2.default.createElement(
 	        'div',
 	        { className: 'markdown-body' },
-	        _react2.default.createElement(_reactMarkdown2.default, { source: curriculum }),
-	        ';'
+	        _react2.default.createElement(_reactMarkdown2.default, { source: readme })
 	      )
 	    );
 	  } else {
@@ -40328,7 +40327,7 @@
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	var MINS_IN_SESSION = exports.MINS_IN_SESSION = 30;
+	var MINS_IN_SESSION = exports.MINS_IN_SESSION = 15;
 	
 	var CITIES = exports.CITIES = {
 		2: {
@@ -41503,23 +41502,32 @@
 
 /***/ },
 /* 246 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	var parseCurriculum = function parseCurriculum() {
-	  if (!localStorage['curriculum']) {
+	
+	var _dateStamp = __webpack_require__(250);
+	
+	var _dateStamp2 = _interopRequireDefault(_dateStamp);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var checkLocalCurriculum = function checkLocalCurriculum() {
+	  if (!localStorage["curriculum"]) {
 	    return null;
-	  } else {
-	    return JSON.parse(localStorage['curriculum']);
 	  }
+	
+	  var curriculum = JSON.parse(localStorage["curriculum"]),
+	      dateStamp = curriculum.dateStamp;
+	  return dateStamp && dateStamp === (0, _dateStamp2.default)().date ? curriculum : null;
 	};
 	
 	exports.default = function () {
-	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : parseCurriculum();
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : checkLocalCurriculum();
 	  var action = arguments[1];
 	
 	  switch (action.type) {
@@ -46001,6 +46009,13 @@
 	
 	var getCode = function getCode(_ref) {
 	  var dispatch = _ref.dispatch;
+	
+	  var curriculum = {
+	    readme: "## Loading Curriculum...",
+	    dateStamp: null
+	  };
+	  dispatch({ type: "SET_CURRICULUM", curriculum: curriculum });
+	
 	  var oauthUrl = _settings.GITHUB.oauthUrl,
 	      client_id = _settings.GITHUB.client_id,
 	      scope = _settings.GITHUB.scope,
@@ -46034,6 +46049,8 @@
 	  var handleResponse = function handleResponse(data, something, somethingElse) {
 	    if (data.access_token) {
 	      dispatch({ type: "GET_CURRICULUM", token: data.access_token });
+	    } else {
+	      dispatch({ type: "CLEAR_CURRICULUM" });
 	    }
 	  };
 	
@@ -46070,6 +46087,12 @@
 	
 	var _settings = __webpack_require__(225);
 	
+	var _dateStamp = __webpack_require__(250);
+	
+	var _dateStamp2 = _interopRequireDefault(_dateStamp);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
 	var getReadme = function getReadme(_ref, token) {
 	  var dispatch = _ref.dispatch,
 	      getState = _ref.getState;
@@ -46100,7 +46123,12 @@
 	        readmeFixedLinks = readmeWithLinks.replace(/(]: )(?!http)/g, ']: ' + url + '/'),
 	        readmeSansEmotion = readmeFixedLinks.replace(/:\S*:/g, ''); // :|
 	
-	    dispatch({ type: "SET_CURRICULUM", curriculum: readmeSansEmotion });
+	    var curriculum = {
+	      readme: readmeSansEmotion,
+	      dateStamp: (0, _dateStamp2.default)().date
+	    };
+	
+	    dispatch({ type: "SET_CURRICULUM", curriculum: curriculum });
 	  };
 	};
 	

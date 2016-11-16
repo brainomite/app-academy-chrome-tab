@@ -3,6 +3,12 @@ import { ajax } from 'jquery';
 import { GITHUB } from 'util/settings';
 
 const getCode = ({ dispatch }) => {
+  const curriculum = {
+    readme: "## Loading Curriculum...",
+    dateStamp: null
+  };
+  dispatch({ type: "SET_CURRICULUM", curriculum });
+
   const { oauthUrl, client_id, scope } = GITHUB,
         url = `${ oauthUrl }?client_id=${ client_id }&scope=${ scope }`;
 
@@ -31,6 +37,8 @@ const getToken = ({ dispatch }, code) => {
   const handleResponse = (data, something, somethingElse) => {
     if (data.access_token) {
       dispatch({ type: "GET_CURRICULUM", token: data.access_token });
+    } else {
+      dispatch({ type: "CLEAR_CURRICULUM" });
     }
   }
 

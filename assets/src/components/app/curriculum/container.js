@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import View from './view';
 
 const mapStateToProps = state => ({
-	curriculum: state.curriculum
+	readme: state.curriculum && state.curriculum.readme
 });
 
 const mapDispatchToProps = dispatch => ({
