@@ -12,11 +12,11 @@ const getReadme = ({ dispatch, getState }, token) => {
 }
 
 const processReadme = (dispatch, day) => response => {
-  const content           = atob(response.content), // base64 decode
-        url               = response.html_url.split('/').slice(0, -1).join('/'),
-        regex             = new RegExp(`## ${ day }(?:(?!## w)[\\s\\S])*`),
-        readme            = regex.exec(content)[0],
-        linksRegex        = /\[\S*\]: \S*\n/g;
+  const content    = atob(response.content), // base64 decode
+        url        = response.html_url.split('/').slice(0, -1).join('/'),
+        regex      = new RegExp(`## ${ day }(?:(?!## w)[\\s\\S])*`),
+        readme     = regex.exec(content)[0],
+        linksRegex = /\[\S*\]: \S*\n/g; // TODO: catch link on final line (eg: that which doesn't conclude with \n)
 
   let link;
   let links = "";
