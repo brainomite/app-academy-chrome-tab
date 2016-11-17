@@ -1,4 +1,4 @@
-export default (state = (localStorage["cityId"] || 1), action) => {
+export default (state = (localStorage["cityId"] || null), action) => {
   switch (action.type) {
     case "SET_CITY_ID":
       return action.cityId;
