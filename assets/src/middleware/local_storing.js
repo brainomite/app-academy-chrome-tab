@@ -1,30 +1,42 @@
 import sjcl from 'sjcl';
 
-const notify = () => chrome.notifications.create(
+const notify = ({ cityId, desk }) => chrome.notifications.create(
   'desk-hash-changed', 
   { 
     type: "basic", 
     title: "Desk Hash Updated", 
-    message: "The desk hash has been updated.", 
+    message: `The desk hash has been updated.\nCity: ${ cityId }, Desk: ${ desk }.`, 
+    iconUrl: "/assets/img/app-academy-logo-chrome-48.png"
+  }
+);
+
+const error = () => chrome.notifications.create(
+  'desk-hash-changed', 
+  { 
+    type: "basic", 
+    title: "Desk Hash couldn't be Updated", 
+    message: "The cityId and/or Desk # was not set.", 
     iconUrl: "/assets/img/app-academy-logo-chrome-48.png"
   }
 );
 
 const setDeskHash = (password) => {
-  const deskRecipe = ["cityId", "desk"]
-    .map(key => localStorage[key])
-    .reduce((a, b) => a + b);
+  const { cityId, desk } = localStorage;
+  if (cityId && desk) {
+    const deskRecipe = cityId + desk + password;
+    const deskHash = sjcl.codec.hex.fromBits(sjcl.hash.sha256.hash(deskRecipe));
 
-  const deskHash = sjcl.codec.hex.fromBits(sjcl.hash.sha256.hash(deskRecipe + password));
-  chrome.storage.local.set({ deskHash });
-  notify();
+    chrome.storage.local.set({ deskHash });
+    notify(localStorage);
+  } else {
+    error();
+  }
 }
 
 export default store => next => action => {
   switch (action.type) {
     case "SET_CITY_ID":
       localStorage['cityId'] = action.cityId;
-      setDeskHash();
       break;
     case "CLEAR_CITY_ID":
       localStorage.removeItem("cityId");
