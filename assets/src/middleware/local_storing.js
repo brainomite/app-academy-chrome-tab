@@ -1,5 +1,15 @@
 import sjcl from 'sjcl';
 
+const notify = () => chrome.notifications.create(
+  'desk-hash-changed', 
+  { 
+    type: "basic", 
+    title: "Desk Hash Updated", 
+    message: "The desk hash has been updated.", 
+    iconUrl: "/assets/img/app-academy-logo-chrome-48.png"
+  }
+);
+
 const setDeskHash = () => {
   const deskRecipe = ["cityId", "desk", "password"]
     .map(key => localStorage[key])
@@ -7,6 +17,7 @@ const setDeskHash = () => {
 
   const deskHash = sjcl.codec.hex.fromBits(sjcl.hash.sha256.hash(deskRecipe));
   chrome.storage.local.set({ deskHash });
+  notify();
 }
 
 export default store => next => action => {
