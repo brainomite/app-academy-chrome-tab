@@ -1,5 +1,15 @@
 import React from 'react';
 
+const notify = () => chrome.notifications.create(
+  'desk-hash-changed', 
+  { 
+    type: "basic", 
+    title: "Desk Hash Updated", 
+    message: "The desk hash has been updated.", 
+    iconUrl: "/assets/img/app-academy-logo-chrome-48.png"
+  }
+);
+
 const className = visible => (
   visible ? 'is-active desk-hash' : 'desk-hash'
 );
@@ -14,6 +24,7 @@ const close = (setPassword, hideDeskHash) => e => {
   setPassword(input.value);
   input.value = "";
   hideDeskHash();
+  notify();
 }
 
 export default ({ hideDeskHash, visible, setPassword }) => (
