@@ -8,7 +8,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   hideDeskHash : () => { dispatch({ type: "SET_DESK_HASH_HIDE" }) },
-  setPassword : password => { dispatch({ type: "SET_PASSWORD", password }) }
+  setHash : password => { dispatch({ type: "SET_DESKTOP_HASH", password }) }
 });
 
 export default connect(
