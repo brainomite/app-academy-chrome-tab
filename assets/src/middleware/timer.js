@@ -12,11 +12,11 @@ const notify = () => chrome.notifications.create(
 
 const tick = (dispatch, getState) => {
   const seconds = getState().timer.seconds,
-        then = Math.floor(Date.now() / 1000) - seconds;
+        then = Date.now() - (seconds * 1000);
 
   return () => {
-    const now = Math.floor(Date.now() / 1000),
-          seconds = now - then;
+    const now = Date.now(),
+          seconds = Math.floor((now - then) / 1000);
 
     if (seconds === 60 * MINS_IN_SESSION) { notify(); }
 
