@@ -84,28 +84,28 @@ __Example Settings__
 
 ```
 export const GITHUB = {
-	oauthUrl  : "https://github.com/login/oauth/authorize",
-	lambdaUrl : "LAMBDA_ENDPOINT",
-	scope     : "repo",
-	client_id : "OUR_PUBLIC_OAUTH_ID",
+  oauthUrl  : "https://github.com/login/oauth/authorize",
+  lambdaUrl : "LAMBDA_ENDPOINT",
+  scope     : "repo",
+  client_id : "OUR_PUBLIC_OAUTH_ID",
 
-	readmeUrl : "https://api.github.com/repos/appacademy/curriculum/contents",
+  readmeUrl : "https://api.github.com/repos/appacademy/curriculum/contents",
 
-	ruby       : "/ruby/README.md",
-	sql        : "/sql/README.md",
-	rails      : "/rails/README.md",
-	javascript : "/javascript/README.md",
-	react      : "/react/README.md",
-	fullStack  : "/full-stack-project/README.md"
+  ruby       : "/ruby/README.md",
+  sql        : "/sql/README.md",
+  rails      : "/rails/README.md",
+  javascript : "/javascript/README.md",
+  react      : "/react/README.md",
+  fullStack  : "/full-stack-project/README.md"
 };
 
 export const READMES = {
-	w1d1 : "ruby",
-	...
-	w3d1 : "sql",
-	w3d2 : "sql",
-	...
-	w9d5 : "fullStack",
+  w1d1 : "ruby",
+  ...
+  w3d1 : "sql",
+  w3d2 : "sql",
+  ...
+  w9d5 : "fullStack",
 }
 ```
 
