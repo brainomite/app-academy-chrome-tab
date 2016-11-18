@@ -7,7 +7,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  showDesks: () => { dispatch({ type: "SET_DESKS_VISIBLE" }) }
+  showDesks: () => { dispatch({ type: "SET_DESKS_VISIBLE" }); }
 });
 
 export default connect(

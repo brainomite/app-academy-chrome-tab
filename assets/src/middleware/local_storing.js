@@ -31,7 +31,7 @@ const setDeskHash = (password) => {
   } else {
     error();
   }
-}
+};
 
 export default store => next => action => {
   switch (action.type) {
@@ -70,4 +70,4 @@ export default store => next => action => {
       break;
   }
   return next(action);
-}
+};

@@ -18,4 +18,4 @@ export default ({ getCode, readme }) => {
       </div>
     );
   }
-}
+};

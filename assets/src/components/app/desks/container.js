@@ -10,8 +10,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  hideDesks : () => { dispatch({ type: "SET_DESKS_HIDE" }) },
-  set       : desk => { dispatch({ type: "SET_DESK", desk }) }
+  hideDesks : () => { dispatch({ type: "SET_DESKS_HIDE" }); },
+  set       : desk => { dispatch({ type: "SET_DESK", desk }); }
 });
 
 export default connect(

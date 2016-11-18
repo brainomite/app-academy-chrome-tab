@@ -27,6 +27,6 @@ export default ({ showOptions, getDay, loaded }) => {
     )
   } else {
     getDay();
-    return (<div>Loading...</div>)
+    return (<div>Loading...</div>);
   }
-}
+};

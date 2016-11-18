@@ -8,15 +8,18 @@
   margin: auto;
   cursor: pointer;
   overflow: visible;
+
   .links-subs {
     width: 17%;
     text-align: center;
     overflow: hidden;
+
     &:hover {
       z-index: 100;
       background-color: lighten(red, 30%);
       overflow: visible;
     }
+
     .title {
       height: 55px;
       font-size: 26px;
@@ -25,6 +28,7 @@
       color: darken(#ccc, 50%);
       border-bottom: 4px solid gray;
     }
+
     .link-list {
       display: flex;
       flex-direction: column;
@@ -32,24 +36,29 @@
       width: 100%;
       background-color: lighten(red, 42%);
       height: 220px;
+
       .link-item {
         text-align: left;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
+
         a {
           line-height: 30px;
           padding-left: 20px;
+
+          &:hover {
+            transform: scale(1.04, 1.04);
+            background-color: #ccc;
+          }
         }
-        a:hover{
-          transform: scale(1.04, 1.04);
-          background-color: #ccc;
-        }
+
         li {
           padding-left: 30px;
-        }
-        li:hover {
-          background-color: darken(#ccc, 10%);
+
+          &:hover {
+            background-color: darken(#ccc, 10%);
+          }
         }
       }
     }

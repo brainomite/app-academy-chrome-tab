@@ -6,7 +6,7 @@ const className = visible => (
 
 const dispatchChange = dispatch => e => {
   dispatch(e.target.value);
-}
+};
 
 const close = (setHash, hideDeskHash) => e => {
   const input = document.getElementById("input-password");
@@ -14,7 +14,7 @@ const close = (setHash, hideDeskHash) => e => {
   setHash(input.value);
   input.value = "";
   hideDeskHash();
-}
+};
 
 export default ({ hideDeskHash, visible, setHash }) => (
   <article className={ className(visible) }>
@@ -30,4 +30,4 @@ export default ({ hideDeskHash, visible, setHash }) => (
 
     </form>
   </article>
-)
+);

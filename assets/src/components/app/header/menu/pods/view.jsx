@@ -8,10 +8,10 @@ const podLis = (pods, set) => {
 
     return <li key={ id } onClick={ () => { set(id) } }>{ pod.name }</li>
   });
-}
+};
 
 export default ({ pods, set }) => (
   <ul>
     { podLis(pods, set) }
   </ul>
-)
+);

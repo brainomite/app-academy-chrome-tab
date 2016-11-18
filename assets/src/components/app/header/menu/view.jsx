@@ -15,4 +15,4 @@ export default ({ city, pod }) => (
       <Pods />
     </li>
   </ul>
-)
+);

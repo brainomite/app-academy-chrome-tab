@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import View from './view';
 
 const mapStateToProps = state => ({
-	seconds : state.timer.seconds
+  seconds : state.timer.seconds
 });
 
 const mapDispatchToProps = dispatch => ({});

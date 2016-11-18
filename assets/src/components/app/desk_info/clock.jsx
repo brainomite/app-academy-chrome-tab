@@ -5,7 +5,7 @@ export default class extends React.Component {
     super(props);
     this.state = {
       time: "0:00"
-    }
+    };
 
     this.updateTime = this.updateTime.bind(this);
   }

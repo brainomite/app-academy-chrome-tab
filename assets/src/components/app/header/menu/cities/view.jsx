@@ -7,11 +7,11 @@ const cityLis = (set) => {
 
   return keys.map(id => (
     <li key={ id } onClick={ () => { set(id) } }>{ CITIES[id].abbr }</li>
-  ))
-}
+  ));
+};
 
 export default ({ set }) => (
   <ul>
     { cityLis(set) }
   </ul>
-)
+);

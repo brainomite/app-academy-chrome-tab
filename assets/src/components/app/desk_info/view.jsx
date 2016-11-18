@@ -11,4 +11,4 @@ export default ({ desk, showDesks }) => (
     </div>
     <Info />
   </header>
-)
+);

@@ -7,13 +7,13 @@ import ResetButton from './reset_button/container';
 import Handles from './handles/container';
 
 export default () => (
-	<div className="timer">
-		<div className="clock-wrapper">
-			<ClockSvg />
-			<Readout />
-			<PlayPause />
-			<ResetButton />
-			<Handles />
-		</div>
-	</div>
-)
+  <div className="timer">
+    <div className="clock-wrapper">
+      <ClockSvg />
+      <Readout />
+      <PlayPause />
+      <ResetButton />
+      <Handles />
+    </div>
+  </div>
+);

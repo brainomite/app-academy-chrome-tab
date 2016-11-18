@@ -26,7 +26,7 @@ const getDay = ({ dispatch, getState }, newCityId) => {
     dispatch({ type: "CLEAR_CURRICULUM" });
     dispatch({ type: "GET_DAILY_README" });
   });
-}
+};
 
 export default store => next => action => {
   switch (action.type) {
@@ -38,4 +38,4 @@ export default store => next => action => {
       break;
   }
   return next(action);
-}
+};

@@ -5,7 +5,7 @@ export default () => (
   <main className="links-group">
     { MAIN_LINKS.map(linksSection) }
   </main>
-)
+);
 
 const linksSection = ({ title, links }, idx) => {
   return (
@@ -15,7 +15,7 @@ const linksSection = ({ title, links }, idx) => {
       { linksList(links) }
     </section>
   );
-}
+};
 
 const linksList = links => {
   return (
@@ -23,7 +23,7 @@ const linksList = links => {
       { links.map(linkListItem) }
     </ul>
   )
-}
+};
 
 const linkListItem = (link, idx) => {
   const subLinks = link.sub ? linksList(link.sub) : null,
@@ -35,4 +35,4 @@ const linkListItem = (link, idx) => {
       { subLinks }
     </li>
   );
-}
+};

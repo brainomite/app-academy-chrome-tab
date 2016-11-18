@@ -22,7 +22,7 @@ const tick = (dispatch, getState) => {
 
     dispatch({ type : "SET_SECONDS", seconds });
   }
-}
+};
 
 const play = ({ getState, dispatch }) => {
   const { interval } = getState().timer;
@@ -31,7 +31,7 @@ const play = ({ getState, dispatch }) => {
     const interval = setInterval(tick(dispatch, getState), 1000);
     dispatch({ type: "SET_INTERVAL", interval });
   }
-}
+};
 
 const pause = ({ getState, dispatch }) => {
   const interval = getState().timer.interval;
@@ -40,7 +40,7 @@ const pause = ({ getState, dispatch }) => {
     clearInterval(interval);
     dispatch({ type: "CLEAR_INTERVAL" });
   }
-}
+};
 
 export default store => next => action => {
   switch (action.type) {
@@ -52,4 +52,4 @@ export default store => next => action => {
       break;
   }
   return next(action);
-}
+};

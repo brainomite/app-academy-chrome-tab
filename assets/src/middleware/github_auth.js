@@ -35,7 +35,7 @@ const getCode = ({ dispatch }) => {
   chrome.identity.launchWebAuthFlow({
     url, interactive: true
   }, handleResponse);
-}
+};
 
 const getToken = ({ dispatch }, code) => {
   const promise = ajax({
@@ -57,7 +57,7 @@ const getToken = ({ dispatch }, code) => {
   }
 
   promise.done(handleResponse);
-}
+};
 
 export default store => next => action => {
   switch (action.type) {
@@ -69,4 +69,4 @@ export default store => next => action => {
       break;
   }
   return next(action);
-}
+};

@@ -73,4 +73,4 @@ export const READMES = {
 	w9d3 : "fullStack",
 	w9d4 : "fullStack",
 	w9d5 : "fullStack",
-}
+};

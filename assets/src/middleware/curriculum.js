@@ -9,7 +9,7 @@ const getReadme = ({ dispatch, getState }, token) => {
         url     = GITHUB.readmeUrl + GITHUB[READMES[day]];
 
   getJSON(`${ url }?access_token=${ token }`, processReadme(dispatch, day));
-}
+};
 
 const processReadme = (dispatch, day) => response => {
   const all     = READMES[day] === 'fullStack',
@@ -29,18 +29,18 @@ const processReadme = (dispatch, day) => response => {
   };
 
   dispatch({ type: "SET_CURRICULUM", curriculum });
-}
+};
 
 const baseUrl = url => {
   return url.split('/').slice(0, -1).join('/');
-}
+};
 
 const extractDaysContent = (day, all) => readme => {
   if (all) { return readme; }
 
   const regex = new RegExp(`## ${ day }(?:(?!## w)[\\s\\S])*`);
   return regex.exec(readme)[0];
-}
+};
 
 const addAllLinks = (fullContent, all) => readme => {
   if (all) { return readme; }
@@ -53,7 +53,7 @@ const addAllLinks = (fullContent, all) => readme => {
   }
 
   return readme + links;
-}
+};
 
 const normalizeLinks = readme => {
   return readme.replace(/]: */g, ']: ');
@@ -74,4 +74,4 @@ export default store => next => action => {
       break;
   }
   return next(action);
-}
+};

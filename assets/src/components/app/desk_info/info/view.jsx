@@ -8,7 +8,7 @@ export default ({ pods, podId, desk, day, dateStamp }) => {
       <p>{ dateStamp } - { day } { pair && "-" } { pair && pairComponent(pair) }</p>
     </div>
   );
-}
+};
 
 const pairComponent = pair => {
   const students = []
@@ -24,11 +24,11 @@ const pairComponent = pair => {
   return (
     <span className="pair">{ students }</span>
   );
-}
+};
 
 const studentLink = ({ github, name }) => {
   const key = `link-${github}`,
         url = `https://github.com/${github}`;
 
   return (<a href={ url } key={ key }>{ name }</a>);
-}
+};
