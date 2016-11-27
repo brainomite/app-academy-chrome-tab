@@ -18,9 +18,9 @@ This is a browser extension to open a new tab with a page of links to commonly u
 
 This extension uses Github's API with OAUTH authentication. Starting with the user clicking the `Authorize Github` link, the action `GET_GITHUB_CODE` is dispatched to the `github_auth.js` middleware. That starts the following chain of events.
 
-1. In the `getCode()` function we make a request to GH's servers with the public API key to recieve a varificiation code.
+1. In the `getCode()` function we make a request to GH's servers with the public API key to recieve a verificiation code.
 2. We dispatch that code with the type `GET_GITHUB_TOKEN`.
-3. In the `getToken()` function we then pass the varification code to an AWS Lambda function that wraps the private key. The Lambda source is as follows.
+3. In the `getToken()` function we then pass the verification code to an AWS Lambda function that wraps the private key. The Lambda source is as follows.
 
 ```
 const request = require('request');
@@ -55,7 +55,7 @@ exports.handler = (event, context, callback) => {
 };
 ```
 
-4. The Lambda function will make another request to the GH servers, varifying our identity using the private_key and sending the client back the actual API token.
+4. The Lambda function will make another request to the GH servers, verifying our identity using the private_key and sending the client back the actual API token.
 5. This token is then passed to the curriculum middleware to get the daily curriculum.
 6. Using settings in the `util\settings.js` file and the given day from the AA API, we make a request to GH's API again requesting the readme with today's content.
 7. Then using a functional pipe, we apply a number of regex functions to the readme to parse it for today's content.
