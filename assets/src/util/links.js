@@ -4,16 +4,12 @@ export const CORNERS = [
     url: "http://progress.appacademy.io/"
   },
   {
-    title: "Gmail",
-    url: "https://mail.google.com/mail/"
-  },
-  {
     title: "Github",
     url: "https://github.com/"
   },
   {
-    title: "Timer",
-    url: "http://drwrchrds.github.io/pairing_timer/"
+    title: "Localhost:3000",
+    url: "localhost:3000"
   }
 ];
 
@@ -37,7 +33,7 @@ export const MAIN_LINKS = [
         start: 41
       },
       {
-        title: "JS",
+        title: "JavaScript",
         url: "https://github.com/appacademy/curriculum/blob/master/javascript/README.md",
         start: 54
       },
@@ -91,6 +87,10 @@ export const MAIN_LINKS = [
     title: "Ruby",
     links: [
       {
+        title: "Rspec",
+        url: "https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers",
+      },
+      {
         title: "API",
         url: "http://ruby-doc.org/core-2.2.0/",
         sub: [
@@ -115,10 +115,6 @@ export const MAIN_LINKS = [
             url: "http://ruby-doc.org/core-2.2.0/Hash.html",
           }
         ]
-      },
-      {
-        title: "Rspec",
-        url: "https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers",
       }
     ]
   },
@@ -158,7 +154,7 @@ export const MAIN_LINKS = [
     ]
   },
   {
-    title: "JS",
+    title: "JavaScript",
     links: [
       {
         title: "JS",

@@ -1,30 +1,32 @@
 import React from 'react';
 
-import Page from './page/view';
-import Desks from './desks/container';
-import Header from './header';
+import Curriculum from './curriculum/container';
+import DeskInfo from './desk_info/container';
+import DeskHash from './desk_hash/container';
 import Corners from './corners';
-import Options from './options/container';
+import Header from './header/container';
+import Links from './links/view';
+import Timer from './timer/view';
+import Desks from './desks/container';
 
 export default ({ showOptions, getDay, loaded }) => {
   if (loaded) {
     return (
-      <div>
+      <main>
+        <DeskHash />
         <Header />
         <Corners />
-
-        <Page />
-
+        <DeskInfo />
         <Desks />
-        <Options />
-
-        <footer>
-          <span onClick={ showOptions }>Options</span>
-        </footer>
-      </div>
+        <Links />
+        <div className="pair-tools">
+          <Curriculum />
+          <Timer />
+        </div>
+      </main>
     )
   } else {
     getDay();
-    return (<div>Loading...</div>)
+    return (<div>Loading...</div>);
   }
-}
+};

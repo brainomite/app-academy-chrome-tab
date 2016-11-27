@@ -1,4 +1,4 @@
-import $ from 'jQuery';
+import $ from 'jquery';
 
 import getStamp from 'util/dateStamp';
 
@@ -23,8 +23,10 @@ const getDay = ({ dispatch, getState }, newCityId) => {
     }
 
     dispatch({ type: "SET_DAY", day: data });
+    dispatch({ type: "CLEAR_CURRICULUM" });
+    dispatch({ type: "GET_DAILY_README" });
   });
-}
+};
 
 export default store => next => action => {
   switch (action.type) {
@@ -36,4 +38,4 @@ export default store => next => action => {
       break;
   }
   return next(action);
-}
+};

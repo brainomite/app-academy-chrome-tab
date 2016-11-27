@@ -1,4 +1,5 @@
 .DS_Store
 .module-cache
+.sass-cache/
 node_modules/
 bundle.js.map

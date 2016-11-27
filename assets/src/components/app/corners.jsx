@@ -12,9 +12,9 @@ const links = () => CORNERS.map((link, index) => {
 });
 
 export default () => (
-  <nav>
+  <nav className="corners">
     <ul>
       { links() }
     </ul>
   </nav>
-)
+);

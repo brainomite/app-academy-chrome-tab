@@ -34,4 +34,4 @@ export default () => {
     date: dateStamp,
     time: dateStamp + ", " + hours
   };
-}
+};

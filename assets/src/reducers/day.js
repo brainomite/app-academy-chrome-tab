@@ -5,7 +5,7 @@ const checkLocalDay = () => {
 
   const day = JSON.parse(localStorage["day"]);
   return (day.dateStamp !== getStamp().date) ? null : day;
-}
+};
 
 export default (state = checkLocalDay(), action) => {
   switch (action.type) {

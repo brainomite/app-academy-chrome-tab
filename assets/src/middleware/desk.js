@@ -5,4 +5,4 @@ export default store => next => action => {
       break;
   }
   return next(action);
-}
+};

@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import $ from 'jQuery';
+import $ from 'jquery';
 
 import Root from 'components/root';
 

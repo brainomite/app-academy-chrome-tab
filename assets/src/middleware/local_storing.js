@@ -1,23 +1,45 @@
 import sjcl from 'sjcl';
 
-const setDeskHash = () => {
-  const deskRecipe = ["cityId", "desk", "password"]
-    .map(key => localStorage[key])
-    .reduce((a, b) => a + b);
+const notify = ({ cityId, desk }) => chrome.notifications.create(
+  'desk-hash-changed', 
+  { 
+    type: "basic", 
+    title: "Desk Hash Updated", 
+    message: `The desk hash has been updated.\nCity: ${ cityId }, Desk: ${ desk }.`, 
+    iconUrl: "/assets/img/app-academy-logo-chrome-48.png"
+  }
+);
 
-  const deskHash = sjcl.codec.hex.fromBits(sjcl.hash.sha256.hash(deskRecipe));
-  chrome.storage.local.set({ deskHash });
-}
+const error = () => chrome.notifications.create(
+  'desk-hash-changed', 
+  { 
+    type: "basic", 
+    title: "Desk Hash couldn't be Updated", 
+    message: "The cityId and/or Desk # was not set.", 
+    iconUrl: "/assets/img/app-academy-logo-chrome-48.png"
+  }
+);
+
+const setDeskHash = (password) => {
+  const { cityId, desk } = localStorage;
+  if (cityId && desk) {
+    const deskRecipe = cityId + desk + password;
+    const deskHash = sjcl.codec.hex.fromBits(sjcl.hash.sha256.hash(deskRecipe));
+
+    chrome.storage.local.set({ deskHash });
+    notify(localStorage);
+  } else {
+    error();
+  }
+};
 
 export default store => next => action => {
   switch (action.type) {
     case "SET_CITY_ID":
       localStorage['cityId'] = action.cityId;
-      setDeskHash();
       break;
     case "CLEAR_CITY_ID":
       localStorage.removeItem("cityId");
-      setDeskHash();
       break;
     case "SET_POD_ID":
       localStorage['podId'] = action.podId;
@@ -27,11 +49,9 @@ export default store => next => action => {
       break;
     case "SET_DESK":
       localStorage['desk'] = action.desk;
-      setDeskHash();
       break;
     case "CLEAR_DESK":
       localStorage.removeItem("desk");
-      setDeskHash();
       break;
     case "SET_DAY":
       localStorage['day'] = JSON.stringify(action.day);
@@ -39,14 +59,15 @@ export default store => next => action => {
     case "CLEAR_DAY":
       localStorage.removeItem("day");
       break;
-    case "SET_PASSWORD":
-      localStorage['password'] = action.password;
-      setDeskHash();
+    case "SET_CURRICULUM":
+      localStorage['curriculum'] = JSON.stringify(action.curriculum);
       break;
-    case "CLEAR_PASSWORD":
-      localStorage.removeItem("password");
-      setDeskHash();
+    case "CLEAR_CURRICULUM":
+      localStorage.removeItem("curriculum");
+      break;
+    case "SET_DESKTOP_HASH":
+      setDeskHash(action.password);
       break;
   }
   return next(action);
-}
+};
