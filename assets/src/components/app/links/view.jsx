@@ -11,7 +11,7 @@ const linksSection = ({ title, links }, idx) => {
   return (
     <section className="links-subs"
       key={ `links-section-${idx}` }>
-      <h2 className="title">{ title }</h2>
+      <h2 id="tab-title" className="title">{ title }</h2>
       { linksList(links) }
     </section>
   );
@@ -22,12 +22,12 @@ const linksList = links => {
     <ul className="link-list">
       { links.map(linkListItem) }
     </ul>
-  )
+  );
 };
 
 const linkListItem = (link, idx) => {
-  const subLinks = link.sub ? linksList(link.sub) : null,
-        key = `link-${idx}`;
+const subLinks = link.sub ? linksList(link.sub) : null,
+key = `link-${idx}`;
 
   return (
     <li className="link-item" key={ key }>
