@@ -40822,7 +40822,7 @@
 /* 239 */
 =======
 	}, {
-	  title: "GitHub",
+	  title: "Git",
 	  links: [{
 	    title: "Common Commands",
 	    url: "https://gist.github.com/Kerry350/2043530"
@@ -41350,7 +41350,7 @@
 	      key: 'links-section-' + idx },
 	    _react2.default.createElement(
 	      'h2',
-	      { className: 'title' },
+	      { id: 'tab-title', className: 'title' },
 	      title
 	    ),
 	    linksList(links)

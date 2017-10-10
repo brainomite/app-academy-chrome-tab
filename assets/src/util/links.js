@@ -212,7 +212,7 @@ export const MAIN_LINKS = [
     ]
   },
   {
-    title: "GitHub",
+    title: "Git",
     links: [
       {
         title: "Common Commands",
