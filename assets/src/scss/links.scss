@@ -1,3 +1,7 @@
+.links-group.links-subs:first-child h2 {
+  margin-left: 20px;
+}
+
 .links-group {
   height: 55px;
   min-height: 55px;
@@ -22,7 +26,7 @@
 
     .title {
       height: 55px;
-      font-size: 20px;
+      font-size: 22px;
       line-height: 55px;
       font-weight: 300;
       color: darken(#ccc, 50%);
@@ -31,6 +35,7 @@
       justify-content: space-around;
       margin-left: -10px;
       margin-right: -10px;
+
 
     }
 

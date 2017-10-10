@@ -50,7 +50,7 @@ exports.handler = (event, context, callback) => {
     })
     callback(null, resHash);
   }
-  
+
   request.post({ url: url, form: data(code) }, handleResponse);
 };
 ```
@@ -112,6 +112,14 @@ export const READMES = {
 * If any of the days get shifted around in the curriculum, the README object needs to be updated to reflect that.
 * If we add any readme files, those need to be added first to GITHUB object, and then that key needs to be added as the value to the appropriate days in the README object as well.
 * If OAUTH keys get modified, we need to edit that here, as well as in the Lambda source.
+
+### Setup
+* `npm install`
+* `npm run webpack` 
+* In order to make changes to the scss files, the following script needs to be run in the terminal:
+```
+./node_modules/.bin/node-sass assets/src/scss/head.scss assets/css/main.css
+```
 
 ## Timer
 The timer rendering is built entirely on SVG and CSS. It is done using techniques introduced [here](https://css-tricks.com/svg-line-animation-works/)
