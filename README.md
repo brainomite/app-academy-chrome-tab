@@ -115,10 +115,10 @@ export const READMES = {
 
 ### Setup
 * `npm install`
-* `npm run webpack` 
+* `npm run webpack`
 * In order to make changes to the scss files, the following script needs to be run in the terminal:
 ```
-./node_modules/.bin/node-sass assets/src/scss/head.scss assets/css/main.css
+./node_modules/.bin/node-sass assets/src/scss/head.scss assets/css/main.css -w
 ```
 
 ## Timer
