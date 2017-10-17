@@ -20,7 +20,6 @@ const smile = () => {
 };
 
 const insertDeskHash = () => {
-  // debugger
   chrome.storage.local.get("deskHash", storage => {
     const $input = $("input.desk-hash");
     if ($input.length) {
