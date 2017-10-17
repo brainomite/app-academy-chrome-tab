@@ -87,7 +87,6 @@
 	};
 	
 	var insertDeskHash = function insertDeskHash() {
-	  // debugger
 	  chrome.storage.local.get("deskHash", function (storage) {
 	    var $input = (0, _jquery2.default)("input.desk-hash");
 	    if ($input.length) {
@@ -39845,7 +39844,7 @@
 	      key: 'links-section-' + idx },
 	    _react2.default.createElement(
 	      'h2',
-	      { id: 'tab-title', className: 'title' },
+	      { className: 'title tab-title' },
 	      title
 	    ),
 	    linksList(links)
