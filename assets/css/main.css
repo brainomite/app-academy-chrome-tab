@@ -182,6 +182,7 @@ main {
   margin-left: 20px; }
 
 .links-group {
+  width: 90%;
   height: 55px;
   min-height: 55px;
   display: flex;
@@ -200,15 +201,13 @@ main {
       overflow: visible; }
     .links-group .links-subs .title {
       height: 55px;
-      font-size: 22px;
+      font-size: 24px;
       line-height: 55px;
-      font-weight: 300;
+      font-weight: 700;
       color: #4d4d4d;
       border-bottom: 4px solid gray;
       display: flex;
-      justify-content: space-around;
-      margin-left: -10px;
-      margin-right: -10px; }
+      justify-content: space-around; }
     .links-group .links-subs .link-list {
       display: flex;
       flex-direction: column;
@@ -994,5 +993,3 @@ main {
     cursor: pointer; }
   .desk-hash > span:hover {
     color: #f00; }
-
-/*# sourceMappingURL=main.css.map */
