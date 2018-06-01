@@ -92,27 +92,27 @@ export const MAIN_LINKS = [
       },
       {
         title: "API",
-        url: "http://ruby-doc.org/core-2.2.0/",
+        url: "http://ruby-doc.org/core-2.3.1/",
         sub: [
           {
             title: "Object",
-            url: "http://ruby-doc.org/core-2.2.0/Object.html",
+            url: "http://ruby-doc.org/core-2.3.1/Object.html",
           },
           {
             title: "String",
-            url: "http://ruby-doc.org/core-2.2.0/String.html",
+            url: "http://ruby-doc.org/core-2.3.1/String.html",
           },
           {
             title: "Enumerable",
-            url: "http://ruby-doc.org/core-2.2.0/Enumerable.html",
+            url: "http://ruby-doc.org/core-2.3.1/Enumerable.html",
           },
           {
             title: "Array",
-            url: "http://ruby-doc.org/core-2.2.0/Array.html",
+            url: "http://ruby-doc.org/core-2.3.1/Array.html",
           },
           {
             title: "Hash",
-            url: "http://ruby-doc.org/core-2.2.0/Hash.html",
+            url: "http://ruby-doc.org/core-2.3.1/Hash.html",
           }
         ]
       }
