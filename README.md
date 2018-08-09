@@ -18,7 +18,7 @@ This is a browser extension to open a new tab with a page of links to commonly u
 
 This extension uses Github's API with OAUTH authentication. Starting with the user clicking the `Authorize Github` link, the action `GET_GITHUB_CODE` is dispatched to the `github_auth.js` middleware. That starts the following chain of events.
 
-1. In the `getCode()` function we make a request to GH's servers with the public API key to recieve a verificiation code.
+1. In the `getCode()` function we make a request to GH's servers with the public API key to receive a verification code.
 2. We dispatch that code with the type `GET_GITHUB_TOKEN`.
 3. In the `getToken()` function we then pass the verification code to an AWS Lambda function that wraps the private key. The Lambda source is as follows.
 
@@ -50,7 +50,7 @@ exports.handler = (event, context, callback) => {
     })
     callback(null, resHash);
   }
-  
+
   request.post({ url: url, form: data(code) }, handleResponse);
 };
 ```
@@ -64,7 +64,7 @@ exports.handler = (event, context, callback) => {
 
 This process places a couple of requirements on our curriculum readmes.
 
-1. The settings file must be maintained for pointing to the correct readme, see maintence below.
+1. The settings file must be maintained for pointing to the correct readme, see Maintenance below.
 2. The Readme's must match the following format.
 
 ```
@@ -74,9 +74,9 @@ All the markdown for this day...
 
 ## w${anyNum}d${anyNum}
 ```
-* This applys to all days except those pointing to the full stack project, in which case we just output the entire readme.
+* This applies to all days except those pointing to the full stack project, in which case we just output the entire readme.
 
-### Maintence
+### Maintenance
 
 The settings file needs to be maintained to point to the correct locations in our curriculum.
 
