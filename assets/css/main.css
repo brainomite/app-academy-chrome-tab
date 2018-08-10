@@ -9,8 +9,7 @@ header, footer, main, nav, p, strong, em, select {
   vertical-align: baseline;
   background: transparent;
   box-sizing: border-box;
-  color: inherit;
-  background: transparent; }
+  color: inherit; }
 
 @font-face {
   font-family: "Inconsolata";
