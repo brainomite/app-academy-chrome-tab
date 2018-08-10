@@ -38873,11 +38873,7 @@
 	    _react2.default.createElement(
 	      'div',
 	      { className: 'clock-wrapper' },
-	      _react2.default.createElement(
-	        'h2',
-	        { className: 'number', onClick: showDesks },
-	        desk || "•"
-	      ),
+	      _react2.default.createElement('img', { className: 'number', src: '/assets/img/app-academy-logo-black.png' }),
 	      _react2.default.createElement(_clock2.default, null)
 	    ),
 	    _react2.default.createElement(_container2.default, null)
@@ -39841,7 +39837,7 @@
 	      key: 'links-section-' + idx },
 	    _react2.default.createElement(
 	      'h2',
-	      { className: 'title tab-title' },
+	      { className: 'title' },
 	      title
 	    ),
 	    linksList(links)
