@@ -112,7 +112,8 @@ main {
       left: -45px;
       font-size: 50px;
       width: 80px;
-      color: #222; }
+      color: #222;
+      transition-duration: .5s; }
       .desk-info .clock-wrapper .number:before {
         content: "";
         display: block;
@@ -126,8 +127,7 @@ main {
         z-index: -1; }
       .desk-info .clock-wrapper .number:hover, .desk-info .clock-wrapper .number:hover:before {
         cursor: pointer;
-        background-color: #00f;
-        transition-duration: .5s; }
+        background-color: #00f; }
 
 .header {
   position: relative;
