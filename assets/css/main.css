@@ -126,7 +126,6 @@ main {
         z-index: -1; }
       .desk-info .clock-wrapper .number:hover, .desk-info .clock-wrapper .number:hover:before {
         cursor: pointer;
-        border: 5px solid #00f;
         background-color: #00f;
         transition-duration: .5s; }
 
