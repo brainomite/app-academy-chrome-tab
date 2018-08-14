@@ -22,12 +22,12 @@ const linksList = links => {
     <ul className="link-list">
       { links.map(linkListItem) }
     </ul>
-  )
+  );
 };
 
 const linkListItem = (link, idx) => {
-  const subLinks = link.sub ? linksList(link.sub) : null,
-        key = `link-${idx}`;
+const subLinks = link.sub ? linksList(link.sub) : null,
+key = `link-${idx}`;
 
   return (
     <li className="link-item" key={ key }>

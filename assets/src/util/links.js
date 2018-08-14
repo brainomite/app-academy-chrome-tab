@@ -210,5 +210,26 @@ export const MAIN_LINKS = [
         url: "http://validator.w3.org/",
       }
     ]
+  },
+  {
+    title: "Git",
+    links: [
+      {
+        title: "Common Commands",
+        url: "https://gist.github.com/Kerry350/2043530"
+      },
+      {
+        title: "Set Author",
+        url: "https://help.github.com/articles/setting-your-username-in-git/"
+      },
+      {
+        title: "Change Commit Authorship",
+        url: "https://www.git-tower.com/learn/git/faq/change-author-name-email"
+      },
+      {
+        title: "Git CheatSheet",
+        url: "https://education.github.com/git-cheat-sheet-education.pdf"
+      }
+    ]
   }
 ];

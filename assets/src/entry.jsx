@@ -21,7 +21,7 @@ const smile = () => {
 
 const insertDeskHash = () => {
   chrome.storage.local.get("deskHash", storage => {
-    const $input = $("input.desk-hash")
+    const $input = $("input.desk-hash");
     if ($input.length) {
       $input.val(storage.deskHash);
       smile();
