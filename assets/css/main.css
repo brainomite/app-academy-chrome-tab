@@ -114,17 +114,6 @@ main {
       color: #222;
       border-radius: 25px;
       transition-duration: .5s; }
-      .desk-info .clock-wrapper .number:before {
-        content: "";
-        display: block;
-        position: absolute;
-        left: -2px;
-        top: -17px;
-        border: 8px solid #222;
-        width: 68px;
-        height: 68px;
-        -webkit-transform: rotate(45deg);
-        z-index: -1; }
       .desk-info .clock-wrapper .number:hover, .desk-info .clock-wrapper .number:hover:before {
         cursor: pointer;
         border-radius: 40px;
