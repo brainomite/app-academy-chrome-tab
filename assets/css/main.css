@@ -113,23 +113,23 @@ main {
       height:80px;
       left: -50px;
       position: relative; }
-    .desk-info .clock-wrapper .logo-wrapper .logo-box {
-      position: absolute;
-      height: 80px;
-      width: 80px;
-      background-color: #FE0101;
-      border-radius: 20px;
-      transition-duration: .5s; }
-    .desk-info .clock-wrapper .logo-wrapper .logo {
-      position: absolute;
-      padding: 10px;
-      color: #222;
-      z-index: 1;
-      pointer-events: none; }
-    .desk-info .clock-wrapper .logo-wrapper .logo-box:hover {
-      transform: rotate(45deg);
-      background-color: #00f;
-      cursor: pointer; }
+      .desk-info .clock-wrapper .logo-wrapper .logo-box {
+        position: absolute;
+        height: 80px;
+        width: 80px;
+        background-color: #FE0101;
+        border-radius: 20px;
+        transition-duration: .5s; }
+      .desk-info .clock-wrapper .logo-wrapper .logo-box:hover {
+        transform: rotate(45deg);
+        background-color: #00f;
+        cursor: pointer; }
+      .desk-info .clock-wrapper .logo-wrapper .logo {
+        position: absolute;
+        padding: 10px;
+        color: #222;
+        z-index: 1;
+        pointer-events: none; }
 
 .header {
   position: relative;
