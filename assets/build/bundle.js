@@ -39843,7 +39843,7 @@
 	      key: 'links-section-' + idx },
 	    _react2.default.createElement(
 	      'h2',
-	      { className: 'title' },
+	      { className: 'title tab-title' },
 	      title
 	    ),
 	    linksList(links)
