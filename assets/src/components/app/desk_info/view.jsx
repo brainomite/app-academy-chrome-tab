@@ -10,9 +10,7 @@ export default ({ desk, showDesks }) => (
         <img className="logo"
           src="/assets/img/app-academy-logo-white.png">
         </img>
-        <div  className="logo-box"
-          onClick={ showDesks }>
-        </div>
+        <div className="logo-box" onClick={ showDesks }></div>
       </div>
       <Clock />
     </div>

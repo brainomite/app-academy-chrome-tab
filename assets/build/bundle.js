@@ -38878,8 +38878,7 @@
 	        { className: 'logo-wrapper' },
 	        _react2.default.createElement('img', { className: 'logo',
 	          src: '/assets/img/app-academy-logo-white.png' }),
-	        _react2.default.createElement('div', { className: 'logo-box',
-	          onClick: showDesks })
+	        _react2.default.createElement('div', { className: 'logo-box', onClick: showDesks })
 	      ),
 	      _react2.default.createElement(_clock2.default, null)
 	    ),
