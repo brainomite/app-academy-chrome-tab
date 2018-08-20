@@ -9,8 +9,7 @@ header, footer, main, nav, p, strong, em, select {
   vertical-align: baseline;
   background: transparent;
   box-sizing: border-box;
-  color: inherit;
-  background: transparent; }
+  color: inherit; }
 
 @font-face {
   font-family: "Inconsolata";
@@ -98,34 +97,39 @@ main {
           text-decoration: none; }
   .desk-info .clock-wrapper {
     width: 100%;
+    position: relative;
+    left: -30px;
     text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     padding: 30px 0 15px 0; }
     .desk-info .clock-wrapper .clock {
       font-size: 160px;
       display: inline-block; }
-    .desk-info .clock-wrapper .number {
-      position: relative;
-      display: inline-block;
-      top: -33px;
-      left: -45px;
-      font-size: 50px;
+    .desk-info .clock-wrapper .logo-wrapper {
       width: 80px;
-      color: #222; }
-      .desk-info .clock-wrapper .number:before {
-        content: "";
-        display: block;
+      height:80px;
+      left: -50px;
+      position: relative; }
+      .desk-info .clock-wrapper .logo-wrapper .logo-box {
         position: absolute;
-        left: -2px;
-        top: -17px;
-        border: 8px solid #222;
-        width: 68px;
-        height: 68px;
-        -webkit-transform: rotate(45deg);
-        z-index: -1; }
-      .desk-info .clock-wrapper .number:hover, .desk-info .clock-wrapper .number:hover:before {
-        cursor: pointer;
-        color: #f00;
-        border-color: #f00; }
+        height: 80px;
+        width: 80px;
+        background-color: #FE0101;
+        border-radius: 20px;
+        transition-duration: .5s; }
+      .desk-info .clock-wrapper .logo-wrapper .logo-box:hover {
+        transform: rotate(45deg);
+        background-color: #00f;
+        cursor: pointer; }
+      .desk-info .clock-wrapper .logo-wrapper .logo {
+        position: absolute;
+        padding: 10px;
+        color: #222;
+        z-index: 1;
+        pointer-events: none; }
 
 .header {
   position: relative;

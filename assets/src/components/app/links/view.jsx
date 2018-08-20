@@ -11,7 +11,7 @@ const linksSection = ({ title, links }, idx) => {
   return (
     <section className="links-subs"
       key={ `links-section-${idx}` }>
-      <h2 className="title">{ title }</h2>
+      <h2 className="title tab-title">{ title }</h2>
       { linksList(links) }
     </section>
   );
