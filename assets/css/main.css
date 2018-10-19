@@ -60,8 +60,14 @@ body {
   font-size: 18px;
   line-height: 1.0;
   font-family: "Inconsolata", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #222;
-  background: #fff; }
+  color: #BE491C;
+  background: #000;
+  /* background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url('../img/h1.jpg') no-repeat top center fixed; */
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../img/h2.jpg') no-repeat top center;
+  /* background: linear-gradient( rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) ), url('../img/h5.jpg') no-repeat top center fixed; */
+  /* background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url('https://stmed.net/sites/default/files/halloween-wallpapers-28338-9978612.jpg') no-repeat center center fixed; */
+  background-size: cover;
+}
 
 h1, h2 {
   font-family: "Montserrat";
@@ -87,7 +93,7 @@ main {
       position: relative;
       display: inline-block;
       padding: 10px 20px;
-      background: #ff0; }
+      background: #65C2BE; }
       .desk-info .info > p strong {
         font-weight: 700; }
       .desk-info .info > p a {
@@ -122,18 +128,18 @@ main {
         transition-duration: .5s; }
       .desk-info .clock-wrapper .logo-wrapper .logo-box:hover {
         transform: rotate(45deg);
-        background-color: #00f;
+        background-color: #BE491C;
         cursor: pointer; }
       .desk-info .clock-wrapper .logo-wrapper .logo {
         position: absolute;
         padding: 10px;
-        color: #222;
+        color: #fff;
         z-index: 1;
         pointer-events: none; }
 
 .header {
   position: relative;
-  background: #f00;
+  background: #1E231E;
   padding: 0 10px;
   z-index: 4;
   min-height: 55px; }
@@ -166,7 +172,7 @@ main {
       padding: 19px 7px; }
       .header .menu li:hover {
         cursor: pointer;
-        color: orange; }
+        color: #C65317; }
         .header .menu li:hover ul {
           display: block; }
     .header .menu ul {
@@ -191,7 +197,7 @@ main {
   min-height: 55px;
   display: flex;
   flex-direction: row;
-  border: 2px solid #ccc;
+  border: 2px solid #CEB084;
   margin: auto;
   cursor: pointer;
   overflow: visible; }
@@ -201,14 +207,14 @@ main {
     overflow: hidden; }
     .links-group .links-subs:hover {
       z-index: 100;
-      background-color: #ff9999;
+      background-color: rgb(101, 194, 190);
       overflow: visible; }
     .links-group .links-subs .title {
       height: 55px;
       font-size: 24px;
       line-height: 55px;
       font-weight: 700;
-      color: #4d4d4d;
+      color: #fff;
       border-bottom: 4px solid gray;
       display: flex;
       justify-content: space-around; }
@@ -217,7 +223,7 @@ main {
       flex-direction: column;
       justify-content: flex-start;
       width: 100%;
-      background-color: #ffd6d6;
+      background-color: #CEB084;
       height: 220px; }
       .links-group .links-subs .link-list .link-item {
         text-align: left;
@@ -229,11 +235,11 @@ main {
           padding-left: 20px; }
           .links-group .links-subs .link-list .link-item a:hover {
             transform: scale(1.04, 1.04);
-            background-color: #ccc; }
+            background-color: rgba(40, 105, 111, .3); }
         .links-group .links-subs .link-list .link-item li {
           padding-left: 30px; }
           .links-group .links-subs .link-list .link-item li:hover {
-            background-color: #b3b3b3; }
+            background-color: #red; }
 
 .pair-tools {
   flex-grow: 1;
@@ -285,7 +291,7 @@ main {
     stroke: black;
     transition: all 0.2s cubic-bezier(0.4, 2.08, 0.55, 0.44); }
   .timer circle.back {
-    stroke: #F1F1F1;
+    stroke: #CEB084;
     stroke-width: 32px; }
   .timer circle.minutes {
     stroke: #FF0000;
@@ -308,14 +314,14 @@ main {
     transform: rotate(90deg); }
     .timer svg.reset:hover {
       cursor: pointer;
-      fill: #FF0000; }
+      fill: #65C2BE; }
   .timer .handles.paused .handle {
     height: 25px;
     width: 25px; }
     .timer .handles.paused .handle:hover {
       cursor: pointer; }
       .timer .handles.paused .handle:hover .bar {
-        background-color: #FF0000; }
+        background-color: #65C2BE; }
   .timer .handle {
     position: absolute;
     width: 25px;
@@ -344,7 +350,7 @@ main {
       color: red; }
       .curriculum.sign-in .sign-in-link:hover {
         cursor: pointer;
-        color: orange; }
+        color: #C65317; }
 
 .timer {
   height: 100%;
@@ -417,7 +423,7 @@ main {
     .timer .handles.paused .handle:hover {
       cursor: pointer; }
       .timer .handles.paused .handle:hover .bar {
-        background-color: #FF0000; }
+        background-color: #BE491C; }
   .timer .handle {
     position: absolute;
     width: 25px;
@@ -429,7 +435,7 @@ main {
       width: 5px;
       margin: 0 auto;
       border-radius: 2.5px;
-      background: #E1E1E1; }
+      background: #CEB084; }
 
 .desks {
   display: none;
@@ -470,7 +476,7 @@ main {
     text-decoration: underline; }
   .desks .student-pair:hover {
     cursor: pointer;
-    color: orange; }
+    color: #C65317; }
 
 @font-face {
   font-family: octicons-link;
@@ -918,7 +924,7 @@ main {
   position: fixed;
   display: block;
   padding: 5px 10px;
-  border: 3px solid #222;
+  border: 3px solid #CEB084;
   font-weight: 700;
   z-index: 3; }
   .corners a:hover {
