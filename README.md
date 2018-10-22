@@ -50,7 +50,7 @@ exports.handler = (event, context, callback) => {
     })
     callback(null, resHash);
   }
-  
+
   request.post({ url: url, form: data(code) }, handleResponse);
 };
 ```

@@ -46,9 +46,11 @@ const desksPairList = (pod, set) => {
   );
 };
 
-const className = visible => (
-  visible ? 'desks is-active' : 'desks'
-);
+const className = visible => {
+  return (
+    visible ? 'desks is-active' : 'desks'
+  );
+};
 
 const wrapLi = (body, idx) => (
   <li key={ idx }>{ body }</li>
@@ -60,11 +62,10 @@ const podName = pod => {
   return <h2>{ pod.name }</h2>
 };
 
-export default ({ hideDesks, day, visible, podId, pods, set }) => (
-  <article className={ className(visible) }>
-    <span onClick={ hideDesks }>×</span>
-    <h1>{ day } Desks</h1>
-    { podName(pods[podId]) }
-    { desksPairList(pods[podId], set) }
-  </article>
-);
+export default ({ hideDesks, day, visible, podId, pods, set }) => {
+  return (
+    <article className={ className(visible) }>
+      <img src=""></img>
+    </article>
+  );
+};
