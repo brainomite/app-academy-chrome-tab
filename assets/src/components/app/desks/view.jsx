@@ -1,5 +1,5 @@
 import React from 'react';
-const lo = require('lodash');
+import { sample } from 'lodash';
 
 const pairSpan = pair => {
   const students = []
@@ -88,15 +88,15 @@ const randImg = () => {
     "assets/img/recursion.png",
     "assets/img/failed_spec.png",
     "assets/img/error.jpg",
-    // "",
   ];
-  return lo.sample(images);
+  return sample(images);
 };
 
 export default ({ hideDesks, day, visible, podId, pods, set, halloweenImg }) => (
   <section className="section">
-    <img className={ createClass(halloweenImg)}
-      src={ randImg() }></img>
+    <img
+      className={ createClass(halloweenImg) } src={ randImg() }>
+    </img>
     <article className={ className(visible) }>
       <span onClick={ hideDesks }>×</span>
       <h1>{ day } Desks</h1>
