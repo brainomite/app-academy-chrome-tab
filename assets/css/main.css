@@ -1000,3 +1000,23 @@ main {
     cursor: pointer; }
   .desk-hash > span:hover {
     color: #f00; }
+
+
+/* HALLOWEEN CSS */
+
+.hidden {
+  display: none;
+}
+
+.img-active {
+  height: 90vh;
+  width: auto;
+  position: absolute;
+  top: 60px;
+  z-index: 100000;
+}
+
+.section {
+  display: flex;
+  justify-content: center;
+}

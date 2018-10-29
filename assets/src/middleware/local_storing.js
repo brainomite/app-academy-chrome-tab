@@ -1,21 +1,21 @@
 import sjcl from 'sjcl';
 
 const notify = ({ cityId, desk }) => chrome.notifications.create(
-  'desk-hash-changed', 
-  { 
-    type: "basic", 
-    title: "Desk Hash Updated", 
-    message: `The desk hash has been updated.\nCity: ${ cityId }, Desk: ${ desk }.`, 
+  'desk-hash-changed',
+  {
+    type: "basic",
+    title: "Desk Hash Updated",
+    message: `The desk hash has been updated.\nCity: ${ cityId }, Desk: ${ desk }.`,
     iconUrl: "/assets/img/app-academy-logo-chrome-48.png"
   }
 );
 
 const error = () => chrome.notifications.create(
-  'desk-hash-changed', 
-  { 
-    type: "basic", 
-    title: "Desk Hash couldn't be Updated", 
-    message: "The cityId and/or Desk # was not set.", 
+  'desk-hash-changed',
+  {
+    type: "basic",
+    title: "Desk Hash couldn't be Updated",
+    message: "The cityId and/or Desk # was not set.",
     iconUrl: "/assets/img/app-academy-logo-chrome-48.png"
   }
 );

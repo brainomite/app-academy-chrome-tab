@@ -8,6 +8,7 @@ import day from 'reducers/day';
 
 import modalsDeskHash from 'reducers/modals/desk_hash';
 import modalsDesks from 'reducers/modals/desks';
+import scaryImg from 'reducers/modals/scary';
 
 import timerInterval from 'reducers/timer/interval';
 import timerPlaying from 'reducers/timer/playing';
@@ -21,7 +22,8 @@ const RootReducer = combineReducers({
   desk,
   modals: combineReducers({
     desks: modalsDesks,
-    deskHash: modalsDeskHash
+    deskHash: modalsDeskHash,
+    halloween: scaryImg
   }),
   timer: combineReducers({
     playing: timerPlaying,
