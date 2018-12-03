@@ -60,8 +60,9 @@ body {
   font-size: 18px;
   line-height: 1.0;
   font-family: "Inconsolata", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #222;
-  background: #fff; }
+  background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url('../img/holiday2.jpg');
+  color: #f00;
+  background-color: #fff; }
 
 h1, h2 {
   font-family: "Montserrat";
@@ -107,6 +108,7 @@ main {
     padding: 30px 0 15px 0; }
     .desk-info .clock-wrapper .clock {
       font-size: 160px;
+      color: #fff;
       display: inline-block; }
     .desk-info .clock-wrapper .logo-wrapper {
       width: 80px;
@@ -122,7 +124,8 @@ main {
         transition-duration: .5s; }
       .desk-info .clock-wrapper .logo-wrapper .logo-box:hover {
         transform: rotate(45deg);
-        background-color: #00f;
+        background-color: #183691;
+        border: 1px solid #fff;
         cursor: pointer; }
       .desk-info .clock-wrapper .logo-wrapper .logo {
         position: absolute;
@@ -192,9 +195,11 @@ main {
   display: flex;
   flex-direction: row;
   border: 2px solid #ccc;
+  background: #f00;
   margin: auto;
   cursor: pointer;
-  overflow: visible; }
+  overflow: visible;
+  z-index: 2; }
   .links-group .links-subs {
     width: 17%;
     text-align: center;
@@ -208,7 +213,7 @@ main {
       font-size: 24px;
       line-height: 55px;
       font-weight: 700;
-      color: #4d4d4d;
+      color: #fff;
       border-bottom: 4px solid gray;
       display: flex;
       justify-content: space-around; }
@@ -240,9 +245,10 @@ main {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 96%;
+  width: 90%;
   margin: 5px auto;
-  max-width: 1440px; }
+  max-width: 1440px;
+  z-index: 1; }
 
 .timer {
   height: 100%;
@@ -285,7 +291,7 @@ main {
     stroke: black;
     transition: all 0.2s cubic-bezier(0.4, 2.08, 0.55, 0.44); }
   .timer circle.back {
-    stroke: #F1F1F1;
+    stroke: #fff;
     stroke-width: 32px; }
   .timer circle.minutes {
     stroke: #FF0000;
@@ -296,7 +302,8 @@ main {
   .timer svg.play-pause {
     position: absolute;
     top: 265px;
-    left: 190px; }
+    left: 190px;
+    fill: #fff; }
     .timer svg.play-pause path:hover {
       cursor: pointer;
       fill: #FF0000; }
@@ -305,7 +312,8 @@ main {
     position: absolute;
     top: 75px;
     left: 220px;
-    transform: rotate(90deg); }
+    transform: rotate(90deg);
+    fill: #fff; }
     .timer svg.reset:hover {
       cursor: pointer;
       fill: #FF0000; }
@@ -327,24 +335,24 @@ main {
       width: 5px;
       margin: 0 auto;
       border-radius: 2.5px;
-      background: #E1E1E1; }
+      background: #fff; }
 
 .curriculum {
   min-width: 500px;
   height: 100%;
   flex-grow: 1;
-  padding: 20px; }
+  padding: 0 20px 0 0;
+  margin: 20px 40px 20px 0;
+  color: #fff; }
   .curriculum.sign-in {
     text-align: center;
     font-family: "Montserrat";
     font-size: 30px;
     font-weight: 500;
     line-height: 40px; }
-    .curriculum.sign-in .sign-in-link {
-      color: red; }
-      .curriculum.sign-in .sign-in-link:hover {
-        cursor: pointer;
-        color: orange; }
+    .curriculum.sign-in .sign-in-link:hover {
+      cursor: pointer;
+      color: orange; }
 
 .timer {
   height: 100%;
@@ -360,7 +368,8 @@ main {
   .timer .readout {
     font-family: "Montserrat";
     font-weight: 100;
-    font-size: 100px; }
+    font-size: 100px;
+    color: #fff; }
     .timer .readout .readout-minutes {
       text-align: right;
       position: absolute;
@@ -387,7 +396,7 @@ main {
     stroke: black;
     transition: all 0.2s cubic-bezier(0.4, 2.08, 0.55, 0.44); }
   .timer circle.back {
-    stroke: #F1F1F1;
+    stroke: #fff;
     stroke-width: 32px; }
   .timer circle.minutes {
     stroke: #FF0000;
@@ -429,7 +438,7 @@ main {
       width: 5px;
       margin: 0 auto;
       border-radius: 2.5px;
-      background: #E1E1E1; }
+      background: #fff; }
 
 .desks {
   display: none;
@@ -440,8 +449,8 @@ main {
   transform: translateY(-50%) translateX(-50%);
   min-width: 400px;
   padding: 50px 60px;
-  background: #00f;
-  color: #fff;
+  background: #fff;
+  color: #00f;
   text-align: left; }
   .desks.is-active {
     display: block; }
@@ -480,7 +489,10 @@ main {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   line-height: 1.5;
-  color: #333;
+  color: #fff;
+  border: 2px solid #ccc;
+  background-color: rgba(255, 0, 0, 1);
+  padding: 0 20px 0 20px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 16px;
   line-height: 1.5;
@@ -589,7 +601,8 @@ main {
     font-size: inherit;
     line-height: inherit; }
   .markdown-body a {
-    color: #4078c0;
+    color: #183691;
+    font-weight: 600;
     text-decoration: none; }
   .markdown-body a:hover,
   .markdown-body a:active {
@@ -736,7 +749,7 @@ main {
   .markdown-body h4,
   .markdown-body h5,
   .markdown-body h6 {
-    margin-top: 24px;
+    margin-top: 16px;
     margin-bottom: 16px;
     font-weight: 600;
     line-height: 1.25; }
@@ -829,7 +842,7 @@ main {
     padding-bottom: 0.2em;
     margin: 0;
     font-size: 85%;
-    background-color: rgba(0, 0, 0, 0.04);
+    background-color: rgba(0, 0, 0, .3);
     border-radius: 3px; }
   .markdown-body code::before,
   .markdown-body code::after {
@@ -918,12 +931,14 @@ main {
   position: fixed;
   display: block;
   padding: 5px 10px;
-  border: 3px solid #222;
+  border: 3px solid #f00;
+  background: #fff;
   font-weight: 700;
   z-index: 3; }
   .corners a:hover {
-    color: #00f;
-    border-color: #00f; }
+    color: #fff;
+    background: #183691;
+    border-color: #fff; }
 
 .corners li:nth-child(1) > a {
   position: absolute;
