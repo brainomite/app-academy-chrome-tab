@@ -108,6 +108,7 @@ main {
     padding: 30px 0 15px 0; }
     .desk-info .clock-wrapper .clock {
       font-size: 160px;
+      color: #fff;
       display: inline-block; }
     .desk-info .clock-wrapper .logo-wrapper {
       width: 80px;
@@ -123,7 +124,7 @@ main {
         transition-duration: .5s; }
       .desk-info .clock-wrapper .logo-wrapper .logo-box:hover {
         transform: rotate(45deg);
-        background-color: #00f;
+        /* background-color: #00f; */
         cursor: pointer; }
       .desk-info .clock-wrapper .logo-wrapper .logo {
         position: absolute;
@@ -444,8 +445,8 @@ main {
   transform: translateY(-50%) translateX(-50%);
   min-width: 400px;
   padding: 50px 60px;
-  background: #00f;
-  color: #fff;
+  background: #fff;
+  color: #00f;
   text-align: left; }
   .desks.is-active {
     display: block; }
@@ -927,9 +928,9 @@ main {
   font-weight: 700;
   z-index: 3; }
   .corners a:hover {
-    color: #00f;
+    color: #fff;
     background: #183691;
-    border-color: #00f; }
+    border-color: #fff; }
 
 .corners li:nth-child(1) > a {
   position: absolute;
