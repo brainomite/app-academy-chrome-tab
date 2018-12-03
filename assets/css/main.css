@@ -60,8 +60,9 @@ body {
   font-size: 18px;
   line-height: 1.0;
   font-family: "Inconsolata", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #222;
-  background: #fff; }
+  background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url('../img/holiday.jpg') no-repeat top center;
+  color: #f00;
+  background-color: #fff; }
 
 h1, h2 {
   font-family: "Montserrat";
@@ -192,6 +193,7 @@ main {
   display: flex;
   flex-direction: row;
   border: 2px solid #ccc;
+  background: #f00;
   margin: auto;
   cursor: pointer;
   overflow: visible; }
@@ -208,7 +210,7 @@ main {
       font-size: 24px;
       line-height: 55px;
       font-weight: 700;
-      color: #4d4d4d;
+      color: #fff;
       border-bottom: 4px solid gray;
       display: flex;
       justify-content: space-around; }
@@ -918,11 +920,13 @@ main {
   position: fixed;
   display: block;
   padding: 5px 10px;
-  border: 3px solid #222;
+  border: 3px solid #f00;
+  background: #fff;
   font-weight: 700;
   z-index: 3; }
   .corners a:hover {
     color: #00f;
+    background: #183691;
     border-color: #00f; }
 
 .corners li:nth-child(1) > a {
