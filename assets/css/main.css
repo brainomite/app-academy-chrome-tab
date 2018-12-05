@@ -197,7 +197,8 @@ main {
   background: #f00;
   margin: auto;
   cursor: pointer;
-  overflow: visible; }
+  overflow: visible;
+  z-index: 2; }
   .links-group .links-subs {
     width: 17%;
     text-align: center;
@@ -245,7 +246,8 @@ main {
   justify-content: space-between;
   width: 96%;
   margin: 5px auto;
-  max-width: 1440px; }
+  max-width: 1440px;
+  z-index: 1; }
 
 .timer {
   height: 100%;
@@ -1004,3 +1006,8 @@ main {
     cursor: pointer; }
   .desk-hash > span:hover {
     color: #f00; }
+
+/* WINTER HOLIDAY CSS */
+.snow {
+  position: absolute;
+}
