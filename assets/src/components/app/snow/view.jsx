@@ -5,8 +5,8 @@ import Snowflake from './snowflake';
 export default class Snow extends React.Component {
   constructor(props) {
     super(props);
-    this.viewportWidth = window.screen.width;
-    this.viewportHeight = window.screen.height;
+    this.viewportWidth = document.body.clientWidth;
+    this.viewportHeight = document.body.clientHeight + 200;
     this.animate = this.animate.bind(this);
     this.snowflakes = [];
   }
@@ -58,7 +58,7 @@ export default class Snow extends React.Component {
   }
 
   randomRadius() {
-    return Math.floor(Math.random() * 10);
+    return Math.floor(Math.random() * 7);
   }
 
   randomSpeed() {
