@@ -12,6 +12,7 @@ import modalsDesks from 'reducers/modals/desks';
 import timerInterval from 'reducers/timer/interval';
 import timerPlaying from 'reducers/timer/playing';
 import timerSeconds from 'reducers/timer/seconds';
+import alarmInterval from 'reducers/timer/alarm';
 
 const RootReducer = combineReducers({
   curriculum,
@@ -26,7 +27,8 @@ const RootReducer = combineReducers({
   timer: combineReducers({
     playing: timerPlaying,
     seconds: timerSeconds,
-    interval: timerInterval
+    interval: timerInterval,
+    alarm: alarmInterval,
   })
 });
 
