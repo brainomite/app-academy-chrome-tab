@@ -124,7 +124,8 @@ main {
         transition-duration: .5s; }
       .desk-info .clock-wrapper .logo-wrapper .logo-box:hover {
         transform: rotate(45deg);
-        /* background-color: #00f; */
+        background-color: #183691;
+        border: 1px solid #fff;
         cursor: pointer; }
       .desk-info .clock-wrapper .logo-wrapper .logo {
         position: absolute;
