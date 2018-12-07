@@ -39405,6 +39405,9 @@
 	  }, {
 	    title: "Git CheatSheet",
 	    url: "https://education.github.com/git-cheat-sheet-education.pdf"
+	  }, {
+	    title: ".gitignore CheatSheet",
+	    url: "https://www.atlassian.com/git/tutorials/saving-changes/gitignore"
 	  }]
 	}];
 
