@@ -8,13 +8,11 @@ import Header from './header/container';
 import Links from './links/view';
 import Timer from './timer/view';
 import Desks from './desks/container';
-import Snow from './snow/view';
 
 export default ({ showOptions, getDay, loaded }) => {
   if (loaded) {
     return (
       <main>
-        <Snow />
         <DeskHash />
         <Header />
         <Corners />
