@@ -8,7 +8,7 @@ const notify = (dispatch) =>{
     icon: "/assets/img/app-academy-logo-chrome-48.png"
   };
   document.title = 'Switch Drivers!';
-  notification = new Notification('New question', options);
+  notification = new Notification('Switch Driver!', options);
   setTimeout(() => notification.close(notification), 10000)
   setTimeout(() => switchDriver(dispatch), 1000)
 }
@@ -31,23 +31,35 @@ const tick = (dispatch, getState) => {
   return () => {
     const now = Date.now(),
           seconds = Math.floor((now - then) / 1000);
-    if (seconds === getState().timer.alarm * 60) { 
-      notify(dispatch);
-     }else {
+    // if (seconds === getState().timer.alarm * 60) { 
+    //   notify(dispatch);
+    //  }else {
        dispatch({ type : "SET_SECONDS", seconds });
-     }
+    //  }
 
   }
 };
+
+const fatherTimeout = (getState, dispatch) => {
+  let timeout;
+  if (!getState().timer.timeout) {
+    const time = ((getState().timer.alarm * 60) - getState().timer.seconds) * 1000;
+    timeout = setTimeout(()=> notify(dispatch), time);
+    dispatch({ type: "SET_TIMEOUT", timeout })
+  } else {
+    clearTimeout(getState().timer.timeout)
+    dispatch({ type: "CLEAR_TIMEOUT", timeout })
+  }
+}
 
 const play = ({ getState, dispatch }) => {
   const { interval } = getState().timer;
   if (!interval) {
     const interval = setInterval(tick(dispatch, getState), 1000);
     dispatch({ type: "SET_INTERVAL", interval });
-  } else {
-    setTimeout(() => tick(dispatch,getState), 1000)
+    fatherTimeout(getState,dispatch);
   }
+
 };
 
 const pause = ({ getState, dispatch }) => {
@@ -55,6 +67,7 @@ const pause = ({ getState, dispatch }) => {
   if (interval) {
     clearInterval(interval);
     dispatch({ type: "CLEAR_INTERVAL" });
+    fatherTimeout(getState, dispatch);
   }
 };
 

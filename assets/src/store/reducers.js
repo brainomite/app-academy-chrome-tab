@@ -13,6 +13,7 @@ import timerInterval from 'reducers/timer/interval';
 import timerPlaying from 'reducers/timer/playing';
 import timerSeconds from 'reducers/timer/seconds';
 import alarmInterval from 'reducers/timer/alarm';
+import setTimeout from 'reducers/timer/setTimeout';
 
 const RootReducer = combineReducers({
   curriculum,
@@ -29,6 +30,7 @@ const RootReducer = combineReducers({
     seconds: timerSeconds,
     interval: timerInterval,
     alarm: alarmInterval,
+    timeout: setTimeout,
   })
 });
 

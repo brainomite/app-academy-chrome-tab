@@ -40862,6 +40862,10 @@
 	
 	var _alarm2 = _interopRequireDefault(_alarm);
 	
+	var _setTimeout = __webpack_require__(346);
+	
+	var _setTimeout2 = _interopRequireDefault(_setTimeout);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var RootReducer = (0, _redux.combineReducers)({
@@ -40878,7 +40882,8 @@
 	    playing: _playing2.default,
 	    seconds: _seconds2.default,
 	    interval: _interval2.default,
-	    alarm: _alarm2.default
+	    alarm: _alarm2.default,
+	    timeout: _setTimeout2.default
 	  })
 	});
 	
@@ -50167,7 +50172,7 @@
 	    icon: "/assets/img/app-academy-logo-chrome-48.png"
 	  };
 	  document.title = 'Switch Drivers!';
-	  notification = new Notification('New question', options);
+	  notification = new Notification('Switch Driver!', options);
 	  setTimeout(function () {
 	    return notification.close(notification);
 	  }, 10000);
@@ -50194,12 +50199,26 @@
 	  return function () {
 	    var now = Date.now(),
 	        seconds = Math.floor((now - then) / 1000);
-	    if (seconds === getState().timer.alarm * 60) {
-	      notify(dispatch);
-	    } else {
-	      dispatch({ type: "SET_SECONDS", seconds: seconds });
-	    }
+	    // if (seconds === getState().timer.alarm * 60) { 
+	    //   notify(dispatch);
+	    //  }else {
+	    dispatch({ type: "SET_SECONDS", seconds: seconds });
+	    //  }
 	  };
+	};
+	
+	var fatherTimeout = function fatherTimeout(getState, dispatch) {
+	  var timeout = void 0;
+	  if (!getState().timer.timeout) {
+	    var time = (getState().timer.alarm * 60 - getState().timer.seconds) * 1000;
+	    timeout = setTimeout(function () {
+	      return notify(dispatch);
+	    }, time);
+	    dispatch({ type: "SET_TIMEOUT", timeout: timeout });
+	  } else {
+	    clearTimeout(getState().timer.timeout);
+	    dispatch({ type: "CLEAR_TIMEOUT", timeout: timeout });
+	  }
 	};
 	
 	var play = function play(_ref) {
@@ -50210,10 +50229,7 @@
 	  if (!interval) {
 	    var _interval = setInterval(tick(dispatch, getState), 1000);
 	    dispatch({ type: "SET_INTERVAL", interval: _interval });
-	  } else {
-	    setTimeout(function () {
-	      return tick(dispatch, getState);
-	    }, 1000);
+	    fatherTimeout(getState, dispatch);
 	  }
 	};
 	
@@ -50225,6 +50241,7 @@
 	  if (interval) {
 	    clearInterval(interval);
 	    dispatch({ type: "CLEAR_INTERVAL" });
+	    fatherTimeout(getState, dispatch);
 	  }
 	};
 	
@@ -50384,6 +50401,29 @@
 	      return next(action);
 	    };
 	  };
+	};
+
+/***/ }),
+/* 346 */
+/***/ (function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	exports.default = function () {
+	    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+	    var action = arguments[1];
+	
+	    switch (action.type) {
+	        case "SET_TIMEOUT":
+	            return action.timeout;
+	        case "CLEAR_TIMEOUT":
+	            return null;
+	    }
+	    return state;
 	};
 
 /***/ })
