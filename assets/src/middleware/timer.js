@@ -1,4 +1,5 @@
 const notify = (dispatch) =>{
+  dispatch({ type: "PAUSE" })
   let options, notification;
   if (!window.Notification) {
     return;
@@ -9,15 +10,14 @@ const notify = (dispatch) =>{
   };
   document.title = 'Switch Drivers!';
   notification = new Notification('Switch Driver!', options);
+  notification.onclick = () => window.focus();
   setTimeout(() => notification.close(notification), 10000)
   setTimeout(() => switchDriver(dispatch), 1000)
 }
 
 const switchDriver = (dispatch) => {
-  dispatch({ type: "PAUSE" })
   if (confirm("Click OK to restart the timer and switch Driver/Navigator roles.")) {
     dispatch({ type: "SET_SECONDS", seconds: 0 })
-    dispatch({ type: "PLAY" })
     document.title = 'App Academy';
   } else {
     dispatch({ type: "PLAY" })
@@ -30,13 +30,8 @@ const tick = (dispatch, getState) => {
         then = Date.now() - (seconds * 1000);
   return () => {
     const now = Date.now(),
-          seconds = Math.floor((now - then) / 1000);
-    // if (seconds === getState().timer.alarm * 60) { 
-    //   notify(dispatch);
-    //  }else {
-       dispatch({ type : "SET_SECONDS", seconds });
-    //  }
-
+      seconds = Math.floor((now - then) / 1000);
+      dispatch({ type : "SET_SECONDS", seconds });
   }
 };
 

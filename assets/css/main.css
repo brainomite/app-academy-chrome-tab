@@ -354,14 +354,14 @@ main {
   padding-top: 75px; }
   .timer .timer-input .alarm-section{
     display: flex;
-    padding-bottom: 20px; }
+    padding-bottom: 20px;
+    font-family: "Montserrat";
+    margin-left: 30px;
+    align-items: center; }
   .timer .timer-input .alarm-section #set-alarm {
-    margin: 5px;
-  }
+    margin: 5px; }
   .timer .timer-input .alarm-section #alarm-interval-selector {
     display: flex; }
-  .timer .timer-input .alarm-section #alarm-interval-selector #alarm-selector {
-    margin: 5px; }
   .timer .timer-input .alarm-section #alarm-interval-selector #alarm-selector {
     margin: 5px; }
   .timer .clock-wrapper {
