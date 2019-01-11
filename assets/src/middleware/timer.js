@@ -1,9 +1,7 @@
 const notify = (dispatch) =>{
   dispatch({ type: "PAUSE" })
   let options, notification;
-  if (!window.Notification) {
-    return;
-  }
+  if (!window.Notification) { return; }
   options = {
     body: "Time to switch Driver/Navigator roles",
     icon: "/assets/img/app-academy-logo-chrome-48.png"
@@ -16,13 +14,13 @@ const notify = (dispatch) =>{
 }
 
 const switchDriver = (dispatch) => {
-  if (confirm("Click OK to restart the timer and switch Driver/Navigator roles.")) {
+  if (confirm("Click OK to restart the timer and switch Driver/Navigator roles. \nClick Cancel to stop the timer.")) {
     dispatch({ type: "SET_SECONDS", seconds: 0 })
-    document.title = 'App Academy';
-  } else {
     dispatch({ type: "PLAY" })
-    document.title = 'App Academy';
+  } else {
+    dispatch({ type: "SET_SECONDS", seconds: 0 })
   }
+  document.title = 'App Academy';
 }
 
 const tick = (dispatch, getState) => {
@@ -41,6 +39,7 @@ const fatherTimeout = (getState, dispatch) => {
     const time = ((getState().timer.alarm * 60) - getState().timer.seconds) * 1000;
     timeout = setTimeout(()=> notify(dispatch), time);
     dispatch({ type: "SET_TIMEOUT", timeout })
+
   } else {
     clearTimeout(getState().timer.timeout)
     dispatch({ type: "CLEAR_TIMEOUT", timeout })
@@ -52,7 +51,7 @@ const play = ({ getState, dispatch }) => {
   if (!interval) {
     const interval = setInterval(tick(dispatch, getState), 1000);
     dispatch({ type: "SET_INTERVAL", interval });
-    fatherTimeout(getState,dispatch);
+    fatherTimeout(getState, dispatch);
   }
 
 };

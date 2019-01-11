@@ -40460,7 +40460,14 @@
 	    };
 	};
 	
-	exports.default = (0, _reactRedux.connect)(null, mapDispatchToProps)(_view2.default);
+	var mapStateToProps = function mapStateToProps(_ref) {
+	    var timer = _ref.timer;
+	    return {
+	        playing: timer.playing
+	    };
+	};
+	
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_view2.default);
 
 /***/ }),
 /* 260 */
@@ -40504,22 +40511,33 @@
 	    }
 	
 	    _createClass(SetTimer, [{
+	        key: "componentDidMount",
+	        value: function componentDidMount() {
+	            this.updateTimer();
+	        }
+	    }, {
 	        key: "update",
 	        value: function update(field) {
 	            var _this2 = this;
 	
 	            return function (e) {
 	                var value = parseInt(e.target.value);
-	                _this2.setState(_defineProperty({}, field, value));
+	                _this2.setState(_defineProperty({}, field, value), _this2.updateTimer);
 	            };
+	        }
+	    }, {
+	        key: "updateTimer",
+	        value: function updateTimer() {
+	            var timer = this.state.hours * 60 + this.state.minutes;
+	            this.props.set(timer);
 	        }
 	    }, {
 	        key: "render",
 	        value: function render() {
 	            var hours = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 	            var times = [1, 2, 3, 4, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55];
-	            var timer = this.state.hours * 60 + this.state.minutes;
-	            this.props.set(timer);
+	            var playing = this.props.playing;
+	
 	            return _react2.default.createElement(
 	                "section",
 	                { className: "alarm-section" },
@@ -40541,7 +40559,7 @@
 	                        ),
 	                        _react2.default.createElement(
 	                            "select",
-	                            { onChange: this.update('hours'), value: "0" },
+	                            { disabled: playing ? "disabled" : "", onChange: this.update('hours'), value: "0" },
 	                            hours.map(function (time) {
 	                                return _react2.default.createElement(
 	                                    "option",
@@ -40563,7 +40581,7 @@
 	                        ),
 	                        _react2.default.createElement(
 	                            "select",
-	                            { onChange: this.update('minutes'), value: this.state.minutes },
+	                            { disabled: playing ? "disabled" : "", onChange: this.update('minutes'), value: this.state.minutes },
 	                            times.map(function (time) {
 	                                return _react2.default.createElement(
 	                                    "option",
@@ -50193,13 +50211,13 @@
 	};
 	
 	var switchDriver = function switchDriver(dispatch) {
-	  if (confirm("Click OK to restart the timer and switch Driver/Navigator roles.")) {
+	  if (confirm("Click OK to restart the timer and switch Driver/Navigator roles. \nClick Cancel to stop the timer.")) {
 	    dispatch({ type: "SET_SECONDS", seconds: 0 });
-	    document.title = 'App Academy';
-	  } else {
 	    dispatch({ type: "PLAY" });
-	    document.title = 'App Academy';
+	  } else {
+	    dispatch({ type: "SET_SECONDS", seconds: 0 });
 	  }
+	  document.title = 'App Academy';
 	};
 	
 	var tick = function tick(dispatch, getState) {

@@ -364,6 +364,8 @@ main {
     display: flex; }
   .timer .timer-input .alarm-section #alarm-interval-selector #alarm-selector {
     margin: 5px; }
+  .timer .timer-input .alarm-section #alarm-interval-selector select:disabled{
+   opacity: 0.3; }
   .timer .clock-wrapper {
     position: relative;
     width: 500px;

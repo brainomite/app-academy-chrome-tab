@@ -6,7 +6,11 @@ const mapDispatchToProps = dispatch => ({
     set: (time) => dispatch({ type: "SET_ALARM", alarmInterval: time }),
 });
 
+const mapStateToProps = ({ timer }) => ({
+    playing: timer.playing,
+})
+
 export default connect(
-    null,
+    mapStateToProps,
     mapDispatchToProps
 )(View);
