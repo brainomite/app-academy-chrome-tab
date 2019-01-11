@@ -37,7 +37,7 @@ class SetTimer extends React.Component {
                 <div id="alarm-interval-selector">
                     <div id="alarm-selector">
                         <span>Hours</span>
-                        <select disabled={playing ? "disabled" : ""} onChange={this.update('hours')} value="0">
+                        <select disabled={playing ? "disabled" : ""} onChange={this.update('hours')}>
                             {hours.map(time => {
                                 return <option
                                 key={`time-${time}`}

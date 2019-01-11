@@ -40559,7 +40559,7 @@
 	                        ),
 	                        _react2.default.createElement(
 	                            "select",
-	                            { disabled: playing ? "disabled" : "", onChange: this.update('hours'), value: "0" },
+	                            { disabled: playing ? "disabled" : "", onChange: this.update('hours') },
 	                            hours.map(function (time) {
 	                                return _react2.default.createElement(
 	                                    "option",
