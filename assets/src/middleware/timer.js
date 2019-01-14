@@ -1,44 +1,67 @@
-import { MINS_IN_SESSION } from 'util/settings';
+const notify = (dispatch) =>{
+  dispatch({ type: "PAUSE" })
+  let options, notification;
+  if (!window.Notification) { return; }
+  options = {
+    body: "Time to switch Driver/Navigator roles",
+    icon: "/assets/img/app-academy-logo-chrome-48.png"
+  };
+  document.title = 'Switch Drivers!';
+  notification = new Notification('Switch Driver!', options);
+  notification.onclick = () => window.focus();
+  setTimeout(() => notification.close(notification), 10000)
+  setTimeout(() => switchDriver(dispatch), 1000)
+}
 
-const notify = () => chrome.notifications.create(
-  'time-to-switch', 
-  { 
-    type: "basic", 
-    title: "Time to Switch", 
-    message: "The pair timer has expired.", 
-    iconUrl: "/assets/img/app-academy-logo-chrome-48.png"
+const switchDriver = (dispatch) => {
+  if (confirm("Click OK to restart the timer and switch Driver/Navigator roles. \nClick Cancel to stop the timer.")) {
+    dispatch({ type: "SET_SECONDS", seconds: 0 })
+    dispatch({ type: "PLAY" })
+  } else {
+    dispatch({ type: "SET_SECONDS", seconds: 0 })
   }
-);
+  document.title = 'App Academy';
+}
 
 const tick = (dispatch, getState) => {
   const seconds = getState().timer.seconds,
         then = Date.now() - (seconds * 1000);
-
   return () => {
     const now = Date.now(),
-          seconds = Math.floor((now - then) / 1000);
-
-    if (seconds === 60 * MINS_IN_SESSION) { notify(); }
-
-    dispatch({ type : "SET_SECONDS", seconds });
+      seconds = Math.floor((now - then) / 1000);
+      dispatch({ type : "SET_SECONDS", seconds });
   }
 };
 
+const fatherTimeout = (getState, dispatch) => {
+  let timeout;
+  if (!getState().timer.timeout) {
+    const time = ((getState().timer.alarm * 60) - getState().timer.seconds) * 1000;
+    timeout = setTimeout(()=> notify(dispatch), time);
+    dispatch({ type: "SET_TIMEOUT", timeout })
+
+  } else {
+    clearTimeout(getState().timer.timeout)
+    dispatch({ type: "CLEAR_TIMEOUT", timeout })
+  }
+}
+
 const play = ({ getState, dispatch }) => {
   const { interval } = getState().timer;
-
   if (!interval) {
     const interval = setInterval(tick(dispatch, getState), 1000);
     dispatch({ type: "SET_INTERVAL", interval });
+    fatherTimeout(getState, dispatch);
   }
+
 };
 
 const pause = ({ getState, dispatch }) => {
   const interval = getState().timer.interval;
-
   if (interval) {
     clearInterval(interval);
     dispatch({ type: "CLEAR_INTERVAL" });
+    fatherTimeout(getState, dispatch);
   }
 };
 

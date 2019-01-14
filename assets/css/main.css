@@ -352,6 +352,20 @@ main {
   max-width: 550px;
   min-width: 550px;
   padding-top: 75px; }
+  .timer .timer-input .alarm-section{
+    display: flex;
+    padding-bottom: 20px;
+    font-family: "Montserrat";
+    margin-left: 30px;
+    align-items: center; }
+  .timer .timer-input .alarm-section #set-alarm {
+    margin: 5px; }
+  .timer .timer-input .alarm-section #alarm-interval-selector {
+    display: flex; }
+  .timer .timer-input .alarm-section #alarm-interval-selector #alarm-selector {
+    margin: 5px; }
+  .timer .timer-input .alarm-section #alarm-interval-selector select:disabled{
+   opacity: 0.3; }
   .timer .clock-wrapper {
     position: relative;
     width: 500px;
