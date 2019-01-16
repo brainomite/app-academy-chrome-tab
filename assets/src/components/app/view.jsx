@@ -6,7 +6,7 @@ import DeskHash from './desk_hash/container';
 import Corners from './corners';
 import Header from './header/container';
 import Links from './links/view';
-import Timer from './timer/view';
+import Timer from './timer/container';
 import Desks from './desks/container';
 
 export default ({ showOptions, getDay, loaded }) => {
