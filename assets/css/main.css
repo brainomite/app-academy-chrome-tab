@@ -365,7 +365,8 @@ main {
     padding-bottom: 20px;
     font-family: "Montserrat";
     margin-left: 30px;
-    align-items: center; }
+    align-items: center;
+    color: #fff; }
   .timer .timer-input .alarm-section #set-alarm {
     margin: 5px; }
   .timer .timer-input .alarm-section #alarm-interval-selector {
