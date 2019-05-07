@@ -19,32 +19,38 @@ export const MAIN_LINKS = [
     links: [
       {
         title: "Ruby",
-        url: "https://github.com/appacademy/curriculum/blob/master/ruby/README.md",
+        url:
+          "https://github.com/appacademy/curriculum/blob/master/ruby/README.md",
         start: 11
       },
       {
         title: "SQL",
-        url: "https://github.com/appacademy/curriculum/blob/master/sql/README.md",
+        url:
+          "https://github.com/appacademy/curriculum/blob/master/sql/README.md",
         start: 31
       },
       {
         title: "Rails",
-        url: "https://github.com/appacademy/curriculum/blob/master/rails/README.md",
+        url:
+          "https://github.com/appacademy/curriculum/blob/master/rails/README.md",
         start: 41
       },
       {
         title: "JavaScript",
-        url: "https://github.com/appacademy/curriculum/blob/master/javascript/README.md",
+        url:
+          "https://github.com/appacademy/curriculum/blob/master/javascript/README.md",
         start: 54
       },
       {
         title: "React",
-        url: "https://github.com/appacademy/curriculum/blob/master/react/README.md",
+        url:
+          "https://github.com/appacademy/curriculum/blob/master/react/README.md",
         start: 71
       },
       {
         title: "Full Stack",
-        url: "https://github.com/appacademy/curriculum/blob/master/full-stack-project/README.md",
+        url:
+          "https://github.com/appacademy/curriculum/blob/master/full-stack-project/README.md",
         start: 81
       },
       {
@@ -59,27 +65,28 @@ export const MAIN_LINKS = [
     links: [
       {
         title: "Meta",
-        url: "https://github.com/appacademy/meta",
+        url: "https://github.com/appacademy/meta"
       },
       {
         title: "Prep",
-        url: "https://github.com/appacademy/assessment-prep",
+        url: "https://github.com/appacademy/assessment-prep"
       },
       {
         title: "Solutions",
-        url: "https://github.com/appacademy/solutions",
+        url: "https://github.com/appacademy/solutions"
       },
       {
         title: "Algorithms",
-        url: "https://github.com/appacademy/algorithms-curriculum",
+        url: "https://github.com/appacademy/algorithms-curriculum"
       },
       {
         title: "Backbone",
-        url: "https://github.com/appacademy/backbone-curriculum/blob/master/README.md"
+        url:
+          "https://github.com/appacademy/backbone-curriculum/blob/master/README.md"
       },
       {
         title: "CSS",
-        url: "https://github.com/appacademy/css-demos/blob/gh-pages/README.md",
+        url: "https://github.com/appacademy/css-demos/blob/gh-pages/README.md"
       }
     ]
   },
@@ -88,31 +95,32 @@ export const MAIN_LINKS = [
     links: [
       {
         title: "Rspec",
-        url: "https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers",
+        url:
+          "https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers"
       },
       {
         title: "API",
-        url: "http://ruby-doc.org/core-2.3.1/",
+        url: "http://ruby-doc.org/core-2.5.1/",
         sub: [
           {
             title: "Object",
-            url: "http://ruby-doc.org/core-2.3.1/Object.html",
+            url: "http://ruby-doc.org/core-2.5.1/Object.html"
           },
           {
             title: "String",
-            url: "http://ruby-doc.org/core-2.3.1/String.html",
+            url: "http://ruby-doc.org/core-2.5.1/String.html"
           },
           {
             title: "Enumerable",
-            url: "http://ruby-doc.org/core-2.3.1/Enumerable.html",
+            url: "http://ruby-doc.org/core-2.5.1/Enumerable.html"
           },
           {
             title: "Array",
-            url: "http://ruby-doc.org/core-2.3.1/Array.html",
+            url: "http://ruby-doc.org/core-2.5.1/Array.html"
           },
           {
             title: "Hash",
-            url: "http://ruby-doc.org/core-2.3.1/Hash.html",
+            url: "http://ruby-doc.org/core-2.5.1/Hash.html"
           }
         ]
       }
@@ -123,7 +131,7 @@ export const MAIN_LINKS = [
     links: [
       {
         title: "API",
-        url: "http://api.rubyonrails.org/",
+        url: "http://api.rubyonrails.org/"
       },
       {
         title: "Guides",
@@ -131,23 +139,23 @@ export const MAIN_LINKS = [
         sub: [
           {
             title: "Associate",
-            url: "http://guides.rubyonrails.org/association_basics.html",
+            url: "http://guides.rubyonrails.org/association_basics.html"
           },
           {
             title: "Query",
-            url: "http://guides.rubyonrails.org/active_record_querying.html",
+            url: "http://guides.rubyonrails.org/active_record_querying.html"
           },
           {
             title: "Validate",
-            url: "http://guides.rubyonrails.org/active_record_validations.html",
+            url: "http://guides.rubyonrails.org/active_record_validations.html"
           },
           {
             title: "Render",
-            url: "http://guides.rubyonrails.org/layouts_and_rendering.html",
+            url: "http://guides.rubyonrails.org/layouts_and_rendering.html"
           },
           {
             title: "Route",
-            url: "http://guides.rubyonrails.org/routing.html",
+            url: "http://guides.rubyonrails.org/routing.html"
           }
         ]
       }
@@ -157,28 +165,35 @@ export const MAIN_LINKS = [
     title: "JavaScript",
     links: [
       {
-        title: "JS",
-        url: "https://developer.mozilla.org/en-US/docs/JavaScript",
-      },
-      {
         title: "Underscore",
-        url: "http://underscorejs.org/",
+        url: "http://underscorejs.org/"
       },
       {
         title: "jQuery",
-        url: "http://api.jquery.com/",
+        url: "http://api.jquery.com/"
       },
       {
         title: "Jbuilder",
-        url: "https://github.com/rails/jbuilder#jbuilder",
+        url: "https://github.com/rails/jbuilder#jbuilder"
       },
       {
         title: "React",
-        url: "https://facebook.github.io/react/docs/getting-started.html",
+        url: "https://facebook.github.io/react/docs/getting-started.html"
       },
       {
         title: "Redux",
-        url: "http://redux.js.org/",
+        url: "http://redux.js.org/"
+      },
+      {
+        title: "MDN: JS",
+        url: "https://developer.mozilla.org/en-US/docs/JavaScript",
+        sub: [
+          {
+            title: "String",
+            url:
+              "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String"
+          }
+        ]
       }
     ]
   },
@@ -187,27 +202,28 @@ export const MAIN_LINKS = [
     links: [
       {
         title: "HTML (what)",
-        url: "https://developers.whatwg.org/section-index.html#index",
+        url: "https://developers.whatwg.org/section-index.html#index"
       },
       {
         title: "HTML (mdn)",
-        url: "https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5/HTML5_element_list",
+        url:
+          "https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5/HTML5_element_list"
       },
       {
         title: "CSS 2.1",
-        url: "http://www.w3.org/TR/CSS21/propidx.html",
+        url: "http://www.w3.org/TR/CSS21/propidx.html"
       },
       {
         title: "CSS 3",
-        url: "https://developer.mozilla.org/en-US/docs/CSS/CSS_Reference",
+        url: "https://developer.mozilla.org/en-US/docs/CSS/CSS_Reference"
       },
       {
         title: "Specificity",
-        url: "http://specificity.keegan.st/",
+        url: "http://specificity.keegan.st/"
       },
       {
         title: "W3 Validator",
-        url: "http://validator.w3.org/",
+        url: "http://validator.w3.org/"
       }
     ]
   },
