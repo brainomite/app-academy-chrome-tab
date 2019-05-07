@@ -192,6 +192,11 @@ export const MAIN_LINKS = [
             title: "String",
             url:
               "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String"
+          },
+          {
+            title: "Array",
+            url:
+              "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array"
           }
         ]
       }
